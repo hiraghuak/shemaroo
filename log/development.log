@@ -1,0 +1,318 @@
+Started GET "/" for ::1 at 2018-09-12 15:22:12 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (12.4ms)
+Completed 200 OK in 169ms (Views: 118.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:31:06 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1279ms (Views: 1277.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:36:59 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6913ms (Views: 6898.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:38:06 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 1157ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: jquery3.
+Load paths:
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/config
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/images
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/jquery-rails-4.3.3/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actioncable-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/activestorage-5.2.1/app/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actionview-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/node_modules
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/popper_js-1.14.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.scss:2
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___386977860114372584_70307905090200'
+Started GET "/" for ::1 at 2018-09-12 15:38:27 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:39:12 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2903ms (Views: 2901.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:39:58 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 1003ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-custom.
+Load paths:
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/config
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/images
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/jquery-rails-4.3.3/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actioncable-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/activestorage-5.2.1/app/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actionview-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/node_modules
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/popper_js-1.14.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.scss:2
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___386977860114372584_70307898268960'
+Started GET "/" for ::1 at 2018-09-12 15:41:46 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2640ms (Views: 2637.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:42:35 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 571ms (Views: 568.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:45:11 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 1037ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: font-awesome.
+Load paths:
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/config
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/images
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/jquery-rails-4.3.3/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actioncable-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/activestorage-5.2.1/app/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actionview-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/node_modules
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/popper_js-1.14.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.scss:2
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___386977860114372584_70307978058320'
+Started GET "/" for ::1 at 2018-09-12 15:47:06 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 6999ms (Views: 6982.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:51:52 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 787ms (Views: 695.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 15:59:19 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (17.0ms)
+Completed 500 Internal Server Error in 2803ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: owl.theme.
+Load paths:
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/config
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/images
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/images
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/font-awesome-rails-4.7.0.4/app/assets/fonts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/font-awesome-rails-4.7.0.4/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/jquery-rails-4.3.3/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actioncable-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/activestorage-5.2.1/app/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actionview-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/node_modules
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/popper_js-1.14.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4295183593741924079_24944720'
+Started GET "/" for ::1 at 2018-09-12 15:59:41 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 1365ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: owl.theme.
+Load paths:
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/config
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/images
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/images
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/owlcarousel-rails-2.2.3.5/vendor/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/font-awesome-rails-4.7.0.4/app/assets/fonts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/font-awesome-rails-4.7.0.4/app/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/jquery-rails-4.3.3/vendor/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actioncable-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/activestorage-5.2.1/app/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/actionview-5.2.1/lib/assets/compiled
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/saranyu/kotesh/Projects/shemaroo/node_modules
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/popper_js-1.14.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/javascripts
+  /home/saranyu/.rvm/gems/ruby-2.5.1@rails5.2.0/gems/bootstrap-4.1.3/assets/stylesheets):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.scss:4
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4295183593741924079_69819890935220'
+Started GET "/" for ::1 at 2018-09-12 15:59:52 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 7577ms (Views: 7575.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 16:00:14 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 104ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 16:01:42 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 225ms (Views: 224.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 17:48:04 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 933ms (Views: 890.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 18:51:49 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 13748ms (Views: 13680.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 18:53:38 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 89ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 18:54:13 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 107ms (Views: 105.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 18:54:30 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 107ms (Views: 104.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 18:54:38 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 153ms (Views: 150.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-12 19:09:12 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (107.7ms)
+Completed 200 OK in 2200ms (Views: 1975.8ms | ActiveRecord: 0.0ms)
+
+
