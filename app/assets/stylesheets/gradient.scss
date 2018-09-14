@@ -1,0 +1,69 @@
+
+
+@mixin gradient-text($gradient, $bg : 'light') {
+  @supports(mix-blend-mode: lighten) {
+    display: inline-block;
+    position: relative;
+    
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      
+      background: unquote($gradient);
+      pointer-events: none;
+    }
+
+    @if ($bg == 'light') {
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;
+
+      &::before {
+        mix-blend-mode: screen;
+      }
+    } @else {
+      color: #fff;
+      background: #000;
+      mix-blend-mode: lighten;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}
+
+.light {
+  .gradient-circle {    
+    @include gradient-text('radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
+  }
+  .gradient1 {
+    @include gradient-text('linear-gradient(to right,#D51E54, #F15A23)', 'light');
+  }
+  .gradient2 {
+    @include gradient-text('linear-gradient(to right,#181818, #3E3E3E)', 'light');
+  }
+  .gradient3 {
+    @include gradient-text('linear-gradient(to right,#0095DB, #D93B65)', 'light');
+  }
+  .gradient4 {
+    @include gradient-text('linear-gradient(to right,#D22856, #92C94E)', 'light');
+  }
+  .gradient5 {
+    @include gradient-text('linear-gradient(to right,#8BC76D, #1F9FB9)', 'light');
+  }
+  .gradient6 {
+    @include gradient-text('linear-gradient(to right,#F25922, #FCB613)', 'light');
+  }
+  .gradient7 {
+    @include gradient-text('linear-gradient(to right,#FCB913, #8BC43E)', 'light');
+  }
+  .gradient8 {
+    @include gradient-text('linear-gradient(to right,#2BA5E1, #ED6839)', 'light');
+  }
+}
+
+
+/* Page styling, ignore */
