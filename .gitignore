@@ -3,4 +3,4 @@
 *.tmp
 .byebug_history
 tmp/*
-log/*
+log/development.log
