@@ -8,14 +8,9 @@
     </div>
     <div class="main-menu pull-left d-none d-xl-block">
       <ul class="nav">
-        <li class="nav-item"><a href="javascript:;" class="nav-link active text-uppercase">Home</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Bollywood Classic</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Bollywood Plus</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Gujarati</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Kids</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Bhakti</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Ibaadat</a></li>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Punjabi</a></li>
+       <%@header_tabs.each_with_index do |i,j|%>
+        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+       <%end%>
       </ul>
     </div>
     <div class="head-right pull-right">

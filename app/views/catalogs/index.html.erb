@@ -2,62 +2,25 @@
         <section class="banner-section">
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-              <div id="banner-carousel" class="owl-carousel owl-theme">
+               <div id="banner-carousel" class="owl-carousel owl-theme">
+              <%@home_list[0]['catalog_list_items'].each do |h|%>
                 <div class="item">
                   <a href="javascript:;">
                     <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
+                    <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="" title="<%=h['title']%>">
                   </a>
                 </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder1.png" alt="" title="">
-                  </a>
-                </div>            
+              <%end%>           
               </div>
             </div>
           </div>
         </section>
 
+
+     
                <section class="full-width-content light">
-          <div class="row"><!-- Continue Watching starts -->
+               <!-- Continue Watching starts
+          <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
               <h2 class="margin-bottom-15 text-capitalize gradient1">Continue Watching</h2>
               <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
@@ -65,13 +28,13 @@
                 <div class="item">
                   <a href="javascript:;">
                     <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+                    <img src="/assets/carousel/placeholder2.jpg" alt="" title=""></a>
                     <div class="item-feature">
                       <p>The Nil Institute</p>
                       <span class="pull-left">Drama | 22m</span>
                       <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
                     </div>
-                  </a>
+                  
                 </div>
                 <div class="item">
                   <a href="javascript:;">
@@ -163,57 +126,27 @@
                 </div>   
               </div>
             </div>  
-          </div>
-
-          <div class="row"><!-- Bollywood Classic starts -->
+          </div>-->
+       
+          <%@items.each_with_index do |list,index|%>
+          <%if index != 0%>
+          <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-              <h2 class="margin-bottom-15 text-capitalize gradient5">Bollywood Classic</h2>
+              <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
               <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
-              <div id="bollywood-classic-carousel" class="owl-carousel vertical-image owl-theme">
+              <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme">
+              <%list['catalog_list_items'].each do |item|%>
                 <div class="item">
                   <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
+                    <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="" title="<%=item["title"]%>">
                   </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>     
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/carousel/placeholder3.png" alt="" title="">
-                  </a>
-                </div>                
+                </div> 
+              <%end%>             
               </div>           
               </div>
-            </div>  
-          </div><!-- Bollywood Classic ends -->
+            </div> 
+            <%end%> 
+          <%end%>
           </section>
 
 
@@ -257,7 +190,7 @@ var navigation = [
     margin:10,
     nav:true,
     dots: false,
-    stagePadding: 40,
+    // stagePadding: 40,
     navText: navigation,
     responsive:{
       0:{
@@ -274,7 +207,11 @@ var navigation = [
       }
     }
   });
-  $('#bollywood-classic-carousel').owlCarousel({
+  var items_count = "<%=@items.count-1%>"
+
+    for (i = 0; i <= items_count; i++) {
+   var owl = $("#bollywood-classic-carousel_"+i);
+  owl.owlCarousel({
     loop:true,
     margin:10,
     nav:true,
@@ -299,6 +236,7 @@ var navigation = [
       }
     }
   });
+}
 
   $('#bollywood-plus-carousel').owlCarousel({
     loop:true,

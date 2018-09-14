@@ -7366,3 +7366,750 @@ Processing by CatalogsController#index as HTML
 Completed 200 OK in 1927ms (Views: 1925.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:23:06 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.820049
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.271033
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 4876ms (Views: 2695.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:24:33 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.781175
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2102249999999999
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 7726ms (Views: 5723.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:25:15 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.554649
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.208462
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1881ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:26:18 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.561438
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.208856
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1885ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:28:46 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.796897
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.228004
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2162ms (Views: 126.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:31:24 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.785799
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.171415
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2076ms (Views: 107.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:32:06 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.57456
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.319147
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2012ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:32:37 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.559373
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.203054
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1886ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:34:19 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.840484
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.249201
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 6208ms (Views: 4107.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:34:46 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.6087469999999999
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.245609
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1984ms (Views: 115.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:38:27 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.800256
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.308204
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2246ms (Views: 125.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:41:21 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.804987
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.24305
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2171ms (Views: 110.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:42:36 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.7911360000000001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.25022
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2152ms (Views: 99.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:44:07 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.799877
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.221373
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2139ms (Views: 106.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:44:58 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.554664
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.306157
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 5980ms (Views: 4108.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:47:17 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.854846
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.3057750000000001
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 6066ms (Views: 3888.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:48:44 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.84778
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.256267
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2226ms (Views: 110.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:49:22 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5582670000000001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.256541
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1991ms (Views: 140.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:49:57 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.572377
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.251957
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1950ms (Views: 114.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:50:18 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.590523
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.4383059999999999
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2205ms (Views: 165.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:53:23 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.796262
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.236759
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 3323ms (Views: 1275.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:56:10 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.79815
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.292302
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2456ms (Views: 339.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:56:45 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.58398
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.193961
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2235ms (Views: 444.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:57:52 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.786001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.209967
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 8687ms (Views: 6677.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 18:58:34 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.545495
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.287524
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1935ms (Views: 92.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:04:25 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.7946489999999999
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.191337
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2146ms (Views: 148.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:04:38 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.554159
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.224011
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1897ms (Views: 103.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:15:41 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.807294
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.237826
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (20.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 3854ms (Views: 1007.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:16:39 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.575243
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.233426
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1993ms (Views: 164.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:18:12 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.775264
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.214363
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2098ms (Views: 95.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:19:16 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5379240000000001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2646760000000001
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 1908ms (Views: 92.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:20:38 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.831753
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.317744
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2269ms (Views: 107.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:21:13 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.555157
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.208748
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1900ms (Views: 124.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:22:42 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.805041
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.291827
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2237ms (Views: 129.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:25:40 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.782068
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2552400000000001
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2159ms (Views: 107.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:26:12 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.556327
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.1986620000000001
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1890ms (Views: 122.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:26:32 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5395190000000001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.219976
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1862ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:31:45 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.834851
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2447780000000002
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2202ms (Views: 110.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:37:10 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.81116
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.265705
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (83.7ms)
+  Rendered layouts/_header.html.erb (18.5ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 4791ms (Views: 2376.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:38:52 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.829363
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.278554
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (8285.6ms)
+Completed 500 Internal Server Error in 10526ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `i' for #<#<Class:0x00007f3585fd9820>:0x00007f358572c830>):
+    135:               <%list['catalog_list_items'].each do |item|%>
+    136:                 <div class="item">
+    137:                   <a href="javascript:;">
+    138:                     <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="" title="<%=i["title"]%>">
+    139:                   </a>
+    140:                 </div> 
+    141:               <%end%>             
+  
+app/views/catalogs/index.html.erb:138:in `block (2 levels) in _app_views_catalogs_index_html_erb___4139905088900322504_69933924444480'
+app/views/catalogs/index.html.erb:135:in `each'
+app/views/catalogs/index.html.erb:135:in `block in _app_views_catalogs_index_html_erb___4139905088900322504_69933924444480'
+app/views/catalogs/index.html.erb:128:in `each'
+app/views/catalogs/index.html.erb:128:in `each_with_index'
+app/views/catalogs/index.html.erb:128:in `_app_views_catalogs_index_html_erb___4139905088900322504_69933924444480'
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:39:18 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.541614
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2323110000000002
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 2076ms (Views: 290.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:42:13 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.80783
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.239258
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2208ms (Views: 111.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:42:36 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.57972
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2574809999999998
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 1865ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    135:               <%list['catalog_list_items'].each do |item|%>
+    136:                 <div class="item">
+    137:                   <a href="javascript:;">
+    138:                     <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="" title="<%=item["title"]%>">
+    139:                   </a>
+    140:                 </div> 
+    141:               <%end%>             
+  
+app/helpers/application_helper.rb:10:in `get_image_url'
+app/views/catalogs/index.html.erb:138:in `block (2 levels) in _app_views_catalogs_index_html_erb___4139905088900322504_69933926154000'
+app/views/catalogs/index.html.erb:135:in `each'
+app/views/catalogs/index.html.erb:135:in `block in _app_views_catalogs_index_html_erb___4139905088900322504_69933926154000'
+app/views/catalogs/index.html.erb:128:in `each'
+app/views/catalogs/index.html.erb:128:in `each_with_index'
+app/views/catalogs/index.html.erb:128:in `_app_views_catalogs_index_html_erb___4139905088900322504_69933926154000'
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:43:18 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.6458699999999999
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.239892
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1994ms (Views: 96.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:45:49 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.776597
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.165006
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2077ms (Views: 124.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:46:06 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.54699
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.203259
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 1794ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    135:               <%list['catalog_list_items'].each do |item|%>
+    136:                 <div class="item">
+    137:                   <a href="javascript:;">
+    138:                     <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="" title="<%=item["title"]%>">
+    139:                   </a>
+    140:                 </div> 
+    141:               <%end%>             
+  
+app/helpers/application_helper.rb:10:in `get_image_url'
+app/views/catalogs/index.html.erb:138:in `block (2 levels) in _app_views_catalogs_index_html_erb___4139905088900322504_69934082293680'
+app/views/catalogs/index.html.erb:135:in `each'
+app/views/catalogs/index.html.erb:135:in `block in _app_views_catalogs_index_html_erb___4139905088900322504_69934082293680'
+app/views/catalogs/index.html.erb:128:in `each'
+app/views/catalogs/index.html.erb:128:in `each_with_index'
+app/views/catalogs/index.html.erb:128:in `_app_views_catalogs_index_html_erb___4139905088900322504_69934082293680'
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:46:19 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.538983
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.389851
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2181ms (Views: 201.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:49:04 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.786436
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.315749
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (63.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2411ms (Views: 275.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:49:34 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.546456
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.217581
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 1918ms (Views: 143.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:50:06 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5412680000000001
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.199086
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (41.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1975ms (Views: 218.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:50:31 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.574602
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.199187
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1924ms (Views: 139.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:52:52 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.791486
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.225187
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2207ms (Views: 177.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:56:00 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.793496
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.315091
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2284ms (Views: 163.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 19:56:28 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.571045
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.191942
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 17353ms (Views: 15579.8ms | ActiveRecord: 0.0ms)
+
+

@@ -737,3 +737,6 @@ div.scrollmenu a {
 }
 
 /* Responsive design ends */
+iframe{
+  display: none;
+}
