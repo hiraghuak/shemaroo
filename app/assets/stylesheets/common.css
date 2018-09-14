@@ -367,9 +367,15 @@ a.see-more {
     font-size: 0.875em;
     color: #D31F52;
     margin-right: 96px;
+    margin-top: 7px;
     text-decoration: none;
 }
 a.see-more:hover {
     color: #D31F52;
     text-decoration: none;
+}
+@media(max-width: 1199px) {
+    a.see-more {
+        margin-right: 10px;
+    }
 }

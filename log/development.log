@@ -7058,3 +7058,311 @@ Processing by CatalogsController#index as HTML
 Completed 200 OK in 93ms (Views: 91.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:06:58 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (18.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 8103ms (Views: 8097.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:07:17 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 59ms (Views: 57.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:07:29 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:08:00 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 52ms (Views: 50.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:08:59 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:10:14 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:11:11 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:11:37 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:12:16 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:12:57 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:17:32 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (305.7ms)
+Completed 500 Internal Server Error in 356ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `get_style_data' for #<#<Class:0x00007fed01336cd8>:0x00007fed01335360>
+Did you mean?  get_cycle):
+     8:     </div>
+     9:     <div class="main-menu pull-left d-none d-xl-block">
+    10:       <ul class="nav">
+    11:         <li class="nav-item"><a href="javascript:;" class="nav-link active text-uppercase" style="<%=get_style_data%>">Home</a></li>
+    12:         <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Bollywood Classic</a></li>
+    13:         <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Bollywood Plus</a></li>
+    14:         <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase">Gujarati</a></li>
+  
+app/views/layouts/_header.html.erb:11:in `_app_views_layouts__header_html_erb__3691270832083085827_70327948338660'
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__1464602173073597302_70327952035420'
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:17:56 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:18:07 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:20:40 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1725ms (Views: 1724.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:20:52 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 73ms (Views: 71.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:24:11 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1876ms (Views: 1875.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:24:25 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1862ms (Views: 1860.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.129 at 2018-09-14 16:24:52 +0530
+Cannot render console from 192.168.1.129! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:26:29 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1903ms (Views: 1902.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:27:26 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1894ms (Views: 1893.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:27:51 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1873ms (Views: 1872.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:27:56 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1867ms (Views: 1865.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:28:45 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1872ms (Views: 1870.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:29:50 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1913ms (Views: 1912.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:33:16 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1854ms (Views: 1853.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:34:58 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1857ms (Views: 1855.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:36:06 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1865ms (Views: 1863.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:36:35 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1956ms (Views: 1954.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:36:59 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1868ms (Views: 1867.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:38:02 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:39:04 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1899ms (Views: 1897.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-14 16:39:35 +0530
+Processing by CatalogsController#index as HTML
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1927ms (Views: 1925.3ms | ActiveRecord: 0.0ms)
+
+
