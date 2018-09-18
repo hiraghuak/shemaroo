@@ -10036,3 +10036,105 @@ ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepa
 Completed 200 OK in 2538ms (Views: 106.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2018-09-18 16:14:07 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.827473
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.483187
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 6145ms (Views: 3628.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-18 16:14:49 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.551302
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.478038
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2092ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-18 16:15:48 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.551752
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.479608
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4069ms (Views: 2031.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for ::1 at 2018-09-18 16:15:58 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.55051
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 662ms (Views: 104.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-18 16:16:00 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.550378
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.60929
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2218ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-09-18 16:18:33 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.79995
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.968652
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3827ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for ::1 at 2018-09-18 16:18:38 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5619460000000001
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 607ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for ::1 at 2018-09-18 16:20:26 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.931172
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2805ms (Views: 1870.7ms | ActiveRecord: 0.0ms)
+
+
