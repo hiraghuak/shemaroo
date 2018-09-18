@@ -8,4 +8,8 @@ class CatalogsController < ApplicationController
   		@home_list = []
     end 
   end
+
+  def show_catalog_item
+  	#response = Ott.
+  end
 end

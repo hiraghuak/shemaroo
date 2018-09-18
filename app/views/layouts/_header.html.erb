@@ -9,7 +9,11 @@
     <div class="main-menu pull-left d-none d-xl-block">
       <ul class="nav">
        <%@header_tabs.each_with_index do |i,j|%>
-        <li class="nav-item"><a href="javascript:;" class="nav-link text-uppercase <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+       <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
+       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+       <%else%>
+        <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+       <%end%>
        <%end%>
       </ul>
     </div>
@@ -49,21 +53,14 @@
     
     <div class="scrollmenuwrap">
       <div class="scrollmenu">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="#support">Support</a>
-        <a href="#blog">Blog</a>
-        <a href="#tools">Tools</a>  
-        <a href="#base">Base</a>
-        <a href="#custom">Custom</a>
-        <a href="#more">More</a>
-        <a href="#logo">Logo</a>
-        <a href="#friends">Friends</a>
-        <a href="#partners">Partners</a>
-        <a href="#people">People</a>
-        <a href="#work">Work</a>
+       <%@header_tabs.each_with_index do |i,j|%>
+        <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
+        <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=
+        "<%=(params[:catalog_name] == i["home_link"]) ? "active" : ""%>"><%=i['display_title']%></a>
+        <%else%>
+        <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=" <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a>
+        <%end%>
+       <%end%>
       </div>
     </div>
   <div class="collapse navbar-collapse" id="navbarCollapse">
