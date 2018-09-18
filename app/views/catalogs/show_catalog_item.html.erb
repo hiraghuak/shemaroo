@@ -1,0 +1,182 @@
+<section class="banner-section">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div id="banner-carousel" class="owl-carousel owl-theme">
+       <%@items_list[0]['catalog_list_items'].each do |i|%>
+          <div class="item">
+            <a href="javascript:;">
+              <img src="/assets/big_play.svg" alt="" title="">
+              <img src="/assets/carousel/placeholder1.png" alt="<%=i['title']%>" title="<%=i['title']%>">
+            </a>
+          </div> 
+        <%end%>         
+      </div>
+    </div>
+  </div>
+</section>
+<section class="full-width-content light">
+  <%@catalog_items.each_with_index do |list,index|%>
+    <%unless list['catalog_list_items'].empty?%>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+          <h2 class="margin-bottom-15 text-capitalize gradient2"><%=list['display_title']%></h2>
+          <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+          <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+            <%list['catalog_list_items'].each do |item|%>
+              <div class="item">
+                <a href="<%=get_item_url(item)%>">
+                <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+                </a>
+              </div> 
+            <%end%>             
+          </div>           
+        </div>
+      </div> 
+    <%end%> 
+  <%end%>
+</section>
+
+
+
+
+
+
+
+<script type="text/javascript">
+var navigation = [
+      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
+      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+    ];
+    $('#banner-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    dots: false,
+    responsive:{
+        0:{
+            items:1,
+            stagePadding: 30,
+        },
+        576:{
+            items:1,
+            stagePadding: 40,
+        },
+        768:{
+            items:1,
+            stagePadding: 50,
+        },
+        992:{
+            items:1,
+            stagePadding: 60,
+        },
+        1200:{
+            items:1,
+            stagePadding: 87,
+        }
+    }
+  });
+ 
+   $(document).ready(function(){
+   var items_count = "<%=(@catalog_items.count)-1%>"
+    for (i = 0; i <= items_count; i++) {
+    var auto_loop_status = false;
+    var owl = $("#catalog_lists_"+i);
+    var det = $("#catalog_lists_"+i).data("item-det")
+    if(det != undefined){
+        det = det.split("$");
+    }
+    else{
+      det = ""
+    }
+  
+    var total_item_cnt =  det[1];
+    var layout_type = det[0];
+    if(layout_type == "t_16_9_big"){
+     var no_of_items = 5;
+     if(no_of_items > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       var items_0 = 1
+       var items_576 = 2
+       var items_768 = 3
+       var items_992 = 4
+     }
+    }
+    else if(layout_type == "t_1_1_plain"){
+     var no_of_items = 6;
+     if(no_of_items > 6){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       var items_0 = 2
+       var items_576 = 3
+       var items_768 = 4
+       var items_992 = 5
+     }
+    }
+    else if(layout_type == "t_comb_16_9_list"){
+     var no_of_items = 3;
+     if(no_of_items > 3){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       var items_0 = 1
+       var items_576 = 2
+       var items_768 = 3
+       var items_992 = 3
+     }
+    }
+    else if(layout_type == "t_comb_1_1_image"){
+     var no_of_items = 5;
+     if(no_of_items > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       var items_0 = 1
+       var items_576 = 2
+       var items_768 = 3
+       var items_992 = 4
+     }
+    }
+
+    
+    
+    else{
+      var no_of_items = 7
+      var items_0 = 2
+      var items_576 = 3
+      var items_768 = 4
+      var items_992 = 5
+     if(no_of_items > 7){
+      auto_loop_status = true
+      $(".all_items_"+i).show();
+     }
+    }
+
+  owl.owlCarousel({
+    loop: auto_loop_status,
+    margin:10,
+    nav:true,
+    dots: false,
+    stagePadding: 40,
+    navText: navigation,
+    responsive:{
+      0:{
+          items: items_0
+      },
+      576:{
+          items: items_576
+      },
+      768:{
+          items: items_768
+      },
+      992:{
+          items: items_992
+      },
+      1200:{
+          items: no_of_items
+      }
+    }
+  });
+}
+
+});  
+
+</script>

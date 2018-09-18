@@ -12,4 +12,8 @@ class Ott
     HTTP.get "catalog_lists/catalog-tabs?region=#{$region}","catalog"
   end
 
+  def self.get_items_list(list_id)
+  	HTTP.get "catalog_lists/#{list_id}?region=#{$region}","catalog"
+  end
+
 end

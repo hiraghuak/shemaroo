@@ -10289,3 +10289,1282 @@ ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalo
 Completed 200 OK in 640ms (Views: 86.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:24:40 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.791529
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 21289ms (Views: 20462.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-plus" for 127.0.0.1 at 2018-09-18 16:25:10 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-plus"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.545961
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 713ms (Views: 164.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:25:44 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.548215
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 983ms (Views: 401.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:26:00 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.553921
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (41.4ms)
+Completed 500 Internal Server Error in 749ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    3:           <div class="row">
+    4:             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    5:                <div id="banner-carousel" class="owl-carousel owl-theme">
+    6:               <%@home_list[0]['catalog_list_items'].each do |h|%>
+    7:                 <div class="item">
+    8:                   <a href="<%=get_item_url(h)%>">
+    9:                     <img src="/assets/big_play.svg" alt="" title="">
+  
+app/views/catalogs/index.html.erb:6:in `_app_views_catalogs_index_html_erb___3333147626161130195_70296025658860'
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:26:36 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.544518
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 610ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    3:           <div class="row">
+    4:             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    5:                <div id="banner-carousel" class="owl-carousel owl-theme">
+    6:               <%@home_list[0]['catalog_list_items'].each do |h|%>
+    7:                 <div class="item">
+    8:                   <a href="<%=get_item_url(h)%>">
+    9:                     <img src="/assets/big_play.svg" alt="" title="">
+  
+app/views/catalogs/index.html.erb:6:in `_app_views_catalogs_index_html_erb___3333147626161130195_70296105195220'
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:27:11 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.792672
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.220446
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 5206ms (Views: 2094.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:28:57 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.827076
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.444547
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 4044ms (Views: 712.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:29:47 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.811013
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 0) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.077724
+Cache write: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 1) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is down
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 5391ms (Views: 2231.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:31:12 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.810106
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 0) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.003367
+Cache write: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 1) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is down
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (18.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 3534ms (Views: 675.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:34:16 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.810832
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 2) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 181.091 seconds now)
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.004574
+Cache write: home_page_list ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (57.984 seconds left)
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2941ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:34:35 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.820197
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 0) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=2.02829
+Cache write: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 1) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is down
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 3480ms (Views: 582.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:35:09 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5757099999999999
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 664ms (Views: 84.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:38:02 +0530
+  
+SyntaxError (/home/saranyu/kotesh/Projects/shemaroo/app/controllers/catalogs_controller.rb:27: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/catalogs_controller.rb:27: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:38:18 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.843722
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 2) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 221.634 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Cache delete: catalog_item_list_bollywood-classic
+down_retry_delay not reached for 127.0.0.1:11211 (59.999 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 949ms (Views: 98.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:39:27 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.776786
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 3) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 289.862 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2247050000000002
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.769 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2128ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:42:07 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.820003
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 4) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 450.014 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2111990000000001
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.781 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2136ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:42:53 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.584911
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (14.399 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.211982
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (13.179 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1916ms (Views: 107.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:43:58 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.57754
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 5) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 561.012 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.213109
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.780 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 1807ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/saranyu/kotesh/Projects/shemaroo/app/views/catalogs/show_catalog_item.html.erb:58: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/catalogs/show_catalog_item.html.erb:58: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:44:17 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.561446
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (41.073 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.206325
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (39.860 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1862ms (Views: 82.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:47:31 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.80835
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 6) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 773.870 seconds now)
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.978462
+Cache write: home_page_list ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (57.997 seconds left)
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2917ms (Views: 99.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:47:57 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5436840000000001
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (33.650 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.160472
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (32.483 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1834ms (Views: 119.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:48:54 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.553774
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 7) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 857.139 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.22812
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.764 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1886ms (Views: 90.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:49:24 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.868911
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (29.894 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.431091
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (28.456 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2413ms (Views: 100.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:50:04 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5674600000000001
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 8) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 927.302 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.236114
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.755 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 1824ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    21:       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    22:         <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
+    23:         <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+    24:         <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+    25:           <%list['catalog_list_items'].each do |item|%>
+    26:             <div class="item">
+    27:               <a href="<%=get_item_url(item)%>">
+  
+app/views/catalogs/show_catalog_item.html.erb:24:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103605878200'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103605878200'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:50:40 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.555716
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (24.308 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.2573029999999998
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (23.026 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 1961ms (Views: 114.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:58:32 +0530
+  
+SyntaxError (/home/saranyu/kotesh/Projects/shemaroo/app/controllers/catalogs_controller.rb:21: `@' without identifiers is not allowed as an instance variable name
+/home/saranyu/kotesh/Projects/shemaroo/app/controllers/catalogs_controller.rb:21: syntax error, unexpected end-of-input, expecting keyword_end
+    @
+    ^):
+  
+app/controllers/catalogs_controller.rb:21: `@' without identifiers is not allowed as an instance variable name
+app/controllers/catalogs_controller.rb:21: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-09-18 16:58:39 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.7933129999999999
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 9) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1442.261 seconds now)
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.53415
+Cache write: home_page_list ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.454 seconds left)
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2426ms (Views: 81.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 16:59:54 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.197468
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 10) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1517.404 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.355673
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.635 seconds left)
+DalliError: No server available
+Cache delete: catalog_item_list_bollywood-classic
+down_retry_delay not reached for 127.0.0.1:11211 (58.634 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 2593ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="row">
+    3:     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    4:       <div id="banner-carousel" class="owl-carousel owl-theme">
+    5:        <%@items_list[0]['catalog_list_items'].each do |i|%>
+    6:           <div class="item">
+    7:             <a href="javascript:;">
+    8:               <img src="/assets/big_play.svg" alt="" title="">
+  
+app/views/catalogs/show_catalog_item.html.erb:5:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103619682240'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:00:14 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.573346
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (40.634 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.31425
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (39.309 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2025ms (Views: 121.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:00:38 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.711162
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (16.486 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.272808
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (15.206 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2134ms (Views: 138.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:02:11 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.806329
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 11) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1654.311 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.165154
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.828 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 1992ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Integer into Array):
+    73:   });
+    74:  
+    75:    $(document).ready(function(){
+    76:    var items_count = "<%=@catalog_items-1%>"
+    77:     for (i = 1; i <= items_count; i++) {
+    78:     var auto_loop_status = false;
+    79:     var owl = $("#catalog_lists_"+i);
+  
+app/views/catalogs/show_catalog_item.html.erb:76:in `-'
+app/views/catalogs/show_catalog_item.html.erb:76:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103613774620'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:02:30 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.569456
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (41.512 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.907964
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (40.596 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 1571ms (Views: 81.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:03:37 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.830074
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 12) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1740.352 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.263237
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.730 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2188ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:04:06 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.653905
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (30.895 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.968227
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (29.918 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1715ms (Views: 79.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:04:40 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5757
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 13) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1803.199 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.270979
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.722 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1954ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:06:40 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.841704
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 14) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 1923.311 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.323408
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.669 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2281ms (Views: 99.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:08:44 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.790602
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 15) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2047.346 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.251288
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.739 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 2074ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    25:           <%list['catalog_list_items'].each do |item|%>
+    26:             <div class="item">
+    27:               <a href="<%=get_item_url(item)%>">
+    28:               <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+    29:               </a>
+    30:             </div> 
+    31:           <%end%>             
+  
+app/helpers/application_helper.rb:13:in `get_image_url'
+app/views/catalogs/show_catalog_item.html.erb:28:in `block (2 levels) in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103620083260'
+app/views/catalogs/show_catalog_item.html.erb:25:in `each'
+app/views/catalogs/show_catalog_item.html.erb:25:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103620083260'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103620083260'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:10:26 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.7775380000000001
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 16) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2148.658 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.183821
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.808 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2083ms (Views: 106.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:13:08 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.81238
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 17) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2311.061 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.201558
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.780 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2144ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:15:41 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.782117
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 18) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2464.075 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.185588
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.793 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2078ms (Views: 78.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:16:31 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.623382
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (9.992 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.992527
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (8.991 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1813ms (Views: 180.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:19:11 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.788654
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 19) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2673.733 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.350267
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.642 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 2159ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    25:           <%list['catalog_list_items'].each do |item|%>
+    26:             <div class="item">
+    27:               <a href="<%=get_item_url(item)%>">
+    28:               <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+    29:               </a>
+    30:             </div> 
+    31:           <%end%>             
+  
+app/helpers/application_helper.rb:20:in `get_image_url'
+app/views/catalogs/show_catalog_item.html.erb:28:in `block (2 levels) in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103615939020'
+app/views/catalogs/show_catalog_item.html.erb:25:in `each'
+app/views/catalogs/show_catalog_item.html.erb:25:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103615939020'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103615939020'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:19:39 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.541053
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (31.439 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.979514
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (30.450 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1656ms (Views: 119.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:21:31 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.834362
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 20) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2813.820 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.360209
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.631 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2293ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:23:34 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.7907109999999999
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 21) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 2937.277 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.18123
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.811 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2085ms (Views: 100.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:25:13 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.786134
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 22) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 3036.028 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.160904
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.832 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 1991ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    25:           <%list['catalog_list_items'].each do |item|%>
+    26:             <div class="item">
+    27:               <a href="<%=get_item_url(item)%>">
+    28:               <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+    29:               </a>
+    30:             </div> 
+    31:           <%end%>             
+  
+app/helpers/application_helper.rb:22:in `get_image_url'
+app/views/catalogs/show_catalog_item.html.erb:28:in `block (2 levels) in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_22897380'
+app/views/catalogs/show_catalog_item.html.erb:25:in `each'
+app/views/catalogs/show_catalog_item.html.erb:25:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_22897380'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_22897380'
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:25:36 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.554489
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (37.144 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.250505
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (35.885 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 1903ms (Views: 82.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:26:06 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.54472
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (7.206 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.212366
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (5.980 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1880ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-plus" for 127.0.0.1 at 2018-09-18 17:26:32 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-plus"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.57807
+Cache read: catalog_item_list_bollywood-plus ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 23) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 3115.165 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-plus ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-plus?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-plus?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.576505
+Cache write: catalog_item_list_bollywood-plus ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.406 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1255ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:26:48 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5357700000000001
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (44.646 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.915574
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (43.723 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1583ms (Views: 119.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:57:54 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.941885
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 24) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 4997.217 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.310437
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.683 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2379ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:58:53 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.567793
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (1.699 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.992186
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (0.700 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1662ms (Views: 90.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 17:59:41 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.566477
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 25) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 5104.298 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.242143
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.752 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1901ms (Views: 80.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:01:27 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.801381
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 26) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 5209.687 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.214223
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.777 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2113ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:01:51 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.555866
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (36.307 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.951499
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (35.348 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1595ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 18:02:49 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.554541
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 27) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 5291.523 seconds now)
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.501283
+Cache write: home_page_list ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.490 seconds left)
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2168ms (Views: 98.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:03:45 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.552528
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (3.499 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.935344
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (2.556 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1611ms (Views: 109.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:04:41 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.593081
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 28) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 5403.510 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.937429
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.056 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1622ms (Views: 80.3ms | ActiveRecord: 0.0ms)
+
+

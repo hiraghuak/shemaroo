@@ -7,24 +7,38 @@ module ApplicationHelper
    	 image_url = i["thumbnails"]["xl_image_16_5"]["url"]
    elsif layout_type == "t_2_3_movie"
    	 image_url = i["thumbnails"]["large_2_3"]["url"] 
-   elsif layout_type == "t_16_9_big"
-   	 image_url = i["thumbnails"]["medium_16_9"]["url"] 
+   elsif layout_type == "t_16_9_big" || layout_type == "t_16_9_epg"
+   	 image_url = i["thumbnails"]["medium_16_9"]["url"]
+  elsif layout_type == "t_16_9_small"
+      image_url = i["thumbnails"]["small_16_9"]["url"] if i["thumbnails"].has_key?("small_16_9")
+      #i["thumbnails"]["small_16_9"]["url"]
    	elsif layout_type == "t_2_3_movie_static"
    	  image_url = i["thumbnails"]["xl_image_2_3"]["url"] 
-   	elsif layout_type == "t_1_1_plain"
+   	elsif layout_type == "t_1_1_plain" || layout_type == "t_1_1_play"
    	  image_url = i["thumbnails"]["xl_image_1_1"]["url"] 	
+    elsif layout_type == "t_comb_16_9_list"
+      image_url = i["thumbnails"]["large_16_9"]["url"] if i["thumbnails"].has_key?("large_16_9")
+     elsif layout_type = "t_comb_1_1_image"
+      image_url = i["thumbnails"]["small_16_9"]["url"] if i["thumbnails"].has_key?("small_16_9")
+         
    end
    return image_url
  end
 
  def get_item_color(item)
-  color = ""
-  config_resp = Ott.get_configuration
-  color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"$"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
-   if color.nil?
-   	color = "#8BC76D$#1F9FB9"
-   end
-   p color.inspect
+  begin
+    color = ""
+    config_resp = Rails.cache.fetch("design_configuration_list", expires_in: CACHE_EXPIRY_TIME) {
+        Ott.get_configuration      
+       }
+     color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"$"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
+     if color.nil?
+     	color = "#8BC76D$#1F9FB9"
+     end
+     p color.inspect
+  rescue
+    Rails.cache.delete("design_configuration_list")
+  end
   return "background: linear-gradient(to right,#{color.split("$")[0]}, #{color.split("$")[1]}) !important;"
  end
 
