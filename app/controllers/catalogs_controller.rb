@@ -25,6 +25,19 @@ class CatalogsController < ApplicationController
     end
   end
 
+  def all_items_list
+    begin
+    response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
+     Ott.get_items_list(params[:catalog_name])
+    }
+    @all_items = response["data"]["catalog_list_items"]
+    @title = response["data"]["display_title"] 
+   rescue
+     Rails.cache.delete("all_items_list_#{params[:catalog_name]}")
+     @all_items = []
+    end
+  end
+
 
 
 end

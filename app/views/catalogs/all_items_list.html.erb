@@ -1,0 +1,18 @@
+<section class="full-width-content light">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+    <h2 class="margin-bottom-20 text-capitalize gradient2" style="width: 100%;"><%=@title%></h2>
+    <div class="row row-show-list">
+     <%@all_items.each do |i|%>
+        <div class="item">                                                              
+          <a href="<%=get_item_url(i)%>">
+          <img src="<%=i["thumbnails"]["small_16_9"]["url"]%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <span class="list-tile-title"><%=i['title']%></span>
+          </a>
+        </div>
+      <%end%>
+    </div>
+    </div>  
+  </div>
+</section>
+

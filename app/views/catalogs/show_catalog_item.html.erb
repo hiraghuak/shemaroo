@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
           <h2 class="margin-bottom-15 text-capitalize gradient2"><%=list['display_title']%></h2>
-          <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+          <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>">see more</a>
           <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
             <%list['catalog_list_items'].each do |item|%>
               <div class="item">

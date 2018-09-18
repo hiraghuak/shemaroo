@@ -8,7 +8,7 @@ Rails.application.routes.draw do
  get "/privacy-policy" => "statics#privacy_policy"
 
  get "/faq" => "statics#faq"
- 
+
  get "/contact-us" => "statics#contact_us"
  ##STATIC PAGES ROUTES ENDS HERE####
 
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
  ##CATALOGS PAGES ROUTES STARTS HERE####
  get "/:catalog_name" => "catalogs#show_catalog_item"
+ get "/:catalog_name/all" => "catalogs#all_items_list"
  ##CATALOGS PAGES ROUTES ENDS HERE####
 
 end
