@@ -133,7 +133,7 @@
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
               <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
-              <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" >see more</a>
+              <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
               <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
               <%list['catalog_list_items'].each do |item|%>
                 <div class="item">

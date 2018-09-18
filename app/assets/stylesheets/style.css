@@ -40,7 +40,7 @@
     outline: none;
 }
 body {
-  /*background-color: #161616;*/
+  background-color: #161616;
   float: left;
   font-family: 'condensed-semibold';
   font-size: 16px;
@@ -200,7 +200,7 @@ div.scrollmenu {
   background: -webkit-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 21%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
   background: -o-linear-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 21%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
   background: -ms-linear-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 21%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);*/
-  background: -webkit-linear-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 21%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 12%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 100%);
   /*background: -moz-linear-gradient(top, rgba(223,222,223,1) 0%, rgba(246,246,246,1) 21%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);*/
 
   float: left;
@@ -210,9 +210,35 @@ div.scrollmenu a {
   color: #666;
   display: inline-block;
   font-size: 0.875em;
-  padding: 14px;
+  padding: 7px 12px;
   text-decoration: none;
   text-transform: uppercase;  
+}
+div.scrollmenu a:first-child.active {
+  background: -webkit-linear-gradient(45deg, #D62053 0%, #F15A23 100%);
+    color: #fff;
+    border-radius: 20px;
+}
+div.scrollmenu a:nth-child(2).active {
+
+}
+div.scrollmenu a:nth-child(3).active {
+
+}
+div.scrollmenu a:nth-child(4).active {
+
+}
+div.scrollmenu a:nth-child(5).active {
+
+}
+div.scrollmenu a:nth-child(6).active {
+
+}
+div.scrollmenu a:nth-child(7).active {
+
+}
+div.scrollmenu a:nth-child(8).active {
+
 }
 .close-hambergmenu {
   width: 100%;
@@ -365,12 +391,18 @@ div.scrollmenu a {
 
 .full-width-content {
   max-width: 100%;
+  /*min-height: 800px;*/
+  padding-bottom: 10px;
   padding-left: 96px;
   padding-top: 30px;
 }
+.full-width-content.home-page {
+  padding-top: 30px;
+}
 .full-width-content h2 {
-  color: #3F3F3F;
+  color: #000000;
   font-size: 1.5em;
+  line-height: 1.3em;
 }
 .full-width-content .owl-carousel {
   margin-bottom: 20px;
@@ -443,14 +475,15 @@ div.scrollmenu a {
 .owl-carousel .item {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
-  box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.25);
+  /*box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.25);*/
+  box-shadow: 1px 1px 7px 1px rgba(0,0,0, 0.15);
   float: left;
   width: 100%;
 }
 .owl-carousel .item:hover {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
-  box-shadow: 1px -3px 30px 1px rgba(0,0,0, 0.25);
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.5);
 }
 .item-feature {
   float: left;
@@ -560,6 +593,194 @@ div.scrollmenu a {
 
 /* Footer section design ends */
 
+/* progress bar design starts */
+
+.progress {
+  border-radius: 0rem;
+  background: rgba(0,0,0,0.8);
+  height: 0.3rem;
+}
+.progress-bar {
+  background-color: #FE0000;
+}
+/* progress bar design ends */
+
+/* Movie and Show listing page design starts */
+.row-movie-list, .row-show-list {
+  margin: 0px -7px;
+}  
+.row-movie-list .item, .row-show-list .item {
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0, 0.25);
+  float: left;
+  margin: 0px 7px 13px;
+  position: relative;  
+}
+.row-movie-list .item {
+  width: 12.1%;
+}  
+.row-show-list .item {
+  width: 17.4%;
+}
+.row-movie-list .item:hover, .row-show-list .item:hover {
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0, 0.5);
+}
+.row-movie-list .item span.premium-txt {
+  background: #89C43F;
+  color: #fff;
+  font-size: 0.75em;
+  left: 0;
+  line-height: 0.75em;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+}
+.row-show-list .item span.list-tile-title {
+  color: #000;
+  font-size: 1em;
+  float: left;
+  margin: 4px 0px 4px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 93%;
+}
+.row-movie-list .item a, .row-movie-list .item img, .row-show-list .item a, .row-show-list .item img {
+  float: left;
+  width: 100%;
+}
+/* Movie and Show listing page design ends */
+
+/* Plans page design starts */
+  
+.plans-page p {
+  color: #6D6D6D;
+  font-family: 'condensed-meduim';
+}
+.plans-page p span.text-uppercase {
+  font-family: 'condensed-bold';
+} 
+.plans-page ul {
+  align-items: center;
+  border: 1px solid #F2F2F2;
+  float: left;
+  display: flex;
+  margin-right: 6.5%;
+  padding: 10px 30px;
+  width: 43%;
+} 
+.plans-page ul.margin-right-0 li:nth-child(2) {
+  padding-right: 35px;
+}
+.plans-page ul li {
+  color: #666666;
+  float: left;
+  border-right: 1px solid #E5E5E5;
+  line-height: 1.2em;
+  padding: 0px 20px;
+  
+}
+.plans-page ul li:first-child {
+  font-size: 2.75em;
+  font-family: 'condensed-extra-bold';
+  padding-left: 0;
+}
+.plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+  font-size: 0.75em;
+  padding-left: 26px;
+}
+.plans-page ul li:last-child {
+  border-right: 0px;
+  padding-right: 0;
+}
+.plans-page ul li .fa, .plans-page ul li span {
+  color: #000;
+  float: left;
+  margin-bottom: 2px;    
+  margin-left: -6px;
+    
+}
+.plans-page ul li .fa {
+  font-size: 2em;
+  margin-right: 8px;
+}
+.plans-page ul li span { 
+  font-size: 2.25em;
+  margin-top: 3px;
+}
+.plans_list_section {
+  background: #F2F2F2;
+  padding: 0 7%;
+}
+.plans-page .sub-title, .plans_list_section .sub-title {
+  color: #666666;
+}
+.plans_list_section ul {
+  float: left;
+  width: 100%;
+}
+.plans_list_section ul li {
+  float: left;
+  margin-right: 20px;  
+}
+.plans_list_section ul li:first-child {
+  margin-right: 30px;
+} 
+.plans_list_section ul li:last-child {
+  margin-right: 0px;
+}
+.plans_list_section .card-body p {
+  color: #888;
+  font-family: 'condensed-meduim';
+  font-size: 0.875em;
+  width: 80%;
+}
+.plans_list_section .card-body li span {
+  float: left;
+  line-height: 1em;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child  {
+  border: 2px dotted #F0F0F0;
+  border-radius: 3px;
+  padding: 10px 0px 3px;
+  width: 70px;
+}
+.plans_list_section .card-body li span:first-child,.plans_list_section .card-body li span:last-child {
+  color: #666666;
+  font-size: 0.75em;
+}
+.plans_list_section .card-body li span:nth-child(2) {
+  color: #000;
+  font-size: 0.875em;
+}
+.plans_box {
+  max-width: 46.5%;  
+}
+.individual_category.plans_box {
+  width: 50%;
+}
+.plans_box.odd-box {
+  margin-right: 3.25%;
+}
+.plans_box.even-box {
+  margin-left: 3.25%;
+}
+.plans_box .fa-chevron-down {
+  cursor: pointer;
+}
+.plans_box .card-body {
+  padding: 1rem 1.25rem;
+}
+.btn-outline-primary {
+  border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
+  border-image-slice: 1;
+  border-width: 1px;
+  padding: 10px 15px;
+}
+
+/* Plans page design ends */
+
 /* Responsive design starts */
 @media(max-width: 1366px) {
   .container {
@@ -580,6 +801,20 @@ div.scrollmenu a {
   }
   .footer-section .pull-right .pull-left li:last-child {
     margin-right: 18px;
+  }
+  .plans-page ul {
+    margin-right: 6%;
+    width: 44%;
+  }
+}
+@media(max-width: 1280px) {
+  .plans-page ul {
+    margin-right: 3%;
+    width: 47.5%;
+  }
+  .plans-page ul.margin-right-0 {
+    padding-right: 0;
+    width: 44%;
   }
 }
 @media(max-width: 1199px) {
@@ -605,12 +840,26 @@ div.scrollmenu a {
   }
   .full-width-content {
     padding-left: 50px;
+    padding-top: 155px;
   }
   #banner-carousel.owl-carousel .item img:first-child {
     width: 42px;
   }
   .full-width-content .owl-nav button.owl-prev {
     right: 7.5%;
+  }
+  .row-movie-list .item {
+    width: 14.35%;
+  }
+  .row-show-list .item {
+    width: 22.85%;
+  }
+}
+@media(max-width: 1150px) {
+  .plans-page ul, .plans-page ul.margin-right-0  {
+    margin: 0;
+    margin-bottom: 30px;
+    width: 56%;
   }
 }
 @media(max-width: 991px) {
@@ -666,6 +915,9 @@ div.scrollmenu a {
   .full-width-content .owl-nav button.owl-prev {
     right: 9%;
   }
+  .plans-page ul, .plans-page ul.margin-right-0  {
+    width: 71%;
+  }
 }
 
 @media(max-width: 767px) {
@@ -687,6 +939,15 @@ div.scrollmenu a {
   .full-width-content .owl-nav {
     top: 30%;
   }
+  .row-movie-list .item {
+    width: 22.5%;
+  }
+  .row-show-list .item {
+    width: 30.5%;
+  }
+  .plans-page ul, .plans-page ul.margin-right-0  {
+    width: 92%;
+  }
 }
 @media(max-width: 576px) { 
   #banner-carousel.owl-theme .owl-nav {
@@ -700,6 +961,15 @@ div.scrollmenu a {
   }
   .full-width-content .owl-nav button.owl-prev {
     right: 12%;
+  }
+  .row-movie-list .item {
+    width: 30%;
+  }
+  .row-show-list .item {
+    width: 44.35%;
+  }
+  .plans-page ul, .plans-page ul.margin-right-0  {
+    width: 100%;
   }
 }
 
@@ -715,6 +985,12 @@ div.scrollmenu a {
   }
   .full-width-content .owl-nav button.owl-prev {
     right: 13%;
+  }
+  .row-movie-list .item {
+    width: 28.75%;
+  }
+  .row-show-list .item {
+    width: 44.35%;
   }
 }
 @media(max-width: 359px) {
@@ -734,9 +1010,9 @@ div.scrollmenu a {
     margin-left: 5px;
     margin-right: 5px;
   }
+  .row-show-list .item span.list-tile-title { 
+    width: 92%;
+  }
 }
 
 /* Responsive design ends */
-iframe{
-  display: none;
-}
