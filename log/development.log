@@ -11568,3 +11568,651 @@ DalliError: No server available
 Completed 200 OK in 1622ms (Views: 80.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:06:28 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.778803
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 29) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 5511.291 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.941631
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.050 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 9320ms (Views: 7586.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:07:11 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.626081
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (17.573 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.946197
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (16.607 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1730ms (Views: 130.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/punjabi" for 127.0.0.1 at 2018-09-18 18:18:49 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"punjabi"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.796746
+Cache read: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 30) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 6251.937 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.578114
+Cache write: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.418 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 1392ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    25:             <%list['catalog_list_items'].each do |item|%>
+    26:               <div class="item">
+    27:                 <a href="<%=get_item_url(item)%>">
+    28:                 <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+    29:                 </a>
+    30:               </div> 
+    31:             <%end%>             
+  
+app/helpers/application_helper.rb:18:in `get_image_url'
+app/views/catalogs/show_catalog_item.html.erb:28:in `block (2 levels) in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103629236400'
+app/views/catalogs/show_catalog_item.html.erb:25:in `each'
+app/views/catalogs/show_catalog_item.html.erb:25:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103629236400'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103629236400'
+Started GET "/punjabi" for 127.0.0.1 at 2018-09-18 18:19:17 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"punjabi"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5481210000000001
+Cache read: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (31.574 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.666718
+Cache write: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (30.904 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 1232ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    25:             <%list['catalog_list_items'].each do |item|%>
+    26:               <div class="item">
+    27:                 <a href="<%=get_item_url(item)%>">
+    28:                 <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+    29:                 </a>
+    30:               </div> 
+    31:             <%end%>             
+  
+app/helpers/application_helper.rb:11:in `get_image_url'
+app/views/catalogs/show_catalog_item.html.erb:28:in `block (2 levels) in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103623207940'
+app/views/catalogs/show_catalog_item.html.erb:25:in `each'
+app/views/catalogs/show_catalog_item.html.erb:25:in `block in _app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103623207940'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each'
+app/views/catalogs/show_catalog_item.html.erb:18:in `each_with_index'
+app/views/catalogs/show_catalog_item.html.erb:18:in `_app_views_catalogs_show_catalog_item_html_erb___1395831922238967747_70103623207940'
+Started GET "/punjabi" for 127.0.0.1 at 2018-09-18 18:19:47 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"punjabi"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.541981
+Cache read: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (1.683 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/punjabi?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.628841
+Cache write: catalog_item_list_punjabi ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (1.050 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1295ms (Views: 114.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/kids" for 127.0.0.1 at 2018-09-18 18:20:05 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"kids"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.542267
+Cache read: catalog_item_list_kids ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 31) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 6328.021 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_kids ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/kids?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/kids?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.832691
+Cache write: catalog_item_list_kids ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.163 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1487ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:20:19 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.537821
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (46.418 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.159774
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (45.250 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1820ms (Views: 110.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:21:04 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.538357
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (1.068 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.16015
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 32) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 6388.126 seconds now)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1841ms (Views: 109.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:21:43 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.541161
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (22.391 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.921329
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (21.461 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1606ms (Views: 125.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:22:02 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.564011
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (3.167 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.226673
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (1.929 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1901ms (Views: 95.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bollywood-classic" for 127.0.0.1 at 2018-09-18 18:23:44 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"bollywood-classic"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.8168070000000001
+Cache read: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 33) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 6547.468 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/bollywood-classic?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.308777
+Cache write: catalog_item_list_bollywood-classic ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (58.684 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 6385ms (Views: 4246.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:24:14 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5604830000000001
+Completed 406 Not Acceptable in 590ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (PlansController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:25:02 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: Libcurl initialized
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.81717
+Completed 406 Not Acceptable in 862ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (PlansController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:25:43 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5615840000000001
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1367ms (Views: 797.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-18 18:31:28 +0530
+Processing by CatalogsController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.773424
+Cache read: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 0) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+DalliError: No server available
+Cache generate: home_page_list ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/homepage-list?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=1.38031
+Cache write: home_page_list ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 1) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is down
+DalliError: No server available
+  Rendering catalogs/index.html.erb within layouts/application
+  Rendered catalogs/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 7588ms (Views: 5402.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2018-09-18 18:31:44 +0530
+Processing by StaticsController#faq as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.565449
+  Rendering statics/faq.html.erb within layouts/application
+  Rendered statics/faq.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 661ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact_us" for 127.0.0.1 at 2018-09-18 18:31:52 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"contact_us"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.533905
+Cache read: catalog_item_list_contact_us ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (37.958 seconds left)
+DalliError: No server available
+Cache generate: catalog_item_list_contact_us ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/contact_us?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/contact_us?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=422 return_code=ok total_time=0.250454
+Cache write: catalog_item_list_contact_us ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (37.706 seconds left)
+DalliError: No server available
+Cache delete: catalog_item_list_contact_us
+down_retry_delay not reached for 127.0.0.1:11211 (37.705 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 796ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="row">
+    3:     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    4:       <div id="banner-carousel" class="owl-carousel owl-theme">
+    5:        <%@items_list[0]['catalog_list_items'].each do |i|%>
+    6:           <div class="item">
+    7:             <a href="javascript:;">
+    8:               <img src="/assets/big_play.svg" alt="" title="">
+  
+app/views/catalogs/show_catalog_item.html.erb:5:in `_app_views_catalogs_show_catalog_item_html_erb__3488648015673757410_69874833243360'
+Started GET "/terms-and-conditions" for 127.0.0.1 at 2018-09-18 18:32:23 +0530
+Processing by StaticsController#terms_conditions as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5341640000000001
+  Rendering statics/terms_conditions.html.erb within layouts/application
+  Rendered statics/terms_conditions.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 628ms (Views: 90.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contact-us" for 127.0.0.1 at 2018-09-18 18:32:36 +0530
+Processing by StaticsController#contact_us as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5315909999999999
+  Rendering statics/contact_us.html.erb within layouts/application
+  Rendered statics/contact_us.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 623ms (Views: 88.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:32:47 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.54633
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 649ms (Views: 99.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:33:37 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.5665819999999999
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 670ms (Views: 100.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about_us" for 127.0.0.1 at 2018-09-18 18:33:46 +0530
+Processing by CatalogsController#show_catalog_item as HTML
+  Parameters: {"catalog_name"=>"about_us"}
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.535292
+Cache read: catalog_item_list_about_us ({:expires_in=>60 seconds})
+Dalli::Server#connect 127.0.0.1:11211
+127.0.0.1:11211 failed (count: 2) Errno::ECONNREFUSED: Connection refused - connect(2) for "127.0.0.1" port 11211
+127.0.0.1:11211 is still down (for 135.916 seconds now)
+DalliError: No server available
+Cache generate: catalog_item_list_about_us ({:expires_in=>60 seconds})
+http://18.210.75.7:3000/catalog_lists/about_us?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/about_us?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=422 return_code=ok total_time=0.250595
+Cache write: catalog_item_list_about_us ({:expires_in=>60 seconds})
+down_retry_delay not reached for 127.0.0.1:11211 (59.748 seconds left)
+DalliError: No server available
+Cache delete: catalog_item_list_about_us
+down_retry_delay not reached for 127.0.0.1:11211 (59.748 seconds left)
+DalliError: No server available
+  Rendering catalogs/show_catalog_item.html.erb within layouts/application
+  Rendered catalogs/show_catalog_item.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 798ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    2:   <div class="row">
+    3:     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+    4:       <div id="banner-carousel" class="owl-carousel owl-theme">
+    5:        <%@items_list[0]['catalog_list_items'].each do |i|%>
+    6:           <div class="item">
+    7:             <a href="javascript:;">
+    8:               <img src="/assets/big_play.svg" alt="" title="">
+  
+app/views/catalogs/show_catalog_item.html.erb:5:in `_app_views_catalogs_show_catalog_item_html_erb__3488648015673757410_69874832577480'
+Started GET "/contact-us" for 127.0.0.1 at 2018-09-18 18:34:05 +0530
+Processing by StaticsController#contact_us as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.536268
+  Rendering statics/contact_us.html.erb within layouts/application
+  Rendered statics/contact_us.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 644ms (Views: 103.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/terms-and-conditions" for 127.0.0.1 at 2018-09-18 18:34:13 +0530
+Processing by StaticsController#terms_conditions as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.532114
+  Rendering statics/terms_conditions.html.erb within layouts/application
+  Rendered statics/terms_conditions.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 639ms (Views: 103.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2018-09-18 18:34:18 +0530
+Processing by StaticsController#faq as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.534807
+  Rendering statics/faq.html.erb within layouts/application
+  Rendered statics/faq.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 640ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2018-09-18 18:34:24 +0530
+Processing by PlansController#index as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.531616
+  Rendering plans/index.html.erb within layouts/application
+  Rendered plans/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 637ms (Views: 102.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/my_account" for 127.0.0.1 at 2018-09-18 18:41:35 +0530
+Processing by UsersController#my_account as HTML
+http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw
+ETHON: performed EASY effective_url=http://18.210.75.7:3000/catalog_lists/catalog-tabs?region=IN&auth_token=3zZmzoHg8z6SM3wpDoyw response_code=200 return_code=ok total_time=0.832267
+  Rendering users/my_account.html.erb within layouts/application
+  Rendered users/my_account.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 5147ms (Views: 4300.7ms | ActiveRecord: 0.0ms)
+
+
