@@ -29,6 +29,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
+ 
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -60,6 +61,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   API_SERVER = "http://18.210.75.7:3000"
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
-
+  CACHE_EXPIRY_TIME = 60.seconds
 
 end

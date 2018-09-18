@@ -214,31 +214,35 @@ div.scrollmenu a {
   text-decoration: none;
   text-transform: uppercase;  
 }
+div.scrollmenu a.active {
+  color: #fff;
+  border-radius: 20px;
+}
 div.scrollmenu a:first-child.active {
-  background: -webkit-linear-gradient(45deg, #D62053 0%, #F15A23 100%);
-    color: #fff;
-    border-radius: 20px;
+  background: -webkit-linear-gradient(45deg, #D62053 0%, #F15A23 100%);    
 }
 div.scrollmenu a:nth-child(2).active {
-
+  background: -moz-linear-gradient(45deg, #000 0%, #4d4d4d 45%, #4d4d4d 65%, #333 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #000), color-stop(45%, #4d4d4d), color-stop(65%, #4d4d4d), color-stop(100%, #333)); /* safari4+,chrome */
+  background: -webkit-linear-gradient(45deg, #000 0%, #4d4d4d 45%, #4d4d4d 65%, #333 100%); /* safari5.1+,chrome10+ */
 }
 div.scrollmenu a:nth-child(3).active {
-
+  background: linear-gradient(to right,#0095DB, #D93B65)
 }
 div.scrollmenu a:nth-child(4).active {
-
+  background: linear-gradient(to right,#D22856, #92C94E);
 }
 div.scrollmenu a:nth-child(5).active {
-
+  background: linear-gradient(to right,#8BC76D, #1F9FB9);
 }
 div.scrollmenu a:nth-child(6).active {
-
+  background: linear-gradient(to right,#F25922, #FCB613);
 }
 div.scrollmenu a:nth-child(7).active {
-
+  background: linear-gradient(to right,#FCB913, #8BC43E);
 }
-div.scrollmenu a:nth-child(8).active {
-
+div.scrollmenu a:last-child.active {
+  background: linear-gradient(to right,#2BA5E1, #ED6839);
 }
 .close-hambergmenu {
   width: 100%;
