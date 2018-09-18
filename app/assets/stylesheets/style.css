@@ -758,6 +758,9 @@ div.scrollmenu a:last-child.active {
   color: #000;
   font-size: 0.875em;
 }
+.plans_list_section .card-body li span:last-child {
+  text-decoration: line-through;
+}
 .plans_box {
   max-width: 46.5%;  
 }
@@ -820,6 +823,9 @@ div.scrollmenu a:last-child.active {
     padding-right: 0;
     width: 44%;
   }
+  .plans_list_section ul li:first-child {
+    margin-right: 10px;
+  }
 }
 @media(max-width: 1199px) {
   .container {
@@ -857,6 +863,22 @@ div.scrollmenu a:last-child.active {
   }
   .row-show-list .item {
     width: 22.85%;
+  }
+  .plans_list_section ul li {
+    width: 100%;
+  }
+  .plans_list_section .card-body p {
+    float: left;
+    width: 100%;
+  }
+  .plans_box.odd-box {
+    margin-right: 2%;
+  }
+  .plans_box.even-box {
+    margin-left: 2%;
+  }
+  .plans_box {
+    width: 49.5%;
   }
 }
 @media(max-width: 1150px) {
@@ -973,6 +995,25 @@ div.scrollmenu a:last-child.active {
     width: 44.35%;
   }
   .plans-page ul, .plans-page ul.margin-right-0  {
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 97%;    
+  }
+  .plans-page ul.list-none li {
+    padding: 0px 17px;
+  }
+  .plans-page ul li .fa, .plans-page ul li span {
+    float: none;
+  }
+  .plans_box.odd-box {
+    margin-right: 0%;
+  }
+  .plans_box.even-box {
+    margin-left: 0%;
+  }
+  .individual_category.plans_box, .plans_box {
+    max-width: 100%;
     width: 100%;
   }
 }
@@ -995,6 +1036,15 @@ div.scrollmenu a:last-child.active {
   }
   .row-show-list .item {
     width: 44.35%;
+  }
+  .plans-page ul, .plans-page ul.margin-right-0  {
+    font-size: 10.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 97.5%;    
+  }
+  .plans-page ul.list-none li {
+    padding: 0px 9px;
   }
 }
 @media(max-width: 359px) {
