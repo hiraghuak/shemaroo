@@ -12,4 +12,8 @@ class Ott
     HTTP.get "catalog_lists/catalog-tabs?region=#{$region}","catalog"
   end
 
+	def self.subscription_plans
+	  HTTP.get "catalog_lists/subscription-list?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{$region}","catalog"
+	end
+
 end
