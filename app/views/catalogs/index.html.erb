@@ -1,153 +1,41 @@
-                
-        <section class="banner-section">
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-               <div id="banner-carousel" class="owl-carousel owl-theme">
-              <%@home_list[0]['catalog_list_items'].each do |h|%>
-                <div class="item">
-                  <a href="<%=get_item_url(h)%>">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>">
-                  </a>
-                </div>
-              <%end%>           
-              </div>
-            </div>
+<section class="banner-section">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div id="banner-carousel" class="owl-carousel owl-theme">
+        <%@home_list[0]['catalog_list_items'].each do |h|%>
+          <div class="item">
+            <a href="<%=get_item_url(h)%>">
+            <img src="/assets/big_play.svg" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>">
+            </a>
           </div>
-        </section>
-
-
+        <%end%>           
+      </div>
+    </div>
+  </div>
+</section>
      
-               <section class="full-width-content light">
-               <!-- Continue Watching starts
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-              <h2 class="margin-bottom-15 text-capitalize gradient1">Continue Watching</h2>
-              <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
-              <div id="continue-watching-carousel" class="owl-carousel owl-theme">
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title=""></a>
-                    <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                  
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>
-                <div class="item">
-                  <a href="javascript:;">
-                    <img src="/assets/big_play.svg" alt="" title="">
-                    <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-                  </a>
-                  <div class="item-feature">
-                      <p>The Nil Institute</p>
-                      <span class="pull-left">Drama | 22m</span>
-                      <span class="pull-right"><img src="/assets/remove.svg" alt="" title=""></span>
-                    </div>
-                </div>   
-              </div>
-            </div>  
-          </div>-->
-       
-          <%@items.each_with_index do |list,index|%>
-          <%if index != 0%>
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-              <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
-              <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
-              <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
-              <%list['catalog_list_items'].each do |item|%>
-                <div class="item">
-                  <a href="<%=get_item_url(item)%>">
-                    <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
-                  </a>
-                </div> 
-              <%end%>             
-              </div>           
-              </div>
+<section class="full-width-content light">
+  <%@items.each_with_index do |list,index|%>
+  <%if index != 0%>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+        <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
+        <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>">see more</a>
+        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+          <%list['catalog_list_items'].each do |item|%>
+            <div class="item">
+              <a href="<%=get_item_url(item)%>">
+              <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+              </a>
             </div> 
-            <%end%> 
-          <%end%>
-          </section>
+          <%end%>             
+        </div>           
+      </div>
+    </div> 
+    <%end%> 
+  <%end%>
+</section>
 
 
 <script>
@@ -185,28 +73,7 @@ var navigation = [
         }
     }
   });
-  $('#continue-watching-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    // stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:2
-      },
-      768:{
-          items:3
-      },
-      992:{
-          items:4
-      },
-      1200:{
-          items:5
-      }
-    }
-  });
+
   var items_count = "<%=@items.count-1%>"
     for (i = 1; i <= items_count; i++) {
     var auto_loop_status = false;
@@ -223,7 +90,6 @@ var navigation = [
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
-       //var img_1200 = 5;
      }
     }
     else if(layout_type == "t_1_1_plain"){
@@ -235,7 +101,6 @@ var navigation = [
        var items_576 = 3
        var items_768 = 4
        var items_992 = 5
-       //var img_1200 = 5;
      }
     }
     else{
@@ -276,156 +141,6 @@ var navigation = [
     }
   });
 }
-
-  $('#bollywood-plus-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:2
-      },
-      576:{
-          items:3
-      },
-      768:{
-          items:4
-      },
-      992:{
-          items:5
-      },
-      1200:{
-          items:7
-      }
-    }
-  });
-  $('#gujarati-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:1
-      },
-      576:{
-          items:2
-      },
-      768:{
-          items:3
-      },
-      992:{
-          items:4
-      },
-      1200:{
-          items:5
-      }
-    }
-  });
-  $('#kids-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:2
-      },
-      576:{
-          items:3
-      },
-      768:{
-          items:4
-      },
-      992:{
-          items:5
-      },
-      1200:{
-          items:7
-      }
-    }
-  });
-  $('#bhakti-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:1
-      },
-      576:{
-          items:2
-      },
-      768:{
-          items:3
-      },
-      992:{
-          items:4
-      },
-      1200:{
-          items:5
-      }
-    }
-  });
-  $('#ibaadat-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-      0:{
-          items:1
-      },
-      576:{
-          items:2
-      },
-      768:{
-          items:3
-      },
-      992:{
-          items:4
-      },
-      1200:{
-          items:5
-      }
-    }
-  });
-  $('#punjabi-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    dots: false,
-    stagePadding: 40,
-    navText: navigation,
-    responsive:{
-        0:{
-            items:2
-        },
-        576:{
-            items:3
-        },
-        768:{
-            items:4
-        },
-        992:{
-            items:5
-        },
-        1200:{
-            items:6
-        }
-    }
-  });
+//$("body").append('<style>.light h2:before{background: linear-gradient(to right,#D51E54, #F15A23);}</style>');
 });  
 </script> 

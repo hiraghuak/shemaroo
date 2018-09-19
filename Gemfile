@@ -37,5 +37,6 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
 gem 'typhoeus'
+gem 'dalli'
 
 

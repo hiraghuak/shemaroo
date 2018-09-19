@@ -9,6 +9,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+
+
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -24,7 +27,9 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
+    #config.cache_store = :dalli_store
+    config.cache_store = :dalli_store, '127.0.0.1:11211'
+
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)

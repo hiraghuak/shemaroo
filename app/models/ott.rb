@@ -13,7 +13,11 @@ class Ott
   end
 
 	def self.subscription_plans
-	  HTTP.get "catalog_lists/subscription-list?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{$region}","catalog"
+	  HTTP.get "catalog_lists/subscription-list?&region=#{$region}","catalog"
 	end
+
+  def self.get_items_list(list_id)
+  	HTTP.get "catalog_lists/#{list_id}?region=#{$region}","catalog"
+  end
 
 end
