@@ -31,15 +31,14 @@ module ApplicationHelper
     config_resp = Rails.cache.fetch("design_configuration_list", expires_in: CACHE_EXPIRY_TIME) {
         Ott.get_configuration      
        }
-     color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"$"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
+     color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"|"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
      if color.nil?
-     	color = "#8BC76D$#1F9FB9"
+     	color = "#8BC76D|#1F9FB9"
      end
-     p color.inspect
   rescue
     Rails.cache.delete("design_configuration_list")
   end
-  return "background: linear-gradient(to right,#{color.split("$")[0]}, #{color.split("$")[1]}) !important;"
+  return color
  end
 
 	def get_item_url(i)

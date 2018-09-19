@@ -31,6 +31,7 @@ class CatalogsController < ApplicationController
      Ott.get_items_list(params[:catalog_name])
     }
     @all_items = response["data"]["catalog_list_items"]
+    @layout_type =  response["data"]["layout_type"]
     @title = response["data"]["display_title"] 
    rescue
      Rails.cache.delete("all_items_list_#{params[:catalog_name]}")

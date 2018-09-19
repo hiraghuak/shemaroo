@@ -19,10 +19,10 @@
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
     <div class="row">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
         <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
         <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>">see more</a>
-        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['display_title'].downcase.gsub(" ","_"))%>">
           <%list['catalog_list_items'].each do |item|%>
             <div class="item">
               <a href="<%=get_item_url(item)%>">
@@ -81,6 +81,8 @@ var navigation = [
     var det = $("#bollywood-classic-carousel_"+i).data("item-det").split("$");
     var total_item_cnt =  det[1];
     var layout_type = det[0];
+    var color = det[2].split("|")
+    $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
     if(layout_type == "t_16_9_big"){
      var no_of_items = 5;
      if(no_of_items > 5){
@@ -141,6 +143,6 @@ var navigation = [
     }
   });
 }
-//$("body").append('<style>.light h2:before{background: linear-gradient(to right,#D51E54, #F15A23);}</style>');
+
 });  
 </script> 

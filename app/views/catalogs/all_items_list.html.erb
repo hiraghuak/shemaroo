@@ -2,12 +2,21 @@
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
     <h2 class="margin-bottom-20 text-capitalize gradient2" style="width: 100%;"><%=@title%></h2>
-    <div class="row row-show-list">
+   <%if @layout_type == "t_2_3_movie" 
+      class_name = "row-movie-list" 
+      title = "no"        
+     else
+      class_name = "row-show-list" 
+      title = "yes"        
+    end%>
+    <div class="row <%=class_name%>">
      <%@all_items.each do |i|%>
         <div class="item">                                                              
           <a href="<%=get_item_url(i)%>">
-          <img src="<%=i["thumbnails"]["small_16_9"]["url"]%>" alt="<%=i['title']%>" title="<%=i['title']%>">
-          <span class="list-tile-title"><%=i['title']%></span>
+          <img src="<%=(@layout_type == "t_2_3_movie") ? "#{i["thumbnails"]["medium_2_3"]["url"] }" : "#{i["thumbnails"]["medium_16_9"]["url"]}"%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%if title == "yes"%>
+            <span class="list-tile-title"><%=i['title']%></span>
+          <%end%>
           </a>
         </div>
       <%end%>
@@ -15,4 +24,3 @@
     </div>  
   </div>
 </section>
-
