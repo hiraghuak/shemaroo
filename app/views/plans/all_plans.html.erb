@@ -57,8 +57,8 @@
               <ul class="list-none margin-right-0">
                 <li class="text-uppercase gradient1">all</li>
                 <li class="text-uppercase">includes all<br>the categories</li>
-                <%all_pack["plans"][0..-2].each do |aa|%>
-                <li class="text-uppercase"><i class="fa fa-inr" aria-hidden="true"></i><span><%=aa["price"]%></span><br><%=aa["title"]%></li>
+                <%all_pack["plans"].each do |aa|%>
+                <li class="text-uppercase"><i class="fa fa-inr" aria-hidden="true"></i><span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span><br><%=aa["title"]%></li>
                 <%end%>
               </ul>
 
@@ -79,11 +79,11 @@
                           <h5 class="gradient1">All Categories</h5>
                           <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
                         </li>
-                        <%all_pack["plans"][0..-2].each do |aa|%>
+                        <%all_pack["plans"].each do |aa|%>
                         <li class="text-center">
                           <span class="text-uppercase block"><%=aa["title"]%></span>
-                          <span class="block"><i aria-hidden="true"></i><%=aa["currency"]%>&nbsp;&nbsp;<%=aa["price"]%></span>
-                          <span class="block">1,188</span>
+                          <span class="block"><i class="fa fa-inr" aria-hidden="true"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+                          <span class="block"><%=aa["price"]%></span>
                         </li>
                         <%end%>
                       </ul>
@@ -102,8 +102,6 @@
                     <div class="card-body">
                       <ul class="list-none padding-left-0 margin-bottom-0">
                         <li>
-                        <%p "gradientttttttttttttttttttttttttttttttt"%>
-                        <%p get_gradient(plan['title'])%>
                           <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
                           <p><%=plan['category']%></p>
                         </li>
@@ -111,8 +109,8 @@
                         <%plan["plans"].each do |p|%>
                         <li class="text-center">
                           <span class="text-uppercase block"><%=p["title"]%></span>
-                          <span class="block"><i aria-hidden="true"></i><%=p["currency"]%>: <%=p["price"]%></span>
-                          <span class="block">99</span>
+                          <span class="block"><i class="fa fa-inr" aria-hidden="true"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
+                          <span class="block"><%=p["price"]%></span>
                         </li>
                         <%end%>
                         <%end%>
