@@ -1,174 +1,178 @@
-@supports (mix-blend-mode: lighten) {
-  .light .gradient-circle {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient-circle::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient-circle::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient1 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient1::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient1::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient2 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient2::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient2::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient3 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient3::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient3::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient4 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient4::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient4::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient5 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient5::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient5::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient6 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient6::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient6::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient7 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient7::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient7::before {
-      mix-blend-mode: screen; } }
-@supports (mix-blend-mode: lighten) {
-  .light .gradient8 {
-    display: inline-block;
-    position: relative;
-    color: #000;
-    background: #fff;
-    mix-blend-mode: multiply; }
-    .light .gradient8::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      /*background: unquote($gradient);*/
-      pointer-events: none; }
-    .light .gradient8::before {
-      mix-blend-mode: screen; } }
+.light {
+  /*.gradient1 {
+    @include gradient-text('linear-gradient(45deg, #D51E54, #F15A23);', 'light');
+  }*/ }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient-circle {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient-circle::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670);
+        pointer-events: none; }
+      .light .gradient-circle::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient1 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient1::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#D51E54, #F15A23);
+        pointer-events: none; }
+      .light .gradient1::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient2 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient2::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#181818, #3E3E3E);
+        pointer-events: none; }
+      .light .gradient2::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient3 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient3::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#0095DB, #D93B65);
+        pointer-events: none; }
+      .light .gradient3::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient4 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient4::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#D22856, #92C94E);
+        pointer-events: none; }
+      .light .gradient4::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient5 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient5::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#8BC76D, #0096DC);
+        pointer-events: none; }
+      .light .gradient5::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient6 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient6::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#F25922, #FCB613);
+        pointer-events: none; }
+      .light .gradient6::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient7 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient7::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#FCB913, #8BC43E);
+        pointer-events: none; }
+      .light .gradient7::before {
+        mix-blend-mode: screen; } }
+  @supports (mix-blend-mode: lighten) {
+    .light .gradient8 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply; }
+      .light .gradient8::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right,#2BA5E1, #ED6839);
+        pointer-events: none; }
+      .light .gradient8::before {
+        mix-blend-mode: screen; } }
 
 /* Page styling, ignore */
 

@@ -48,17 +48,17 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
               <h2>Modify Plans</h2>
               <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
-      <!--         <ul class="list-none">
+             <!--  <ul class="list-none">
                 <li class="text-uppercase gradient5">Any 2</li>
                 <li class="text-uppercase">Choice of any<br>2 categories</li>
-                <li class="text-uppercase"><i class="fa fa-inr" aria-hidden="true"></i><span>699</span><br>yearly</li>
-                <li class="text-uppercase"><i class="fa fa-inr" aria-hidden="true"></i><span>69</span><br>monthly</li>
+                <li class="text-uppercase"></i><span>699</span><br>yearly</li>
+                <li class="text-uppercase"></i><span>69</span><br>monthly</li>
               </ul> -->
               <ul class="list-none margin-right-0">
                 <li class="text-uppercase gradient1">all</li>
                 <li class="text-uppercase">includes all<br>the categories</li>
                 <%all_pack["plans"].each do |aa|%>
-                <li class="text-uppercase"><i class="fa fa-inr" aria-hidden="true"></i><span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span><br><%=aa["title"]%></li>
+                <li class="text-uppercase"></i><span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span><br><%=aa["title"]%></li>
                 <%end%>
               </ul>
 
@@ -82,7 +82,7 @@
                         <%all_pack["plans"].each do |aa|%>
                         <li class="text-center">
                           <span class="text-uppercase block"><%=aa["title"]%></span>
-                          <span class="block"><i class="fa fa-inr" aria-hidden="true"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+                          <span class="block"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
                           <span class="block"><%=aa["price"]%></span>
                         </li>
                         <%end%>
@@ -109,7 +109,7 @@
                         <%plan["plans"].each do |p|%>
                         <li class="text-center">
                           <span class="text-uppercase block"><%=p["title"]%></span>
-                          <span class="block"><i class="fa fa-inr" aria-hidden="true"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
+                          <span class="block"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                           <span class="block"><%=p["price"]%></span>
                         </li>
                         <%end%>

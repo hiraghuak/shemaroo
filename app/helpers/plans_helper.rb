@@ -2,11 +2,11 @@ module PlansHelper
 	def get_gradient title
 		case title
 		when "Bollywood packs"
-			return "gradient2"
+			return "gradient3"
      when "Kids pack"
       return "gradient5"
     when "Punjabi packs"
-      return "gradient9"
+      return "gradient8"
     when "Gujarathi packs"
       return "gradient4"
     when "Bhakti packs"
