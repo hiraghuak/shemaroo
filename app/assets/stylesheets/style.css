@@ -183,7 +183,7 @@ background: -webkit-linear-gradient(45deg, #000 0%, #4d4d4d 45%, #4d4d4d 65%, #3
   border-top: 1px solid #e6e6e6;
   box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.25);
   float: left;
-  max-height: 430px;
+  max-height: 520px;
   overflow: scroll;
   width: 100%;
   z-index: 1111111;
@@ -400,6 +400,9 @@ div.scrollmenu a:last-child.active {
   padding-left: 96px;
   padding-top: 30px;
 }
+.inside-container {
+  padding: 0 7%;
+}
 .full-width-content.home-page {
   padding-top: 30px;
 }
@@ -559,7 +562,8 @@ div.scrollmenu a:last-child.active {
   width: 100%;
 }
 .footer-section .pull-right {
-  margin-left: 8.333%;
+  /*display: flex;
+  justify-content: flex-end;*/
   padding-bottom: 17px;
   padding-top: 17px;
 }
@@ -620,10 +624,10 @@ div.scrollmenu a:last-child.active {
   position: relative;  
 }
 .row-movie-list .item {
-  width: 12.1%;
+  width: 13.1%;
 }  
 .row-show-list .item {
-  width: 17.4%;
+  width: 18.5%;
 }
 .row-movie-list .item:hover, .row-show-list .item:hover {
   box-shadow: 1px 1px 4px 1px rgba(0,0,0, 0.5);
@@ -759,7 +763,16 @@ div.scrollmenu a:last-child.active {
   font-size: 0.875em;
 }
 .plans_list_section .card-body li span:last-child {
-  text-decoration: line-through;
+  position: relative;
+}
+.plans_list_section .card-body li span:last-child:before { 
+  content: "/";
+  font-size: 3em;
+  font-family: 'condensed-medium';
+  left: 44%;
+  position: absolute;
+  top: 0px;
+  transform: rotate(50deg);
 }
 .plans_box {
   max-width: 46.5%;  
@@ -788,7 +801,101 @@ div.scrollmenu a:last-child.active {
 
 /* Plans page design ends */
 
+/* Movei/Show Detail page design starts */
+
+.player_section, .player_desc_section {
+  float: left;
+  width: 48%;
+}
+.player_section {
+  margin-right: 2%;
+  position: relative;
+}
+.player_section img:first-child {
+  left: 46%;
+  position: absolute;
+  top: 43%;
+  width: 48px;
+}
+.player_desc_section {
+  margin-left: 2%;
+}
+.player_desc_section .play_feature2 img {
+  width: 24px;
+}
+.player_desc_section ul {
+  float: left;
+  width: 100%;
+}
+.player_desc_section ul li {
+  float: left;
+}
+.player_desc_section ul li a, .player_desc_section ul li a:hover {
+  color: #989898;
+  text-decoration: none;
+}
+.player_desc_section ul.play_feature1 li {
+  border-right: 1px solid #000;
+  color: #000;
+  font-size: 0.875em;
+  line-height: 1em;
+  padding: 0px 10px;
+}
+.player_desc_section ul.play_feature1 li:first-child {
+  padding-left: 0px;
+}
+.player_desc_section ul.play_feature1 li:last-child {
+  border-right: 0px;
+  padding-right: 0px;
+}
+.player_desc_section ul.play_feature2 li {
+  margin-right: 20px;
+}
+.player_desc_section ul.play_feature2 li img {
+  min-width: 24px;
+}
+/*.player_desc_section ul.play_feature2 li:nth-child(2) img {
+  width: 30px;
+}*/
+.player_desc_section h2 {
+  line-height: 0.875em;
+}
+.player_desc_section ul.play_feature2 li span {
+  display: block;
+  font-size: 0.725em;
+  margin-top: 10px;
+}
+.player_desc_section p {
+  color: #666;
+  font-family: 'condensed-meduim';
+  font-size: 0.875em;
+  float: left;
+  line-height: 1.45em;
+  width: 100%;
+}
+.detail-page-bottom-section-bg {
+  background-color: #F2F2F2;
+  float: left;
+  width: 100%;
+}
+.detail-page-bottom-section-bg h2 {
+  color: #444;
+}
+.detail-page-bottom-section-bg .full-width-content .owl-carousel .owl-stage-outer, .detail-page-bottom-section-bg .full-width-content .owl-carousel .owl-stage {
+  margin: 0px;
+}
+.detail-page-bottom-section-bg .full-width-content .owl-nav {
+  top: 37%;
+}
+/* Movei/Show Detail page design ends */
+
 /* Responsive design starts */
+@media(min-width: 992px) {
+  .footer-section .pull-right {
+     display: flex;
+     justify-content: flex-end; 
+  }
+}
 @media(max-width: 1366px) {
   .container {
     padding-left: 0px;
@@ -812,6 +919,9 @@ div.scrollmenu a:last-child.active {
   .plans-page ul {
     margin-right: 6%;
     width: 44%;
+  }
+  .row-movie-list .item {
+    width: 15.25%;
   }
 }
 @media(max-width: 1280px) {
@@ -852,6 +962,10 @@ div.scrollmenu a:last-child.active {
     padding-left: 50px;
     padding-top: 155px;
   }
+  .inside-container {
+    padding: 0px 50px;
+    padding-top: 155px;
+  }
   .plans_list_section {
     padding-top: 0px;
   }
@@ -862,10 +976,10 @@ div.scrollmenu a:last-child.active {
     right: 7.5%;
   }
   .row-movie-list .item {
-    width: 14.35%;
+    width: 15%;
   }
   .row-show-list .item {
-    width: 22.85%;
+    width: 23.35%;
   }
   .plans_list_section ul li {
     width: 100%;
@@ -894,6 +1008,10 @@ div.scrollmenu a:last-child.active {
 @media(max-width: 991px) {
   .full-width-content {
     padding-left: 40px;
+  }
+  .inside-container {
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .footer-section ul {
     display: flex;
@@ -928,7 +1046,7 @@ div.scrollmenu a:last-child.active {
   }
   .footer-section .pull-right {
     margin-left: 0;
-    padding-top: 10px;
+    padding-top: 10px;    
   }
   .footer-section .pull-right ul.pull-left {
     margin-bottom: 20px;
@@ -944,6 +1062,12 @@ div.scrollmenu a:last-child.active {
   .full-width-content .owl-nav button.owl-prev {
     right: 9%;
   }
+  .row-movie-list .item {
+    width: 17.9%;
+  }
+  .row-show-list .item {
+    width: 22.85%;
+  }
   .plans-page ul, .plans-page ul.margin-right-0  {
     width: 71%;
   }
@@ -951,7 +1075,11 @@ div.scrollmenu a:last-child.active {
 
 @media(max-width: 767px) {
   .full-width-content {
+    padding-left: 7px;    
+  }
+  .inside-container {
     padding-left: 7px;
+    padding-right: 7px;
   }
   #banner-carousel.owl-theme .owl-nav {
     top: 28%;
@@ -977,6 +1105,13 @@ div.scrollmenu a:last-child.active {
   .plans-page ul, .plans-page ul.margin-right-0  {
     width: 92%;
   }
+  .player_section, .player_desc_section {
+    margin: 0;
+    width: 100%;
+  }
+  .player_section {
+    margin-bottom: 30px;
+  }
 }
 @media(max-width: 576px) { 
   #banner-carousel.owl-theme .owl-nav {
@@ -995,7 +1130,7 @@ div.scrollmenu a:last-child.active {
     width: 30%;
   }
   .row-show-list .item {
-    width: 44.35%;
+    width: 46.35%;
   }
   .plans-page ul, .plans-page ul.margin-right-0  {
     font-size: 14px;
@@ -1035,10 +1170,10 @@ div.scrollmenu a:last-child.active {
     right: 13%;
   }
   .row-movie-list .item {
-    width: 28.75%;
+    width: 28.55%;
   }
   .row-show-list .item {
-    width: 44.35%;
+    width: 44.85%;
   }
   .plans-page ul, .plans-page ul.margin-right-0  {
     font-size: 10.5px;
