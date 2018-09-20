@@ -30,6 +30,7 @@ Rails.application.routes.draw do
  ##CATALOGS PAGES ROUTES STARTS HERE####
  get "/:catalog_name" => "catalogs#show_catalog_item"
  get "/:catalog_name/all" => "catalogs#all_items_list"
+ get "/:catalog_name/:item_name" => "catalogs#item_details"
  ##CATALOGS PAGES ROUTES ENDS HERE####
 
 end

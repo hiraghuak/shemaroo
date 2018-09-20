@@ -1,0 +1,14 @@
+<p><%=@item_details['title'].inspect%></p>
+<div class="video-player col-md-12 col-sm-12 col-xs-12">
+      <div id="shemaroo_player" class="embed-responsive <%=@browser_type == "mobile" ?  "embed-responsive-4by3" : ""%>" style="width:800px;height:500px;"> </div>
+ </div>
+
+
+<script type="text/javascript">
+	
+$(".shemaroo_player").empty();
+$(document).ready(function(){
+  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>"
+ $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
+        });
+</script>

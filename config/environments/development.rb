@@ -67,5 +67,6 @@ Rails.application.configure do
   API_SERVER = "http://18.210.75.7:3000"
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
   CACHE_EXPIRY_TIME = 60.seconds
+  PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"
 
 end
