@@ -16,7 +16,7 @@
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
           <%end%>
-          <img src="<%=get_image_url(i,@layout_type)%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <img src="<%=get_image_url(i,@layout_type)%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
           <%if title == "yes"%>
             <span class="list-tile-title"><%=i['title']%></span>
           <%end%>

@@ -20,4 +20,8 @@ class Ott
      HTTP.get "catalogs/#{catalog_slug}/items/#{item_slug}?region=#{$region}","catalog"
   end
 
+  def self.get_episode_details(catalog_slug,show_slug,episode_slug)
+    HTTP.get "catalogs/shows/#{show_slug}/episodes/#{episode_slug}?region=#{$region}","catalog"
+  end
+
 end

@@ -21,7 +21,6 @@ module ApplicationHelper
  end
 
  def get_item_color(item)
-  p item.inspect
   begin
     color = ""
     config_resp = Rails.cache.fetch("design_configuration_list", expires_in: CACHE_EXPIRY_TIME) {
