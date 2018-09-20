@@ -359,7 +359,7 @@ div.scrollmenu a:last-child.active {
 /* Main slider design starts */
 
 #banner-carousel .owl-item {
-  opacity: .75;
+  opacity: 0.45;
 }
 #banner-carousel .owl-item.active {
   opacity: 1;
@@ -446,7 +446,7 @@ div.scrollmenu a:last-child.active {
 }*/
 
 .full-width-content .owl-carousel .owl-item {
-  opacity: .75;  
+  opacity: .45;  
 }
 .full-width-content .owl-carousel .owl-item.active {
   opacity: 1;
