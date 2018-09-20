@@ -814,6 +814,7 @@ div.scrollmenu a:last-child.active {
   display: none;
 }
 .plans_footer {
+  display: none;
   padding: 10px 0px;
 }
 .plans_footer p {
