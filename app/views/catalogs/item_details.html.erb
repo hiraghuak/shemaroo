@@ -1,6 +1,155 @@
-<p><%=@item_details['title'].inspect%></p>
+<section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div class="player_section">
+        <img src="/assets/big_play.svg" alt="" title="">
+        <img src="<%=@item_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="" title="">
+      </div>
+      <div class="player_desc_section">
+        <h2 class="margin-bottom-15"><%=@item_details['title']%></h2>
+        <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
+          <li><%=@item_details['genres'].join(",").capitalize%></li>
+          <li><%=@item_details['language']%></li>
+          <li><%=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
+          <li>UA</li>
+          <li><%=@item_details['duration_string']%></li>
+        </ul>
+        <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+          <li class="text-uppercase text-center">
+            <a href="javascript:;">
+              <img src="/assets/preview.svg" class="text-center" alt="" title="">
+              <span>Preview</span>
+            </a>
+          </li>
+          <li class="text-uppercase text-center">
+            <a href="javascript:;">
+              <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
+              <span>Watch Later</span>
+            </a>
+          </li>
+          <li class="text-uppercase text-center">
+            <a href="javascript:;">
+              <img src="/assets/share.svg" class="text-center" alt="" title="">
+              <span>Share</span>
+            </a>
+          </li>
+        </ul>
+        <p class="margin-bottom-20"><%=@item_details['description'][0..250]%></p>
+        <p class="margin-bottom-20">
+          <b>Starring:</b><br>
+          <%=@item_details['star_cast'].join(",")%>
+        </p>
+        <p>
+          <b>Directed By:</b><br>
+          <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
+        </p>
+      </div>  
+    </div>  
+  </div>
+</section>
+<div class="contianer-fluid">
+<div class="detail-page-bottom-section-bg">
+<section class="full-width-content padding-top-30 padding-bottom-10">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <h2 class="margin-bottom-15 pull-left">More in Comedy</h2>
+      <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+    </div>
+  </div>
+  <div id="more-comedy-carousel" class="owl-carousel owl-theme">
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>   
+    <div class="item">
+      <a href="javascript:;">
+        <img src="/assets/carousel/placeholder3.png" alt="" title="">
+      </a>
+    </div>              
+  </div>
+</section>
+</div>  
+</div>
+
+<script type="text/javascript">
+    $('#more-comedy-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    dots: false,
+    stagePadding: 40,
+    responsive:{
+      0:{
+          items:2
+      },
+      576:{
+          items:3
+      },
+      768:{
+          items:4
+      },
+      992:{
+          items:5
+      },
+      1200:{
+          items:7
+      }
+    }
+  });
+  
+</script> 
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p><%#=@item_details['title'].inspect%></p>
 <div class="video-player col-md-12 col-sm-12 col-xs-12">
-      <div id="shemaroo_player" class="embed-responsive <%=@browser_type == "mobile" ?  "embed-responsive-4by3" : ""%>" style="width:800px;height:500px;"> </div>
+      <div id="shemaroo_player" class="embed-responsive <%#=@browser_type == "mobile" ?  "embed-responsive-4by3" : ""%>" style="width:800px;height:500px;"> </div>
  </div>
 
 
@@ -11,4 +160,4 @@ $(document).ready(function(){
   var params_for_player = "<%=@new_play_url%>|key=<%=@key%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         });
-</script>
+</script> -->

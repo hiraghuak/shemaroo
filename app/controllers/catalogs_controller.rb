@@ -54,6 +54,15 @@ class CatalogsController < ApplicationController
     end
   end
 
+  def episode_details
+   begin
+
+   rescue
+
+    end
+
+  end
+
 
 
 private

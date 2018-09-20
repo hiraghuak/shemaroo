@@ -3,16 +3,18 @@
 </div>
 <div class="row d-none d-xl-block">
   <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-    <div class="main-logo pull-left">         
-      <img src="/assets/main-logo.svg" alt="" title="">
+    <div class="main-logo pull-left"> 
+     <a href = "/">        
+      <img src="/assets/main-logo.svg" alt="shemaroo" title="shemaroo">
+      </a>
     </div>
     <div class="main-menu pull-left d-none d-xl-block">
       <ul class="nav">
        <%@header_tabs.each_with_index do |i,j|%>
        <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
-       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%else%>
-        <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a></li>
+        <li class="nav-item gradient5"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase gradient2 <%= (j == 0) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%end%>
        <%end%>
       </ul>
@@ -125,3 +127,12 @@
 </nav>
 </div>
 </section>
+<script type="text/javascript">
+$(document).ready(function(){
+  var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
+
+ $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
+})
+
+
+</script>
