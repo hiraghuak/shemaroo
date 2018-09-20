@@ -6,7 +6,7 @@
           <div class="item">
             <a href="javascript:;">
               <img src="/assets/big_play.svg" alt="" title="">
-              <img src="/assets/carousel/placeholder1.png" alt="<%=i['title']%>" title="<%=i['title']%>">
+              <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>">
             </a>
           </div> 
         <%end%>         
@@ -87,7 +87,7 @@ var navigation = [
     }
     var total_item_cnt =  det[1];
     var layout_type = det[0];
-    if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
+    if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small" || layout_type == "t_1_1_play"){
      var no_of_items = 5;
      if(no_of_items > 5){
        auto_loop_status = true
@@ -135,7 +135,7 @@ var navigation = [
     
     
     else{
-      alert("12");
+ 
       var no_of_items = 7
       var items_0 = 2
       var items_576 = 3
