@@ -359,7 +359,7 @@ div.scrollmenu a:last-child.active {
 /* Main slider design starts */
 
 #banner-carousel .owl-item {
-  opacity: 0.45;
+  opacity: .75;
 }
 #banner-carousel .owl-item.active {
   opacity: 1;
@@ -446,7 +446,7 @@ div.scrollmenu a:last-child.active {
 }*/
 
 .full-width-content .owl-carousel .owl-item {
-  opacity: .45;  
+  opacity: .75;  
 }
 .full-width-content .owl-carousel .owl-item.active {
   opacity: 1;
@@ -642,6 +642,8 @@ div.scrollmenu a:last-child.active {
 }
 span.premium-txt {
   background: #89C43F;
+  border-radius: 2px 0px 3px 0px;
+  box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.45);
   color: #fff;
   font-size: 0.75em;
   left: 0;
@@ -952,7 +954,34 @@ span.premium-txt {
 .search-image-wrap {
   float: left;
   padding: 0px 0px;
+  position: relative;
   width: 60%;
+}
+.search-image-wrap img.play-icon {
+  left: 45%;
+  position: absolute;
+  top: 45%;
+  width: 32px;
+}
+.live-txt {
+  background: #FF0103;
+  border-radius: 2px 0px 3px 0px;
+  box-shadow: 3px 3px 7px 1px rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 0.75em;
+  left: 0;
+  line-height: 0.75em;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+}
+.live-txt:before {
+  content: "\f111";
+  float: left;
+  font: normal normal normal 8px/1 FontAwesome;
+  margin-right: 3px;
+  margin-top: 1px;
+    
 }
 .search-category-wrap {
   float: left;
