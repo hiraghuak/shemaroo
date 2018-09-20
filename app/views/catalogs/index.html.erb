@@ -85,7 +85,7 @@ var navigation = [
     $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
      var no_of_items = 5;
-     if(no_of_items > 5){
+     if(total_item_cnt > 5){
        auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 1
@@ -96,7 +96,7 @@ var navigation = [
     }
     else if(layout_type == "t_1_1_plain"){
      var no_of_items = 6;
-     if(no_of_items > 6){
+     if(total_item_cnt > 6){
        auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 2
@@ -111,7 +111,7 @@ var navigation = [
       var items_576 = 3
       var items_768 = 4
       var items_992 = 5
-     if(no_of_items > 7){
+     if(total_item_cnt > 7){
       auto_loop_status = true
       $(".all_items_"+i).show();
      }

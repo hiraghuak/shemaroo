@@ -21,7 +21,7 @@
   src: url('fonts/EncodeSansCondensed-Light.ttf');
 }
 @font-face {
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   src: url('fonts/EncodeSansCondensed-Medium.ttf');
     
 }
@@ -1059,6 +1059,20 @@ span.premium-txt {
     margin-right: 10px;
   }
 }
+@media(max-width: 1320px) { 
+ .player_desc_section h2 {
+    font-size: 1.25em
+  }
+  .player_desc_section .margin-bottom-20 {
+    margin-bottom: 17px !important;
+  }
+  .player_desc_section ul.play_feature2 li span {
+    margin-top: 7px;
+  }
+  .player_desc_section p {
+    line-height: 1.4em;    
+  }
+ }
 @media(max-width: 1280px) {
   .plans-page ul {
     margin-right: 3%;
@@ -1071,18 +1085,7 @@ span.premium-txt {
   .plans_list_section ul li:first-child {
     margin-right: 10px;
   }
-  .player_desc_section h2 {
-    font-size: 1.25em
-  }
-  .player_desc_section .margin-bottom-20 {
-    margin-bottom: 17px !important;
-  }
-  .player_desc_section ul.play_feature2 li span {
-    margin-top: 7px;
-  }
-  .player_desc_section p {
-    line-height: 1.4em;    
-  }
+ 
 }
 @media(max-width: 1199px) {
   .container {
