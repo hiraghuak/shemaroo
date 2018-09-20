@@ -744,6 +744,7 @@ div.scrollmenu a:last-child.active {
   color: #888;
   font-family: 'condensed-meduim';
   font-size: 0.875em;
+  float: left;
   width: 80%;
 }
 .plans_list_section .card-body li span {
@@ -755,6 +756,7 @@ div.scrollmenu a:last-child.active {
 .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child  {
   border: 2px dotted #F0F0F0;
   border-radius: 3px;
+  cursor: pointer;
   padding: 10px 0px 3px;
   width: 70px;
 }
@@ -800,8 +802,53 @@ div.scrollmenu a:last-child.active {
   border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
   border-image-slice: 1;
   border-width: 1px;
-  padding: 10px 15px;
+  padding: 5px 10px;
 }
+.plans_list_section .card-body li.active span {
+  color: #fff;
+}
+.plans_list_section .card-body li.active {
+  border: 0px;
+}
+.plan_list_show {
+  display: none;
+}
+.plans_footer {
+  padding: 10px 0px;
+}
+.plans_footer p {
+  color: #6A6A6A;
+  font-size: 0.875em;
+}
+.plans_footer span.amount {
+  color: #000;
+  font-size: 18px;
+}
+.active.gradientbg1 {
+  background: linear-gradient(to right,#D51E54, #F15A23);
+}
+.active.gradientbg2 {
+  background: linear-gradient(to right,#181818, #3E3E3E);
+}
+.active.gradientbg3 { 
+  background: linear-gradient(to right,#0095DB, #D93B65);
+}
+.active.gradientbg4 { 
+  background: linear-gradient(to right,#D22856, #0095DB);
+}
+.active.gradientbg5 { 
+  background: linear-gradient(to right,#8BC76D, #0096DC);
+}
+.active.gradientbg6 { 
+  background: linear-gradient(to right,#F25922, #FCB613);
+}
+.active.gradientbg7 { 
+  background: linear-gradient(to right,#FCB913, #8BC43E);
+}
+.active.gradientbg8 { 
+  background: linear-gradient(to right,#2BA5E1, #ED6839);
+}
+
 
 /* Plans page design ends */
 
@@ -889,7 +936,34 @@ div.scrollmenu a:last-child.active {
   margin: 0px;
 }
 .detail-page-bottom-section-bg .full-width-content .owl-nav {
-  top: 37%;
+  top: 34%;
+}
+.row-show-list .item {
+  position: relative;
+}
+.row-show-list.detail_page .item span.list-tile-title {
+  color: #2a2a2a;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+.row-show-list .item img:first-child {
+  left: 43%;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 28%;
+  white-space: nowrap;
+  width: 32px;
+}
+.row-show-list .item .list-tile-duration {
+  color: #838383;
+  float: left;
+  font-size: 0.75em;
+  margin: 0px 0px 4px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 /* Movei/Show Detail page design ends */
 
