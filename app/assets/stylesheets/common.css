@@ -376,3 +376,9 @@ a.see-more:hover {
     color: #D31F52;
     text-decoration: none;
 }
+@media(max-width: 1199px) {
+    a.see-more {
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+}

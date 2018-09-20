@@ -550,7 +550,7 @@ div.scrollmenu a:last-child.active {
 .footer-section .pull-left ul li {
   border-right: 1px solid #666;
   color: #666;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   float: left;
   font-size: 0.75em;
   line-height: 13px;    
@@ -564,7 +564,7 @@ div.scrollmenu a:last-child.active {
 }
 .footer-section .pull-left p {
   color: #999;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   font-size: 0.675em;
   float: left;
   width: 100%;
@@ -676,7 +676,7 @@ span.premium-txt {
   
 .plans-page p {
   color: #6D6D6D;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
 }
 .plans-page p span.text-uppercase {
   font-family: 'condensed-bold';
@@ -752,7 +752,7 @@ span.premium-txt {
 }
 .plans_list_section .card-body p {
   color: #888;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   font-size: 0.875em;
   width: 80%;
 }
@@ -881,7 +881,7 @@ span.premium-txt {
 }
 .player_desc_section p {
   color: #666;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   font-size: 0.875em;
   float: left;
   line-height: 1.45em;
@@ -928,7 +928,69 @@ span.premium-txt {
   white-space: nowrap;
   width: 100%;
 }
-/* Movei/Show Detail page design ends */
+/* Movie/Show Detail page design ends */
+
+
+/* Search page design starts */
+.tile-box-shadow {
+  box-shadow: 1px 1px 7px 1px rgba(0,0,0, 0.15);
+}
+.tile-box-shadow:hover {
+ box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.5); 
+}
+.search-page input[type="search"] {
+  background-color: #F2F2F2;
+  border: 0px;
+  color: #666666;
+  font-size: 1.25em;
+  font-family: 'condensed-light';
+  float: left;
+  margin-bottom: 5px;
+  padding: 13px 15px;
+  width: 100%;
+}
+.search-image-wrap {
+  float: left;
+  padding: 0px 0px;
+  width: 60%;
+}
+.search-category-wrap {
+  float: left;
+  padding: 0px 10px 0px 13px;
+  width: 40%; 
+}
+.search-category-wrap .search-tile-title {
+  margin-top: 8px;
+  font-size: 0.875em;
+  margin-bottom: 0px;
+}
+.search-category-wrap .search-tile-category {
+  color: #666666;
+  font-size: 0.825em;
+}
+.list-group-flush .list-group-item {  
+  color: #666;
+  font-size: 0.875em;
+}
+
+.search-page input[type="search"]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #CCCCCC;
+  font-family: 'condensed-medium';
+  opacity: 1; 
+}
+.search-box-wrap {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+.search-box-wrap img {
+  position: absolute;
+  right: 15px;
+  top: 34%;
+  width: 14px;
+}
+/* Search page design starts */
+
 
 /* Responsive design starts */
 @media(min-width: 992px) {
@@ -1076,7 +1138,7 @@ span.premium-txt {
   }
   .footer-section p {
     color: #999;
-    font-family: 'condensed-meduim';
+    font-family: 'condensed-medium';
     font-size: 0.675em;
     text-align: center;
     width: 100%;
@@ -1207,6 +1269,7 @@ span.premium-txt {
     max-width: 100%;
     width: 100%;
   }
+
 }
 
 @media(max-width: 470px) {
