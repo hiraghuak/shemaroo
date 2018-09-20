@@ -659,6 +659,9 @@ span.premium-txt {
   float: left;
   width: 100%;
 }
+.top-bg-gradient {
+  background-image: linear-gradient(to bottom, #DCDCDC,#F6F6F6 11px, #fff 15px, #fff 100% );
+}
 /* Movie and Show listing page design ends */
 
 /* Plans page design starts */
