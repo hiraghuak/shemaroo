@@ -477,6 +477,7 @@ div.scrollmenu a:last-child.active {
   background: #000;
   color: #fff;
   height: 30px;
+  margin: 5px;
   /*opacity: 0.75;*/
   position: absolute;
   border: none;
