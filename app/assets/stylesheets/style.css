@@ -444,12 +444,16 @@ div.scrollmenu a:last-child.active {
   width: 32px;  
 }
 .full-width-content .owl-nav button.owl-prev img, .full-width-content .owl-nav button.owl-next img {
-  width: 8px;
+  margin-top: -2px;
+  width: 6px;
+    
 }
 .full-width-content .owl-nav button.owl-prev {
+  border-radius: 5px 0px 0px 5px;
   right: 102px;
 }
 .full-width-content .owl-nav button.owl-next {
+  border-radius: 0px 5px 5px 0px;
   right: 61px;
 }
 /*.full-width-content .owl-item {
@@ -1360,9 +1364,6 @@ span.premium-txt {
   .full-width-content .owl-nav button.owl-prev, .full-width-content .owl-nav button.owl-next {
     height: 24px;
     width: 24px;
-  }
-  .full-width-content .owl-nav button.owl-prev img, .full-width-content .owl-nav button.owl-next img {
-    width: 6px;
   }
   .full-width-content .owl-nav button.owl-prev {
     right: 92px;
