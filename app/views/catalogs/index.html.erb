@@ -53,23 +53,23 @@ var navigation = [
     responsive:{
         0:{
             items:1,
-            stagePadding: 30,
+            stagePadding: 39,
         },
         576:{
             items:1,
-            stagePadding: 40,
+            stagePadding: 49,
         },
         768:{
             items:1,
-            stagePadding: 50,
+            stagePadding: 59,
         },
         992:{
             items:1,
-            stagePadding: 60,
+            stagePadding: 69,
         },
         1200:{
             items:1,
-            stagePadding: 87,
+            stagePadding: 96,
         }
     }
   });
@@ -86,7 +86,7 @@ var navigation = [
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
      var no_of_items = 5;
      if(total_item_cnt > 5){
-       auto_loop_status = true
+       // auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 1
        var items_576 = 2
@@ -94,10 +94,10 @@ var navigation = [
        var items_992 = 4
      }
     }
-    else if(layout_type == "t_1_1_plain"){
+    else if(layout_type == "t_1_1_plain" || layout_type == "t_1_1_album"){
      var no_of_items = 6;
      if(total_item_cnt > 6){
-       auto_loop_status = true
+       // auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 2
        var items_576 = 3
@@ -112,7 +112,7 @@ var navigation = [
       var items_768 = 4
       var items_992 = 5
      if(total_item_cnt > 7){
-      auto_loop_status = true
+      // auto_loop_status = true
       $(".all_items_"+i).show();
      }
     }
@@ -122,11 +122,12 @@ var navigation = [
     margin:10,
     nav:true,
     dots: false,
-    stagePadding: 40,
+    stagePadding: 50,
     navText: navigation,
     responsive:{
       0:{
-          items: items_0
+          items: items_0,
+          stagePadding: 40
       },
       576:{
           items: items_576

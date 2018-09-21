@@ -28,7 +28,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
 
     #config.cache_store = :dalli_store
-    config.cache_store = :dalli_store, '127.0.0.1:11211'
+    #config.cache_store = :dalli_store, '127.0.0.1:11211'
 
   end
 
@@ -66,7 +66,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   API_SERVER = "http://18.210.75.7:3000"
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
-  CACHE_EXPIRY_TIME = 60.seconds
+  CACHE_EXPIRY_TIME = 1.seconds
   PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"
 
 end

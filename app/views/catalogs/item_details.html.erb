@@ -9,7 +9,7 @@
         <h2 class="margin-bottom-15"><%=@item_details['title']%></h2>
         <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
           <li><%=@item_details['genres'].join(",").capitalize%></li>
-          <li><%=@item_details['language']%></li>
+          <li><%=@item_details['language'].capitalize%></li>
           <li><%=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
           <li>UA</li>
           <li><%=@item_details['duration_string']%></li>
@@ -37,7 +37,7 @@
         <p class="margin-bottom-20"><%=@item_details['description'][0..250]%></p>
         <p class="margin-bottom-20">
           <b>Starring:</b><br>
-          <%=@item_details['star_cast'].join(",")%>sampletest
+          <%=@item_details['star_cast'].join(",")%>
         </p>
         <p>
           <b>Directed By:</b><br>
@@ -103,15 +103,23 @@
 </div>
 
 <script type="text/javascript">
+$(document).ready(function(){
+
+var navigation = [
+      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
+      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+    ];
     $('#more-comedy-carousel').owlCarousel({
-    loop:true,
+    navText: navigation,
+    loop:false,
     margin:10,
     nav:true,
     dots: false,
-    stagePadding: 40,
+    stagePadding: 50,
     responsive:{
       0:{
-          items:2
+          items:2,
+          stagePadding: 40
       },
       576:{
           items:3
@@ -127,7 +135,7 @@
       }
     }
   });
-  
+  });
 </script> 
 
 </script>

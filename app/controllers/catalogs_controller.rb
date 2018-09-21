@@ -56,13 +56,13 @@ class CatalogsController < ApplicationController
 
   def episode_details
      begin
-      response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}", expires_in: CACHE_EXPIRY_TIME){
-       Ott.get_episode_details(params[:catalog_name],params[:show_name],params[:item_name])
-      }
-      @epsiode_details = response["data"]
-      url = sign_smarturl response["data"]['play_url']['saranyu']['url']
-      @play_url = url['playback_urls'][0]["playback_url"]
-      @new_play_url,@key =  encrypt_play_url(@play_url)
+      # response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}", expires_in: CACHE_EXPIRY_TIME){
+      #  Ott.get_episode_details(params[:catalog_name],params[:show_name],params[:item_name])
+      # }
+      # @epsiode_details = response["data"]
+      # url = sign_smarturl response["data"]['play_url']['saranyu']['url']
+      # @play_url = url['playback_urls'][0]["playback_url"]
+      # @new_play_url,@key =  encrypt_play_url(@play_url)
     rescue
      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}")
      @epsiode_details = []
