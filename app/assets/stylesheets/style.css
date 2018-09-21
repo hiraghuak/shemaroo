@@ -416,7 +416,7 @@ div.scrollmenu a:last-child.active {
 .full-width-content {
   max-width: 100%;
   /*min-height: 800px;*/
-  padding-bottom: 10px;
+  padding-bottom: 11px;
   padding-left: 96px;
   padding-top: 30px;
 }
@@ -1429,6 +1429,10 @@ span.premium-txt {
   }
   .plans-page ul.list-none li {
     padding: 0px 9px;
+  }
+  .login-wrap {
+    padding: 0px 15px;
+    padding-top: 155px;
   }
 }
 @media(max-width: 359px) {
