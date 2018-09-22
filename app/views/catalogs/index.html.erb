@@ -4,9 +4,9 @@
       <div id="banner-carousel" class="owl-carousel owl-theme">
         <%@home_list[0]['catalog_list_items'].each do |h|%>
           <div class="item">
-            <a href="<%=get_item_url(h)%>">
-            <img src="/assets/big_play.svg" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <a href="<%=get_item_url(h)%>">            
             <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <!-- <img src="/assets/big_play.svg" alt="<%#=h['title']%>" title="<%#=h['title']%>"> -->
             </a>
           </div>
         <%end%>           

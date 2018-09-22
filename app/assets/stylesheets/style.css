@@ -402,13 +402,21 @@ div.scrollmenu a:last-child.active {
 #banner-carousel.owl-carousel .owl-nav button.owl-next {
   right: 1.5%;
 }
-#banner-carousel.owl-carousel .item .fa-play-circle-o, #banner-carousel.owl-carousel .item img:first-child {
+#banner-carousel.owl-carousel .item .fa-play-circle-o, #banner-carousel.owl-carousel .item img:nth-child(2) {
   color: #fff;
   font-size: 3.5em;
   left: 48%;
   position: absolute;
   top: 44%;
   width: 48px;
+}
+.owl-carousel .owl-item .item a {
+  pointer-events: none;
+  cursor: default;
+}
+.owl-carousel .owl-item.active .item a {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /* Main slider design ends */

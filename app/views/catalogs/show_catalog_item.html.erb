@@ -5,8 +5,8 @@
        <%@items_list[0]['catalog_list_items'].each do |i|%>
           <div class="item">
             <a href="javascript:;">
-              <img src="/assets/big_play.svg" alt="" title="">
               <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+              <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
             </a>
           </div> 
         <%end%>         
@@ -14,7 +14,7 @@
     </div>
   </div>
 </section>
-<section class="full-width-content light home-page top-bg-gradient">
+<section class="full-width-content light home-page">
   <%@catalog_items.each_with_index do |list,index|%>
     <%unless list['catalog_list_items'].empty?%>
       <div class="row">
