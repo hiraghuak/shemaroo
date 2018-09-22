@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
  ##PLANS PAGES ROUTES STARTS HERE####
   get '/plans' => 'plans#all_plans'
+  get '/plans_summary' => 'plans#plans_summary'
  ##PLANS PAGES ROUTES ENDS HERE####
 
  ##CATALOGS PAGES ROUTES STARTS HERE####

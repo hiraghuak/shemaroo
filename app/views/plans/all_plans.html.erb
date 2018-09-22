@@ -4,7 +4,7 @@
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
     <h2>Modify Plans</h2>
     <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
-    <ul class="list-none margin-right-0">
+    <ul class="list-none margin-right-0 packs_lists">
       <li class="text-uppercase gradient1">all</li>
       <li class="text-uppercase">includes all<br>the categories</li>
       <%all_pack["plans"].each do |aa|%>
@@ -24,7 +24,7 @@
       <div class="plans_box all_categories block">
         <div class="card">
           <div class="card-body">
-            <ul class="list-none padding-left-0 margin-bottom-0">
+            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
               <li>
                 <h5 class="gradient1">All Categories</h5>
                 <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
@@ -50,7 +50,7 @@
       <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
         <div class="card">
           <div class="card-body">
-            <ul class="list-none padding-left-0 margin-bottom-0" id="packs_lists">
+            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
               <li>
                 <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
                 <p><%=plan['category']%></p>
@@ -84,11 +84,12 @@
 <section class="plans_footer"> 
 <div class="inside-container">
   <div class="pull-left">
-    <p class="text-uppercase margin-bottom-0">1 plans selected</p>  
-    <span class="amount" data-prive-val=""></span>
+    <p class="text-uppercase margin-bottom-0"><span id="plans_count"></span> plan(s) selected</p>  
+    <span id="currnecy" class="currnecy" data-prive-val=""></span>
+    <span id="amount" class="amount" data-prive-val=""></span>
   </div>
   <div class="pull-right light">
-    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>  
+    <a href="/plans_summary" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>  
   </div>
 </div>  
 </section>
@@ -133,9 +134,9 @@
 
     $(".plans_footer").show();
 
-    var selected_price = $(this).find(".price").text();
-    $(".plans_footer span.amount").text(selected_price);
-    $(".plans_footer span.amount").attr("data-prive-val",selected_price);
+    // var selected_price = $(this).find(".price").text();
+    // $(".plans_footer span.amount").text(selected_price);
+    // $(".plans_footer span.amount").attr("data-prive-val",selected_price);
   });
 
   $(".fa-chevron-down").click(function() {
@@ -146,15 +147,26 @@
 $(document).ready(function(){
 $(".choose_plan").click(function(){
   localStorage.removeItem("plan");
-  var plan_det =  $(this).attr("id");
-  localStorage.setItem("plan",plan_det);
+  // var plan_det =  $(this).attr("id");
+  // localStorage.setItem("plan",plan_det);
+  parr = []
+  var amount = 0
   $('li').each(function(i){
-    if($(this).is('#packs_lists li.active')) {
+    if($(this).is('.packs_lists li.active')) {
+      var pid = $(this).attr("id")
+      parr.push(pid);
+      amount = amount+parseFloat(pid.split("|")[2])
+      currnecy = pid.split("|")[3]
      console.log($(this).attr("id"));
     }
 });
-  // console.log("plans details");
-  // console.log(localStorage.getItem("plan"))
+   
+   $("#plans_count").text(parr.length);
+   $("#currnecy").text(currnecy);
+   $("#amount").text(amount.toFixed(2));
+   localStorage.setItem("plan",parr);
+  console.log("plans details");
+  console.log(localStorage.getItem("plan"))
 })
 });
 
