@@ -59,7 +59,7 @@
       <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
         <div class="card">
           <div class="card-body">
-            <ul class="list-none padding-left-0 margin-bottom-0">
+            <ul class="list-none padding-left-0 margin-bottom-0" id="packs_lists">
               <li>
                 <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
                 <p><%=plan['category']%></p>
@@ -113,7 +113,7 @@
   //$('.plans_list_section').css('min-height',window_height+'px');  
 
   $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
-    $(".plans_list_section ul li").removeClass("active");
+    //$(".plans_list_section ul li").removeClass("active");
     $(this).addClass("active");
     var gradient = $(this).siblings("li").find("h5").attr("class");
     if(gradient == "gradient1") {
@@ -162,9 +162,16 @@ $(".choose_plan").click(function(){
   localStorage.removeItem("plan");
   var plan_det =  $(this).attr("id");
   localStorage.setItem("plan",plan_det);
-  console.log("plans details");
-  console.log(localStorage.getItem("plan"))
+  $('li').each(function(i){
+    if($(this).is('#packs_lists li.active')) {
+     console.log($(this).attr("id"));
+    }
+});
+  // console.log("plans details");
+  // console.log(localStorage.getItem("plan"))
 })
+
+
 
 
 </script>       
