@@ -20,9 +20,9 @@ class CatalogsController < ApplicationController
     }
     @items_list = response["data"]["catalog_list_items"]
     @catalog_items = @items_list.drop(1)
-    subscribe_item = response["data"]["catalog_list_items"].collect{|x| x if(x["layout_type"] == "t_subscription")}.compact.first
-    @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
-    @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
+    # subscribe_item = response["data"]["catalog_list_items"].collect{|x| x if(x["layout_type"] == "t_subscription")}.compact.first
+    # @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
+    # @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
    rescue Exception => e
       logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
