@@ -56,7 +56,24 @@ a, a:hover {
 *:focus {
     outline: none;
 }
-
+.input-group>.custom-file .custom-file-input:focus~.custom-file-label, .input-group>.custom-select:focus, .input-group>.form-control:focus {
+  border: 0px;
+  border-bottom: 1px solid #E5E5E5;
+  box-shadow: none;
+  z-index: 0;
+}
+.font-medium {
+  font-family: 'condensed-medium'!important;
+}
+.font-semibold {
+  font-family: 'condensed-semibold'!important; 
+}
+.font-light {
+  font-family: 'condensed-light'!important; 
+}
+.font-black {
+  font-family: 'condensed-black'!important;
+}
 /* Header Design Starts */
 
 body {
@@ -81,6 +98,13 @@ body {
   margin-left: 25px;
   margin-right: 56px;
   margin-top: 10px;
+  width: 120px;
+}
+.small-header-content .header .main-logo {
+  margin-left: 0px;
+  width: 100%;
+}
+.small-header-content .header .main-logo img {
   width: 120px;
 }
 .header-border {
@@ -418,7 +442,6 @@ div.scrollmenu a:last-child.active {
   pointer-events: auto;
   cursor: pointer;
 }
-
 /* Main slider design ends */
 
 .full-width-content {
@@ -1064,22 +1087,38 @@ span.premium-txt {
 
 .onboarding-contianer {
   margin: 0 auto;
-  max-width: 440px;
+  max-width: 340px;
+}
+.onboarding-box-wrap .tile-box-shadow {
+  background-color: #fff;
 }
 .onboarding-contianer .tile-box-shadow:hover {
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
 }
-.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"], .onboarding-contianer input[type="number"]{
+.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"], .onboarding-contianer input[type="number"] {
   border: 0px;
   border-bottom: 1px solid #E5E5E5;
   border-radius: 0px;
   font-family: 'condensed-light';
   height: calc(2em + 2px);
   margin-bottom: 30px;
-  padding: 5px;
+  padding: 5px 5px 5px 13px;
+}
+.onboarding-contianer .input-group::before {
+  color: #B11A47;
+  content: "\f111";
+  font: normal normal normal 5px/1 FontAwesome;
+  left: 3px;
+  position: absolute;    
+  top: 9px;
+  z-index: 1;  
+}
+.onboarding-contianer .custom-controls-stacked::before {
+  content: "";
+  position: static;
 }
 .onboarding-contianer a, .onboarding-contianer span {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 .onboarding-contianer span {
   color: #666;
@@ -1087,12 +1126,23 @@ span.premium-txt {
 .onboarding-contianer .input-group {
   position: relative;
 }
+.custom-control {
+  padding-left: 1.875rem;
+}
+.back_arrow {
+  margin-right: 5px;
+  width: 22px;
+}
+/*.onboarding-contianer .custom-control span a {
+  font-size: 1em;
+}*/
 .onboarding-contianer .input-group img.show_password {
   cursor: pointer;
   position: absolute;
   right: 3px;
   top: 15px;
   width: 16px;
+  z-index: 1;
 }
 .onboarding-contianer .input-group.hide_password::after { 
   color: #ababab;
@@ -1119,6 +1169,13 @@ span.premium-txt {
   display: block;
   padding: 10px 15px;
   border-radius: 30px;
+}
+.onboarding-bg {
+  background-color: #F2F2F2;
+}
+.custom-control span.overflow-control-description {
+  float: left;
+  margin-top: 3px;
 }
 /* Login page design ends */
 
@@ -1248,7 +1305,11 @@ span.premium-txt {
   a.see-more {
     margin-right: 10px;
     margin-top: 5px;
-   }
+  }
+  /*.onboarding-box-wrap {
+    padding: 0px 15px;
+    padding-top: 155px;
+  }*/  
 }
 @media(max-width: 1150px) {
   .plans-page ul, .plans-page ul.margin-right-0  {
@@ -1437,11 +1498,8 @@ span.premium-txt {
   }
   .plans-page ul.list-none li {
     padding: 0px 9px;
-  }
-  .login-wrap {
-    padding: 0px 15px;
-    padding-top: 155px;
-  }
+  }  
+  
 }
 @media(max-width: 359px) {
   .footer-section {
@@ -1468,6 +1526,10 @@ span.premium-txt {
   }
   #banner-carousel.owl-theme .owl-nav {
     top: 8%;
+  }
+  .onboarding-box-wrap {
+    padding: 0px 15px;
+    padding-top: 155px;
   }
 }
 
