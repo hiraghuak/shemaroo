@@ -6,7 +6,8 @@ class CatalogsController < ApplicationController
      }
   	 @home_list = response["data"]["catalog_list_items"]
   	 @items = @home_list.drop(1)
-  	rescue
+  	rescue Exception => e
+      logger.info e.message
   	 Rails.cache.delete("home_page_list")
   	 @home_list = []
     end 
@@ -19,7 +20,8 @@ class CatalogsController < ApplicationController
     }
     @items_list = response["data"]["catalog_list_items"]
     @catalog_items = @items_list.drop(2)
-   rescue
+   rescue Exception => e
+      logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
      @items_list = []
     end
@@ -33,7 +35,8 @@ class CatalogsController < ApplicationController
       @all_items = response["data"]["catalog_list_items"]
       @layout_type =  response["data"]["layout_type"]
       @title = response["data"]["display_title"] 
-    rescue
+    rescue Exception => e
+      logger.info e.message
      Rails.cache.delete("all_items_list_#{params[:catalog_name]}")
      @all_items = []
     end
@@ -41,29 +44,49 @@ class CatalogsController < ApplicationController
 
   def item_details
      begin
-      item_response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:item_name]}", expires_in: CACHE_EXPIRY_TIME){
-       Ott.get_items_details(params[:catalog_name],params[:item_name])
-      }
-      @item_details = item_response["data"]
-      url = sign_smarturl item_response["data"]['play_url']['saranyu']['url']
-      @play_url = url['playback_urls'][0]["playback_url"]
-      @new_play_url,@key =  encrypt_play_url(@play_url)
-    rescue
-     Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:item_name]}")
-     @details = []
+       item_response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_items_details(params[:catalog_name],params[:show_name])
+        }
+      if item_response["data"].has_key?("episode_flag")
+        @episode_details = item_response["data"]
+        @image_url = @episode_details["thumbnails"]['large_16_9']['url']
+        tvshow_response =  Rails.cache.fetch("all_epsiodes_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
+        }
+        @all_episodes = tvshow_response["data"]["items"]
+        render "episode_details"
+      else
+        @item_details = item_response["data"]
+        url = sign_smarturl item_response["data"]['play_url']['saranyu']['url']
+        @play_url = url['playback_urls'][0]["playback_url"]
+        @new_play_url,@key =  encrypt_play_url(@play_url)
+        more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_items_genre(params[:catalog_name],params[:show_name],@item_details['genres'][0])
+       }
+       #@genere_items = more_item_response["data"]["items"]
+      end
+    rescue Exception => e
+      logger.info e.message
+      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
+      @item_details = []
     end
   end
 
   def episode_details
      begin
-      # response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}", expires_in: CACHE_EXPIRY_TIME){
-      #  Ott.get_episode_details(params[:catalog_name],params[:show_name],params[:item_name])
-      # }
-      # @epsiode_details = response["data"]
-      # url = sign_smarturl response["data"]['play_url']['saranyu']['url']
-      # @play_url = url['playback_urls'][0]["playback_url"]
-      # @new_play_url,@key =  encrypt_play_url(@play_url)
-    rescue
+      response = Rails.cache.fetch("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}", expires_in: CACHE_EXPIRY_TIME){
+       Ott.get_episode_details(params[:catalog_name],params[:show_name],params[:item_name])
+      }
+      @episode_details = response["data"]
+      url = sign_smarturl response["data"]['play_url']['saranyu']['url']
+      @play_url = url['playback_urls'][0]["playback_url"]
+      @new_play_url,@key =  encrypt_play_url(@play_url)
+      tvshow_response =  Rails.cache.fetch("all_epsiodes_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
+        }
+      @all_episodes = tvshow_response["data"]["items"]
+    rescue Exception => e
+      logger.info e.message
      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}")
      @epsiode_details = []
     end
@@ -72,7 +95,12 @@ class CatalogsController < ApplicationController
 
 
 
+
 private
+
+  def get_all_catalogs
+   response = Ott.get_all_catalogs
+  end
 
   def encrypt_play_url(url)
     new_url = ""

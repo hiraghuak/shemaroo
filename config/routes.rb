@@ -27,10 +27,17 @@ Rails.application.routes.draw do
  get "/plans" => "plans#index"
  ##PLANS PAGES ROUTES STARTS HERE####
 
+
+ ###SEARCH ROUTES STARTS HERE#################
+ get "/search" => "search#index"
+
+ ###SEARCH ROUTES ENDS HERE#################
+
+
  ##CATALOGS PAGES ROUTES STARTS HERE####
  get "/:catalog_name" => "catalogs#show_catalog_item"
  get "/:catalog_name/all" => "catalogs#all_items_list"
- get "/:catalog_name/:item_name" => "catalogs#item_details"
+ get "/:catalog_name/:show_name" => "catalogs#item_details"
  get "/:catalog_name/:show_name/:item_name" => "catalogs#episode_details"
  ##CATALOGS PAGES ROUTES ENDS HERE####
 

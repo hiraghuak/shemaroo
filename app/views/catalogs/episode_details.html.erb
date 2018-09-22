@@ -6,14 +6,13 @@
 	    <img src="/assets/carousel/placeholder11.png" class="img-fluid" alt="" title="">
 	  </div>
 	  <div class="player_desc_section">
-	    <h2 class="margin-bottom-15">Neelkamal</h2>
+	    <h2 class="margin-bottom-15"><%=@episode_details['title']%></h2>
 	    <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
-	      <li>Thriller</li>
-	      <li>Hindi</li>
-	      <li>1984</li>
-	      <li>UA</li>
-	      <li>02h : 16m : 05s</li>
-	    </ul>
+	      <li><%=@episode_details['genres'][0].capitalize%></li>
+	      <li><%=@episode_details['language'].capitalize%></li>
+          <li><%=@episode_details['release_date']%></li>
+          <li><%=(@all_episodes.count.to_s+ " Episodes") if (@all_episodes.count > 0)%></li>
+        </ul>
 	    <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
 	      <li class="text-uppercase text-center">
 	        <a href="javascript:;">
@@ -34,7 +33,7 @@
 	        </a>
 	      </li>
 	    </ul>
-	    <p class="margin-bottom-20">If there is a show that has redefined Television in India, it is undoubtedly and unquestionaly Yeh jo If there is a show that has redefined Television in India, it is undoubtedly and unquestionaly Yeh jo If there is a show that has redefined Television in India, it is undoubtedly</p>
+	    <p class="margin-bottom-20"><%=@episode_details['short_description']%></p>
 	    <p class="margin-bottom-20">
 	      <b>Starring:</b><br>
 	      Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar
@@ -47,43 +46,119 @@
 	</div>  
   </div>
 	<div class="row">
-	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-5">
-	  <h2 class="margin-bottom-15 text-capitalize" style="width: 100%;">All Episodes</h2>
-	  <div class="row row-show-list detail_page">
-	    <div class="item">                                                              
-	      <a href="javascript:;">
-	        <img src="/assets/big_play.svg" alt="" title="">
-	        <img src="/assets/carousel/placeholder11.png" alt="" title="">
-	        <span class="list-tile-title">The Nil Institute</span>
-	        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;22m</span>
-	      </a>
-	    </div>
-	    <div class="item">                                            
-	      <a href="javascript:;">
-	        <img src="/assets/big_play.svg" alt="" title="">
-	        <img src="/assets/carousel/placeholder11.png" alt="" title="">
-	        <span class="list-tile-title">The Nil Institute</span>
-	        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;22m</span>
-	      </a>
-	    </div>
-	    <div class="item">                                            
-	      <a href="javascript:;">
-	        <img src="/assets/big_play.svg" alt="" title="">
-	        <img src="/assets/carousel/placeholder11.png" alt="" title="">
-	        <span class="list-tile-title">The Nil Institute</span>
-	        <span class="list-tile-duration">E 001 | 22m</span>
-	      </a>
-	    </div>
-	    <div class="item">                                            
-	      <a href="javascript:;">
-	        <img src="/assets/big_play.svg" alt="" title="">
-	        <img src="/assets/carousel/placeholder11.png" alt="" title="">
-	        <span class="list-tile-title">The Nil Institute</span>
-	        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;22m</span>
-	      </a>
-	    </div>
-              
-	  </div>          
-	</div>                
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
+		  <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
+		  <div class="row row-show-list detail_page">
+		   <%@all_episodes.each do |e|%>
+		    <div class="item">                                                              
+		      <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
+		        <img src="/assets/big_play.svg" alt="" title="">
+		        <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
+		        <span class="list-tile-title"><%=e['title']%></span>
+		        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;<%=e['duration_string']%></span>
+		      </a>
+		    </div>  
+		   <%end%>    
+		  </div>   
+		  <div class="text-center margin-bottom-25 margin-top-20">
+			<a href="javascript:;" class="inline-block radius-button black-button text-uppercase">Load more</a>
+		  </div>         
+		</div>                
 	</div>
-</section>
+	</section>
+  <div class="contianer-fluid">
+  <div class="detail-page-bottom-section-bg">
+    <section class="full-width-content padding-top-30 padding-bottom-10">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+          <h2 class="margin-bottom-15 pull-left">Other Classic Shows</h2>
+          <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+        </div>
+      </div>
+      
+      <div id="other-shows-carousel" class="owl-carousel owl-theme">
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>   
+        <div class="item">
+          <a href="javascript:;">
+            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
+            <span class="list-tile-title">Zabaan Sambhalke</span>
+          </a>
+        </div>              
+      </div>              
+    </section>
+  </div>  
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var navigation = [
+      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
+      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+    ];
+ $('#other-shows-carousel').owlCarousel({
+ 	  navText: navigation,
+    loop:false,
+    margin:10,
+    nav:true,
+    dots: false,
+    stagePadding: 50,
+    responsive:{
+      0:{
+          items:2,
+          stagePadding: 40,
+      },
+      576:{
+          items:3
+      },
+      768:{
+          items:4
+      },
+      1200:{
+          items:5
+      }
+    }
+  });
+});
+  
+</script> 

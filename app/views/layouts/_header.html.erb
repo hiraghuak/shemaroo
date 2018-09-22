@@ -22,7 +22,7 @@
     <div class="head-right pull-right">
       <ul>
         <li>
-          <img src="/assets/search.svg" alt="" title="">
+          <a href="/search"><img src="/assets/search.svg" alt="search" title="search"></a>
         </li>
         <li class="d-none d-xl-block">
           <img src="/assets/tv_wo_highlight.svg" alt="" title="">
@@ -129,10 +129,11 @@
 </section>
 <script type="text/javascript">
 $(document).ready(function(){
+  if($('ul.nav').find('li a.active').attr('id') != undefined){
   var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
+  $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
 
- $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
+  }
 })
-
 
 </script>

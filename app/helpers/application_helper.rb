@@ -39,20 +39,20 @@ module ApplicationHelper
  end
 
 	def get_item_url(i)
-		begin
+		#begin
 			url  = ""
-			if i["subcategory_flag"] == "yes"
-			 url = "#"
-      elsif i["subcategory_flag"] == "no"
-        if i.has_key?("last_episode")
-          url = "/#{i['catalog_object']['friendly_id']}/#{i['last_episode']['show_object']['friendly_id']}/#{i['friendly_id']}"
+      if i["theme"] == "show" && i["subcategory_flag"] == "no"
+        if i.has_key?("last_episode") && !i['last_episode'].blank?
+          url = "/#{i['catalog_object']['friendly_id']}/#{i['last_episode']['show_object']['friendly_id']}"
+        else
+          url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
         end
 			else
 			 url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
 			end
-		rescue
-		 url = "#"
-		end
+		# rescue
+		#  url = "/111"
+		# end
 	return url
 	end
 
