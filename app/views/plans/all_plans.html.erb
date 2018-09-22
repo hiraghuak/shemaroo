@@ -1,18 +1,9 @@
-
-
-
 <%all_pack = @all_plans.last["catalog_list_items"].last%>
 <section class="full-width-content light">
 <div class="row"><!-- Continue Watching starts -->
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
     <h2>Modify Plans</h2>
     <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
-   <!--  <ul class="list-none">
-      <li class="text-uppercase gradient5">Any 2</li>
-      <li class="text-uppercase">Choice of any<br>2 categories</li>
-      <li class="text-uppercase"></i><span>699</span><br>yearly</li>
-      <li class="text-uppercase"></i><span>69</span><br>monthly</li>
-    </ul> -->
     <ul class="list-none margin-right-0">
       <li class="text-uppercase gradient1">all</li>
       <li class="text-uppercase">includes all<br>the categories</li>
@@ -97,15 +88,10 @@
     <span class="amount" data-prive-val=""></span>
   </div>
   <div class="pull-right light">
-    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>  
+    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" onclick="proceedPlan()">Proceed</a>  
   </div>
 </div>  
 </section>
-        <!-- <div class="padding-left-0 padding-right-0 text-center light">
-          <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-bottom-15 margin-top-15 gradient1">confirm your modifications</a>  
-        </div> -->
-        
-
   
 <script>
   var window_height = window.outerHeight;
@@ -157,7 +143,7 @@
     $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
   })
 
-
+$(document).ready(function(){
 $(".choose_plan").click(function(){
   localStorage.removeItem("plan");
   var plan_det =  $(this).attr("id");
@@ -165,6 +151,10 @@ $(".choose_plan").click(function(){
   console.log("plans details");
   console.log(localStorage.getItem("plan"))
 })
+});
 
-
+function proceedPlan() {
+  
+  
+}
 </script>       
