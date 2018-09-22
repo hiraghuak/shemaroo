@@ -1,156 +1,111 @@
-<!DOCTYPE html>
-<!--[if IE 6]>
-<html id="ie6" lang="en-US">
-<![endif]-->
-<!--[if IE 7]>
-<html id="ie7" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html id="ie8" lang="en-US">
-<![endif]-->
-<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html lang=en>
-<head>
-<meta charset="UTF-8" />
-<title>Shemaroo</title>
-<meta name="ctest" content="ctest" /
-><link href="/assets/images/favic.ico" rel="shortcut icon" />    
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
-
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="assets/css/bootstrap4.1.3.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
-<link rel="stylesheet" type="text/css" href="assets/css/owl-carousel-default.css">
-<link rel="stylesheet" type="text/css" href="assets/css/common.css">
-<link rel="stylesheet" type="text/css" href="assets/css/gradient.css">
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-<!-- jQuery library -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/poper1.14.3.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="assets/js/bootstrap.min.js"></script>
 
 
-</head>
-<body>
-  <div class="wrapper">
-    <!-- <div class="row"> -->
-      <div class="container">
-        <div class="inside-wrapper">
-                                <%all_pack = @all_plans.last["catalog_list_items"].last%>
-        <section class="full-width-content light">
-          <div class="row"><!-- Continue Watching starts -->
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
-              <h2>Modify Plans</h2>
-              <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
-             <!--  <ul class="list-none">
-                <li class="text-uppercase gradient5">Any 2</li>
-                <li class="text-uppercase">Choice of any<br>2 categories</li>
-                <li class="text-uppercase"></i><span>699</span><br>yearly</li>
-                <li class="text-uppercase"></i><span>69</span><br>monthly</li>
-              </ul> -->
-              <ul class="list-none margin-right-0">
-                <li class="text-uppercase gradient1">all</li>
-                <li class="text-uppercase">includes all<br>the categories</li>
-                <%all_pack["plans"].each do |aa|%>
-                <li class="text-uppercase"></i><span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span><br><%=aa["title"]%></li>
-                <%end%>
-              </ul>
 
-            </div>  
-          </div>
-        </section>
-        <section class="full-width-content light plans_list_section padding-bottom-30">
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-top-25">
-              <h2>Choose your plan</h2>
-              <p class="sub-title">Planthat provide access to all categories</p>
-              <div class="row1">
-                <div class="plans_box all_categories block">
-                  <div class="card">
-                    <div class="card-body">
-                      <ul class="list-none padding-left-0 margin-bottom-0">
-                        <li>
-                          <h5 class="gradient1">All Categories</h5>
-                          <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
-                        </li>
-                        <%all_pack["plans"].each do |aa|%>
-                        <li class="text-center">
-                          <span class="text-uppercase block"><%=aa["title"]%></span>
-                          <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
-                          <span class="block"><%=aa["price"]%></span>
-                        </li>
-                        <%end%>
-                      </ul>
-                      <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </p>
-                    </div>
-                  </div>    
-                </div>
-              </div>
-              <p class="margin-bottom-10 margin-top-25">Individual Category Plans</p>
-              <div class="row1">
-              <%@all_plans[0..-3].each_with_index do  |plan,i|%>
-                <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
-                  <div class="card">
-                    <div class="card-body">
-                      <ul class="list-none padding-left-0 margin-bottom-0">
-                        <li>
-                          <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
-                          <p><%=plan['category']%></p>
-                          <div class="plan_list_show">
-                            <% plan["pack_details"].each do |d|%>
-                             <p><%=d["info"]%>:&nbsp;<%=d["value"]%></p>
-                             <%end%>
-                           </div>
-                        </li>
-                        <%unless plan["plans"].blank?%>
-                        <%plan["plans"].each do |p|%>
-                        <li class="text-center">
-                          <span class="text-uppercase block"><%=p["title"]%></span>
-                          <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
-                          <span class="block"><%=p["price"]%></span>
-                        </li>
-                        <%end%>
-                        <%end%>
-                      </ul>
-                      <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </p>
-                    </div>
-                  </div>    
-                </div>
+<%all_pack = @all_plans.last["catalog_list_items"].last%>
+<section class="full-width-content light">
+<div class="row"><!-- Continue Watching starts -->
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
+    <h2>Modify Plans</h2>
+    <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
+   <!--  <ul class="list-none">
+      <li class="text-uppercase gradient5">Any 2</li>
+      <li class="text-uppercase">Choice of any<br>2 categories</li>
+      <li class="text-uppercase"></i><span>699</span><br>yearly</li>
+      <li class="text-uppercase"></i><span>69</span><br>monthly</li>
+    </ul> -->
+    <ul class="list-none margin-right-0">
+      <li class="text-uppercase gradient1">all</li>
+      <li class="text-uppercase">includes all<br>the categories</li>
+      <%all_pack["plans"].each do |aa|%>
+      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]%>"></i><span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span><br><%=aa["title"]%></li>
+      <%end%>
+    </ul>
+
+  </div>  
+</div>
+</section>
+<section class="full-width-content light plans_list_section padding-bottom-30">
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-top-25">
+    <h2>Choose your plan</h2>
+    <p class="sub-title">Planthat provide access to all categories</p>
+    <div class="row1">
+      <div class="plans_box all_categories block">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-none padding-left-0 margin-bottom-0">
+              <li>
+                <h5 class="gradient1">All Categories</h5>
+                <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
+              </li>
+              <%all_pack["plans"].each do |aa|%>
+              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]%>">
+                <span class="text-uppercase block"><%=aa["title"]%></span>
+                <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+                <span class="block"><%=aa["price"]%></span>
+              </li>
               <%end%>
-              </div>              
-            </div>
+            </ul>
+            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </p>
           </div>
-        </section>
-        <section class="plans_footer"> 
-          <div class="inside-container">
-            <div class="pull-left">
-              <p class="text-uppercase margin-bottom-0">1 plans selected</p>  
-              <span class="amount" data-prive-val=""></span>
-            </div>
-            <div class="pull-right light">
-              <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>  
-            </div>
-          </div>  
-        </section>
+        </div>    
+      </div>
+    </div>
+    <p class="margin-bottom-10 margin-top-25">Individual Category Plans</p>
+    <div class="row1">
+    <%@all_plans[0..-3].each_with_index do  |plan,i|%>
+      <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-none padding-left-0 margin-bottom-0">
+              <li>
+                <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
+                <p><%=plan['category']%></p>
+                <div class="plan_list_show">
+                  <% plan["pack_details"].each do |d|%>
+                   <p><%=d["info"]%>:&nbsp;<%=d["value"]%></p>
+                   <%end%>
+                 </div>
+              </li>
+              <%unless plan["plans"].blank?%>
+              <%plan["plans"].each do |p|%>
+              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]%>">
+                <span class="text-uppercase block"><%=p["title"]%></span>
+                <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
+                <span class="block"><%=p["price"]%></span>
+              </li>
+              <%end%>
+              <%end%>
+            </ul>
+            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </p>
+          </div>
+        </div>    
+      </div>
+    <%end%>
+    </div>              
+  </div>
+</div>
+</section>
+<section class="plans_footer"> 
+<div class="inside-container">
+  <div class="pull-left">
+    <p class="text-uppercase margin-bottom-0">1 plans selected</p>  
+    <span class="amount" data-prive-val=""></span>
+  </div>
+  <div class="pull-right light">
+    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>  
+  </div>
+</div>  
+</section>
         <!-- <div class="padding-left-0 padding-right-0 text-center light">
           <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-bottom-15 margin-top-15 gradient1">confirm your modifications</a>  
         </div> -->
         
 
-      </div>      
-    </div>
-    <!-- </div> -->
-  </div>
   
 <script>
   var window_height = window.outerHeight;
@@ -202,7 +157,14 @@
     $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
   })
 
+
+$(".choose_plan").click(function(){
+  localStorage.removeItem("plan");
+  var plan_det =  $(this).attr("id");
+  localStorage.setItem("plan",plan_det);
+  console.log("plans details");
+  console.log(localStorage.getItem("plan"))
+})
+
+
 </script>       
-<!-- <script src="assets/js/script.js"></script> -->
-</body>
-</html>
