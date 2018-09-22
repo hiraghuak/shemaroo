@@ -70,69 +70,33 @@
   	</div>
   <%end%>
 	</section>
-  <div class="contianer-fluid">
-  <div class="detail-page-bottom-section-bg">
-    <section class="full-width-content padding-top-30 padding-bottom-10">
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-          <h2 class="margin-bottom-15 pull-left">Other Classic Shows</h2>
-          <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+  <%unless @other_items.empty?%>
+    <div class="contianer-fluid">
+    <div class="detail-page-bottom-section-bg">
+      <section class="full-width-content padding-top-30 padding-bottom-10">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+            <h2 class="margin-bottom-15 pull-left">Other tvshows<%#=@episode_details["catalog_object"]["layout_type"]%></h2>
+            <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+          </div>
         </div>
-      </div>
-      
-      <div id="other-shows-carousel" class="owl-carousel owl-theme">
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
-        </div>   
-        <div class="item">
-          <a href="javascript:;">
-            <img src="/assets/carousel/placeholder2.jpg" alt="" title="">
-            <span class="list-tile-title">Zabaan Sambhalke</span>
-          </a>
+        
+        <div id="other-shows-carousel" class="owl-carousel owl-theme">
+         <%@other_items.each do |t|%>
+         <%if t["thumbnails"].has_key?("small_16_9")%>
+            <div class="item">
+              <a href="<%=get_item_url(t)%>">
+                <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
+                <span class="list-tile-title"><%=t['title']%></span>
+              </a>
+            </div> 
+          <%end%>
+          <%end%>            
         </div>              
-      </div>              
-    </section>
-  </div>  
-</div>
+      </section>
+    </div>  
+  </div>
+  <%end%>
 
 <script type="text/javascript">
 $(document).ready(function(){

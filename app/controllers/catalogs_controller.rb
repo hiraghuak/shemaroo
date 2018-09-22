@@ -57,6 +57,10 @@ class CatalogsController < ApplicationController
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
         }
         @all_episodes = tvshow_response["data"]["items"]
+        catalog_response = Rails.cache.fetch("more_details_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_catalog_details(params[:catalog_name])
+        }
+        @other_items = catalog_response["data"]["items"]
         render "episode_details"
       else
         @item_details = item_response["data"]
@@ -88,6 +92,7 @@ class CatalogsController < ApplicationController
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
         }
       @all_episodes = tvshow_response["data"]["items"]
+      @other_items = []
     rescue Exception => e
       logger.info e.message
      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}")
