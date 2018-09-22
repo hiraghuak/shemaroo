@@ -3,7 +3,7 @@
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
 	  <div class="player_section">
 	    <img src="/assets/big_play.svg" alt="" title="">
-	    <img src="/assets/carousel/placeholder11.png" class="img-fluid" alt="" title="">
+	    <img src="<%=@episode_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="" title="">
 	  </div>
 	  <div class="player_desc_section">
 	    <h2 class="margin-bottom-15"><%=@episode_details['title']%></h2>
@@ -45,26 +45,30 @@
 	  </div>  
 	</div>  
   </div>
-	<div class="row">
-		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
-		  <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
-		  <div class="row row-show-list detail_page">
-		   <%@all_episodes.each do |e|%>
-		    <div class="item">                                                              
-		      <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
-		        <img src="/assets/big_play.svg" alt="" title="">
-		        <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
-		        <span class="list-tile-title"><%=e['title']%></span>
-		        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;<%=e['duration_string']%></span>
-		      </a>
-		    </div>  
-		   <%end%>    
-		  </div>   
-		  <div class="text-center margin-bottom-25 margin-top-20">
-			<a href="javascript:;" class="inline-block radius-button black-button text-uppercase">Load more</a>
-		  </div>         
-		</div>                
-	</div>
+  <%if @all_episodes.count > 0 %>
+  	<div class="row">
+  		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
+  		  <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
+  		  <div class="row row-show-list detail_page">
+  		   <%@all_episodes.each do |e|%>
+  		    <div class="item">                                                              
+  		      <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
+  		        <img src="/assets/big_play.svg" alt="" title="">
+  		        <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
+  		        <span class="list-tile-title"><%=e['title']%></span>
+  		        <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;<%=e['duration_string']%></span>
+  		      </a>
+  		    </div>  
+  		   <%end%>    
+  		  </div>  
+        <%if @all_episodes.count > 10%> 
+    		  <div class="text-center margin-bottom-25 margin-top-20">
+    			<a href="javascript:;" class="inline-block radius-button black-button text-uppercase">Load more</a>
+    		  </div> 
+        <%end%>       
+  		</div>                
+  	</div>
+  <%end%>
 	</section>
   <div class="contianer-fluid">
   <div class="detail-page-bottom-section-bg">

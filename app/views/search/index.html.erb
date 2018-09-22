@@ -1,8 +1,18 @@
 <section class="full-width-content inside-container light padding-top-30">
 	<div class="row"><!-- Continue Watching starts -->
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- search-page">
-  <input type="search" id="" name="" class="" placeholder="Search for shows, movies, songs...">
-
- </div>
- </div>
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- search-page">
+		<div class="search-box-wrap">
+		<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
+		<img src="assets/cancel_search.svg" alt="cancel search" title="cancel search" style="display:none" class="cancel_search">
+		</div>  
+		</div>
+	</div>
 </section>
+
+<script type="text/javascript">
+  var window_height = window.outerHeight;
+  var window_height = window_height - 231;
+  $('.full-width-content').css('min-height',window_height+'px');
+  
+
+</script>

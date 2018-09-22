@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 before_action :get_home_tabs,:get_region,:check_browser
+protect_from_forgery with: :null_session
 
 
 def get_home_tabs

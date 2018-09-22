@@ -19,7 +19,7 @@ class CatalogsController < ApplicationController
      Ott.get_items_list(params[:catalog_name])
     }
     @items_list = response["data"]["catalog_list_items"]
-    @catalog_items = @items_list.drop(2)
+    @catalog_items = @items_list.drop(1)
    rescue Exception => e
       logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
@@ -63,7 +63,7 @@ class CatalogsController < ApplicationController
         more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_items_genre(params[:catalog_name],params[:show_name],@item_details['genres'][0])
        }
-       #@genere_items = more_item_response["data"]["items"]
+       @genere_items = more_item_response["data"]["items"]
       end
     rescue Exception => e
       logger.info e.message
