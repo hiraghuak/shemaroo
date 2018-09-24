@@ -1,9 +1,9 @@
 <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-      <div class="player_section">
+      <div class="player_section" id="shemaroo_player">
         <img src="/assets/big_play.svg" alt="" title="">
-        <img src="<%=@item_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="" title="">
+        <img src="<%=@item_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="<%=@item_details['title']%>" title="<%=@item_details['title']%>">
       </div>
       <div class="player_desc_section">
         <h2 class="margin-bottom-15"><%=@item_details['title']%></h2>
@@ -105,7 +105,7 @@ var navigation = [
   });
 </script> 
 
-</script>
+
 
 
 
@@ -126,7 +126,7 @@ var navigation = [
 <div class="video-player col-md-12 col-sm-12 col-xs-12">
       <div id="shemaroo_player" class="embed-responsive <%#=@browser_type == "mobile" ?  "embed-responsive-4by3" : ""%>" style="width:800px;height:500px;"> </div>
  </div>
-
+-->
 
 <script type="text/javascript">
 	
@@ -134,5 +134,13 @@ $(".shemaroo_player").empty();
 $(document).ready(function(){
   var params_for_player = "<%=@new_play_url%>|key=<%=@key%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
-        });
-</script> -->
+        })
+</script> 
+
+
+<style>
+#iframe{
+ width: 570px;
+ height: 392px;
+}
+</style>
