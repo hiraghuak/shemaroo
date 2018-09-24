@@ -118,6 +118,11 @@ class CatalogsController < ApplicationController
     @all_genere_items = []
      Rails.cache.delete("all_items_#{params[:catalog_name]}_#{params[:genre]}")
    end
+
+
+   def get_more_episodes
+
+    end
   end
 
 

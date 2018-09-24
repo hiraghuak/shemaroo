@@ -54,6 +54,17 @@ $(document).ready(function(){
 		$(".cancel_search,#search_heading").hide();
 	})
 
+ $("#load_more").click(function() {
+ 	
+ })
+  
+ $(".input-group img.show_password").click(function() {
+      $(this).parent(".input-group").toggleClass("hide_password");
+      $(this).prev().attr('type', function(index, attr){
+        return attr == "password" ? "text" : "password";
+      });
+    });
+
 });
 
 

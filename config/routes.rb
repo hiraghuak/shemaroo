@@ -15,9 +15,12 @@ Rails.application.routes.draw do
  ##USERS PAGES ROUTES STARTS HERE####
  get "/users/my_account" => "users#my_account"
 
- get "/users/register" => "users#sign_up"
+ get "/users/register" => "users#register"
 
- get "/users/login" => "users#sign_in"
+ get "/users/login" => "users#login"
+
+ get "/users/forgot_password" => "users#forgot_password"
+
 
  get "/users/subscriptions" => "users#subscriptions"
 

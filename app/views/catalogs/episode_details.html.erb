@@ -66,11 +66,11 @@ meta title: "#{@episode_details['title']}",
   		    </div>  
   		   <%end%>    
   		  </div>  
-        <%if @all_episodes.count > 10%> 
+        <%#if @all_episodes.count > 10%> 
     		  <div class="text-center margin-bottom-25 margin-top-20">
-    			<a href="javascript:;" class="inline-block radius-button black-button text-uppercase">Load more</a>
+    			<a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
     		  </div> 
-        <%end%>       
+        <%#end%>       
   		</div>                
   	</div>
   <%end%>
