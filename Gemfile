@@ -38,5 +38,6 @@ gem "font-awesome-rails"
 gem 'owlcarousel-rails'
 gem 'typhoeus'
 gem 'dalli'
+gem 'metamagic'
 
 

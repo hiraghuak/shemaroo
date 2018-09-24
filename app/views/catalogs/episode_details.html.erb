@@ -1,3 +1,8 @@
+<%
+meta title: "#{@episode_details['title']}",
+     description: "#{@episode_details['description']}",
+     keywords: "#{@episode_details['keywords']}"
+%>
 <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
 <div class="row">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
@@ -77,7 +82,9 @@
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
             <h2 class="margin-bottom-15 pull-left">Other tvshows<%#=@episode_details["catalog_object"]["layout_type"]%></h2>
-            <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+            <%if @other_items.count > 5 %>
+              <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
+            <%end%>    
           </div>
         </div>
         

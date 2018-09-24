@@ -1,10 +1,21 @@
 <section class="full-width-content inside-container light padding-top-30">
-	<div class="row"><!-- Continue Watching starts -->
+	<div class="row">
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- search-page">
-		<div class="search-box-wrap">
-		<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
-		<img src="assets/cancel_search.svg" alt="cancel search" title="cancel search" style="display:none" class="cancel_search">
-		</div>  
+			<div class="search-box-wrap">
+				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
+				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="display:none"></a>
+			</div> 
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize inline-block"  id="search_heading" style="display:none !important;">Search Result (<span class="search_count"></span>)</h2>
+			<div class="row" id="search_all_results"> 
+			</div>
+		</div>
+		<div class="row" id="recent_search">
+ 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
+				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
+				<ul class="list-group list-group-flush" id="user_recent_search">
+				<li class="list-group-item border-top-0 padding-left-0">You have not searched anything recently!</li>
+				</ul> 
+			</div> 
 		</div>
 	</div>
 </section>
@@ -15,4 +26,20 @@
   $('.full-width-content').css('min-height',window_height+'px');
   
 
+
+
+$(document).ready(function(){
+	var search_item = "<%=params[:search_item].present? ? "true" : "false"%>";
+	if(search_item == "false"){
+	if(getShemarooCookies().recent_search_data){
+    var search_val = $.unique(getShemarooCookies().recent_search_data.split(","));
+    $("#user_recent_search").html("");
+    for(i=0; i < search_val.length;i++){
+    	 $("#user_recent_search").append('<a href="/search/'+search_val[i]+'"><li class="list-group-item padding-left-0">'+search_val[i]+'</li> </a>')
+    }
+
+	}
+
+	}
+})
 </script>

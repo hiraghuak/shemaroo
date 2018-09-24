@@ -68,5 +68,6 @@ Rails.application.configure do
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
   CACHE_EXPIRY_TIME = 1.seconds
   PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"
+  SITE = "http://localhost:3000"
 
 end

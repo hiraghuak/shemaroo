@@ -4,9 +4,9 @@ module ApplicationHelper
  	image_url = ""
    if layout_type == "t_16_9_banner"
    	 image_url = i["thumbnails"]["xl_image_16_5"]["url"]
-   elsif layout_type == "t_2_3_movie" || layout_type == "t_2_3_movie_static" || layout_type == "mobvies"
+   elsif layout_type == "t_2_3_movie" || layout_type == "t_2_3_movie_static" || layout_type == "movies"
    	 image_url = i["thumbnails"]["medium_2_3"]["url"] 
-   elsif layout_type == "t_16_9_big" || layout_type == "t_16_9_epg" || layout_type == "t_1_1_play"
+   elsif layout_type == "t_16_9_big" || layout_type == "t_16_9_epg" || layout_type == "t_1_1_play" || layout_type == "videos"
    	 image_url = i["thumbnails"]["medium_16_9"]["url"] if i["thumbnails"].has_key?("medium_16_9")
    elsif layout_type == "t_16_9_small"  || layout_type == "t_16_9_small_meta" 
       image_url = i["thumbnails"]["small_16_9"]["url"] if i["thumbnails"].has_key?("small_16_9")
@@ -39,7 +39,7 @@ module ApplicationHelper
  end
 
 	def get_item_url(i)
-		#begin
+		begin
 			url  = ""
       if i["theme"] == "show" && i["subcategory_flag"] == "no"
         if i.has_key?("last_episode") && !i['last_episode'].blank?
@@ -50,10 +50,18 @@ module ApplicationHelper
 			else
 			 url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
 			end
-		# rescue
-		#  url = "/111"
-		# end
+		 rescue
+		  url = "/"
+		 end
 	return url
 	end
+
+  def get_meta_details
+   title = "Shemaroo"
+   description = "Shemaroo Entertainmenent"
+   keywords = "Shemaroo"
+   return title,description,keywords
+
+  end
 
 end

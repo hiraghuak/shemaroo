@@ -20,6 +20,8 @@ class CatalogsController < ApplicationController
     }
     @items_list = response["data"]["catalog_list_items"]
     @catalog_items = @items_list.drop(1)
+    @meta_title = response["data"]["display_title"]
+    @meta_keywords = ""
     # subscribe_item = response["data"]["catalog_list_items"].collect{|x| x if(x["layout_type"] == "t_subscription")}.compact.first
     # @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
     # @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
@@ -60,9 +62,11 @@ class CatalogsController < ApplicationController
         catalog_response = Rails.cache.fetch("more_details_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_catalog_details(params[:catalog_name])
         }
-        url = sign_smarturl @all_episodes.first['play_url']['saranyu']['url']
-        @play_url = url['playback_urls'][0]["playback_url"]
-        @new_play_url,@key =  encrypt_play_url(@play_url)
+        if @all_episodes.count > 0
+          url = sign_smarturl @all_episodes.first['play_url']['saranyu']['url']
+          @play_url = url['playback_urls'][0]["playback_url"]
+          @new_play_url,@key =  encrypt_play_url(@play_url)
+        end
         @other_items = catalog_response["data"]["items"]
         render "episode_details"
       else
