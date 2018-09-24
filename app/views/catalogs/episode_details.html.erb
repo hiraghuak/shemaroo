@@ -1,9 +1,9 @@
 <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
 <div class="row">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-	  <div class="player_section">
+	  <div class="player_section" id="shemaroo_player">
 	    <img src="/assets/big_play.svg" alt="" title="">
-	    <img src="<%=@episode_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="" title="">
+	    <img src="<%=@episode_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="<%=@episode_details['title']%>" title="<%=@episode_details['title']%>">
 	  </div>
 	  <div class="player_desc_section">
 	    <h2 class="margin-bottom-15"><%=@episode_details['title']%></h2>
@@ -130,3 +130,20 @@ $(document).ready(function(){
 });
   
 </script> 
+
+<script type="text/javascript">
+  
+$("#shemaroo_player").empty();
+$(document).ready(function(){
+  var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>"
+ $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+player_data+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
+        })
+</script> 
+
+
+<style>
+#iframe{
+ width: 550px;
+ height: 350px;
+}
+</style>

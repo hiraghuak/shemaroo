@@ -53,7 +53,7 @@
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <h2 class="margin-bottom-15 pull-left">More in <%=@item_details['genres'][0].capitalize%></h2>
-      <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>    
+      <a href="/<%=params[:catalog_name]%>/<%=@item_details['genres'][0].downcase%>/all" class="text-uppercase pull-right see-more">see more</a>    
     </div>
   </div>
   <div id="more-comedy-carousel" class="owl-carousel owl-theme">
@@ -106,33 +106,11 @@ var navigation = [
 </script> 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <p><%#=@item_details['title'].inspect%></p>
-<div class="video-player col-md-12 col-sm-12 col-xs-12">
-      <div id="shemaroo_player" class="embed-responsive <%#=@browser_type == "mobile" ?  "embed-responsive-4by3" : ""%>" style="width:800px;height:500px;"> </div>
- </div>
--->
-
 <script type="text/javascript">
 	
 $(".shemaroo_player").empty();
 $(document).ready(function(){
-  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>"
+  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         })
 </script> 
@@ -140,7 +118,7 @@ $(document).ready(function(){
 
 <style>
 #iframe{
- width: 570px;
- height: 392px;
+ width: 550px;
+ height: 350px;
 }
 </style>

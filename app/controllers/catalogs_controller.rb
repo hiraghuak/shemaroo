@@ -60,6 +60,9 @@ class CatalogsController < ApplicationController
         catalog_response = Rails.cache.fetch("more_details_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_catalog_details(params[:catalog_name])
         }
+        url = sign_smarturl @all_episodes.first['play_url']['saranyu']['url']
+        @play_url = url['playback_urls'][0]["playback_url"]
+        @new_play_url,@key =  encrypt_play_url(@play_url)
         @other_items = catalog_response["data"]["items"]
         render "episode_details"
       else
@@ -68,7 +71,7 @@ class CatalogsController < ApplicationController
         @play_url = url['playback_urls'][0]["playback_url"]
         @new_play_url,@key =  encrypt_play_url(@play_url)
         more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
-         Ott.get_items_genre(params[:catalog_name],params[:show_name],@item_details['genres'][0])
+         Ott.get_items_genre(params[:catalog_name],@item_details['genres'][0])
        }
        @genere_items = more_item_response["data"]["items"]
       end
@@ -99,6 +102,18 @@ class CatalogsController < ApplicationController
      @epsiode_details = []
     end
 
+  end
+
+  def genre_all_items
+   begin
+      items_response = Rails.cache.fetch("all_items_#{params[:catalog_name]}_#{params[:genre]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_items_genre(params[:catalog_name],params[:genre])
+       }
+    @all_genere_items = items_response["data"]["items"]
+   rescue
+    @all_genere_items = []
+     Rails.cache.delete("all_items_#{params[:catalog_name]}_#{params[:genre]}")
+   end
   end
 
 

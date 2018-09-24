@@ -164,7 +164,8 @@ body {
     //contenturlobtained[1].split("video_img=")[1].split("|")[0];
     // console.log(video_img);
     // alert(video_img)
-    var image_url = "https://epicon.epicchannel.com/assets/transparent.png"
+    //var image_url = "https://epicon.epicchannel.com/assets/transparent.png"
+    var image_url= "http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/large_16_9.jpg"
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         if (/android/i.test(userAgent)) {
@@ -178,6 +179,8 @@ body {
         }
 		var video_url = contenturlobtained[1].split("|")[0];
 		var key = contenturlobtained[1].split("key=")[1].split("|")[0]
+    var video_image_url = contenturlobtained[1].split("image=")[1].split("|")[0]
+
 		var decrypted = CryptoJS.AES.decrypt({
 		ciphertext: CryptoJS.enc.Base64.parse(video_url)
 		}, CryptoJS.enc.Base64.parse(key),
@@ -187,8 +190,6 @@ body {
 		if(contenturlobtained[1].indexOf("is_free") > -1){ free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0];}
 		// var free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0]
 	    var time = parseInt(user_played_time);
-	    //"http://23.22.199.3/assets/epiconlogo.png"
-
          if(isiPad || isiPhone){
             $( "#video_player" ).replaceWith( "<video id='video_player' controls src='"+video_url+"' height='100%' width='100%'></video>" );
          }else{   
@@ -202,7 +203,7 @@ body {
                                 'label' : 'Auto',
                                 'mediaid' : '123',
                                 // 'poster' : 'https://epicon.epicchannel.com/assets/transparent.png',
-                                'poster': image_url,
+                                'poster': video_image_url,
                                 'videotitle' : '',
                             },                  
                           ],

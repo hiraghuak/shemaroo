@@ -25,7 +25,7 @@ class Ott
   end
 
 
-  def self.get_items_genre(catalog_slug,item_slug,genre)
+  def self.get_items_genre(catalog_slug,genre)
      HTTP.get "catalogs/#{catalog_slug}/items?genre=#{genre}&region=#{$region}","catalog"
   end
 
