@@ -726,6 +726,45 @@ span.premium-txt {
 .top-bg-gradient {
   background-image: linear-gradient(to bottom, #DCDCDC,#F6F6F6 11px, #fff 15px, #fff 100% );
 }
+.bollywod-bottom-banner {
+  margin: 0 auto;
+  max-width: 816px;
+}
+.bollywod-bottom-banner a {
+  background: url('https://s3-ap-southeast-1.amazonaws.com/shemworld/Images/docked-image/Layer_1013.png');
+  float: left;
+  height: 100px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+}
+.bollywod-bottom-banner p {
+  color: #fff;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 30px;
+}
+.bollywod-bottom-banner .fa-inr {
+  font-size: 0.55em;
+  margin-right: 3px;
+  margin-top: -5px;
+}
+.bollywod-bottom-banner span {
+  align-items: center;
+  background: #dadada;
+  border-radius: 50%;
+  color: #494949;
+  font-size: 2em;
+  display: flex;
+  height: 80px;
+  justify-content: center;  
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  width: 80px;
+}
 /* Movie and Show listing page design ends */
 
 /* Plans page design starts */
