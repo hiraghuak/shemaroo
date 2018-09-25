@@ -1170,6 +1170,8 @@ span.premium-txt {
   color: #CCCCCC;
   font-family: 'condensed-medium';
   opacity: 1; 
+  position: absolute;
+  top: -10px;
 }
 .search-box-wrap {
   float: left;
@@ -1237,6 +1239,33 @@ span.premium-txt {
 .back_arrow {
   margin-right: 5px;
   width: 22px;
+}
+.input-group .input-label {
+  color: #666;
+  font-family: 'condensed-light';
+  opacity: 1;
+  left: 10px;  
+  margin-bottom: 0;
+  top: 8px;
+  font-weight: 400;
+  position: absolute;
+  pointer-events: none;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.input-group .form-control:focus~.input-label {
+  top: -10px;
+}
+.input-group.country #country_code {
+  margin-right: 0px;
+  max-width: 39px;
+  padding-right: 0px;
+}
+.input-group.country #mobile_number {
+  padding-left: 0px;
+  max-width: calc(100% - 39px);
 }
 /*.onboarding-contianer .custom-control span a {
   font-size: 1em;
@@ -1375,6 +1404,11 @@ span.premium-txt {
   border-bottom: 1px solid rgba(0,0,0,0.125);
   border-radius: 0px;
 }
+ #faqs #accordion .card-body {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+ }
 #payment-mode #accordion .card-header, #faqs #accordion .card-header {
   padding: 0.75rem 0rem;
   margin-bottom: -1px;
@@ -1403,9 +1437,14 @@ span.premium-txt {
 #faqs #accordion .card-link[aria-expanded="false"]::after {
   content: "\f067";  
 }
-
+#faqs #accordion .card-link[aria-expanded="true"] {
+  color: #000;
+  font-family: 'condensed-medium';
+  font-size: 1em;
+}
 #faqs #accordion .card-link[aria-expanded="true"]::after {
   content: "\f00d";
+  color: #767676;
 }
 
 #payment-mode #accordion .card-link, #faqs #accordion .card-link {
@@ -1450,6 +1489,11 @@ span.premium-txt {
   font-size: 0.875em;
   line-height: 1.425em;
 }
+.static-container a.email {
+  float: left;
+  font-size: 0.975em;
+  margin-top: -2px;
+}
 /* Static page container design ends */
 
 /* No items found design starts */
@@ -1461,6 +1505,41 @@ span.premium-txt {
 }
 /* No items found design ends */
 
+.no-content-wrap {
+  margin: 0 auto;
+  max-width: 300px;
+  padding-bottom: 150px;
+}
+.no-content-wrap img {
+  width: 166px;
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+.no-content-wrap p {
+  font-size: 0.875em;
+}
+
+/* Error message design starts */
+label.error {
+  color: #BF4E6B;
+  display: none;
+  font-size: 0.75em;
+  float: left;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.onboarding-contianer .input-group.all_error::before {
+  content: "";
+}
+.all_error label.error {
+  margin-top: -10px;
+  position: static;
+}
+
+
+/* Error message design ends */
 
 /* Responsive design starts */
 @media(min-width: 992px) {
@@ -1759,6 +1838,9 @@ span.premium-txt {
   }
   .full-width-content .owl-stage {
     left: -25px;
+  }
+  .contact-page .w-50 {
+    width: 100%!important;
   }
 }
 
