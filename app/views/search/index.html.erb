@@ -5,13 +5,13 @@
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="display:none"></a>
 			</div> 
-			<h2 class="margin-bottom-20 margin-top-20 text-capitalize inline-block"  id="search_heading" style="display:none !important;">Search Result (<span class="search_count"></span>)</h2>
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize inline-block"  id="search_heading">Search Result (<span class="search_count"></span>)</h2>
 			<div class="row" id="search_all_results"> 
 			<%@search_results.each do |s|%>
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10">
 					<div class="row1">
 					<div class="search-image-wrap">
-						<img src="<%#=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>">
+						<img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>">
 					</div>
 					<div class="search-category-wrap">
 						<p class="search-tile-title"><%=s['title']%></p>
@@ -22,6 +22,7 @@
 				<%end%>
 			</div>
 		</div>
+	</div>	
 		<div class="row" id="recent_search">
  	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
@@ -30,7 +31,7 @@
 				</ul> 
 			</div> 
 		</div>
-	</div>
+	
 </section>
 
 
