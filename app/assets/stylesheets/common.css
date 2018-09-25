@@ -369,7 +369,7 @@ section {
 a.see-more {
     font-size: 0.875em;
     color: #D31F52;
-    margin-right: 96px;
+    margin-right: 108px;
     text-decoration: none;
 }
 a.see-more:hover {
@@ -378,7 +378,6 @@ a.see-more:hover {
 }
 @media(max-width: 1199px) {
     a.see-more {
-        margin-right: 10px;
         margin-top: 5px;
     }
 }

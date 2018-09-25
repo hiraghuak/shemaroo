@@ -457,10 +457,11 @@ div.scrollmenu a:last-child.active {
 .full-width-content.home-page {
   padding-top: 30px;
 }
-.full-width-content h2, .onboarding-contianer h2 {
+.full-width-content h2, .onboarding-contianer h2, .payment-contianer h2, .static-container h2 {
   color: #000000;
   font-size: 1.5em;
   line-height: 1.3em;
+  margin-bottom: 13px;
 }
 .full-width-content .owl-carousel {
   margin-bottom: 20px;
@@ -537,18 +538,24 @@ div.scrollmenu a:last-child.active {
   opacity: 0;
   transition: opacity 500ms;
 }
-.owl-carousel .item {
+.owl-carousel .owl-item .item {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
   /*box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.25);*/
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
   float: left;
   width: 100%;
+  z-index: 1; position: absolute;
 }
 .owl-carousel .item:hover {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.3);
+}
+
+.owl-carousel .owl-item.active .item {
+  z-index: 0;
+  position: static;  
 }
 .item-feature {
   float: left;
@@ -731,13 +738,15 @@ span.premium-txt {
   max-width: 816px;
 }
 .bollywod-bottom-banner a {
-  background: url('https://s3-ap-southeast-1.amazonaws.com/shemworld/Images/docked-image/Layer_1013.png');
+  /*background: url('https://s3-ap-southeast-1.amazonaws.com/shemworld/Images/docked-image/Layer_1013.png');*/
+  background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.8) 15%, rgba(0,0,0,0.3) 40%, rgba(62,62,62,0.85)), url(../../assets/images/layer.png);
   float: left;
   height: 100px;
   margin-bottom: 30px;
   position: relative;
   width: 100%;
 }
+
 .bollywod-bottom-banner p {
   color: #fff;
   font-size: 1.5em;
@@ -771,7 +780,7 @@ span.premium-txt {
   
 .plans-page p {
   color: #6D6D6D;
-  font-family: 'condensed-medium';
+  font-family: 'condensed-meduim';
 }
 .plans-page p span.text-uppercase {
   font-family: 'condensed-bold';
@@ -794,7 +803,7 @@ span.premium-txt {
   border-right: 1px solid #E5E5E5;
   line-height: 1.2em;
   padding: 0px 20px;
-  
+  min-height: 52px;
 }
 .plans-page ul li:first-child {
   font-size: 2.75em;
@@ -804,6 +813,10 @@ span.premium-txt {
 .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
   font-size: 0.75em;
   padding-left: 26px;
+  text-align: center;
+}
+.plans-page ul li:nth-child(2), .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+  padding-top: 10px;
 }
 .plans-page ul li:last-child {
   border-right: 0px;
@@ -811,10 +824,9 @@ span.premium-txt {
 }
 .plans-page ul li .fa, .plans-page ul li span {
   color: #000;
-  float: left;
-  margin-bottom: 2px;    
+  float: left;    
   margin-left: -6px;
-    
+  margin-bottom: 9px;  
 }
 .plans-page ul li .fa {
   font-size: 2em;
@@ -841,14 +853,16 @@ span.premium-txt {
 }
 .plans_list_section ul li:first-child {
   margin-right: 30px;
+  width: 50%;
 } 
 .plans_list_section ul li:last-child {
   margin-right: 0px;
 }
 .plans_list_section .card-body p {
   color: #888;
-  font-family: 'condensed-medium';
+  font-family: 'condensed-meduim';
   font-size: 0.875em;
+  float: left;
   width: 80%;
 }
 .plans_list_section .card-body li span {
@@ -860,6 +874,7 @@ span.premium-txt {
 .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child  {
   border: 2px dotted #F0F0F0;
   border-radius: 3px;
+  cursor: pointer;
   padding: 10px 0px 3px;
   width: 70px;
 }
@@ -905,8 +920,55 @@ span.premium-txt {
   border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
   border-image-slice: 1;
   border-width: 1px;
-  padding: 10px 15px;
+  padding: 5px 10px;
 }
+.plans_list_section .card-body li.active span {
+  color: #fff;
+}
+.plans_list_section .card-body li.active {
+  border: 0px;
+}
+.plan_list_show {
+  display: none;
+}
+.plans_footer {
+  box-shadow: 0 -5px 80px -5px rgba(0,0,0,0.45);
+  display: none;
+  padding: 10px 0px;
+}
+.plans_footer p {
+  color: #6A6A6A;
+  font-size: 0.875em;
+}
+.plans_footer span.amount {
+  color: #000;
+  font-size: 18px;
+}
+.active.gradientbg1 {
+  background: linear-gradient(to right,#D51E54, #F15A23);
+}
+.active.gradientbg2 {
+  background: linear-gradient(to right,#181818, #3E3E3E);
+}
+.active.gradientbg3 { 
+  background: linear-gradient(to right,#0095DB, #D93B65);
+}
+.active.gradientbg4 { 
+  background: linear-gradient(to right,#D22856, #0095DB);
+}
+.active.gradientbg5 { 
+  background: linear-gradient(to right,#8BC76D, #0096DC);
+}
+.active.gradientbg6 { 
+  background: linear-gradient(to right,#F25922, #FCB613);
+}
+.active.gradientbg7 { 
+  background: linear-gradient(to right,#FCB913, #8BC43E);
+}
+.active.gradientbg8 { 
+  background: linear-gradient(to right,#2BA5E1, #ED6839);
+}
+
 
 /* Plans page design ends */
 
@@ -1120,6 +1182,9 @@ span.premium-txt {
   top: 34%;
   width: 14px;
 }
+#recent-search a.clear {
+  font-size: 0.85em;  
+}
 /* Search page design starts */
 
 /* Login page design starts */
@@ -1134,7 +1199,8 @@ span.premium-txt {
 .onboarding-contianer .tile-box-shadow:hover {
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
 }
-.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"], .onboarding-contianer input[type="number"] {
+.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
+.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"] {
   border: 0px;
   border-bottom: 1px solid #E5E5E5;
   border-radius: 0px;
@@ -1143,7 +1209,7 @@ span.premium-txt {
   margin-bottom: 30px;
   padding: 5px 5px 5px 13px;
 }
-.onboarding-contianer .input-group::before {
+.onboarding-contianer .input-group::before, #accordion .input-group::before {
   color: #B11A47;
   content: "\f111";
   font: normal normal normal 5px/1 FontAwesome;
@@ -1175,13 +1241,22 @@ span.premium-txt {
 /*.onboarding-contianer .custom-control span a {
   font-size: 1em;
 }*/
-.onboarding-contianer .input-group img.show_password {
+.onboarding-contianer .input-group img.show_password, #accordion .input-group img  {
   cursor: pointer;
   position: absolute;
   right: 3px;
   top: 15px;
   width: 16px;
   z-index: 1;
+}
+#accordion .input-group img {
+  left: 43px;
+  top: 8px;
+  width: 16px;
+}
+#accordion .input-group p {
+  color: #989898;
+  font-size: 0.875em;
 }
 .onboarding-contianer .input-group.hide_password::after { 
   color: #ababab;
@@ -1216,7 +1291,176 @@ span.premium-txt {
   float: left;
   margin-top: 3px;
 }
-/* Login page design ends */
+/* Login & Register page design ends */
+
+
+/* Payment page design starts */
+
+.payment-contianer {
+  margin: 0 auto;
+  max-width: 526px;
+}
+.payment-contianer h2 {
+  margin-bottom: 13px;
+}
+#payable-amount {
+  padding: 8px 15px;
+}
+#payable-amount span.pull-left {
+  color: #666;
+  font-size: 0.85em;
+  margin-top: 2px;
+}
+#payable-amount span.pull-right { 
+  color: #000;
+}
+#saved-cards h5, #payment-mode h5 {
+  font-size: 1em;
+}
+#saved-cards .list-group-item {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#saved-cards .list-group-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+#saved-cards .list-group-item .pull-left input, #saved-cards .list-group-item .pull-left img, #saved-cards .list-group-item .pull-left div {
+  float: left;
+  margin-right: 7px;
+}
+#saved-cards .list-group-item input[type="radio"] {
+  margin-top: 5px;
+}
+#saved-cards .list-group-item .pull-left div {
+  font-size: 0.875em;
+  width: 250px;
+}
+#saved-cards .list-group-item .pull-left input[type="text"], 
+#saved-cards .list-group-item .pull-left input[type="password"] {
+  border: 0px;
+  float: left;
+  margin-right: 0px;
+  width: 22px;
+}
+#saved-cards .list-group-item .pull-left div span {
+  float: left;
+  width: 100%;
+}
+#saved-cards .list-group-item .pull-left input[type="text"]  {
+  width: 28px;
+}
+#saved-cards .list-group-item .pull-right input[type="text"] {
+  border: 1px solid #dbdbdb;
+  padding: 0px 5px;
+  width: 40px;
+}
+#saved-cards .list-group-item:first-child, #payment-mode .list-group-item:first-child, #faqs  .list-group-item:first-child {
+  border-top: 0px;
+}
+#payment-mode .list-group-item, #faqs .list-group-item {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#payment-mode .list-group-item a, #faqs .list-group-item a {
+  color: #666;
+}
+#payment-mode .list-group-item .pull-right img, #faqs .list-group-item .pull-right img {
+  width: 10px;
+}
+#payment-mode .list-group-item:last-child, #faqs .list-group-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+#payment-mode #accordion .card, #faqs #accordion .card {
+  border: 0px;
+  border-bottom: 1px solid rgba(0,0,0,0.125);
+  border-radius: 0px;
+}
+#payment-mode #accordion .card-header, #faqs #accordion .card-header {
+  padding: 0.75rem 0rem;
+  margin-bottom: -1px;
+  border: 0px;
+  background: none;
+}
+#payment-mode #accordion .card-link::after {
+  font-family: 'FontAwesome';
+  content: "\f078";
+  float: right;
+}
+#faqs #accordion .card-link::after {
+  font-family: 'FontAwesome';
+  content: "\f067";
+  float: right;
+      -webkit-text-stroke: 2px white;
+    font-size: 1.025em;
+}
+#payment-mode #accordion .card-link[aria-expanded="false"]::after {   
+  content: "\f078";  
+}
+#payment-mode #accordion .card-link[aria-expanded="true"]::after {
+  content: "\f077";
+}
+
+#faqs #accordion .card-link[aria-expanded="false"]::after {
+  content: "\f067";  
+}
+
+#faqs #accordion .card-link[aria-expanded="true"]::after {
+  content: "\f00d";
+}
+
+#payment-mode #accordion .card-link, #faqs #accordion .card-link {
+  color: #767676;
+  font-size: 0.875em;
+}
+#payment-mode #accordion .card-body {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+#payment-mode #accordion .input-group.expiry {
+  margin-right: 30px;
+}
+#payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+  float: left;
+  width: 44%;
+}
+.payment-contianer #accordion .input-group.button::before {
+  content: "";
+}
+.payment-contianer #accordion .input-group.button {
+  justify-content: center;
+}
+.payment-contianer .input-group.button a span {
+  font-family: 'condensed-semibold';
+  font-size: 0.753em;
+}
+/* Payment page design ends */
+
+/* Static page container design starts */
+
+.static-container {
+  color: #787878;
+  margin: 0 auto;
+  max-width: 564px;
+}
+.static-container h5 {
+  color: #000;
+  font-size: 1em;
+}
+.static-container p {
+  font-size: 0.875em;
+  line-height: 1.425em;
+}
+/* Static page container design ends */
+
+/* No items found design starts */
+.no-items-found {
+  align-items: center;
+  display: flex;
+  height: calc(100% - 28%);
+  justify-content: center;
+}
+/* No items found design ends */
+
 
 /* Responsive design starts */
 @media(min-width: 992px) {
@@ -1253,7 +1497,7 @@ span.premium-txt {
     width: 15.25%;
   }
   a.see-more {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
   }
 }
 @media(max-width: 1320px) { 
@@ -1342,7 +1586,7 @@ span.premium-txt {
     width: 49.5%;
   }
   a.see-more {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
     margin-top: 5px;
   }
   /*.onboarding-box-wrap {
@@ -1350,15 +1594,6 @@ span.premium-txt {
     padding-top: 155px;
   }*/  
 }
-/* No items found design starts */
-.no-items-found {
-  align-items: center;
-  display: flex;
-  height: calc(100% - 28%);
-  justify-content: center;
-}
-/* No items found design ends */
-
 @media(max-width: 1150px) {
   .plans-page ul, .plans-page ul.margin-right-0  {
     margin: 0;
@@ -1516,7 +1751,15 @@ span.premium-txt {
     max-width: 100%;
     width: 100%;
   }
-
+  #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+    width: 43.75%;
+  }
+  .payment-contianer, .static-container {
+    padding: 0px 15px;
+  }
+  .full-width-content .owl-stage {
+    left: -25px;
+  }
 }
 
 @media(max-width: 470px) {
@@ -1547,7 +1790,13 @@ span.premium-txt {
   .plans-page ul.list-none li {
     padding: 0px 9px;
   }  
-  
+  #payment-mode #accordion .card-body {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  a.see-more {
+    margin-right: 30px;
+  }
 }
 @media(max-width: 359px) {
   .footer-section {
@@ -1578,6 +1827,12 @@ span.premium-txt {
   .onboarding-box-wrap {
     padding: 0px 15px;
     padding-top: 155px;
+  }
+  .payment-contianer, .static-container {
+    padding: 0px;
+  }
+  #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+    width: 38%;
   }
 }
 
