@@ -199,11 +199,11 @@ body {
 }
 .head-right ul li:nth-child(2) img {
   cursor: pointer;
-  width: 22px;
+  width: 24px;
 }
 .head-right ul li:last-child img {
   cursor: pointer;
-  width: 22px;
+  width: 20px;
 }
 .head-right ul li span {
   color: #666;
@@ -437,6 +437,8 @@ div.scrollmenu a:last-child.active {
 .owl-carousel .owl-item .item a {
   pointer-events: none;
   cursor: default;
+  float: left;
+  width: 100%;
 }
 .owl-carousel .owl-item.active .item a {
   pointer-events: auto;
@@ -1262,9 +1264,15 @@ span.premium-txt {
 .input-group.country .input-label {
   left: 37px;
 }
+.input-group.country #country_code {
+  max-width: 39px;
+}
 .input-group.country #mobile_number {
   padding-left: 0px;
   max-width: calc(100% - 39px);
+}
+.form-control:disabled, .form-control[readonly] {
+  background-color: transparent;
 }
 /*.onboarding-contianer .custom-control span a {
   font-size: 1em;
