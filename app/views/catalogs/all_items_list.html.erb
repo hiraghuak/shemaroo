@@ -7,7 +7,7 @@ meta title: "#{@title}",
   <div class="row h-100">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
       <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
-    <%if @all_items.count < 0%>
+    <%if @all_items.count > 0%>
     
    <%if @layout_type == "t_2_3_movie" || @layout_type == "movies" 
       class_name = "row-movie-list" 
@@ -23,7 +23,11 @@ meta title: "#{@title}",
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
           <%end%>
+          <%if @layout_type == "t_1_1_album"%>
+          <img src="<%=i["thumbnails"]["medium_16_9"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%else%>
           <img src="<%=get_image_url(i,@layout_type)%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%end%>
           <%if title == "yes"%>
             <span class="list-tile-title"><%=i['title']%></span>
           <%end%>
