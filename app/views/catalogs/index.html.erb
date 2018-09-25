@@ -23,6 +23,7 @@ meta title: "Shemaroo Entertainment Limited",
 <section class="full-width-content home-page light">
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
+   <%if list['catalog_list_items'].count > 0%>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
         <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
@@ -37,7 +38,8 @@ meta title: "Shemaroo Entertainment Limited",
           <%end%>             
         </div>           
       </div>
-    </div> 
+    </div>
+    <%end%> 
     <%end%> 
   <%end%>
 </section>
@@ -83,6 +85,7 @@ var navigation = [
     for (i = 1; i <= items_count; i++) {
     var auto_loop_status = false;
     var owl = $("#bollywood-classic-carousel_"+i);
+    if($("#bollywood-classic-carousel_"+i).data("item-det") != undefined){
     var det = $("#bollywood-classic-carousel_"+i).data("item-det").split("$");
     var total_item_cnt =  det[1];
     var layout_type = det[0];
@@ -149,7 +152,7 @@ var navigation = [
     }
   });
 }
-
+ }
 });  
 </script> 
 
