@@ -8,7 +8,7 @@
             <input type="text" id="user_name" name="user name" class="form-control" placeholder="Name" required="true"> 
           </div>
           <div class="input-group mobile-no">
-            <input type="text" id="mobile_no" name="mobile no" class="form-control" placeholder="Mobile Number"> 
+            <input type="text" id="mobile_no" name="mobile no" class="form-control" placeholder="Mobile Number" value="+91"> 
           </div>
           <div class="input-group pwd">
             <input type="password" id="password" name="password" class="form-control" placeholder="Password"> 
@@ -26,7 +26,7 @@
             </label>
           </div>
           <div class="text-center margin-bottom-25 margin-top-20 light">
-            <a href="javascript:;" class="inline-block text-uppercase gradient-button1"><span>Register</span></a>
+            <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span>Register</span></a>
           </div>
           
         </div>
@@ -34,3 +34,23 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+$("#with_header_tabs").hide();
+$(document).ready(function(){
+ $("#without_header_tabs").show();
+   var dot = "\f111";
+    $(".input-group.name input").keyup(function() {
+      var val = $(".input-group.name input").val();
+      console.log(val);
+      console.log(val.length);
+      if(val.length != 0) {
+        $("body").append("<style>.input-group.name:before{content: ''}</style>");        
+      }    
+      else {
+        $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
+      }  
+    });
+});
+
+</script>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
  
  def sign_up
+  
 
  end
 
@@ -8,6 +9,8 @@ class UsersController < ApplicationController
  def sign_in
 
  end
+
+
 
 
  def my_account

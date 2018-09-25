@@ -1,4 +1,4 @@
-<section class="header-section">
+<section class="header-section" id="with_header_tabs">
 <div class="header-border col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-none d-xl-block">
 </div>
 <div class="row d-none d-xl-block">
@@ -127,6 +127,19 @@
 </nav>
 </div>
 </section>
+
+<section class="header-section small-header-content" style="display:none;" id="without_header_tabs">
+    <div class="header-border col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-none d-xl-block">
+    </div>
+    <div class="row">
+      <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+        <div class="main-logo text-center">         
+          <a href="/"><img src="/assets/main-logo.svg" alt="Shemaroo" title="Shemaroo"></a>
+        </div>
+      </div>
+    </div>
+</section>
+
 <script type="text/javascript">
 $(document).ready(function(){
   if($('ul.nav').find('li a.active').attr('id') != undefined){

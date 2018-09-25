@@ -13,16 +13,15 @@ Rails.application.routes.draw do
  ##STATIC PAGES ROUTES ENDS HERE####
 
  ##USERS PAGES ROUTES STARTS HERE####
- get "/users/my_account" => "users#my_account"
-
- get "/users/register" => "users#register"
-
- get "/users/login" => "users#login"
-
- get "/users/forgot_password" => "users#forgot_password"
-
-
- get "/users/subscriptions" => "users#subscriptions"
+ 
+	namespace :users do
+	  get 'register'
+	  get 'login'
+	  post 'sign_in'
+	  post 'sign_up'
+	  post 'forgot_password'
+	  post 'subscriptions'
+	end
 
  ##USERS PAGES ROUTES STARTS HERE####
 
