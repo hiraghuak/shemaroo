@@ -1350,13 +1350,14 @@ span.premium-txt {
     padding-top: 155px;
   }*/  
 }
-/* No items found */
+/* No items found design starts */
 .no-items-found {
   align-items: center;
   display: flex;
   height: calc(100% - 28%);
   justify-content: center;
 }
+/* No items found design ends */
 
 @media(max-width: 1150px) {
   .plans-page ul, .plans-page ul.margin-right-0  {

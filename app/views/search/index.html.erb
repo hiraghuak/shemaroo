@@ -5,7 +5,9 @@
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="display:none"></a>
 			</div> 
-			<h2 class="margin-bottom-20 margin-top-20 text-capitalize inline-block"  id="search_heading">Search Result (<span class="search_count"></span>)</h2>
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading">Search Result (<span class="search_count"></span>)</h2>
+			</div>	
+		</div>
 			<div class="row" id="search_all_results"> 
 			<%@search_results.each do |s|%>
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10">
@@ -21,8 +23,8 @@
 					</div>
 				<%end%>
 			</div>
-		</div>
-	</div>	
+		
+	
 		<div class="row" id="recent_search">
  	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
