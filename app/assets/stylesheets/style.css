@@ -1569,6 +1569,12 @@ label.error {
 }
 
 /* Spinner design ends */
+.embed-responsive {
+  height: 0;
+}
+.embed-responsive-16by9 {
+  padding-bottom: 37.2%;
+}
 
 /* Responsive design starts */
 @media(min-width: 992px) {
@@ -1637,6 +1643,9 @@ label.error {
  
 }
 @media(max-width: 1199px) {
+  .padding-top-155 {
+    padding-top: 155px;
+  }
   .container {
     padding-left: 0px;
     padding-right: 0px;
@@ -1655,15 +1664,15 @@ label.error {
     margin-top: 15px;
   }
   .banner-section {
-    padding-top: 155px;
+    /*padding-top: 155px;*/
   }
   .full-width-content {
     padding-left: 50px;
-    padding-top: 155px;
+    /*padding-top: 155px;*/
   }
   .inside-container {
     padding: 0px 50px;
-    padding-top: 155px;
+    /*padding-top: 155px;*/
   }
   .plans_list_section {
     padding-top: 0px;
@@ -1937,7 +1946,7 @@ label.error {
   }
   .onboarding-box-wrap {
     padding: 0px 15px;
-    padding-top: 155px;
+    /*padding-top: 155px;*/
   }
   .payment-contianer, .static-container {
     padding: 0px;
