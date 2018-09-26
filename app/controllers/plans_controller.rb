@@ -94,7 +94,7 @@ class PlansController < ApplicationController
 		"transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
 		"user_info": user_info
 }
-	response =  HTTP.post "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions/cse_payment", plans_purchase_params
+	response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions/cse_payment", plans_purchase_params
     render json: {:message => "payment iniated",:init_data => response["data"] } , status: :ok
 	end
 end
