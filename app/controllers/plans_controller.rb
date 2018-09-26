@@ -10,39 +10,34 @@ class PlansController < ApplicationController
 	end
 
 	def payment_url
-
-	@region = $region
+	@region = "US"
 	payment_gateway = "admin"
 	platform = "android"
-	plan_id = params["plans"].split(",").map{|a| a.split("|")[-1]}
-	pack_id = params["plans"].split(",").map{|a| a.split("|")[0]}
+	plans = params["plans"].split(",")
     packs = []
-    price = ""
-    price_charged = ""
-    currency = 
-    plans.each do |p|
-     pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id[0]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-     sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id[0]}.compact.last
+    all_price = 0
+    all_price_charged = 0
+    currency = ""
+    plans.each do |plan|
+     content_id  = plan.split("|").last
+     pack_id  = plan.split("|").first
+     pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{content_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+     sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
+     price = sp["price"].to_f
+     all_price += price 
 
-     price = p[:price] 
-     price += price 
-
-     price_charged = p[:discounted_price] 
-     price_charged += price_charged 
-
-
+     price_charged = sp["discounted_price"].to_f
+     all_price_charged += price_charged 
+     currency = sp["currency"]
+       sub_pack = {}
+       sub_pack["plan_categories"] = pd["data"]["category"]
+       sub_pack["category_type"] = pd["data"]["category_type"]
+       sub_pack["category_pack_id"] = content_id
+       sub_pack["plan_id"] = sp["id"]
+       packs << sub_pack
     end  
-    byebug  
 
-	
-	payment_info = {"net_amount": price, "price_charged": price_charged,"currency": sp["currency"], 
-		     "packs":[
-		     	{"plan_categories":[ pd["data"]["category"]],
-		     	"category_type": pd["data"]["category_type"],
-		     	"subscription_catalog_id": pd["data"]["catalog_id"],
-		     	"category_pack_id": plan_id[0],
-		     	"plan_id": sp["id"]
-		        }]}
+	payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs }
 	
 	transaction_info = 	{"app_txn_id":"", "txn_message":"One Day Pack_10.00", "txn_status":"init", "order_id":"", "pg_transaction_id":""	}
 	
