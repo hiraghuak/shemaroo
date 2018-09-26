@@ -5,7 +5,7 @@
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs...">
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="display:none"></a>
 			</div> 
-			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading">Search Result (<span class="search_count"></span>)</h2>
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="display:none;">Search Result (<span class="search_count"></span>)</h2>
 			</div>	
 		</div>
 			<div class="row" id="search_all_results"> 
@@ -27,7 +27,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
               <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p>
-              <p class="font-light">Please check the spelling or try another searc term.</p>
+              <p class="font-light">Please check the spelling or try another search term.</p>
             </div>
             </div>
 			
@@ -48,6 +48,8 @@
 
 
 <script type="text/javascript">
+ $(".search_icon").attr("src","/assets/search_active.svg")
+ $(".search_icon").css("width","32px")
   var window_height = window.outerHeight;
   var window_height = window_height - 231;
   $('.full-width-content').css('min-height',window_height+'px');
