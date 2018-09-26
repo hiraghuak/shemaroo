@@ -544,9 +544,7 @@ div.scrollmenu a:last-child.active {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
   /*box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.25);*/
-  border: 1px solid #000;
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
-  /*min-height: 185px!important;*/
   float: left;
   width: 100%;
   z-index: 1; position: absolute;
@@ -622,6 +620,12 @@ div.scrollmenu a:last-child.active {
 }
 .footer-section .pull-left ul li:last-child {
   border-right: 0px;
+}
+.footer-section .pull-left ul li a {
+  color: #666;
+}
+.footer-section .pull-left ul li.active a {
+  color: #000;
 }
 .footer-section .pull-left p {
   color: #999;
@@ -701,6 +705,8 @@ div.scrollmenu a:last-child.active {
 .row-movie-list .item:hover, .row-show-list .item:hover {
   box-shadow: 1px 1px 4px 1px rgba(0,0,0, 0.35);
 }
+
+
 span.premium-txt {
   background: #89C43F;
   border-radius: 2px 0px 3px 0px;
@@ -987,6 +993,7 @@ span.premium-txt {
   position: relative;
 }
 .player_section img:first-child {
+  cursor: pointer;
   left: 46%;
   position: absolute;
   top: 43%;
