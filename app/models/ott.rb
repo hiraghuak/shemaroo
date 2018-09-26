@@ -21,4 +21,34 @@ class Ott
   	HTTP.get "catalog_lists/#{list_id}?region=#{$region}","catalog"
   end
 
+  def self.get_catalog_details(catalog_slug)
+    HTTP.get "catalogs/#{catalog_slug}/items?region=#{$region}","catalog"
+  end
+
+  def self.get_items_details(catalog_slug,item_slug)
+     HTTP.get "catalogs/#{catalog_slug}/items/#{item_slug}?region=#{$region}","catalog"
+  end
+
+
+  def self.get_items_genre(catalog_slug,genre)
+     HTTP.get "catalogs/#{catalog_slug}/items?genre=#{genre}&region=#{$region}","catalog"
+  end
+
+
+  def self.get_all_epsiodes(catalog_slug,show_slug)
+    HTTP.get "catalogs/#{catalog_slug}/items/#{show_slug}/episodes?region=#{$region}","catalog"
+  end
+
+  def self.get_episode_details(catalog_slug,show_slug,episode_slug)
+    HTTP.get "catalogs/shows/#{show_slug}/episodes/#{episode_slug}?region=#{$region}","catalog"
+  end
+
+  def self.get_all_catalogs
+    HTTP.get "catalogs?region=#{$region}","catalog"
+  end
+
+  def self.get_search_results(search_name)
+    HTTP.get "search?filters=category,all&q=#{search_name}&region=#{$region}","catalog"
+  end
+
 end

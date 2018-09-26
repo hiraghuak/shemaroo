@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Saranyu HTML5 HLS Player</title>
+<link rel="stylesheet" type="text/css" href="../skins/sphls.css">
+<script src="../external/jquery-1.11.3.min.js"></script>
+<script src="../plugin/saranyuplayer.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+body {
+	background: black;
+	margin:0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+}
+#video_player{
+	height: 100%;
+	width: 100%;
+}
+</style>
+</head>
+<body style="background-color: #fff; height: 100%; width: 100%; overflow: hidden;">	
+	<div id="video_player">
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+        var currentURLType="hls";
+		var to_mute = "false";
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+            if (navigator.userAgent.indexOf("Chrome") != -1) {
+               to_mute = "true";
+             }
+        }
+
+
+
+		ww = window.innerWidth-0.1;
+		wh = window.innerHeight-0.1;
+
+		$("#video_player1").parent().css( "width", ww);
+		$("#video_player1").parent().css( "height", wh);
+		var catalog_id = "";
+		var content_id = ""	;			
+		var full_url = window.location.href.split("?contenturl=")[1]
+		if(full_url.indexOf("media_id") > -1){
+		    var video_url = full_url.split("&media_id")[0]
+			var ids = full_url.split("&media_id=")[1].split("&catalog_id=")
+			var catalog_id = ids[1];
+			var content_id = ids[0]
+		}
+		else{
+		  video_url = full_url;
+		}
+	
+		//var video_url = $('#saranyuframe').src.split("?content_url=")[0]
+		/*var contenturl = location.href;    
+		var res = contenturl.split("contenturl=");
+		var video_url = res[1].split("&video_img=")[0]
+		var video_img = res[1].split("&video_img=")[1].split("&ad_url")[0]
+		var prerole_ad = res[1].split("&ad_url=")[1]	*/	
+		var video_img = ""
+		// var prerole_ad = "http://web.ventunotech.com/api/publisher/getAd.php?admode=preroll&key= 590ad45263cf0&category=[CONTENT_CATEGORY]&pageurl=[PAGEURL]&player_width=[PLAYER_WIDTH]&player_height=[PLAYER_HEIGHT]&player_position=[PLAYER_POSITION]&mute_status=[MUTE_STATUS]&autoplay_status=[AUTOPLAY_STATUS]&ad_type=VAST2.0"
+	    var prerole_ad = ""
+		// var video_url = "http://d3nst3p146l0fa.cloudfront.net/videos/2017/5/59119ba67669610927950000/playlist.m3u8"
+	playerObject = new saranyuplayer(currentURLType,'#video_player',{
+	  'licence':'6BdgYyHxsYkXNCViMFM1+RZy9RNs2YO9Xe7ATbcHakqLzZzSAqxou+Iz51R1%0AbjMo655ZwM58\/oaZcSQ5fHkgqeqHW1C+pLEUFFN+qlI3ZgM=%0A',
+		'type' : 'video',
+		'content' : 'vod',
+		'file' :  [
+					{
+						'content_url' : video_url,
+						'label' : 'Auto',
+						'mediaid' : '123',
+						'poster' : video_img,
+						'videotitle' : '',
+					},					
+				  ],
+				 
+		'autoplay':'true',
+		'mute' : to_mute,
+		'poster' : "video_img",
+		'advertisement' : {
+									'cues' : 'true',
+									'adsets' : [
+				              				  {										    
+		                      						'adurl' : prerole_ad,
+													'schedule' : 'preroll'
+												},
+		                 					   {
+												    'adurl' : '',
+													'schedule' : ''
+												},
+												{
+													'adurl' : '',
+													'schedule' : 'postroll' //in seconds
+												}]
+								  },
+			'hideControlsWhenInactive':'true',	
+
+'qualityswitch' : {'label' : 'Auto', 'metric' : 'resolution'}, // metric can be resolution or bitrate.
+'features' : ['playpause','volume','time','progressbar','fullscreen','videotitle','qualityswitch','bigicons','advertisement','eventcallbacks']
+
+	});	
+   		function stopPlayer(){
+		hlsPlayer._videoPlayerControls("stop");	
+	}
+	
+	function pausePlayer(){
+		hlsPlayer._videoPlayerControls("pause");	
+	}
+	
+	function playPlayer(){
+		hlsPlayer._videoPlayerControls("play");	
+	}
+	
+	function seekPlayer(val){
+		hlsPlayer._videoPlayerControls("seek",val);	
+	}
+	
+	function getcurrentTime(){
+		return hlsPlayer._getCurrentTime();
+	}
+	
+	function getTotalDuration(){  
+		return hlsPlayer._getTotalDuration();
+	}
+
+var current_url = window.location.protocol + "//" + window.location.host;
+var url = "";
+	if (current_url == "http://localhost:3000"){
+		url = "http://localhost:3000";
+	}
+	else if (current_url == "http://www.bollywoodbubblevideos.com") {
+  	url = "http://www.bollywoodbubblevideos.com";
+	}
+	else if (current_url == "https://www.bollywoodbubblevideos.com") {
+  	url = "https://www.bollywoodbubblevideos.com";
+	}
+	else if(current_url == "http://bollywoodbubblevideos.com"){
+      url = "http://bollywoodbubblevideos.com";
+	}
+	else if( current_url == "http://34.197.35.74:3000"){
+      url = "http://34.197.35.74:3000";
+	}
+	else{
+   	url = "www.bollywoodbubblevideos.com";
+	}
+
+	/*function addCallBackEvents(){
+		hlsPlayer.eventcallbacks.onComplete = function(presentTime,duration,mediaId){
+	    top.postMessage({ga_event: 'playComplete'}, url);
+		};		
+	};
+*/
+function add_view_count(){
+	if(catalog_id.length != 0 && content_id.length != 0){
+		$.ajax({
+			url: "/add_view_count",
+			type: "POST",
+			data: { 
+				catalog_id: catalog_id, 
+				content_id: content_id
+			},
+			success: function(response){
+			}
+		});
+	}
+}
+function createEventCallBacks(){
+	hlsPlayer.eventcallbacks.onPlay = function(presentTime,duration,mediaId){
+	 add_view_count()
+		
+	};
+}
+</script>
+</html>
+<!--  -->

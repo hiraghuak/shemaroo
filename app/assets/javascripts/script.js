@@ -1,12 +1,102 @@
 $(document).ready(function(){
 	$('.close-hambergmenu img').click(function() {
-		//$('.fixed-top .navbar-collapse').removeClass('show');	
-		/*$('.fixed-top .navbar-collapse').slideUp(200);	
-		$('.navbar-toggler').attr("aria-expanded","false");*/
 		$('.fixed-top .navbar-collapse').removeClass('show');	
 	});
-  var window_height = window.outerHeight;
+  /*var window_height = window.outerHeight;
   var window_height = window_height - 231;
-  //$('.full-width-content').css('min-height',window_height+'px');
+  $('.full-width-content').css('min-height',window_height+'px');*/
+
+	$("#search").keyup(function(e){
+	  $("#search_heading,#recent_search").hide();
+	  $(".cancel_search").show();
+	  $("#search_all_results,.search_count").html("");
+	  var search_val = $(this).val();
+	  if(search_val.length != 0 && search_val != "%"){
+	  // $(".spinner").show();
+	  if(e.which == 13){
+       window.location = "/search/"+$(this).val();
+     }
+     else{
+	  	$.ajax({ 
+	        type: 'POST', 
+	        url: '/search', 
+	        data: {'search' : search_val }, 
+	        success: function(response){
+	        	//$(".spinner").hide();
+	        	$("#search_heading").show();
+	          var search_results = response.results;
+	         if(search_results.length != 0){
+	         	  if(getShemarooCookies().recent_search_data){
+	         	  	search_data = getShemarooCookies().recent_search_data+","+search_val
+	         	  }
+	         	  else{
+	         	  	search_data = search_val
+	         	  }
+	         	$.cookie('recent_search_data',search_data, { expires: 14,path: '/'});
+	            $('#search_all_results').html(''); 
+	            for (var i = 0; i < search_results.length; i++) {
+	             var r = search_results[i].split("$");
+	              $('#search_all_results').append('<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10"><div class="row1"><div class="search-image-wrap"><span class="premium-txt text-uppercase" style="display:none;">premium</span><a href="'+r[5]+'"><img src="'+r[0]+'" class="img-fluid rounded tile-box-shadow" alt="'+r[1]+'" title="'+r[1]+'"></a></div><div class="search-category-wrap"><p class="search-tile-title">'+r[1]+'</p><p class="search-tile-category"> '+r[2]+' | '+r[3]+' | '+r[4]+'</p></div></div></div>');
+            	  $(".search_count").text(search_results.length)
+            	   e.stopPropagation();
+	             }
+	          }
+	          else {
+	          	$("#search_heading").hide();
+	          	$("#search_all_results").append('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center"><img src="/assets/no_result.svg" class="search-no-results-image" alt="no search results" title="no search results"><p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <span class="searched_text"></span></strong></p><p class="font-light">Please check the spelling or try another search term.</p></div></div>')
+	            $(".searched_text").text(search_val.toUpperCase());
+	          }
+	        } 
+	    });
+	    }
+	  }
+	  else{
+	   $("#search_all_results").html("");
+		 $("#search").val("");
+		 $(".cancel_search,#search_heading").hide();
+	  }
+	});
+
+
+	$(".cancel_search").click(function(){
+		$("#search_all_results").html("");
+		$("#search").val("");
+		$(".cancel_search,#search_heading").hide();
+		$("#recent_search").show();
+	})
+
+	$("#clear_search").click(function(){
+  	  $.removeCookie('recent_search_data', { path: '/' });
+  	  $(this).hide();
+  	  $("#user_recent_search").html('<li class="list-group-item border-top-0 padding-left-0">You have not searched anything recently!</li>');
+    });
+
+  
+  
+
+
+ $("#load_more").click(function() {
+ 	
+ })
+
+  
+ $(".input-group img.show_password").click(function() {
+      $(this).parent(".input-group").toggleClass("hide_password");
+      $(this).prev().attr('type', function(index, attr){
+        return attr == "password" ? "text" : "password";
+      });
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
 

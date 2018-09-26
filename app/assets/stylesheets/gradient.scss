@@ -11,7 +11,7 @@
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
       
-      background: unquote($gradient);
+      /*background: unquote($gradient);*/
       pointer-events: none;
     }
 
@@ -39,9 +39,6 @@
   .gradient-circle {    
     @include gradient-text('radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
   }
-  /*.gradient1 {
-    @include gradient-text('linear-gradient(45deg, #D51E54, #F15A23);', 'light');
-  }*/
   .gradient1 {
     @include gradient-text('linear-gradient(to right,#D51E54, #F15A23)', 'light');
   }
@@ -55,7 +52,7 @@
     @include gradient-text('linear-gradient(to right,#D22856, #92C94E)', 'light');
   }
   .gradient5 {
-    @include gradient-text('linear-gradient(to right,#8BC76D, #0096DC)', 'light');
+    @include gradient-text('linear-gradient(to right,#8BC76D, #1F9FB9)', 'light');
   }
   .gradient6 {
     @include gradient-text('linear-gradient(to right,#F25922, #FCB613)', 'light');
@@ -67,6 +64,7 @@
     @include gradient-text('linear-gradient(to right,#2BA5E1, #ED6839)', 'light');
   }
 }
+
 
 
 .custom-control{
@@ -443,3 +441,4 @@
 
 
 /* Page styling, ignore */
+
