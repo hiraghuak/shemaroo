@@ -1557,6 +1557,19 @@ label.error {
 
 /* Error message design ends */
 
+/* Spinner design starts */
+
+.spinner {
+  align-items: center;
+  display: flex;
+  height: 550px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+/* Spinner design ends */
+
 /* Responsive design starts */
 @media(min-width: 992px) {
   .footer-section .pull-right {
