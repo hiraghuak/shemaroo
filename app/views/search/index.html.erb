@@ -24,7 +24,7 @@
 				<%end%>-->
 
 				
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results" style="display:none;">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
               <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p>
               <p class="font-light">Please check the spelling or try another search term.</p>
@@ -33,10 +33,10 @@
 			
 		
 	
-		<div class="row" id="recent_search" style="display:none;">
- 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
+		<div class="row" id="recent_search">
+ 	     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
-                    <a href="javascript:;" class="pull-right margin-top-20 clear">CLEAR</a>
+                 <a href="javascript:void(0);" class="pull-right margin-top-20 clear" id="clear_search">CLEAR</a>
 				<ul class="list-group list-group-flush" id="user_recent_search">
 				<li class="list-group-item border-top-0 padding-left-0">You have not searched anything recently!</li>
 				</ul> 
@@ -70,5 +70,8 @@ $(document).ready(function(){
 	}
 
 	}
+  $("#clear_search").click(function(){
+  	$.removeCookie('recent_search_data', { path: '/' });
+  })
 })
 </script>
