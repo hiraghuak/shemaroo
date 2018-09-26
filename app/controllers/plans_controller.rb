@@ -16,15 +16,26 @@ class PlansController < ApplicationController
 	platform = "android"
 	plan_id = params["plans"].split(",").map{|a| a.split("|")[-1]}
 	pack_id = params["plans"].split(",").map{|a| a.split("|")[0]}
-    #packs = []
-    # plans.each do 
-
-
-    # end    
+    packs = []
+    price = ""
+    price_charged = ""
+    currency = 
+    plans.each do |p|
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id[0]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id[0]}.compact.last
+
+     price = p[:price] 
+     price += price 
+
+     price_charged = p[:discounted_price] 
+     price_charged += price_charged 
+
+
+    end  
+    byebug  
+
 	
-	payment_info = {"net_amount": sp["price"], "price_charged": sp["discounted_price"],"currency": sp["currency"], 
+	payment_info = {"net_amount": price, "price_charged": price_charged,"currency": sp["currency"], 
 		     "packs":[
 		     	{"plan_categories":[ pd["data"]["category"]],
 		     	"category_type": pd["data"]["category_type"],
