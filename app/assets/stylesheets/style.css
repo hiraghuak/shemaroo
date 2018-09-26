@@ -442,7 +442,6 @@ div.scrollmenu a:last-child.active {
   pointer-events: auto;
   cursor: pointer;
 }
-
 /* Main slider design ends */
 
 .full-width-content {
@@ -458,7 +457,7 @@ div.scrollmenu a:last-child.active {
 .full-width-content.home-page {
   padding-top: 30px;
 }
-.full-width-content h2, .onboarding-contianer h2 {
+.full-width-content h2, .onboarding-contianer h2, .payment-contianer h2 {
   color: #000000;
   font-size: 1.5em;
   line-height: 1.3em;
@@ -496,7 +495,7 @@ div.scrollmenu a:last-child.active {
 }*/
 
 .full-width-content .owl-carousel .owl-item {
-  opacity: .75;  
+  opacity: .45;  
 }
 .full-width-content .owl-carousel .owl-item.active {
   opacity: 1;
@@ -1149,7 +1148,8 @@ span.premium-txt {
 .onboarding-contianer .tile-box-shadow:hover {
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
 }
-.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"], .onboarding-contianer input[type="number"] {
+.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
+.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"] {
   border: 0px;
   border-bottom: 1px solid #E5E5E5;
   border-radius: 0px;
@@ -1158,7 +1158,7 @@ span.premium-txt {
   margin-bottom: 30px;
   padding: 5px 5px 5px 13px;
 }
-.onboarding-contianer .input-group::before {
+.onboarding-contianer .input-group::before, #accordion .input-group::before {
   color: #B11A47;
   content: "\f111";
   font: normal normal normal 5px/1 FontAwesome;
@@ -1190,13 +1190,22 @@ span.premium-txt {
 /*.onboarding-contianer .custom-control span a {
   font-size: 1em;
 }*/
-.onboarding-contianer .input-group img.show_password {
+.onboarding-contianer .input-group img.show_password, #accordion .input-group img  {
   cursor: pointer;
   position: absolute;
   right: 3px;
   top: 15px;
   width: 16px;
   z-index: 1;
+}
+#accordion .input-group img {
+  left: 43px;
+  top: 8px;
+  width: 16px;
+}
+#accordion .input-group p {
+  color: #989898;
+  font-size: 0.875em;
 }
 .onboarding-contianer .input-group.hide_password::after { 
   color: #ababab;
@@ -1231,29 +1240,133 @@ span.premium-txt {
   float: left;
   margin-top: 3px;
 }
-.onboarding-payment-contianer {
-  margin: 0 auto;
-  max-width: 586px;
-}
-.payment-header {
-  background: linear-gradient(45deg, #F6D1DC 0%, #F7D1DC 25%,#FCDDD3 75%, #FCDED3 100%);
-}
-.payment-header ul.light {
-  display: flex;
-  align-items: center;
-  padding-bottom: 12px;
-}
-.payment-header ul li {
-  float: left;
-  width: 120px;
-}
-.payment-header ul.light li.gradient1 {
-  font-size: 0.85em;
-  font-family: 'condensed-bold';
-  width: 50%;
-}
+/* Login & Register page design ends */
 
-/* Login page design ends */
+
+/* Payment page design starts */
+
+.payment-contianer {
+  margin: 0 auto;
+  max-width: 526px;
+}
+.payment-contianer h2 {
+  margin-bottom: 13px;
+}
+#payable-amount {
+  padding: 8px 15px;
+}
+#payable-amount span.pull-left {
+  color: #666;
+  font-size: 0.85em;
+  margin-top: 2px;
+}
+#payable-amount span.pull-right { 
+  color: #000;
+}
+#saved-cards h5, #payment-mode h5 {
+  font-size: 1em;
+}
+#saved-cards .list-group-item {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#saved-cards .list-group-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+#saved-cards .list-group-item .pull-left input, #saved-cards .list-group-item .pull-left img, #saved-cards .list-group-item .pull-left div {
+  float: left;
+  margin-right: 7px;
+}
+#saved-cards .list-group-item input[type="radio"] {
+  margin-top: 5px;
+}
+#saved-cards .list-group-item .pull-left div {
+  font-size: 0.875em;
+  width: 250px;
+}
+#saved-cards .list-group-item .pull-left input[type="text"], 
+#saved-cards .list-group-item .pull-left input[type="password"] {
+  border: 0px;
+  float: left;
+  margin-right: 0px;
+  width: 22px;
+}
+#saved-cards .list-group-item .pull-left div span {
+  float: left;
+  width: 100%;
+}
+#saved-cards .list-group-item .pull-left input[type="text"]  {
+  width: 28px;
+}
+#saved-cards .list-group-item .pull-right input[type="text"] {
+  border: 1px solid #dbdbdb;
+  padding: 0px 5px;
+  width: 40px;
+}
+#saved-cards .list-group-item:first-child, #payment-mode .list-group-item:first-child {
+  border-top: 0px;
+}
+#payment-mode .list-group-item {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#payment-mode .list-group-item a {
+  color: #666;
+}
+#payment-mode .list-group-item .pull-right img {
+  width: 10px;
+}
+#payment-mode .list-group-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+#payment-mode #accordion .card {
+  border: 0px;
+  border-bottom: 1px solid rgba(0,0,0,0.125);
+}
+#payment-mode #accordion .card-header {
+  padding: 0.75rem 0rem;
+  margin-bottom: -1px;
+  border: 0px;
+  background: none;
+}
+#payment-mode #accordion .card-link::after {
+  font-family: 'FontAwesome';
+  content: "\f078";
+  float: right;
+}
+#payment-mode #accordion .card-link[aria-expanded="false"]::after {   
+  content: "\f078";  
+}
+#payment-mode #accordion .card-link[aria-expanded="true"]::after {
+  content: "\f077";
+}
+#payment-mode #accordion .card-link {
+  color: #767676;
+  font-size: 0.875em;
+}
+#payment-mode #accordion .card-body {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+#payment-mode #accordion .input-group.expiry {
+  margin-right: 30px;
+}
+#payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+  float: left;
+  width: 44%;
+}
+.payment-contianer #accordion .input-group.button::before {
+  content: "";
+}
+.payment-contianer #accordion .input-group.button {
+  justify-content: center;
+}
+.payment-contianer .input-group.button a span {
+  font-family: 'condensed-semibold';
+  font-size: 0.753em;
+}
+/* Payment page design ends */
+
 
 /* Responsive design starts */
 @media(min-width: 992px) {
@@ -1307,7 +1420,6 @@ span.premium-txt {
     line-height: 1.4em;    
   }
  }
-
 @media(max-width: 1280px) {
   .plans-page ul {
     margin-right: 3%;
@@ -1532,15 +1644,6 @@ span.premium-txt {
   .plans-page ul.list-none li {
     padding: 0px 17px;
   }
-  .plans-page ul li:nth-child(2) {
-    padding-top: 10px;
-  }
-  .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
-    padding-top: 13px;
-  }
-  .plans-page ul.margin-right-0 li:nth-child(2) {
-    padding-right: 30px;
-  }
   .plans-page ul li .fa, .plans-page ul li span {
     float: none;
   }
@@ -1554,14 +1657,17 @@ span.premium-txt {
     max-width: 100%;
     width: 100%;
   }
-  .plans_list_section ul li:first-child {
-    width: 100%;
+  #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+    width: 43.75%;
   }
 }
 
 @media(max-width: 470px) {
+  #banner-carousel.owl-carousel .owl-nav button.owl-prev img, #banner-carousel.owl-carousel .owl-nav button.owl-next img {
+    width: 13px;
+  }
   #banner-carousel.owl-theme .owl-nav {
-    top: 31%;
+    top: 14%;
   }
   #banner-carousel.owl-carousel .item img:first-child {
     width: 28px;
@@ -1569,7 +1675,6 @@ span.premium-txt {
   .full-width-content #continue-watching-carousel .item img:first-child {
     width: 24px;
   }
-
   .row-movie-list .item {
     width: 28.55%;
   }
@@ -1577,23 +1682,17 @@ span.premium-txt {
     width: 44.85%;
   }
   .plans-page ul, .plans-page ul.margin-right-0  {
-    font-size: 11.5px;
+    font-size: 10.5px;
     padding-left: 5px;
     padding-right: 5px;
     width: 97.5%;    
   }
   .plans-page ul.list-none li {
-    min-height: 36px;
-    padding: 0px 0px;
-    text-align: center;
-    width: 22%;
-  }
-  .plans-page ul.list-none li:nth-child(2) {
-    padding-right: 0px;
-    width: 32%;
-  } 
-  .plans-page ul.list-none li:nth-child(2), .plans-page ul.list-none li:nth-child(3), .plans-page ul.list-none li:last-child { 
-    padding-top: 6px;
+    padding: 0px 9px;
+  }  
+  #payment-mode #accordion .card-body {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 @media(max-width: 359px) {
@@ -1615,6 +1714,19 @@ span.premium-txt {
   }
   .row-show-list .item span.list-tile-title { 
     width: 92%;
+  }
+  #banner-carousel.owl-carousel .owl-nav button.owl-prev img, #banner-carousel.owl-carousel .owl-nav button.owl-next img {
+    width: 12px;
+  }
+  #banner-carousel.owl-theme .owl-nav {
+    top: 8%;
+  }
+  .onboarding-box-wrap {
+    padding: 0px 15px;
+    padding-top: 155px;
+  }
+  #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+    width: 38%;
   }
 }
 
