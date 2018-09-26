@@ -23,7 +23,7 @@
 					</div>
 				<%end%>-->
 
-					<div class="spinner">
+					<div class="spinner" style="display:none;">
 						<img src="/assets/loader.gif" class="img-fluid" alt="" title="">
 					</div>
 				
@@ -36,7 +36,7 @@
 			
 		
 	
-		<div class="row" id="recent_search" style="display:none;">
+		<div class="row" id="recent_search">
  	     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
                  <a href="javascript:void(0);" class="pull-right margin-top-20 clear" id="clear_search">CLEAR</a>
@@ -56,7 +56,7 @@
  $(".search_icon").attr("src","/assets/search_active.svg")
  $(".search_icon").css("width","32px")
   var window_height = window.outerHeight;
-  var window_height = window_height - 231;
+  var window_height = window_height - 200;
   $('.full-width-content').css('min-height',window_height+'px');
   
 
