@@ -95,6 +95,17 @@ class PlansController < ApplicationController
 		"user_info": user_info
 }
 	response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions/cse_payment", plans_purchase_params
-    render json: {:message => "payment iniated",:init_data => response["data"] } , status: :ok
+    render json: {:message => "payment processed",:status_data => response["data"] } , status: :ok
+    #redirect_to  action: 'payment_response',  resp_data: response["data"]
+
+	end
+
+	def payment_response
+		 params.require(:resp_data).permit
+		 if params["resp_data"]["message"] == "pack activated successfully"
+
+		 else
+		 end 
+		 	
 	end
 end
