@@ -992,13 +992,13 @@ span.premium-txt {
   margin-right: 2%;
   position: relative;
 }
-.player_section img:first-child {
+/*.player_section img {
   cursor: pointer;
   left: 46%;
   position: absolute;
   top: 43%;
   width: 48px;
-}
+}*/
 .player_desc_section {
   margin-left: 2%;
 }

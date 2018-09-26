@@ -1,16 +1,17 @@
-<div class="contianer-fluid padding-left-0 padding-right-0">
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
-  <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
-    <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
-  </div>
-</div>
-</div>
+<%
+meta title: "#{@item_details['title']}",
+     description: "#{@item_details['description']}",
+     keywords: "#{@item_details['keywords']}"
+%>
 <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
-<div class="row">
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-    <div class="player_desc_section w-100 margin-left-0 margin-top-25">
-      <div class="video_feature1 pull-left">
-        <h2 class="margin-bottom-15 margin-top-5"><%=@item_details['title']%></h2>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div class="player_section" id="shemaroo_player">
+        <img src="/assets/big_play.svg" alt="" title="">
+        <img src="<%=@item_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="<%=@item_details['title']%>" title="<%=@item_details['title']%>">
+      </div>
+      <div class="player_desc_section">
+        <h2 class="margin-bottom-15"><%=@item_details['title']%></h2>
         <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
           <li><%=@item_details['genres'].join(",").capitalize%></li>
           <li><%=@item_details['language'].capitalize%></li>
@@ -18,8 +19,6 @@
           <li>UA</li>
           <li><%=@item_details['duration_string']%></li>
         </ul>
-      </div>
-      <div class="video_feature2  pull-right">  
         <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
           <li class="text-uppercase text-center">
             <a href="javascript:;">
@@ -40,19 +39,18 @@
             </a>
           </li>
         </ul>
+        <p class="margin-bottom-20"><%=@item_details['description'][0..250]%></p>
+        <p class="margin-bottom-20">
+          <b>Starring:</b><br>
+          <%=@item_details['star_cast'].join(",")%>
+        </p>
+        <p>
+          <b>Directed By:</b><br>
+          <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
+        </p>
       </div>  
-      <p class="margin-bottom-20"><%=@item_details['description']%></p>
-      <p class="margin-bottom-20">
-        <b>Starring:</b><br>
-        <%=@item_details['star_cast'].join(",")%>
-      </p>
-      <p>
-        <b>Directed By:</b><br>
-        <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
-      </p>
     </div>  
   </div>
-</div>
 </section>
 <div class="contianer-fluid">
 <div class="detail-page-bottom-section-bg">
@@ -75,7 +73,6 @@
 </section>
 </div>  
 </div>
-
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -115,11 +112,18 @@ var navigation = [
 
 
 <script type="text/javascript">
-  
+	
 $(".shemaroo_player").empty();
 $(document).ready(function(){
   var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>"
- $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item img-fluid' id='iframe' allowfullscreen> </iframe>")
+ $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         })
 </script> 
 
+
+<style>
+#iframe{
+ width: 550px;
+ height: 350px;
+}
+</style>
