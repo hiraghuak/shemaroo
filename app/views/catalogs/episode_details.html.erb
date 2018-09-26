@@ -3,52 +3,53 @@ meta title: "#{@episode_details['title']}",
      description: "#{@episode_details['description']}",
      keywords: "#{@episode_details['keywords']}"
 %>
-<section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
-<div class="row">
-	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-	  <div class="player_section" id="shemaroo_player">
-	    <img src="/assets/big_play.svg" alt="" title="">
-	    <img src="<%=@episode_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="<%=@episode_details['title']%>" title="<%=@episode_details['title']%>">
-	  </div>
-	  <div class="player_desc_section">
-	    <h2 class="margin-bottom-15"><%=@episode_details['title']%></h2>
-	    <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
-	      <li><%=@episode_details['genres'][0].capitalize%></li>
-	      <li><%=@episode_details['language'].capitalize%></li>
-          <li><%=@episode_details['release_date']%></li>
-          <li><%=(@all_episodes.count.to_s+ " Episodes") if (@all_episodes.count > 0)%></li>
-        </ul>
-	    <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
-	      <li class="text-uppercase text-center">
-	        <a href="javascript:;">
-	          <img src="/assets/preview.svg" class="text-center" alt="" title="">
-	          <span>Preview</span>
-	        </a>
-	      </li>
-	      <li class="text-uppercase text-center">
-	        <a href="javascript:;">
-	          <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
-	          <span>Watch Later</span>
-	        </a>
-	      </li>
-	      <li class="text-uppercase text-center">
-	        <a href="javascript:;">
-	          <img src="/assets/share.svg" class="text-center" alt="" title="">
-	          <span>Share</span>
-	        </a>
-	      </li>
-	    </ul>
-	    <p class="margin-bottom-20"><%=@episode_details['short_description']%></p>
-	    <p class="margin-bottom-20">
-	      <b>Starring:</b><br>
-	      Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar
-	    </p>
-	    <p>
-	      <b>Directed By:</b><br>
-	      Manjula Sinha, Manjula Sinha, Manjula Sinha
-	    </p>
-	  </div>  
-	</div>  
+<div class="min-height-div">
+  <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
+  <div class="row">
+  	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+  	  <div class="player_section" id="shemaroo_player">
+  	    <img src="/assets/big_play.svg" alt="" title="">
+  	    <img src="<%=@episode_details['thumbnails']['large_16_9']['url']%>" class="img-fluid" alt="<%=@episode_details['title']%>" title="<%=@episode_details['title']%>">
+  	  </div>
+  	  <div class="player_desc_section">
+  	    <h2 class="margin-bottom-15"><%=@episode_details['title']%></h2>
+  	    <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
+  	      <li><%=@episode_details['genres'][0].capitalize%></li>
+  	      <li><%=@episode_details['language'].capitalize%></li>
+            <li><%=@episode_details['release_date']%></li>
+            <li><%=(@all_episodes.count.to_s+ " Episodes") if (@all_episodes.count > 0)%></li>
+          </ul>
+  	    <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+  	      <li class="text-uppercase text-center">
+  	        <a href="javascript:;">
+  	          <img src="/assets/preview.svg" class="text-center" alt="" title="">
+  	          <span>Preview</span>
+  	        </a>
+  	      </li>
+  	      <li class="text-uppercase text-center">
+  	        <a href="javascript:;">
+  	          <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
+  	          <span>Watch Later</span>
+  	        </a>
+  	      </li>
+  	      <li class="text-uppercase text-center">
+  	        <a href="javascript:;">
+  	          <img src="/assets/share.svg" class="text-center" alt="" title="">
+  	          <span>Share</span>
+  	        </a>
+  	      </li>
+  	    </ul>
+  	    <p class="margin-bottom-20"><%=@episode_details['short_description']%></p>
+  	    <p class="margin-bottom-20">
+  	      <b>Starring:</b><br>
+  	      Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar
+  	    </p>
+  	    <p>
+  	      <b>Directed By:</b><br>
+  	      Manjula Sinha, Manjula Sinha, Manjula Sinha
+  	    </p>
+  	  </div>  
+  	</div>  
   </div>
   <%if @all_episodes.count > 0 %>
   	<div class="row">
@@ -74,7 +75,7 @@ meta title: "#{@episode_details['title']}",
   		</div>                
   	</div>
   <%end%>
-	</section>
+  </section>
   <%unless @other_items.empty?%>
     <div class="contianer-fluid">
     <div class="detail-page-bottom-section-bg">
@@ -104,7 +105,7 @@ meta title: "#{@episode_details['title']}",
     </div>  
   </div>
   <%end%>
-
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
 	var navigation = [

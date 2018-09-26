@@ -1,24 +1,24 @@
-<section class="onboarding-bg">
+<section class="onboarding-bg min-height-div">
   <div class="onboarding-contianer margin-bottom-30">
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
         <h2 class="block margin-bottom-10"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""> Register</h2>
         <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
           <div class="input-group name">
-            <input type="text" id="user_name" name="user name" class="form-control" placeholder="Name" required="true"> 
+            <input type="text" id="user_name" name="user name" class="form-control" required="true"> 
             <span class="input-label">Name</span> 
           </div>
           <div class="input-group mobile-no">
-            <input type="text" id="mobile_no" name="mobile no" class="form-control" placeholder="Mobile Number"> 
+            <input type="text" id="mobile_no" name="mobile no" class="form-control"> 
             <span class="input-label">Mobile Number</span>
           </div>
           <div class="input-group pwd">
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password"> 
+            <input type="password" id="password" name="password" class="form-control"> 
             <img src="/assets/show_password.svg" class="show_password" alt="" title="">
             <span class="input-label">Password</span> 
           </div>
           <div class="input-group cpwd">
-            <input type="password" id="confirm_password" name="confirm password" class="form-control" placeholder="Confirm Password"> 
+            <input type="password" id="confirm_password" name="confirm password" class="form-control"> 
             <img src="/assets/show_password.svg" class="show_password" alt="" title="">
             <span class="input-label">Confirm Password</span> 
           </div>
@@ -55,6 +55,10 @@ $(document).ready(function(){
         $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
       }  
     });
+
+    var window_height = window.outerHeight;
+  var window_height = window_height - 216;
+  $('.min-height-div').css('min-height',window_height+'px');
 });
 
 </script>
