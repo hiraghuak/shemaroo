@@ -26,7 +26,7 @@ $(document).ready(function(){
 	         	  else{
 	         	  	search_data = search_val
 	         	  }
-	         		$.cookie('recent_search_data',search_data, { expires: 14,path: '/'});
+	         	$.cookie('recent_search_data',search_data, { expires: 14,path: '/'});
 	            $('#search_all_results').html(''); 
 	            for (var i = 0; i < search_results.length; i++) {
 	             var r = search_results[i].split("$");
@@ -36,6 +36,7 @@ $(document).ready(function(){
 	             }
 	          }
 	          else {
+	          	$("#search_heading").hide();
 	          	$("#search_all_results").append('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center"><img src="/assets/no_result.svg" class="search-no-results-image" alt="no search results" title="no search results"><p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p><p class="font-light">Please check the spelling or try another search term.</p></div></div>')
 	          }
 	        } 
@@ -52,6 +53,7 @@ $(document).ready(function(){
 		$("#search_all_results").html("");
 		$("#search").val("");
 		$(".cancel_search,#search_heading").hide();
+		$("#recent_search").show();
 	})
 
  $("#load_more").click(function() {
