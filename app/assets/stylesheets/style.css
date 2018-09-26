@@ -546,18 +546,13 @@ div.scrollmenu a:last-child.active {
   /*box-shadow: 1px 1px 10px 1px rgba(0,0,0, 0.25);*/
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
   float: left;
-  width: 100%;
-  z-index: 1; position: absolute;
+  /*min-height: 236px;*/
+  width: 100%;  
 }
 .owl-carousel .item:hover {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
   box-shadow: 1px 1px 7px 3px rgba(250,250,250,0.75);*/
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.3);
-}
-
-.owl-carousel .owl-item.active .item {
-  z-index: 0;
-  position: static;  
 }
 .item-feature {
   float: left;
@@ -1677,9 +1672,9 @@ label.error {
   .plans_list_section {
     padding-top: 0px;
   }
-  #banner-carousel.owl-carousel .item img:first-child {
+  /*#banner-carousel.owl-carousel .item img:first-child {
     width: 42px;
-  }
+  }*/
   .row-movie-list .item {
     width: 15%;
   }
@@ -1751,9 +1746,9 @@ label.error {
   #banner-carousel.owl-carousel .owl-nav button.owl-next {
     right: 0;
   }
-  #banner-carousel.owl-carousel .item img:first-child {
+  /*#banner-carousel.owl-carousel .item img:first-child {
     width: 40px;
-  }
+  }*/
   .footer-section {
     padding: 0 15px;
   }
@@ -1794,9 +1789,9 @@ label.error {
   #banner-carousel.owl-theme .owl-nav {
     top: 28%;
   }
-  #banner-carousel.owl-carousel .item img:first-child {
+  /*#banner-carousel.owl-carousel .item img:first-child {
     width: 36px;
-  }
+  }*/
   .full-width-content #continue-watching-carousel .item img:first-child {
     width: 30px;
   }
@@ -1824,9 +1819,9 @@ label.error {
   #banner-carousel.owl-theme .owl-nav {
     top: 27%;
   }
-  #banner-carousel.owl-carousel .item img:first-child {
+  /*#banner-carousel.owl-carousel .item img:first-child {
     width: 32px;
-  }
+  }*/
   .full-width-content #continue-watching-carousel .item img:first-child {
     width: 28px;
   }
@@ -1889,9 +1884,9 @@ label.error {
   #banner-carousel.owl-theme .owl-nav {
     top: 14%;
   }
-  #banner-carousel.owl-carousel .item img:first-child {
+  /*#banner-carousel.owl-carousel .item img:first-child {
     width: 28px;
-  }
+  }*/
   .full-width-content #continue-watching-carousel .item img:first-child {
     width: 24px;
   }
