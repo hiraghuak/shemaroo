@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Shemaroo</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
+   <meta http-equiv="Cache-control" content="public"> <!--Html caching purpose -->
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= metamagic %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= yield :head %>
   </head>
@@ -21,4 +22,15 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    var getShemarooCookies = function(){
+      var pairs = document.cookie.split("; ");
+      var cookies = {};
+      for (var i=0; i<pairs.length; i++){
+      var pair = pairs[i].split("=");
+      cookies[pair[0]] = unescape(pair[1]);
+      }
+      return cookies;
+    }
+</script>
 </html>

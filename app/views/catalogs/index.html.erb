@@ -1,12 +1,17 @@
-<section class="banner-section">
+<%
+meta title: "Shemaroo Entertainment Limited",
+     description: "Shemaroo",
+     keywords: %w(Shemaroo)
+%>
+<section class="banner-section padding-top-155">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <div id="banner-carousel" class="owl-carousel owl-theme">
         <%@home_list[0]['catalog_list_items'].each do |h|%>
           <div class="item">
-            <a href="<%=get_item_url(h)%>">
-            <img src="/assets/big_play.svg" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <a href="<%=get_item_url(h)%>">            
             <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <!-- <img src="/assets/big_play.svg" alt="<%#=h['title']%>" title="<%#=h['title']%>"> -->
             </a>
           </div>
         <%end%>           
@@ -15,30 +20,35 @@
   </div>
 </section>
      
-<section class="full-width-content light">
+<section class="full-width-content home-page light">
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
+   <%if list['catalog_list_items'].count > 0%>
     <div class="row">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
         <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
-        <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>">see more</a>
-        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+        <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['layout_scheme'])%>">
           <%list['catalog_list_items'].each do |item|%>
             <div class="item">
               <a href="<%=get_item_url(item)%>">
-              <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+              <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
               </a>
             </div> 
           <%end%>             
         </div>           
       </div>
-    </div> 
+    </div>
+    <%end%> 
     <%end%> 
   <%end%>
 </section>
 
 
 <script>
+ var window_height = window.outerHeight;
+  var window_height = window_height - 231;
+  $('.full-width-content').css('min-height',window_height+'px');
 $(document).ready(function() {
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
@@ -53,23 +63,23 @@ var navigation = [
     responsive:{
         0:{
             items:1,
-            stagePadding: 30,
+            stagePadding: 39,
         },
         576:{
             items:1,
-            stagePadding: 40,
+            stagePadding: 49,
         },
         768:{
             items:1,
-            stagePadding: 50,
+            stagePadding: 59,
         },
         992:{
             items:1,
-            stagePadding: 60,
+            stagePadding: 69,
         },
         1200:{
             items:1,
-            stagePadding: 87,
+            stagePadding: 96,
         }
     }
   });
@@ -78,13 +88,16 @@ var navigation = [
     for (i = 1; i <= items_count; i++) {
     var auto_loop_status = false;
     var owl = $("#bollywood-classic-carousel_"+i);
+    if($("#bollywood-classic-carousel_"+i).data("item-det") != undefined){
     var det = $("#bollywood-classic-carousel_"+i).data("item-det").split("$");
     var total_item_cnt =  det[1];
     var layout_type = det[0];
-    if(layout_type == "t_16_9_big"){
+    var color = det[2].split("|")
+    $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
+    if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
      var no_of_items = 5;
-     if(no_of_items > 5){
-       auto_loop_status = true
+     if(total_item_cnt > 5){
+       // auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 1
        var items_576 = 2
@@ -92,10 +105,10 @@ var navigation = [
        var items_992 = 4
      }
     }
-    else if(layout_type == "t_1_1_plain"){
+    else if(layout_type == "t_1_1_plain" || layout_type == "t_1_1_album"){
      var no_of_items = 6;
-     if(no_of_items > 6){
-       auto_loop_status = true
+     if(total_item_cnt > 6){
+       // auto_loop_status = true
        $(".all_items_"+i).show();
        var items_0 = 2
        var items_576 = 3
@@ -109,8 +122,8 @@ var navigation = [
       var items_576 = 3
       var items_768 = 4
       var items_992 = 5
-     if(no_of_items > 7){
-      auto_loop_status = true
+     if(total_item_cnt > 7){
+      // auto_loop_status = true
       $(".all_items_"+i).show();
      }
     }
@@ -120,14 +133,15 @@ var navigation = [
     margin:10,
     nav:true,
     dots: false,
-    stagePadding: 40,
+    stagePadding: 50,
     navText: navigation,
     responsive:{
       0:{
-          items: items_0
+          items: items_0,
+          stagePadding: 25
       },
       576:{
-          items: items_576
+          items: items_576,
       },
       768:{
           items: items_768
@@ -141,6 +155,7 @@ var navigation = [
     }
   });
 }
-//$("body").append('<style>.light h2:before{background: linear-gradient(to right,#D51E54, #F15A23);}</style>');
+ }
 });  
 </script> 
+

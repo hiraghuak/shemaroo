@@ -1,18 +1,51 @@
-<section class="full-width-content light">
-  <div class="row">
+<%
+meta title: "#{@title}",
+     description: "",
+     keywords: ""
+%>
+<section class="full-width-content inside-container top-bg-gradient light padding-top-155">
+  <div class="row h-100">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
-    <h2 class="margin-bottom-20 text-capitalize gradient2" style="width: 100%;"><%=@title%></h2>
-    <div class="row row-show-list">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
+    <%if @all_items.count > 0%>
+    
+   <%if @layout_type == "t_2_3_movie" || @layout_type == "movies" 
+      class_name = "row-movie-list" 
+      title = "no"        
+     else
+      class_name = "row-show-list" 
+      title = "yes"        
+    end%>
+    <div class="row <%=class_name%>">
      <%@all_items.each do |i|%>
         <div class="item">                                                              
           <a href="<%=get_item_url(i)%>">
-          <img src="<%=i["thumbnails"]["small_16_9"]["url"]%>" alt="<%=i['title']%>" title="<%=i['title']%>">
-          <span class="list-tile-title"><%=i['title']%></span>
+          <%if i['access_control']['is_free'] == false%>
+            <span class="text-uppercase premium-txt">Premium</span>
+          <%end%>
+          <%if @layout_type == "t_1_1_album"%>
+          <img src="<%=i["thumbnails"]["medium_16_9"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%else%>
+          <img src="<%=get_image_url(i,@layout_type)%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%end%>
+          <%if title == "yes"%>
+            <span class="list-tile-title"><%=i['title']%></span>
+          <%end%>
           </a>
         </div>
       <%end%>
     </div>
+    <%else%>
+    <div class="light no-items-found">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize 1-100 gradient1" style="">No items found</h2>
+    </div>
+    <%end%>
     </div>  
   </div>
 </section>
+<script>
+  // var window_height = window.outerHeight;
+  // var window_height = window_height - 231;
+  // $('.full-width-content').css('height',window_height+'px');
 
+</script>

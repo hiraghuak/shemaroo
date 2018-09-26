@@ -1,0 +1,60 @@
+<section class="onboarding-bg">
+  <div class="onboarding-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+        <h2 class="block margin-bottom-10"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""> Register</h2>
+        <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
+          <div class="input-group name">
+            <input type="text" id="user_name" name="user name" class="form-control" placeholder="Name" required="true"> 
+            <span class="input-label">Name</span> 
+          </div>
+          <div class="input-group mobile-no">
+            <input type="text" id="mobile_no" name="mobile no" class="form-control" placeholder="Mobile Number"> 
+            <span class="input-label">Mobile Number</span>
+          </div>
+          <div class="input-group pwd">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password"> 
+            <img src="/assets/show_password.svg" class="show_password" alt="" title="">
+            <span class="input-label">Password</span> 
+          </div>
+          <div class="input-group cpwd">
+            <input type="password" id="confirm_password" name="confirm password" class="form-control" placeholder="Confirm Password"> 
+            <img src="/assets/show_password.svg" class="show_password" alt="" title="">
+            <span class="input-label">Confirm Password</span> 
+          </div>
+          <div class="input-group custom-controls-stacked d-block my-3">
+          <label class="custom-control overflow-checkbox">
+              <input type="checkbox" class="overflow-control-input">
+              <span class="overflow-control-indicator"></span>
+              <span class="overflow-control-description">I agree to the <a href="javascript:;" class="text-uppercase">terms of use </a>and <a href="javascript:;" class="text-uppercase">privacy policy</a></span>
+            </label>
+          </div>
+          <div class="text-center margin-bottom-25 margin-top-20 light">
+            <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span>Register</span></a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+$("#with_header_tabs").hide();
+$(document).ready(function(){
+ $("#without_header_tabs").show();
+   var dot = "\f111";
+    $(".input-group.name input").keyup(function() {
+      var val = $(".input-group.name input").val();
+      console.log(val);
+      console.log(val.length);
+      if(val.length != 0) {
+        $("body").append("<style>.input-group.name:before{content: ''}</style>");        
+      }    
+      else {
+        $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
+      }  
+    });
+});
+
+</script>
