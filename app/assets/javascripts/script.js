@@ -37,7 +37,8 @@ $(document).ready(function(){
 	          }
 	          else {
 	          	$("#search_heading").hide();
-	          	$("#search_all_results").append('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center"><img src="/assets/no_result.svg" class="search-no-results-image" alt="no search results" title="no search results"><p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p><p class="font-light">Please check the spelling or try another search term.</p></div></div>')
+	          	$("#search_all_results").append('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center"><img src="/assets/no_result.svg" class="search-no-results-image" alt="no search results" title="no search results"><p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <span class="searched_text"></span></strong></p><p class="font-light">Please check the spelling or try another search term.</p></div></div>')
+	            $(".searched_text").text(search_val.toUpperCase());
 	          }
 	        } 
 	    });
@@ -55,6 +56,12 @@ $(document).ready(function(){
 		$(".cancel_search,#search_heading").hide();
 		$("#recent_search").show();
 	})
+
+	$("#clear_search").click(function(){
+  	  $.removeCookie('recent_search_data', { path: '/' });
+  	  $(this).hide();
+  	  $("#user_recent_search").html('<li class="list-group-item border-top-0 padding-left-0">You have not searched anything recently!</li>');
+    })
 
  $("#load_more").click(function() {
  	

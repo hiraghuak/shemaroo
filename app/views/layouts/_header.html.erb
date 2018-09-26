@@ -13,8 +13,8 @@
        <%@header_tabs.each_with_index do |i,j|%>
        <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
        <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
-       <%elsif params[:action] == "index"%>
-        <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase gradient2 <%= (j == 0) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
+       <%else%>
+        <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase gradient2 <%= (request.path == "/" && j == 0) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%end%>
        <%end%>
       </ul>
