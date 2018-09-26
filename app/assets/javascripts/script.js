@@ -12,11 +12,17 @@ $(document).ready(function(){
 	  $("#search_all_results,.search_count").html("");
 	  var search_val = $(this).val();
 	  if(search_val.length != 0 && search_val != "%"){
+	  // $(".spinner").show();
+	  if(e.which == 13){
+       window.location = "/search/"+$(this).val();
+     }
+     else{
 	  	$.ajax({ 
 	        type: 'POST', 
 	        url: '/search', 
 	        data: {'search' : search_val }, 
 	        success: function(response){
+	        	//$(".spinner").hide();
 	        	$("#search_heading").show();
 	          var search_results = response.results;
 	         if(search_results.length != 0){
@@ -42,6 +48,7 @@ $(document).ready(function(){
 	          }
 	        } 
 	    });
+	    }
 	  }
 	  else{
 	   $("#search_all_results").html("");
@@ -49,6 +56,7 @@ $(document).ready(function(){
 		 $(".cancel_search,#search_heading").hide();
 	  }
 	});
+
 
 	$(".cancel_search").click(function(){
 		$("#search_all_results").html("");
@@ -61,11 +69,16 @@ $(document).ready(function(){
   	  $.removeCookie('recent_search_data', { path: '/' });
   	  $(this).hide();
   	  $("#user_recent_search").html('<li class="list-group-item border-top-0 padding-left-0">You have not searched anything recently!</li>');
-    })
+    });
+
+  
+  
+
 
  $("#load_more").click(function() {
  	
  })
+
   
  $(".input-group img.show_password").click(function() {
       $(this).parent(".input-group").toggleClass("hide_password");

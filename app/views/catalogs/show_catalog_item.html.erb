@@ -57,6 +57,9 @@ meta title: "#{@meta_title}",
 
 
 <script type="text/javascript">
+var window_height = window.outerHeight;
+  var window_height = window_height - 231;
+  $('.full-width-content').css('min-height',window_height+'px');
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
