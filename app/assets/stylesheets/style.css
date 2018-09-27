@@ -35,7 +35,11 @@
   src: url('fonts/EEncodeSansCondensed-Thin.ttf');
 }
 
-
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 button.owl-prev.disabled,button.owl-next.disabled{
   opacity: 0.5; 
   cursor: default !important;
@@ -92,6 +96,7 @@ body {
 .inside-wrapper {
   background-color: #fff;
   float: left;
+  min-height: 100%;
   width: 100%;
 }
 .header .main-logo {
@@ -99,6 +104,10 @@ body {
   margin-right: 56px;
   margin-top: 10px;
   width: 120px;
+}
+.onboarding-bg.min-height-div {
+  align-items: center;
+  display: flex;
 }
 .small-header-content .header .main-logo {
   margin-left: 0px;
@@ -299,10 +308,10 @@ div.scrollmenu a:last-child.active {
 }
 .fixed-top .profile-list {
   float: left;
-      display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 30px
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px
 }
 .fixed-top .profile-list ul {
   list-style: none;
@@ -312,10 +321,10 @@ div.scrollmenu a:last-child.active {
 }
 .fixed-top .profile-list ul li {
   float: left;
-      position: relative;
-    margin: 0 10px;
-    max-width: 150px;
-    text-align: center;
+  position: relative;
+  margin: 0 10px;
+  max-width: 150px;
+  text-align: center;
 }
 .fixed-top .profile-list ul li p { 
   border-radius: 50%;

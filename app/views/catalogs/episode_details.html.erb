@@ -3,7 +3,6 @@
     description: "#{@episode_details['description']}",
     keywords: "#{@episode_details['keywords']}"
 %>
-
 <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
   <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
@@ -55,9 +54,8 @@
         <b>Directed By:</b><br>
         Manjula Sinha, Manjula Sinha, Manjula Sinha
       </p>
-    </div>  
-  </div>
-</div>
+    </div> 
+    </div> 
   <%if @all_episodes.count > 0 %>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
@@ -82,8 +80,11 @@
       </div>                
     </div>
   <%end%>
+</div>
+
 </section>
 <%unless @other_items.empty?%>
+
     <div class="contianer-fluid">
     <div class="detail-page-bottom-section-bg">
       <section class="full-width-content padding-top-30 padding-bottom-10">
@@ -112,6 +113,7 @@
     </div>  
   </div>
   <%end%>
+
 
 
 <script type="text/javascript">
