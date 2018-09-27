@@ -32,7 +32,7 @@ meta title: "Shemaroo Entertainment Limited",
         <%end%>
         <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['layout_scheme'])%>">
           <%list['catalog_list_items'].each do |item|%>
-            <div class="item">
+            <div class="item <%=get_image_height(@items[index]["layout_type"])%>">
               <a href="<%=get_item_url(item)%>">
               <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
               </a>

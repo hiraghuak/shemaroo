@@ -29,6 +29,7 @@ module ApplicationHelper
         Ott.get_configuration      
        }
      color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"|"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
+     p color.inspect
      if color.nil?
      	color = "#8BC76D|#1F9FB9"
      end
@@ -61,7 +62,18 @@ module ApplicationHelper
    description = "Shemaroo Entertainmenent"
    keywords = "Shemaroo"
    return title,description,keywords
-
   end
 
+  def get_image_height(layout_type)
+    image_name = "horizontal"
+   case layout_type
+    when "t_1_1_album"
+     image_name = "square"
+    when "t_2_3_movie"
+      image_name = "vertical"
+    when "t_16_9_big_meta"
+      image_name = "square_big"
+  end
+  return image_name
+end
 end
