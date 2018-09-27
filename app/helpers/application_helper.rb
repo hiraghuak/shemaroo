@@ -72,7 +72,12 @@ module ApplicationHelper
     when "t_2_3_movie"
       image_name = "vertical"
     when "t_16_9_big_meta"
-      image_name = "square_big"
+      image_name = "square_big_title"
+    when "t_16_9_big"
+      image_name = "square_big"  
+    when "t_16_9_small_meta"
+      image_name = "horizontal_title"
+      
   end
   return image_name
 end

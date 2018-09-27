@@ -56,6 +56,16 @@ $(document).ready(function(){
         $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
       }  
     });
+
+    $("input[type='text'], input[type='password']").keydown(function() {
+      var inputlenth = $(this).val().length;
+      if(inputlenth > 0) {
+        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
+      }
+      else {
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+      }
+    });
 });
 
 </script>
