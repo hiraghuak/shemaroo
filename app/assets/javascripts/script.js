@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	
-	var window_height = window.outerHeight;
-  	var window_height = window_height - 231;
-  	$('.min-height-div').css('min-height',window_height+'px');
+	// var window_height = window.outerHeight;
+ //  	var window_height = window_height - 231;
+ //  	$('.min-height-div').css('min-height',window_height+'px');
 
 	$('.close-hambergmenu img').click(function() {
 		$('.fixed-top .navbar-collapse').removeClass('show');	
