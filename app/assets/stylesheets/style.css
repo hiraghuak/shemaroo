@@ -1346,6 +1346,38 @@ span.premium-txt {
   float: left;
   margin-top: 3px;
 }
+.otp-verification-page span {
+  font-size: 0.75em;
+}
+.otp-verification-page p {
+  color: #666;
+  font-size: 0.875em;
+}
+.otp-verification-page a span {
+  font-size: 1em;
+}
+.otp-verification-page .input-group {
+  display: flex;
+  justify-content: center;
+}
+.otp-verification-page .input-group:before {
+  content: "";
+}
+.otp-verification-page input[type="text"] {
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  height: 48px;
+  margin-right: 10px;
+  padding: 0;
+  text-align: center;
+  width: 48px;
+}
+.otp-verification-page input[type="text"]:focus {
+  border: 1px solid #A0A0A0;
+}
+.otp-verification-page input[type="text"]:last-child {
+  margin-right: 0px;
+} 
 /* Login & Register page design ends */
 
 
