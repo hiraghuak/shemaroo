@@ -1897,6 +1897,21 @@ label.error {
   .plans-page ul, .plans-page ul.margin-right-0  {
     width: 71%;
   }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 4 * 1.15);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 3 * .44)
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 3 * .557);
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 4 * 0.768);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 3 * 0.556);
+  }
 }
 
 @media(max-width: 767px) {
@@ -1970,11 +1985,42 @@ label.error {
   .plans-page ul li label {
     width: 100%;
   }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 3 * 1.197);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 2 * .458)
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 3 * .557);
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 3 * 0.798);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 2 * 0.525);
+  }
 }
 @media(max-width: 640px) {
   .plans-page ul.margin-right-0 li:nth-child(2) {
     width: 35%;
   }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 3 * 1.188);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 2 * .4552);
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 2 * .547);
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 3 * 0.79);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 1 * 0.508);
+  }
+  
 }
 @media(max-width: 576px) { 
   .full-width-content #continue-watching-carousel .item img:first-child {
@@ -2007,6 +2053,21 @@ label.error {
   }
   .contact-page .w-50 {
     width: 100%!important;
+  }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 2 * 1.304);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 1 * .4995);
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 1 * .522);
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 2 * 0.869);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 1 * 0.521);
   }
 }
 
@@ -2063,10 +2124,40 @@ label.error {
   .plans_list_section ul li:first-child {
     width: calc(100% - 154px);
   }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 2 * 1.2315);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 1 * .476);
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 1 * .548) ;
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 2 * 0.82);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 1 * 0.547);
+  }
 }
 @media(max-width: 400px) {
   .plans_list_section ul li {
     margin-right: 10px;
+  }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 2 * 1.203);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 1 * .4678);
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 1 * .547) ;
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 2 * 0.8025);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 1 * 0.5454);
   }
 }
 @media(max-width: 359px) {
@@ -2101,6 +2192,21 @@ label.error {
   }
   #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
     width: 38%;
+  }
+  .owl-carousel .owl-item .item.vertical {
+    min-height: calc((100vw - 0px)/ 2 * 1.152);
+  }
+  .owl-carousel .owl-item .item.horizontal {
+    min-height: calc((100vw - 0px)/ 1 * .45);
+  }
+  .owl-carousel .owl-item .item.horizontal_title {
+    min-height: calc((100vw - 0px)/ 1 * .544) ;
+  }
+  .owl-carousel .owl-item .item.square {
+    min-height: calc((100vw - 0px)/ 2 * 0.77);
+  }
+  .owl-carousel .owl-item .item.square_big_title {
+    min-height: calc((100vw - 0px)/ 1 * 0.524);
   }
 }
 

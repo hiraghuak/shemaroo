@@ -26,7 +26,7 @@ meta title: "Shemaroo Entertainment Limited",
    <%if list['catalog_list_items'].count > 0%>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
-        <h2 class="margin-bottom-15 text-capitalize gradient5"><a href="<%=list["home_link"]%>"><%=list['display_title']%></a></h2>
+        <a href="<%=list["home_link"]%>"><h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2></a>
         <%unless list["home_link"].blank?%>
           <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
         <%end%>
