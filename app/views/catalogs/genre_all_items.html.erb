@@ -1,7 +1,7 @@
 <section class="full-width-content inside-container top-bg-gradient min-height-div  padding-top-155 light">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
-    <h2 class="margin-bottom-20 text-capitalize gradient2" style="width: 100%;">More in  <%=params[:genre].capitalize%></h2>
+    <h2 class="margin-bottom-20 margin-top-25 text-capitalize gradient2" style="width: 100%;">More in  <%=params[:genre].capitalize%></h2>
     <div class="row row-movie-list">
      <%@all_genere_items.each do |i|%>
         <div class="item">                                                              
@@ -16,4 +16,5 @@
     </div>
     </div>  
   </div>
+<%=render "layouts/page_height_setting"%>  
 </section>
