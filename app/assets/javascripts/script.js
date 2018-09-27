@@ -8,9 +8,9 @@ $(document).ready(function(){
 		$('.fixed-top .navbar-collapse').removeClass('show');	
 	});
 
-	var window_height = window.outerHeight;
-  var window_height = window_height - 231;
-  $('.min-height-div').css('min-height',window_height+'px');
+	// var window_height = window.outerHeight;
+ //  var window_height = window_height - 231;
+ //  $('.min-height-div').css('min-height',window_height+'px');
 
 	$("#search").keyup(function(e){
 	  $("#search_heading,#recent_search").hide();
