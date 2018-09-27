@@ -67,8 +67,10 @@ class PlansController < ApplicationController
 
 
 	def purchase_plans
+	$region = "US"
 	payment_gateway = "admin"
 	platform = "android"
+	@region = "US"
 	plan_id = params["plans"].split(",").map{|a| a.split("|")[-1]}
 	pack_id = params["plans"].split(",").map{|a| a.split("|")[0]}
     # plans.each do 
@@ -108,7 +110,6 @@ class PlansController < ApplicationController
 	def payment_response
 		 params.require(:resp_data).permit
 		 if params["resp_data"]["message"] == "pack activated successfully"
-
 		 else
 		 end 
 		 	
