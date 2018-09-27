@@ -29,7 +29,6 @@ module ApplicationHelper
         Ott.get_configuration      
        }
      color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"|"+"#"+x["end_color"] if (x["scheme"] == item)}.compact.first
-     p color.inspect
      if color.nil?
      	color = "#8BC76D|#1F9FB9"
      end
