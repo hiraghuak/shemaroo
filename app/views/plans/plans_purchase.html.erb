@@ -123,10 +123,7 @@
     <!-- </div> -->
   </div>
 <script>
-  $(document).ready(function() {
-    var window_height = window.outerHeight;
-    var window_height = window_height - 231;
-    $('.onboarding-bg-min-height').css('min-height',window_height+'px');       
+  $(document).ready(function() {      
    $("#currency").text(localStorage.getItem("currency")  );
    $("#total_amount").text(localStorage.getItem("tl_amount"));
 

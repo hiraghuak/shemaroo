@@ -3,115 +3,119 @@
     description: "#{@episode_details['description']}",
     keywords: "#{@episode_details['keywords']}"
 %>
-
-<div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
-  <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
-    <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
-  </div>
-</div>
-</div>
-<section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
-<div class="row">
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-    <div class="player_desc_section w-100 margin-left-0 margin-top-25">
-      <div class="video_feature1 pull-left">
-        <h2 class="margin-bottom-15 margin-top-5"><%=@episode_details['title']%></h2>
-        <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
-          <li><%=@episode_details['genres'][0].capitalize%></li>
-          <li><%=@episode_details['language'].capitalize%></li>
-          <li><%=@episode_details['release_date']%></li>
-          <li><%=(@all_episodes.count.to_s+ " Episodes") if (@all_episodes.count > 0)%></li>
-        </ul>
+<div class="min-height-div">
+  <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
+      <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
+        <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
       </div>
-      <div class="video_feature2  pull-right">  
-        <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/preview.svg" class="text-center" alt="" title="">
-              <span>Preview</span>
-            </a>
-          </li>
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
-              <span>Watch Later</span>
-            </a>
-          </li>
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/share.svg" class="text-center" alt="" title="">
-              <span>Share</span>
-            </a>
-          </li>
-        </ul>
-      </div>  
-      <p class="margin-bottom-20"><%=@episode_details['description']%></p>
-      <p class="margin-bottom-20">
-        <b>Starring:</b><br>
-        Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar
-      </p>
-      <p>
-        <b>Directed By:</b><br>
-        Manjula Sinha, Manjula Sinha, Manjula Sinha
-      </p>
     </div>  
   </div>
-</div>
-  <%if @all_episodes.count > 0 %>
+  <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
     <div class="row">
-      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
-        <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
-        <div class="row row-show-list detail_page">
-         <%@all_episodes.each do |e|%>
-          <div class="item">                                                              
-            <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
-              <img src="/assets/big_play.svg" alt="" title="">
-              <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
-              <span class="list-tile-title"><%=e['title']%></span>
-              <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;<%=e['duration_string']%></span>
-            </a>
-          </div>  
-         <%end%>    
-        </div>  
-        <%if @all_episodes.count > 10%> 
-          <div class="text-center margin-bottom-25 margin-top-20">
-          <a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
-          </div> 
-        <%end%>       
-      </div>                
-    </div>
-  <%end%>
-</section>
-<%unless @other_items.empty?%>
-    <div class="contianer-fluid">
-    <div class="detail-page-bottom-section-bg">
-      <section class="full-width-content padding-top-30 padding-bottom-10">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-            <h2 class="margin-bottom-15 pull-left">Other tvshows<%#=@episode_details["catalog_object"]["layout_type"]%></h2>
-            <%if @other_items.count > 5 %>
-              <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
-            <%end%>    
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+        <div class="player_desc_section w-100 margin-left-0 margin-top-25">
+          <div class="video_feature1 pull-left">
+            <h2 class="margin-bottom-15 margin-top-5"><%=@episode_details['title']%></h2>
+            <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
+              <li><%=@episode_details['genres'][0].capitalize%></li>
+              <li><%=@episode_details['language'].capitalize%></li>
+              <li><%=@episode_details['release_date']%></li>
+              <li><%=(@all_episodes.count.to_s+ " Episodes") if (@all_episodes.count > 0)%></li>
+            </ul>
           </div>
-        </div>
-        
-        <div id="other-shows-carousel" class="owl-carousel owl-theme">
-         <%@other_items.each do |t|%>
-         <%if t["thumbnails"].has_key?("small_16_9")%>
-            <div class="item">
-              <a href="<%=get_item_url(t)%>">
-                <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
-                <span class="list-tile-title"><%=t['title']%></span>
+          <div class="video_feature2  pull-right">  
+            <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/preview.svg" class="text-center" alt="" title="">
+                  <span>Preview</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
+                  <span>Watch Later</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/share.svg" class="text-center" alt="" title="">
+                  <span>Share</span>
+                </a>
+              </li>
+            </ul>
+          </div>  
+          <p class="margin-bottom-20"><%=@episode_details['description']%></p>
+          <p class="margin-bottom-20">
+            <b>Starring:</b><br>
+            Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar,Shafi Inamdar
+          </p>
+          <p>
+            <b>Directed By:</b><br>
+            Manjula Sinha, Manjula Sinha, Manjula Sinha
+          </p>
+        </div> 
+      </div> 
+    </div>
+    <%if @all_episodes.count > 0 %>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
+          <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
+          <div class="row row-show-list detail_page">
+           <%@all_episodes.each do |e|%>
+            <div class="item">                                                              
+              <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
+                <img src="/assets/big_play.svg" alt="" title="">
+                <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
+                <span class="list-tile-title"><%=e['title']%></span>
+                <span class="list-tile-duration">E 001&nbsp;&nbsp;|&nbsp;&nbsp;<%=e['duration_string']%></span>
               </a>
+            </div>  
+           <%end%>    
+          </div>  
+          <%if @all_episodes.count > 10%> 
+            <div class="text-center margin-bottom-25 margin-top-20">
+            <a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
             </div> 
-          <%end%>
-          <%end%>            
-        </div>              
-      </section>
-    </div>  
+          <%end%>       
+        </div>                
+      </div>
+    <%end%>
+  
+
+  </section>
+<%unless @other_items.empty?%>
+
+    <div class="contianer-fluid">
+      <div class="detail-page-bottom-section-bg">
+        <section class="full-width-content padding-top-30 padding-bottom-10">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+              <h2 class="margin-bottom-15 pull-left">Other tvshows<%#=@episode_details["catalog_object"]["layout_type"]%></h2>
+              <%if @other_items.count > 5 %>
+                <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
+              <%end%>    
+            </div>
+          </div>
+          
+          <div id="other-shows-carousel" class="owl-carousel owl-theme">
+           <%@other_items.each do |t|%>
+           <%if t["thumbnails"].has_key?("small_16_9")%>
+              <div class="item">
+                <a href="<%=get_item_url(t)%>">
+                  <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
+                  <span class="list-tile-title"><%=t['title']%></span>
+                </a>
+              </div> 
+            <%end%>
+            <%end%>            
+          </div>              
+        </section>
+      </div>  
   </div>
   <%end%>
+</div>
 
 
 <script type="text/javascript">

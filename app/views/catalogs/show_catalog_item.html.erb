@@ -19,47 +19,45 @@ meta title: "#{@meta_title}",
     </div>
   </div>
 </section>
-<section class="full-width-content light home-page">
-  <%@catalog_items.each_with_index do |list,index|%>
-   <%if @catalog_items[index]["layout_type"] != "t_subscription" %>
-      <%unless list['catalog_list_items'].empty?%>
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
-            <h2 class="margin-bottom-15 text-capitalize gradient8" id="<%=get_item_color(list["layout_scheme"])%>"><%=list['display_title']%></h2>
-            <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
-            <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
-              <%list['catalog_list_items'].each do |item|%>
-                <div class="item">
-                  <a href="<%=get_item_url(item)%>">
-                  <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
-                  <%if @catalog_items[index]["layout_type"].split("_").last.downcase == "meta"
-                  %>
-                    <span class="list-tile-title"><%=item["title"]%></span>
-                  <%end%>
-                  </a>
-                </div> 
-              <%end%>             
-            </div>           
-          </div>
-        </div> 
+<div class="min-height-div">
+  <section class="full-width-content light home-page">
+    <%@catalog_items.each_with_index do |list,index|%>
+     <%if @catalog_items[index]["layout_type"] != "t_subscription" %>
+        <%unless list['catalog_list_items'].empty?%>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
+              <h2 class="margin-bottom-15 text-capitalize gradient8" id="<%=get_item_color(list["layout_scheme"])%>"><%=list['display_title']%></h2>
+              <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+              <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+                <%list['catalog_list_items'].each do |item|%>
+                  <div class="item">
+                    <a href="<%=get_item_url(item)%>">
+                    <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+                    <%if @catalog_items[index]["layout_type"].split("_").last.downcase == "meta"
+                    %>
+                      <span class="list-tile-title"><%=item["title"]%></span>
+                    <%end%>
+                    </a>
+                  </div> 
+                <%end%>             
+              </div>           
+            </div>
+          </div> 
+        <%end%> 
       <%end%> 
-    <%end%> 
-  <%end%>
-</section>
-<section>
-  <!-- <div class="bollywod-bottom-banner margin-bottom-20 margin-top-15">
-    <a href="javascript:;" class="rounded">
-      <p class="text-uppercase">subscribe to bollywood classic</p> <span><i class="fa fa-inr" aria-hidden="true"></i> 49</span>
-    </a>
-  </div> -->
-</section>
-
+    <%end%>
+  </section>
+  <section>
+    <!-- <div class="bollywod-bottom-banner margin-bottom-20 margin-top-15">
+      <a href="javascript:;" class="rounded">
+        <p class="text-uppercase">subscribe to bollywood classic</p> <span><i class="fa fa-inr" aria-hidden="true"></i> 49</span>
+      </a>
+    </div> -->
+  </section>
+</div>
 
 
 <script type="text/javascript">
-var window_height = window.outerHeight;
-  var window_height = window_height - 231;
-  $('.full-width-content').css('min-height',window_height+'px');
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'

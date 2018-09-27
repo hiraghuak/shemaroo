@@ -20,7 +20,7 @@ meta title: "Shemaroo Entertainment Limited",
   </div>
 </section>
      
-<section class="full-width-content home-page light">
+<section class="full-width-content home-page light min-height-div">
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
    <%if list['catalog_list_items'].count > 0%>
@@ -48,7 +48,7 @@ meta title: "Shemaroo Entertainment Limited",
 <script>
  var window_height = window.outerHeight;
   var window_height = window_height - 231;
-  $('.full-width-content').css('min-height',window_height+'px');
+  $('.min-height-div').css('min-height',window_height+'px');
 $(document).ready(function() {
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
