@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  get "/faq" => "statics#faq"
 
  get "/contact-us" => "statics#contact_us"
+
  ##STATIC PAGES ROUTES ENDS HERE####
 
  ##USERS PAGES ROUTES STARTS HERE####
