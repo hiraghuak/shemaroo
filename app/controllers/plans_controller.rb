@@ -76,8 +76,13 @@ class PlansController < ApplicationController
     # end    
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id[0]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id[0]}.compact.last
+     if @region = "IN"
+     	price_charged = sp["pg_price"]["cc_avenue"]
+     else
+     	price_charged =  sp["pg_price"]["adyen"]
+     end
 	
-	payment_info = { "price_charged": params["price_charged"],"currency": sp["currency"], 
+	payment_info = { "price_charged": price_charged,"currency": sp["currency"], 
 		     "packs":[
 		     	{"plan_categories":[ pd["data"]["category"]],
 		     	"category_type": pd["data"]["category_type"],
