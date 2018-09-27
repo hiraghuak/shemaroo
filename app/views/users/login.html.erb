@@ -41,3 +41,14 @@
   <%=render "layouts/page_height_setting"%>
 </section>
 
+<script>
+  $("input[type='text'], input[type='password']").keydown(function() {
+      var inputlenth = $(this).val().length;
+      if(inputlenth > 0) {
+        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
+      }
+      else {
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+      }
+    });
+</script>

@@ -111,46 +111,49 @@ var navigation = [
     var layout_type = det[0];
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small" || layout_type == "t_1_1_play" || layout_type == "t_16_9_small_meta" ){
      var no_of_items = 5;
-     if(total_item_cnt > 5){
-       auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 1
+     var items_0 = 1
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
+     if(total_item_cnt > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
     else if(layout_type == "t_1_1_plain" || layout_type == "t_1_1_album_meta"){
      var no_of_items = 6;
+     var items_0 = 2
+     var items_576 = 3
+      var items_768 = 4
+      var items_992 = 5
      if(total_item_cnt > 6){
        auto_loop_status = true
        $(".all_items_"+i).show();
-       var items_0 = 2
-       var items_576 = 3
-       var items_768 = 4
-       var items_992 = 5
      }
     }
     else if(layout_type == "t_comb_16_9_list" || layout_type == "t_16_9_big_meta"){
      var no_of_items = 3;
+     var items_0 = 1
+      var items_576 = 2
+     var items_768 = 3
+     var items_992 = 3
      if(total_item_cnt > 3){
        auto_loop_status = true
        $(".all_items_"+i).show();
-       var items_0 = 1
-       var items_576 = 2
-       var items_768 = 3
-       var items_992 = 3
+       
      }
     }
     else if(layout_type == "t_comb_1_1_image"){
      var no_of_items = 5;
-     if(total_item_cnt > 5){
-       auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 1
+     var items_0 = 1
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
+     if(total_item_cnt > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
 
