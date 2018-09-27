@@ -18,11 +18,14 @@
           <div class="video_feature1 pull-left">
             <h2 class="margin-bottom-15 margin-top-5"><%=@item_details['title']%></h2>
             <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
-              <li><%=@item_details['genres'].join(",").capitalize%></li>
-              <li><%=@item_details['language'].capitalize%></li>
-              <li><%=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
+              <!-- <li><%#=@item_details['genres'].join(",").capitalize%></li>
+              <li><%#=@item_details['language'].capitalize%></li>
+              <li><%#=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
               <li>UA</li>
-              <li><%=@item_details['duration_string']%></li>
+              <li><%#=@item_details['duration_string']%></li> -->
+              <%@item_details['item_caption'].split("|").each do |s|%>
+              <li><%=s%></li>
+               <%end%>
             </ul>
           </div>
           <div class="video_feature2  pull-right">  
