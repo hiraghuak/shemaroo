@@ -21,19 +21,20 @@ meta title: "#{@meta_title}",
 </section>
 <div class="min-height-div">
   <section class="full-width-content light home-page">
-    <%@catalog_items.each_with_index do |list,index|%>
-     <%if @catalog_items[index]["layout_type"] != "t_subscription" %>
-        <%unless list['catalog_list_items'].empty?%>
+    <%@items_list.each_with_index do |list,index|%>
+     <%if index != 0 %>
+     <%if @items_list[index]["layout_type"] != "t_subscription" %>
+        <%unless list['catalog_list_items'].blank?%>
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
               <h2 class="margin-bottom-15 text-capitalize gradient8" id="<%=get_item_color(list["layout_scheme"])%>"><%=list['display_title']%></h2>
               <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
-              <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+              <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items_list[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
                 <%list['catalog_list_items'].each do |item|%>
-                  <div class="item <%=get_image_height(@catalog_items[index]["layout_type"])%>">
+                  <div class="item <%=get_image_height(@items_list[index]["layout_type"])%>">
                     <a href="<%=get_item_url(item)%>">
-                    <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
-                    <%if @catalog_items[index]["layout_type"].split("_").last.downcase == "meta"
+                    <img src="<%=get_image_url(item,@items_list[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+                    <%if @items_list[index]["layout_type"].split("_").last.downcase == "meta"
                     %>
                       <span class="list-tile-title"><%=item["title"]%></span>
                     <%end%>
@@ -45,6 +46,7 @@ meta title: "#{@meta_title}",
           </div> 
         <%end%> 
       <%end%> 
+      <%end%>
     <%end%>
   </section>
   <section>
@@ -94,7 +96,7 @@ var navigation = [
   });
  
    $(document).ready(function(){
-   var items_count = "<%=(@catalog_items.count)-1%>"
+   var items_count = "<%=(@items_list.count)-1%>"
     for (i = 0; i <= items_count; i++) {
     var auto_loop_status = false;
     var owl = $("#catalog_lists_"+i);
