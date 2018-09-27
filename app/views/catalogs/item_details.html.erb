@@ -3,84 +3,85 @@
     description: "#{@item_details['description']}",
     keywords: "#{@item_details['keywords']}"
 %>
-<div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
-  <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
-    <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
-  </div>
-</div>
-</div>
-<section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
-<div class="row">
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-    <div class="player_desc_section w-100 margin-left-0 margin-top-25">
-      <div class="video_feature1 pull-left">
-        <h2 class="margin-bottom-15 margin-top-5"><%=@item_details['title']%></h2>
-        <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
-          <li><%=@item_details['genres'].join(",").capitalize%></li>
-          <li><%=@item_details['language'].capitalize%></li>
-          <li><%=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
-          <li>UA</li>
-          <li><%=@item_details['duration_string']%></li>
-        </ul>
+<div class="min-height-div">
+  <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
+      <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
+        <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
       </div>
-      <div class="video_feature2  pull-right">  
-        <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/preview.svg" class="text-center" alt="" title="">
-              <span>Preview</span>
-            </a>
-          </li>
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
-              <span>Watch Later</span>
-            </a>
-          </li>
-          <li class="text-uppercase text-center">
-            <a href="javascript:;">
-              <img src="/assets/share.svg" class="text-center" alt="" title="">
-              <span>Share</span>
-            </a>
-          </li>
-        </ul>
-      </div>  
-      <p class="margin-bottom-20"><%=@item_details['description']%></p>
-      <p class="margin-bottom-20">
-        <b>Starring:</b><br>
-        <%=@item_details['star_cast'].join(",")%>
-      </p>
-      <p>
-        <b>Directed By:</b><br>
-        <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
-      </p>
+    </div>
+  </div>
+  <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+        <div class="player_desc_section w-100 margin-left-0 margin-top-25">
+          <div class="video_feature1 pull-left">
+            <h2 class="margin-bottom-15 margin-top-5"><%=@item_details['title']%></h2>
+            <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
+              <li><%=@item_details['genres'].join(",").capitalize%></li>
+              <li><%=@item_details['language'].capitalize%></li>
+              <li><%=(@item_details['release_date_string'].split("T")[0]).split("-")[0]%></li>
+              <li>UA</li>
+              <li><%=@item_details['duration_string']%></li>
+            </ul>
+          </div>
+          <div class="video_feature2  pull-right">  
+            <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/preview.svg" class="text-center" alt="" title="">
+                  <span>Preview</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
+                  <span>Watch Later</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center">
+                <a href="javascript:;">
+                  <img src="/assets/share.svg" class="text-center" alt="" title="">
+                  <span>Share</span>
+                </a>
+              </li>
+            </ul>
+          </div>  
+          <p class="margin-bottom-20"><%=@item_details['description']%></p>
+          <p class="margin-bottom-20">
+            <b>Starring:</b><br>
+            <%=@item_details['star_cast'].join(",")%>
+          </p>
+          <p>
+            <b>Directed By:</b><br>
+            <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
+          </p>
+        </div>  
+      </div>
+    </div>
+  </section>
+  <div class="contianer-fluid">
+    <div class="detail-page-bottom-section-bg">
+      <section class="full-width-content padding-top-30 padding-bottom-10">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+            <h2 class="margin-bottom-15 pull-left">More in <%=@item_details['genres'][0].capitalize%></h2>
+            <a href="/<%=params[:catalog_name]%>/<%=@item_details['genres'][0].downcase%>/all" class="text-uppercase pull-right see-more">see more</a>    
+          </div>
+        </div>
+        <div id="more-comedy-carousel" class="owl-carousel owl-theme">
+          <%@genere_items.each do |gi|%>
+            <div class="item">
+              <a href="<%=get_item_url(gi)%>">
+                <img src="<%=gi["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
+              </a>
+            </div> 
+          <%end%>            
+        </div>
+      </section>
     </div>  
   </div>
 </div>
-</section>
-<div class="contianer-fluid">
-<div class="detail-page-bottom-section-bg">
-<section class="full-width-content padding-top-30 padding-bottom-10">
-  <div class="row">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
-      <h2 class="margin-bottom-15 pull-left">More in <%=@item_details['genres'][0].capitalize%></h2>
-      <a href="/<%=params[:catalog_name]%>/<%=@item_details['genres'][0].downcase%>/all" class="text-uppercase pull-right see-more">see more</a>    
-    </div>
-  </div>
-  <div id="more-comedy-carousel" class="owl-carousel owl-theme">
-    <%@genere_items.each do |gi|%>
-      <div class="item">
-        <a href="<%=get_item_url(gi)%>">
-          <img src="<%=gi["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
-        </a>
-      </div> 
-    <%end%>            
-  </div>
-</section>
-</div>  
-</div>
-
 <script type="text/javascript">
 $(document).ready(function(){
 
