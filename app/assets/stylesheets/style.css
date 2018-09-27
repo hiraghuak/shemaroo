@@ -785,7 +785,7 @@ span.premium-txt {
   
 .plans-page p {
   color: #6D6D6D;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
 }
 .plans-page p span.text-uppercase {
   font-family: 'condensed-bold';
@@ -865,7 +865,7 @@ span.premium-txt {
 }
 .plans_list_section .card-body p {
   color: #888;
-  font-family: 'condensed-meduim';
+  font-family: 'condensed-medium';
   font-size: 0.875em;
   float: left;
   width: 80%;
