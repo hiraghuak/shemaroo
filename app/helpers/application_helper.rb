@@ -8,7 +8,7 @@ module ApplicationHelper
    	 image_url = i["thumbnails"]["medium_2_3"]["url"] 
    elsif layout_type == "t_16_9_big" || layout_type == "t_16_9_epg" || layout_type == "t_1_1_play" || layout_type == "videos"
    	 image_url = i["thumbnails"]["medium_16_9"]["url"] if i["thumbnails"].has_key?("medium_16_9")
-   elsif layout_type == "t_16_9_small"  || layout_type == "t_16_9_small_meta" || layout_type == ""
+   elsif layout_type == "t_16_9_small"  || layout_type == "t_16_9_small_meta" || layout_type == "video"
       image_url = i["thumbnails"]["small_16_9"]["url"] if i["thumbnails"].has_key?("small_16_9")
    	elsif layout_type == "t_1_1_plain" 
    	  image_url = i["thumbnails"]["xl_image_1_1"]["url"] 	if i["thumbnails"].has_key?("xl_image_1_1")
