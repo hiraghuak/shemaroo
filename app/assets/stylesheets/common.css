@@ -378,6 +378,17 @@ a.see-more:hover {
 }
 @media(max-width: 1199px) {
     a.see-more {
+        margin-right: 100px;
         margin-top: 5px;
+    }
+}
+@media(max-width: 768px) { 
+    a.see-more {
+        margin-right: 60px;        
+    }
+}
+@media(max-width: 576px) { 
+    a.see-more {
+        margin-right: 15px;        
     }
 }

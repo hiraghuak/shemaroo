@@ -2069,6 +2069,7 @@ label.error {
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 1 * 0.521);
   }
+
 }
 
 @media(max-width: 470px) {
@@ -2138,6 +2139,12 @@ label.error {
   }
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 1 * 0.547);
+  }
+  .player_desc_section .video_feature1 {
+    margin-bottom: 10px;
+  }
+  .player_desc_section .video_feature1, .player_desc_section .video_feature2 {
+    width: 100%;
   }
 }
 @media(max-width: 400px) {
