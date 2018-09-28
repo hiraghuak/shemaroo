@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
  
  def sign_up
-	 #begin
+	 begin
 	  signup_params = {
 	    :user => {
 	    :firstname=> params[:name],
@@ -17,10 +17,9 @@ class UsersController < ApplicationController
 	  end
 	  response = User.sign_up(signup_params) 
 	  set_response(response)
-	# rescue Exception => e
-	#   logger.info e.message
-	# end
-  render :json => {:status => true}
+	rescue Exception => e
+	  logger.info e.message
+	end
  end
 
 
@@ -28,6 +27,12 @@ class UsersController < ApplicationController
 
  	render :json => {:status => true}
 
+ end
+
+
+
+ def verify_otp
+ 
  end
 
 
