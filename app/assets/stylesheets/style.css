@@ -1233,7 +1233,7 @@ span.premium-txt {
   border-radius: 0px;
   font-family: 'condensed-light';
   height: calc(2em + 2px);
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   padding: 5px 5px 5px 6px;
 }
 .onboarding-contianer .input-group::before, #accordion .input-group::before {
@@ -1593,7 +1593,7 @@ label.error {
   float: left;
   width: 100%;
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
 }
 
 .onboarding-contianer .input-group.all_error::before {
