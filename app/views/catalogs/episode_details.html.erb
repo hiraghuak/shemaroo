@@ -64,7 +64,7 @@
           <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
           <div class="row row-show-list detail_page">
            <%@all_episodes.each do |e|%>
-            <div class="item">                                                              
+            <div class="item details_episode_horizontal_title">                                                              
               <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
                 <img src="/assets/big_play.svg" alt="" title="">
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
@@ -102,7 +102,7 @@
           <div id="other-shows-carousel" class="owl-carousel owl-theme">
            <%@other_items.each do |t|%>
            <%if t["thumbnails"].has_key?("small_16_9")%>
-              <div class="item">
+              <div class="item horizontal_title details_shows_horizontal_title">
                 <a href="<%=get_item_url(t)%>">
                   <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
                   <span class="list-tile-title"><%=t['title']%></span>

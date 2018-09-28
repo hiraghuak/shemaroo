@@ -10,10 +10,10 @@ meta title: "#{@title}",
     <%if @all_items.count > 0%>
     
    <%if @layout_type == "t_2_3_movie" || @layout_type == "movies" 
-      class_name = "row-movie-list" 
+      class_name = "row-movie-list all_movie_vertical" 
       title = "no"        
      else
-      class_name = "row-show-list" 
+      class_name = "row-show-list all_show_horizontal_title" 
       title = "yes"        
     end%>
     <div class="row <%=class_name%>">
