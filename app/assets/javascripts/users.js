@@ -25,22 +25,28 @@ $(document).ready(function(){
 		});
 	}
 	else if(user_name.length == 0){
-		$("#signup_name_error").show();
+	  $("#signup_name_error").show();
 	}
 	else if(mobile_no.length == 0){
-		$("#signup_mobile_error").show();
+	  $("#signup_mobile_error").show();
 	}
 	else if(mobile_no.length <= 9){
-		$("#signup_mobile_error").text("Please enter the valid 10 digit number");
+	  $("#signup_mobile_error").text("Please enter the valid 10 digit number");
 	}
-	else if(user_name.length == 0){
-		$("#signup_name_error").show();
+	else if(pwd.length == 0){
+	  $("#signup_password").show();
 	}
-	else if(user_name.length == 0){
-		$("#signup_name_error").show();
+	else if(pwd.length < 6){
+	  $("#signup_password").text("Password must contain at least 6 characters");
 	}
-	else if(user_name.length == 0){
-		$("#signup_name_error").show();
+	else if(cf_pwd.length == 0){
+	  $("#signup_confirm_password").show();
+	}
+	else if(cf_pwd.length < 6){
+	  $("#signup_confirm_password").text("Confirm password must contain at least 6 characters");
+	}
+	else if(pwd != cf_pwd){
+      $("#signup_confirm_password").text("Confirm password must contain at least 6 characters");
 	}
  })
 })
