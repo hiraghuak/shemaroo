@@ -4,10 +4,22 @@ $(document).ready(function(){
  //  	var window_height = window_height - 231;
  //  	$('.min-height-div').css('min-height',window_height+'px');
 
-	$('.close-hambergmenu img').click(function() {
+	/*$('.close-hambergmenu img').click(function() {
 		$('.fixed-top .navbar-collapse').removeClass('show');	
-	});
+	});*/
 
+	$('.header .navbar-toggler').on('click', function() {
+      /*$navMenuCont = $($(this).data('target'));
+      $("#my-navbar-collapse").addClass("navbar-collapse");
+      $navMenuCont.animate({'width':'toggle'}, 350);
+      $("#my-navbar-collapse .fa-times").show(400);
+      $(".mobile-menu-overlay").css("display", "block");*/
+      $("body").addClass("noscroll");
+    });
+    $(".close-hambergmenu img").on('click', function(){
+      $('.fixed-top .navbar-collapse').removeClass('show');
+      $("body").removeClass("noscroll");
+    });
 	// var window_height = window.outerHeight;
  //  var window_height = window_height - 231;
  //  $('.min-height-div').css('min-height',window_height+'px');
