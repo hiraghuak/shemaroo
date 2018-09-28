@@ -1218,7 +1218,7 @@ span.premium-txt {
 
 .onboarding-contianer {
   margin: 0 auto;
-  max-width: 340px;
+  width: 340px;
 }
 .onboarding-box-wrap .tile-box-shadow {
   background-color: #fff;
@@ -2106,6 +2106,7 @@ label.error {
   }
   .payment-contianer, .static-container {
     padding: 0px 15px;
+    width: auto;
   }
   .full-width-content .owl-stage {
     left: -25px;
