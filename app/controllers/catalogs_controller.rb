@@ -81,6 +81,7 @@ class CatalogsController < ApplicationController
        @genere_items = more_item_response["data"]["items"]
       end
     rescue Exception => e
+      redirect_to "/500"
       logger.info e.message
       Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
       @item_details = []

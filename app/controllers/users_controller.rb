@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 	    signup_params[:user][:email_id] = params[:email_id]
 	  end
 	  response = User.sign_up(signup_params) 
+	  p response.inspect
+	  p "333333333333333"
 	  set_response(response)
 	rescue Exception => e
 	  logger.info e.message

@@ -69,7 +69,7 @@
                 <img src="/assets/big_play.svg" alt="" title="">
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
-                <span class="list-tile-duration"><!-- E 001&nbsp;&nbsp;| -->&nbsp;&nbsp;<%=e['duration_string']%></span>
+                <span class="list-tile-duration"><%=(e['episode_number']+"|") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=e['duration_string']%></span>
               </a>
             </div>  
            <%end%>    

@@ -1231,7 +1231,7 @@ span.premium-txt {
   font-family: 'condensed-light';
   height: calc(2em + 2px);
   margin-bottom: 30px;
-  padding: 5px 5px 5px 13px;
+  padding: 5px 5px 5px 6px;
 }
 .onboarding-contianer .input-group::before, #accordion .input-group::before {
   color: #B11A47;
