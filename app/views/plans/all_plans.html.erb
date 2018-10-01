@@ -110,7 +110,7 @@
           <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
         </p>
         <p class="pull-left w-100 margin-top-15">
-          <a href="javascript:;" class="text-uppercase">no thanks</a>
+          <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">no thanks</a>
         </p>
       </div>
       
@@ -191,7 +191,6 @@ $(".choose_plan").click(function(){
 
   $(".combo_offer").click(function(){
     $("#combo_offer").modal("show")
-
   });
 
     $("#combo_offer .radius-button").click(function(){
@@ -236,7 +235,7 @@ $(".choose_plan").click(function(){
                     console.log("initobj details");
                     console.log(localStorage.getItem("tl_amount"))
                     console.log(localStorage.getItem("currency"))
-                     window.location = "/plans_purchase";
+                     window.location = "/plans_summary";
                      // $("#payment_code").val('aaaaaaaaaaa');
                      // $('#payment_option').modal('hide');
                      // $('#promo').modal('show');
