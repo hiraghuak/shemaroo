@@ -69,6 +69,9 @@ a, a:hover {
 .font-medium {
   font-family: 'condensed-medium'!important;
 }
+.font-bold {
+  font-family: 'condensed-bold';
+}
 .font-semibold {
   font-family: 'condensed-semibold'!important; 
 }
@@ -479,7 +482,7 @@ div.scrollmenu a:last-child.active {
 .full-width-content.home-page {
   padding-top: 30px;
 }
-.full-width-content h2, .onboarding-contianer h2, .payment-contianer h2, .static-container h2 {
+.full-width-content h2, .onboarding-contianer h2, .payment-contianer h2, .static-container h2, .transation_status_page h2 {
   color: #000000;
   font-size: 1.5em;
   line-height: 1.3em;
@@ -1004,7 +1007,58 @@ span.premium-txt {
   background: linear-gradient(to right,#2BA5E1, #ED6839);
 }
 
+.no_content_plans img.status_image {
+  width: 166px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.transation_status_page {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.transation_status_page .font-medium {
+  color: #666;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.transation_status_page .font-light {
+  color: #777;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  
+}
+.transation_status_page .radius-button {
+  border: 1px solid #D51E54;
+  border-radius: 20px;
+  color: #D41F54;
+  display: inline-block;
+  font-family: 'condensed-semibold';
+  font-size: 0.875em;
+  margin-top: 10px;
+  padding: 13px 18px;  
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.transation_status_page .radius-button:hover {
+  text-decoration: none;
+}
 
+.plans_pop_image {
+  height: auto;
+  max-width: 250px;
+}
+#combo_offer p {
+  font-size: 1em;
+  font-family: 'condensed-medium';
+}
+.modal-dialog {
+  max-width: 462px;
+}
+#combo_offer .modal-body {
+  padding-left: 125px;
+  padding-right: 125px
+}
 /* Plans page design ends */
 
 /* Movei/Show Detail page design starts */
@@ -1587,7 +1641,10 @@ span.premium-txt {
   max-width: 300px;
   padding-bottom: 114px;
 }
-.no-content-wrap img {
+.no_content_plans {
+  max-width: 340px;
+}
+.no-content-wrap img.search-no-results-image {
   width: 166px;
   margin-top: 114px;
   margin-bottom: 30px;
