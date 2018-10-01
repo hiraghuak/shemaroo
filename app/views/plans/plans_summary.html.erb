@@ -8,25 +8,10 @@
                     <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
                       <li class="text-uppercase gradient1">all categories</li>
                       <li>
-                        <!-- <label class="custom-control border-switch">
-                          <input type="checkbox" class="border-switch-control-input">
-                          <span class="border-switch-control-indicator"></span>                          
-                        </label> -->
                         <input type="radio" id="yealy" name="radio-group" data-amount="999" data-pack="yearly">
                         <label for="yealy" class="font-bold"><span>999</span><span class="text-uppercase">Yearly</span></label>
                       </li>
                       <li>
-                        <!-- <div class="input-group custom-controls-stacked d-block">                                        
-                        <label class="custom-control overflow-radiobox">
-                          <input type="radio" class="overflow-control-input">
-                          <span class="overflow-control-indicator"></span>
-                          <span class="overflow-control-description text-uppercase font-bold">99<br><label>monthly</label></span>
-                        </label>
-                      </div> -->
-                      <!-- <label class="custom-control border-switch">
-                        <input type="checkbox" class="border-switch-control-input">
-                        <span class="border-switch-control-indicator"></span>                        
-                      </label> -->
                       <input type="radio" id="monthly" name="radio-group" data-amount="99" data-pack="monthly">
                       <label for="monthly" class="font-bold"><span>99</span><span class="text-uppercase">Monthly</span></label>
                       </li>
@@ -67,12 +52,7 @@
             </div>
           </div>
         </section>
-
-        <!-- <div class="padding-left-0 padding-right-0 text-center light">
-          <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-bottom-15 margin-top-15 gradient1">confirm your modifications</a>  
-        </div> -->
         
-
       </div>      
     </div>
     <!-- </div> -->
@@ -131,26 +111,21 @@ $('input[type=radio][name=radio-group]').change(function() {
     var data_pack = $(this).attr("data-pack");
     var data_amount = $(this).attr("data-amount");
     if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "yearly") {
-      console.log("1");
       $(".pack_details span:first-child").hide();
       $(".pack_details span:last-child").text("All Category (Yearly)");
       $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
     }
     else if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "monthly") {
-      console.log("2");
       $(".pack_details span:first-child").hide();
       $(".pack_details span:last-child").text("All Category (Monthly)");
       $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
     }
     else {
-      console.log("3");
       $(".pack_details span:first-child").show();
       $(".pack_details span:last-child").text("Bollywood Classic + Bollywood Plus (Yearly)");
       $(".payment-body ul:first-child li.pull-right").text(data_amount); 
     }
 });
-
-
    function summary_plans(){
     var myCookies = getCookies();
       if(myCookies.session_id){                 
