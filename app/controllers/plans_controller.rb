@@ -121,4 +121,16 @@ class PlansController < ApplicationController
 		 end 
 		 	
 	end
+
+    def payment_processing
+        
+    end
+
+    def payment_success
+        
+    end
+
+    def payment_failed
+        
+    end
 end

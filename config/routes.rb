@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   get '/plans_purchase' => 'plans#plans_purchase'
   post '/payment_url' => 'plans#payment_url'
   get '/purchase_plans' => 'plans#purchase_plans'
+  get '/payment_processing' => 'plans#payment_processing'
+  get '/payment_success' => 'plans#payment_success'
+  get '/payment_failed' => 'plans#payment_failed'
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
  ##PLANS PAGES ROUTES ENDS HERE####
 
