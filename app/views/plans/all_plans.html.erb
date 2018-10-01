@@ -119,12 +119,7 @@
 </div>
 </div>  
 </section>
-  
-
-
 <script>
-  
-
 
   $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
     //$(".plans_list_section ul li").removeClass("active");
@@ -158,24 +153,16 @@
     else {
       $(this).addClass("gradient");
     }
-
     $(".plans_footer").show();
-
-    // var selected_price = $(this).find(".price").text();
-    // $(".plans_footer span.amount").text(selected_price);
-    // $(".plans_footer span.amount").attr("data-prive-val",selected_price);
   });
 
   $(".fa-chevron-down").click(function() {
-    //$(this).parent("p").parent(".card-body").children(".plan_list_show").toggle();
     $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
   })
 
 $(document).ready(function(){
 $(".choose_plan").click(function(){
   localStorage.removeItem("plan");
-  // var plan_det =  $(this).attr("id");
-  // localStorage.setItem("plan",plan_det);
   parr = []
   var amount = 0
   $('li').each(function(i){
@@ -203,6 +190,9 @@ $(".choose_plan").click(function(){
    $("#currnecy").text(currnecy);
    $("#amount").text(amount.toFixed(2));
    localStorage.setItem("plan",parr);
+   localStorage.setItem("currnecy",currnecy);
+   localStorage.setItem("amount",amount.toFixed(2));
+
   console.log("plans details");
   console.log(localStorage.getItem("plan"))
 })
@@ -213,32 +203,21 @@ $(".choose_plan").click(function(){
 
 <script type="text/javascript">
      function summary_plans(){
-    // var myCookies = getCookies();
      localStorage.removeItem("tl_amount");
     var plans = localStorage.getItem("plan")
       // if(myCookies.session_id){                 
               var data = 'plans='+plans
-              // alert(data);
-              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price+"&payment_type="+payment_type+"&channel="+payment_channel;
+              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
               $.ajax({
                 url: "/payment_url",
                 type: 'POST',
                 data: data,
                 success: function(data){
                   if(data.message == "payment iniated"){
-                     // console.log(data.init_data);
-                     // console.log(data.init_data["merchantReference"]);
-                     // alert(data.init_data["merchantReference"]);
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    console.log("initobj details");
-                    console.log(localStorage.getItem("tl_amount"))
-                    console.log(localStorage.getItem("currency"))
-                     window.location = "/plans_summary";
-                     // $("#payment_code").val('aaaaaaaaaaa');
-                     // $('#payment_option').modal('hide');
-                     // $('#promo').modal('show');
+                    window.location = "/plans_summary";
                   }
                 }
               });            

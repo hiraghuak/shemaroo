@@ -10,10 +10,13 @@ class PlansController < ApplicationController
 	end
 
 	def payment_url
-	@region = "US"
-	payment_gateway = "admin"
-	platform = "android"
-	plans = params["plans"].split(",")
+	if @region == "US"
+	 payment_gateway = "adyen"
+    else
+     payment_gateway = "ccavenue"
+    end
+	platform = "android"  #TODO	
+    plans = params["plans"].split(",")
     packs = []
     all_price = ""
     all_price_charged = ""
@@ -63,7 +66,7 @@ class PlansController < ApplicationController
 	us = get_signature_key(payment_info[:packs])
 
     purchase_params = {
-    	"auth_token":"Ts4XpMvGsB2SW7NZsWc3", "us": us, "region": @region, "payment_gateway": "adyen","platform": "web",
+    	"auth_token":"Ts4XpMvGsB2SW7NZsWc3", "us": us, "region": @region, "payment_gateway": payment_gateway,"platform": platform,
     	"payment_info": payment_info,
     	"transaction_info": transaction_info,
     	"user_info": user_info,
@@ -84,7 +87,7 @@ class PlansController < ApplicationController
     # end    
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id[0]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id[0]}.compact.last
-     if $region == "IN"
+     if @region == "IN"
      	price_charged = sp["pg_price"]["cc_avenue"]
      else
      	price_charged =  sp["pg_price"]["adyen"]
