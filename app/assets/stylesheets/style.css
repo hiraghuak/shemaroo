@@ -486,7 +486,7 @@ div.scrollmenu a:last-child.active {
   color: #000000;
   font-size: 1.5em;
   line-height: 1.3em;
-  margin-bottom: 13px;
+  margin-bottom: 13px!important;
 }
 .full-width-content .owl-carousel {
   margin-bottom: 20px;
@@ -1470,7 +1470,7 @@ span.premium-txt {
 .plans_summary_section .payment-header ul li {
   float: left;
   font-size: 0.875em;
-  margin-right: 45px;
+  margin-right: 20px;
   width: auto;
 }
 .plans_summary_section .payment-header ul li:first-child {
@@ -1488,8 +1488,59 @@ span.premium-txt {
 .plans_summary_section .payment-header ul li .custom-control span.overflow-control-description label {
   color: #686669;
   float: left;
-  font-size: 0.65em;
+  font-size: 0.7em;
+  margin-bottom: 0px;
   margin-top: -5px;    
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #686868;
+    border-radius: 100%;
+    background: transparent;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #201E1C;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::before {
   border-right: 7px solid transparent;
@@ -1500,6 +1551,34 @@ span.premium-txt {
 }
 .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator {
   border: 1px solid #817C7A;
+}
+.payment-header label span:first-child {
+  color: #212529;  
+  font-size: 1.15em;
+}
+.payment-header label span {
+  float: left;
+  margin-bottom: -5px;
+  width: 100%;
+}
+.payment-header label span:last-child {
+  font-size: 0.875em;
+}
+#revert_plan {
+  color: #ABABAB;
+  font-size: 0.75em;
+  display: none;
+}
+.payment-body li {
+  color: #666666;
+  font-size: 0.875em;
+}
+.payment-body li.pull-right {
+  color: #a1a1a1;
+  font-size: 1em; 
+}
+.payment-body .border-bottom {
+  border-color: #F2F2F2!important;
 }
 .payment-contianer h2 {
   margin-bottom: 13px;
