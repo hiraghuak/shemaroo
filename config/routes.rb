@@ -30,6 +30,7 @@ Rails.application.routes.draw do
  ##PLANS PAGES ROUTES STARTS HERE####
   get '/plans' => 'plans#all_plans'
   get '/plans_summary' => 'plans#plans_summary'
+  get '/plans_final_summary' => 'plans#plans_final_summary'
   get '/plans_purchase' => 'plans#plans_purchase'
   post '/payment_url' => 'plans#payment_url'
   get '/purchase_plans' => 'plans#purchase_plans'
