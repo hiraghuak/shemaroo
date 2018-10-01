@@ -15,24 +15,25 @@ class PlansController < ApplicationController
 	platform = "android"
 	plans = params["plans"].split(",")
     packs = []
-    all_price = 0
-    all_price_charged = 0
+    all_price = ""
+    all_price_charged = ""
     currency = ""
     plans.each do |plan|
      content_id  = plan.split("|").last
      pack_id  = plan.split("|").first
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{content_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
-     price = sp["price"].to_f
+     price = sp["price"]
      all_price += price 
 
-     price_charged = sp["discounted_price"].to_f
+     price_charged = sp["discounted_price"]
      all_price_charged += price_charged 
      currency = sp["currency"]
        sub_pack = {}
        sub_pack["plan_categories"] = pd["data"]["category"]
        sub_pack["category_type"] = pd["data"]["category_type"]
        sub_pack["category_pack_id"] = content_id
+       sub_pack["subscription_catalog_id"] = pd["data"]["catalog_id"]
        sub_pack["plan_id"] = sp["id"]
        packs << sub_pack
     end  
@@ -67,7 +68,8 @@ class PlansController < ApplicationController
     	"transaction_info": transaction_info,
     	"user_info": user_info,
     }
-    response =  HTTP.post "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions", purchase_params, "catalog"
+
+    response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions", purchase_params
     render json: {:message => "payment iniated",:init_data => response["data"] } , status: :ok
 	end	
 
