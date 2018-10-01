@@ -22,7 +22,7 @@ module PlansHelper
    secret_key = "7c32c524a67f405812ca"
     all_plan_id = "" 
     packs.each do |p| 
-    plan_id = p[:plan_id] 
+    plan_id = p["plan_id"] 
     all_plan_id += plan_id 
     end 
     p all_plan_id
