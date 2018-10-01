@@ -13,7 +13,7 @@ class Ott
   end
 
 	def self.subscription_plans
-	  HTTP.get "catalog_lists/subscription-list?&region=US","catalog"
+	  HTTP.get "catalog_lists/subscription-list?&region=#{$region}","catalog"
 	  # HTTP.get "catalog_lists/subscription-list?&region=#{$region}","catalog"
 	end
 

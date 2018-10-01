@@ -95,7 +95,7 @@
   <div class="pull-right light">
     <!-- <a href="/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
     <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
-    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="combo_offer">Proceed</a> 
+    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a> 
   </div>
   <!-- The Modal -->
 <div class="modal" id="combo_offer">
@@ -187,6 +187,18 @@ $(".choose_plan").click(function(){
      console.log($(this).attr("id"));
     }
 });
+
+
+  $(".combo_offer").click(function(){
+    $("#combo_offer").modal("show")
+
+  });
+
+    $("#combo_offer .radius-button").click(function(){
+    $("#combo_offer").modal("hide")
+
+  });
+
    
    $("#plans_count").text(parr.length);
    $("#currnecy").text(currnecy);
