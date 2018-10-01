@@ -6,20 +6,21 @@
         <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded otp-verification-page">
           <span class="pull-left w-100 margin-bottom-20 font-light">Enter the 4 digit OTP sent to your mobile number via SMS</span>
           <div class="input-group margin-bottom-25">
-            <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-            <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-            <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-            <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">        
+            <input type="text" id="first_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
+            <input type="text" id="second_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
+            <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
+            <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">        
             <!-- <span class="pull-left w-100 text-center font-light">00:51</span> -->
+            <label class="error" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
           </div>
           <div class="text-center margin-bottom-15 margin-top-0 font-light">
             <p>Didn't receive the OTP?</p>
           </div>
           <div class="text-center margin-bottom-20 font-medium">
-            <a href="/users/register" class="inline-block text-uppercase">Resend</a>
+            <a href="javascript:void(0)" class="inline-block text-uppercase" id="resend_otp">Resend</a>
           </div>
           <div class="text-center light">
-            <a href="javascript:;" class="inline-block text-uppercase gradient-button1"><span class="">Verify</span></a>
+            <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="verify_otp"><span class="verify_text">Verify</span></a>
           </div>
           
         </div>
@@ -31,7 +32,7 @@
 
 <script type="text/javascript">
 var window_height = window.outerHeight;
-var window_height = window_height - 220;
+var window_height = window_height - 150;
 $('.min-height-div').css('min-height',window_height+'px');
 $("#with_header_tabs").hide();
 $(document).ready(function(){

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 	  post 'sign_in'
 	  post 'sign_up'
 	  get  'verify_otp'
+	  post 'validate_otp'
+	  post 'resend_otp'
 	  post 'forgot_password'
 	  post 'subscriptions'
 	end

@@ -16,8 +16,6 @@ class UsersController < ApplicationController
 	    signup_params[:user][:email_id] = params[:email_id]
 	  end
 	  response = User.sign_up(signup_params) 
-	  p response.inspect
-	  p "333333333333333"
 	  set_response(response)
 	rescue Exception => e
 	  logger.info e.message
@@ -35,6 +33,32 @@ class UsersController < ApplicationController
 
  def verify_otp
  
+ end
+
+ def validate_otp
+ 	begin
+   response = User.verify_otp(params[:otp])
+   user_session = response["data"]["session"]
+   #session = "b93ed069a1dfecaa8465a8b71ad5ea06" 
+   set_response(response)
+   rescue Exception => e
+	  logger.info e.message
+	end
+ end
+
+ def resend_otp
+  begin
+  	 resend_params = {
+	    :user => {
+	    :email_id=> params[:mobile_no],
+	    :type => "msisdn"
+	    }
+	  }
+   response = User.resend_otp(resend_params) 
+   set_response(response)
+   rescue Exception => e
+	  logger.info e.message
+	end
  end
 
 
