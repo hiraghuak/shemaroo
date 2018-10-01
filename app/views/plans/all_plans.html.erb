@@ -205,6 +205,9 @@ $(".choose_plan").click(function(){
      function summary_plans(){
      localStorage.removeItem("tl_amount");
     var plans = localStorage.getItem("plan")
+    var currnecy = localStorage.getItem("currnecy")
+    var amount = localStorage.getItem("amount")
+
       // if(myCookies.session_id){                 
               var data = 'plans='+plans
               // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
@@ -213,12 +216,18 @@ $(".choose_plan").click(function(){
                 type: 'POST',
                 data: data,
                 success: function(data){
-                  if(data.message == "payment iniated"){
+                  if(data.message == "adyen payment iniated"){
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans_summary";
+                    window.location = "/plans_purchase";
                   }
+                  else{
+                    localStorage.setItem("tl_amount",amount);
+                    localStorage.setItem("currency",currnecy);
+                    localStorage.setItem("order_id",data.init_data["transaction_id"]);
+                    window.location = data.init_data["payment_url"];
+                  }                    
                 }
               });            
               // }

@@ -33,7 +33,7 @@ class PlansController < ApplicationController
      all_price_charged += price_charged 
      currency = sp["currency"]
        sub_pack = {}
-       sub_pack["plan_categories"] = pd["data"]["category"]
+       sub_pack["plan_categories"] = [pd["data"]["category"]]
        sub_pack["category_type"] = pd["data"]["category_type"]
        sub_pack["category_pack_id"] = content_id
        sub_pack["subscription_catalog_id"] = pd["data"]["catalog_id"]
@@ -70,10 +70,14 @@ class PlansController < ApplicationController
     	"payment_info": payment_info,
     	"transaction_info": transaction_info,
     	"user_info": user_info,
+        "miscellaneous": miscellaneous
     }
-
     response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions", purchase_params
-    render json: {:message => "payment iniated",:init_data => response["data"] } , status: :ok
+    if payment_gateway == "adyen"
+      render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
+    else
+      render json: {:message => "ccavenue payment iniated",:init_data => response["data"] } , status: :ok
+    end 
 	end	
 
 
