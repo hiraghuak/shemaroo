@@ -482,7 +482,7 @@ div.scrollmenu a:last-child.active {
 .full-width-content.home-page {
   padding-top: 30px;
 }
-.full-width-content h2, .onboarding-contianer h2, .payment-contianer h2, .static-container h2, .transation_status_page h2 {
+.full-width-content h2, .onboarding-contianer h2, .onboarding-payment-contianer h2, .payment-contianer h2, .static-container h2, .transation_status_page h2 {
   color: #000000;
   font-size: 1.5em;
   line-height: 1.3em;
@@ -1459,6 +1459,47 @@ span.premium-txt {
 .payment-contianer {
   margin: 0 auto;
   max-width: 526px;
+}
+.onboarding-payment-contianer {
+  margin: 0 auto;
+  max-width: 586px;  
+}
+.payment-header {
+  background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%)
+}
+.plans_summary_section .payment-header ul li {
+  float: left;
+  font-size: 0.875em;
+  margin-right: 45px;
+  width: auto;
+}
+.plans_summary_section .payment-header ul li:first-child {
+  margin-right: 0;
+  width: calc(100% - 215px);
+}
+.plans_summary_section .payment-header ul li:last-child {
+  margin-right: 0px;
+} 
+.plans_summary_section .payment-header ul li .custom-control span.overflow-control-description {
+  color: #010300;
+  font-size: 1.25em;
+  margin-top: 0px;
+}
+.plans_summary_section .payment-header ul li .custom-control span.overflow-control-description label {
+  color: #686669;
+  float: left;
+  font-size: 0.65em;
+  margin-top: -5px;    
+}
+.plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::before {
+  border-right: 7px solid transparent;
+}
+.plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::after {
+  border-bottom: 3px solid #010300;
+  border-right: 3px solid #010300;
+}
+.plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator {
+  border: 1px solid #817C7A;
 }
 .payment-contianer h2 {
   margin-bottom: 13px;
