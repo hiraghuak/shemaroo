@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
 # protect_from_forgery unless: -> { request.format.json? }
-before_action :get_home_tabs,:get_region,:check_browser
+before_action :get_region,:check_browser
+before_action :get_home_tabs,except: [:sign_up,:sign_in]
 protect_from_forgery with: :null_session
+
 include ApplicationHelper
 
 def get_home_tabs

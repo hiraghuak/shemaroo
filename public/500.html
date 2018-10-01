@@ -3,7 +3,45 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <style>
+  /* Font integration */
+  @font-face {
+    font-family: 'condensed-black';
+    src: url('fonts/EncodeSansCondensed-Black.ttf');
+      
+  }
+  @font-face {
+    font-family: 'condensed-bold';
+    src: url('fonts/EncodeSansCondensed-Bold.ttf');
+  }
+  @font-face {    
+    font-family: 'condensed-extra-bold';
+    src: url('fonts/EncodeSansCondensed-ExtraBold.ttf');
+  }
+  @font-face {    
+    font-family: 'condensed-extra-light';
+    src: url('fonts/EncodeSansCondensed-ExtraLight.ttf');
+  }    
+  @font-face {    
+    font-family: 'condensed-light';
+    src: url('fonts/EncodeSansCondensed-Light.ttf');
+  }
+  @font-face {
+    font-family: 'condensed-medium';
+    src: url('fonts/EncodeSansCondensed-Medium.ttf');
+      
+  }
+  @font-face {
+    font-family: 'condensed-semibold';
+    src: url('fonts/EncodeSansCondensed-SemiBold.ttf');
+  }
+
+  @font-face {    
+    font-family: 'condensed-thin';
+    src: url('fonts/EEncodeSansCondensed-Thin.ttf');
+  }
+/*
   .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
@@ -50,17 +88,131 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }*/
+  body {
+    background-color: #161616;
+    float: left;
+    font-family: 'condensed-semibold';
+    font-size: 16px;
+    margin: 0;  
+    width: 100%;
+  }
+  .wrapper {
+    background-color: #161616;
+    float: left;
+    width: 100%;  
+  }
+  .inside-wrapper {
+    background-color: #fff;
+    float: left;
+    min-height: 100%;
+    width: 100%;
+  }
+  .container {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  section {
+    float: left;
+    width: 100%
+  }
+  .small-header-content .header .main-logo {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  .small-header-content .header .main-logo img {
+    width: 120px;
+  }
+  .no-content-wrap {
+    margin: 0 auto;
+    max-width: 300px;
+    padding-bottom: 114px;
+    text-align: center;
+  }
+  .no-content-wrap img {
+    width: 166px;
+    margin-top: 114px;
+    margin-bottom: 30px;
+  }
+  .no-content-wrap p {
+    font-size: 0.825em;
+  }
+  .min-height-div {
+    align-items: center;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+  }
+  .font-medium {
+    font-family: 'condensed-medium';
+    color: #666;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .font-light {
+    font-family: 'condensed-light';
+    color: #777;
+    margin-bottom: 20px;
+    margin-top: 3px;
+    
+  }
+  .radius-button {
+    border: 1px solid #D51E54;
+    border-radius: 20px;
+    color: #D41F54;
+    display: inline-block;
+    font-family: 'condensed-semibold';
+    font-size: 0.875em;
+    margin-top: 10px;
+    padding: 13px 18px;  
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .radius-button:hover {
+    text-decoration: none;
   }
   </style>
+
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <div class="wrapper">
+
+    <div class="container">
+      <div class="inside-wrapper">
+        <section class="header-section small-header-content" style="" id="without_header_tabs">
+          <div class="header-border col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-none d-xl-block">
+          </div>
+          <div class="row">
+            <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+              <div class="main-logo text-center">         
+                <a href="/"><img src="/assets/main-logo.svg" alt="Shemaroo" title="Shemaroo"></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="min-height-div">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap">
+              <img src="/assets/something_went_wrong.svg" class="search-no-results-image" alt="something went wrong" title="something went wrong">
+              <p class="margin-bottom-0 font-medium"><strong>Oops! Something went wrong</strong></p>
+              <p class="font-light">Please  try again</p> 
+              <a href="/" class="radius-button" id="">Try again</a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+<script type="text/javascript">
+  var window_height = window.outerHeight;
+  var window_height = window_height - 138;
+  $('.min-height-div').css('min-height',window_height+'px');
+</script>    
 </body>
 </html>

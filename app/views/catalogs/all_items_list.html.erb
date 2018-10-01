@@ -3,17 +3,17 @@ meta title: "#{@title}",
      description: "",
      keywords: ""
 %>
-<section class="full-width-content inside-container top-bg-gradient light padding-top-155 padding-bottom-20">
+<section class="full-width-content inside-container top-bg-gradient padding-top-155 light min-height-div padding-bottom-20">
   <div class="row h-100">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
       <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
     <%if @all_items.count > 0%>
     
    <%if @layout_type == "t_2_3_movie" || @layout_type == "movies" 
-      class_name = "row-movie-list" 
+      class_name = "row-movie-list all_movie_vertical" 
       title = "no"        
      else
-      class_name = "row-show-list" 
+      class_name = "row-show-list all_show_horizontal_title" 
       title = "yes"        
     end%>
     <div class="row <%=class_name%>">
@@ -42,6 +42,8 @@ meta title: "#{@title}",
     <%end%>
     </div>  
   </div>
+       <%=render "layouts/page_height_setting"%>
+
 </section>
 <script>
   // var window_height = window.outerHeight;

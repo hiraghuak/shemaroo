@@ -1,10 +1,10 @@
-<section class="onboarding-bg padding-top-155">
+<section class="onboarding-bg padding-top-155 min-height-div">
   <div class="onboarding-contianer margin-bottom-30">
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
         <h2 class="block margin-bottom-10">Login</h2>
         <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-          <div class="input-group all_error">
+          <div class="input-group all_error" >
             <label class="error">Invalid Credentials</label>
           </div>
           <div class="input-group country">
@@ -29,7 +29,30 @@
             <span>Not a member?</span><a href="/users/register" class="inline-block text-uppercase">&nbsp;Register</a>
           </div>
         </div>
+
+    
+
       </div>
     </div>
   </div>
+
+
+
+  <%=render "layouts/page_height_setting"%>
 </section>
+
+<script>
+$(document).ready(function(){
+ $(".label.error").show();
+})
+
+  $("input[type='text'], input[type='password']").keydown(function() {
+      var inputlenth = $(this).val().length;
+      if(inputlenth > 0) {
+        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
+      }
+      else {
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+      }
+    });
+</script>

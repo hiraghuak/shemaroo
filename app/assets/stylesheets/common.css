@@ -158,7 +158,9 @@
 .padding-top-45 {
     padding-top: 45px !important;
 }
-
+.padding-top-80 {
+    padding-top: 80px !important;
+}
 .padding-left-0 {
     padding-left: 0px !important;
 }
@@ -378,6 +380,20 @@ a.see-more:hover {
 }
 @media(max-width: 1199px) {
     a.see-more {
+        margin-right: 100px;
         margin-top: 5px;
+    }
+    .padding-top-155 {
+        padding-top: 155px!important;
+    }
+}
+@media(max-width: 768px) { 
+    a.see-more {
+        margin-right: 60px;        
+    }
+}
+@media(max-width: 576px) { 
+    a.see-more {
+        margin-right: 15px;        
     }
 }

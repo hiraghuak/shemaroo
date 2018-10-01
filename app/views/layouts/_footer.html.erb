@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xl-6 col-lg-5 col-md-12 col-sm-12 col- pull-left">
       <ul>
-        <li class="text-uppercase">terms & conditions</li>
-        <li class="text-uppercase">privacy policy</li>
-        <li class="text-uppercase">faq</li>
-        <li class="text-uppercase">contact us</li>
+        <li class="text-uppercase <%=params[:action] == "terms_conditions" ? "active" : ""%>"><a href="/terms-and-conditions">terms & conditions</a></li>
+        <li class="text-uppercase <%=params[:action] == "privacy_policy" ? "active" : ""%>"><a href="/privacy-policy">privacy policy</a></li>
+        <li class="text-uppercase <%=params[:action] == "faq" ? "active" : ""%>"><a href="/faq">faq</a></li>
+        <li class="text-uppercase <%=params[:action] == "contact_us" ? "active" : ""%>"><a href="/contact-us">contact us</a></li>
       </ul>
       <p class="d-none d-lg-block d-xl-block">Shemaroo &copy; 2018, All Rights Reserved</p>
     </div>

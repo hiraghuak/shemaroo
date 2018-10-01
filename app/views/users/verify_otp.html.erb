@@ -10,7 +10,7 @@
             <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">
             <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">
             <input type="text" id="" name="" placeholder="0" maxlength="1" pattern="[0-9]">        
-            <span class="pull-left w-100 text-center font-light">00:51</span>   
+            <!-- <span class="pull-left w-100 text-center font-light">00:51</span> -->
           </div>
           <div class="text-center margin-bottom-15 margin-top-0 font-light">
             <p>Didn't receive the OTP?</p>
@@ -27,4 +27,14 @@
     </div>
   </div>
 </section>
-<%=render "layouts/page_height_setting"%>
+
+
+<script type="text/javascript">
+var window_height = window.outerHeight;
+var window_height = window_height - 220;
+$('.min-height-div').css('min-height',window_height+'px');
+$("#with_header_tabs").hide();
+$(document).ready(function(){
+ $("#without_header_tabs").show();
+});
+</script>

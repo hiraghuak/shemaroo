@@ -19,47 +19,48 @@ meta title: "#{@meta_title}",
     </div>
   </div>
 </section>
-<section class="full-width-content light home-page">
-  <%@catalog_items.each_with_index do |list,index|%>
-   <%if @catalog_items[index]["layout_type"] != "t_subscription" %>
-      <%unless list['catalog_list_items'].empty?%>
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
-            <h2 class="margin-bottom-15 text-capitalize gradient8" id="<%=get_item_color(list["layout_scheme"])%>"><%=list['display_title']%></h2>
-            <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
-            <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@catalog_items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
-              <%list['catalog_list_items'].each do |item|%>
-                <div class="item">
-                  <a href="<%=get_item_url(item)%>">
-                  <img src="<%=get_image_url(item,@catalog_items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
-                  <%if @catalog_items[index]["layout_type"].split("_").last.downcase == "meta"
-                  %>
-                    <span class="list-tile-title"><%=item["title"]%></span>
-                  <%end%>
-                  </a>
-                </div> 
-              <%end%>             
-            </div>           
-          </div>
-        </div> 
+<div class="min-height-div">
+  <section class="full-width-content light home-page">
+    <%@items_list.each_with_index do |list,index|%>
+     <%if index != 0 %>
+     <%if @items_list[index]["layout_type"] != "t_subscription" %>
+        <%unless list['catalog_list_items'].blank?%>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
+              <h2 class="margin-bottom-15 text-capitalize gradient8" id="<%=get_item_color(list["layout_scheme"])%>"><%=list['display_title']%></h2>
+              <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+              <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items_list[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
+                <%list['catalog_list_items'].each do |item|%>
+                  <div class="item <%=get_image_height(@items_list[index]["layout_type"])%>">
+                    <a href="<%=get_item_url(item)%>">
+                    <img src="<%=get_image_url(item,@items_list[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+                    <%if @items_list[index]["layout_type"].split("_").last.downcase == "meta"
+                    %>
+                      <span class="list-tile-title"><%=item["title"]%></span>
+                    <%end%>
+                    </a>
+                  </div> 
+                <%end%>             
+              </div>           
+            </div>
+          </div> 
+        <%end%> 
       <%end%> 
-    <%end%> 
-  <%end%>
-</section>
-<section>
-  <!-- <div class="bollywod-bottom-banner margin-bottom-20 margin-top-15">
-    <a href="javascript:;" class="rounded">
-      <p class="text-uppercase">subscribe to bollywood classic</p> <span><i class="fa fa-inr" aria-hidden="true"></i> 49</span>
-    </a>
-  </div> -->
-</section>
-
+      <%end%>
+    <%end%>
+  </section>
+  <section>
+    <!-- <div class="bollywod-bottom-banner margin-bottom-20 margin-top-15">
+      <a href="javascript:;" class="rounded">
+        <p class="text-uppercase">subscribe to bollywood classic</p> <span><i class="fa fa-inr" aria-hidden="true"></i> 49</span>
+      </a>
+    </div> -->
+  </section>
+  <%=render "layouts/page_height_setting"%>
+</div>
 
 
 <script type="text/javascript">
-var window_height = window.outerHeight;
-  var window_height = window_height - 231;
-  $('.full-width-content').css('min-height',window_height+'px');
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
@@ -95,7 +96,7 @@ var navigation = [
   });
  
    $(document).ready(function(){
-   var items_count = "<%=(@catalog_items.count)-1%>"
+   var items_count = "<%=(@items_list.count)-1%>"
     for (i = 0; i <= items_count; i++) {
     var auto_loop_status = false;
     var owl = $("#catalog_lists_"+i);
@@ -110,46 +111,49 @@ var navigation = [
     var layout_type = det[0];
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small" || layout_type == "t_1_1_play" || layout_type == "t_16_9_small_meta" ){
      var no_of_items = 5;
-     if(total_item_cnt > 5){
-       auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 1
+     var items_0 = 1
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
+     if(total_item_cnt > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
     else if(layout_type == "t_1_1_plain" || layout_type == "t_1_1_album_meta"){
      var no_of_items = 6;
+     var items_0 = 2
+     var items_576 = 3
+      var items_768 = 4
+      var items_992 = 5
      if(total_item_cnt > 6){
        auto_loop_status = true
        $(".all_items_"+i).show();
-       var items_0 = 2
-       var items_576 = 3
-       var items_768 = 4
-       var items_992 = 5
      }
     }
     else if(layout_type == "t_comb_16_9_list" || layout_type == "t_16_9_big_meta"){
      var no_of_items = 3;
+     var items_0 = 1
+      var items_576 = 1
+     var items_768 = 2
+     var items_992 = 3
      if(total_item_cnt > 3){
        auto_loop_status = true
        $(".all_items_"+i).show();
-       var items_0 = 1
-       var items_576 = 2
-       var items_768 = 3
-       var items_992 = 3
+       
      }
     }
     else if(layout_type == "t_comb_1_1_image"){
      var no_of_items = 5;
-     if(total_item_cnt > 5){
-       auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 1
+     var items_0 = 1
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
+     if(total_item_cnt > 5){
+       auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
 
@@ -177,7 +181,7 @@ var navigation = [
     responsive:{
       0:{
           items: items_0,
-          stagePadding: 40
+          stagePadding: 25
       },
       576:{
           items: items_576

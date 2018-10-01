@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  get "/faq" => "statics#faq"
 
  get "/contact-us" => "statics#contact_us"
+
  ##STATIC PAGES ROUTES ENDS HERE####
 
  ##USERS PAGES ROUTES STARTS HERE####
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
 	  get 'login'
 	  post 'sign_in'
 	  post 'sign_up'
+	  get  'verify_otp'
 	  post 'forgot_password'
 	  post 'subscriptions'
 	end

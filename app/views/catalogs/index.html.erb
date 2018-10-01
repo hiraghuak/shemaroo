@@ -3,7 +3,7 @@ meta title: "Shemaroo Entertainment Limited",
      description: "Shemaroo",
      keywords: %w(Shemaroo)
 %>
-<section class="banner-section padding-top-155">
+<section class="banner-section padding-top-80 padding-top-155">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <div id="banner-carousel" class="owl-carousel owl-theme">
@@ -20,17 +20,19 @@ meta title: "Shemaroo Entertainment Limited",
   </div>
 </section>
      
-<section class="full-width-content home-page light">
+<section class="full-width-content home-page light min-height-div">
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
    <%if list['catalog_list_items'].count > 0%>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
-        <h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2>
-        <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+        <a href="<%=list["home_link"]%>"><h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2></a>
+        <%unless list["home_link"].blank?%>
+          <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+        <%end%>
         <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['layout_scheme'])%>">
           <%list['catalog_list_items'].each do |item|%>
-            <div class="item">
+            <div class="item <%=get_image_height(@items[index]["layout_type"])%>">
               <a href="<%=get_item_url(item)%>">
               <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
               </a>
@@ -42,13 +44,14 @@ meta title: "Shemaroo Entertainment Limited",
     <%end%> 
     <%end%> 
   <%end%>
+  <%=render "layouts/page_height_setting"%>
 </section>
 
 
 <script>
  var window_height = window.outerHeight;
   var window_height = window_height - 231;
-  $('.full-width-content').css('min-height',window_height+'px');
+  $('.min-height-div').css('min-height',window_height+'px');
 $(document).ready(function() {
 var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
@@ -96,24 +99,26 @@ var navigation = [
     $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
      var no_of_items = 5;
-     if(total_item_cnt > 5){
-       // auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 1
+     var items_0 = 1
        var items_576 = 2
        var items_768 = 3
        var items_992 = 4
+     if(total_item_cnt > 5){
+       // auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
     else if(layout_type == "t_1_1_plain" || layout_type == "t_1_1_album"){
      var no_of_items = 6;
-     if(total_item_cnt > 6){
-       // auto_loop_status = true
-       $(".all_items_"+i).show();
-       var items_0 = 2
+     var items_0 = 2
        var items_576 = 3
        var items_768 = 4
        var items_992 = 5
+     if(total_item_cnt > 6){
+       // auto_loop_status = true
+       $(".all_items_"+i).show();
+       
      }
     }
     else{

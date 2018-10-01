@@ -68,6 +68,7 @@ class CatalogsController < ApplicationController
           @new_play_url,@key =  encrypt_play_url(@play_url)
         end
         @other_items = catalog_response["data"]["items"]
+        @catalog_name = catalog_response["data"]["name"]
         render "episode_details"
       else
         @item_details = item_response["data"]
@@ -80,6 +81,7 @@ class CatalogsController < ApplicationController
        @genere_items = more_item_response["data"]["items"]
       end
     rescue Exception => e
+      redirect_to "/500"
       logger.info e.message
       Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
       @item_details = []
@@ -100,7 +102,10 @@ class CatalogsController < ApplicationController
         }
       @all_episodes = tvshow_response["data"]["items"]
       @other_items = []
+      @catalog_name = ""
+      #catalog_response["data"]["title"]
     rescue Exception => e
+      redirect_to "/500"
       logger.info e.message
      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}")
      @epsiode_details = []
