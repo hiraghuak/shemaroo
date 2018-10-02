@@ -109,7 +109,19 @@ $(document).ready(function(){
 
 $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
-	var user_profiles = getShemarooCookies().
+	var user_profiles = getShemarooCookies().user_profiles.split(",");
+	console.log(user_profiles.length);
+	var user_data = ""
+	for(i=0;i< user_profiles.length;i++){
+		var user_name = user_profiles[i].split("$")
+		if(i == 1){
+       	  user_data+= '<li class="active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+		else{
+		  user_data+= '<li><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+	}
+	$("#header_user_profiles").html(user_data);
     $(".with_login_item").show();
     $(".with_out_login_item").hide();
    }
