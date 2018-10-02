@@ -123,10 +123,11 @@ body {
 .header-border {
   background-image: linear-gradient(to right, #D41F54, #F15A23);
   height: 3px;
+  position: relative;
 }
 section.header-section {
   background: #fff;
-  box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.35);
+  /*box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.35);*/
   max-width: 1366px;
   position: fixed;
   z-index: 11;  
@@ -216,6 +217,7 @@ section.header-section {
 }
 .head-right ul li:last-child {
   border-right: 0px;
+  z-index: 1111;
 }
 .head-right ul li:nth-child(2) img {
   cursor: pointer;
@@ -251,10 +253,28 @@ section.header-section {
   float: left;
   /*max-height: 520px;
   overflow: scroll;*/
-  width: 100%;
+  width: 420px;
   z-index: 1111111;
     
 }
+#right-sidebar-menu {
+  position: absolute;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: -1px 1px 3px 1px rgba(0, 0, 0, 0.125);
+  top: 0;
+  right: 0px;
+  opacity: 0;
+  width: 0px;
+  z-index: 111;
+  height: 100%;
+  background: #fff;
+  transition: all 0.3s;
+  padding: 0px 5px 0px 10px;
+  float: right;
+}
+
+
+
 div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
@@ -319,27 +339,34 @@ div.scrollmenu a:last-child.active {
   margin: 22px 13px 0px 0px;
   width: 16px;
 }
-.fixed-top .profile-list {
+.fixed-top .profile-list, #right-sidebar-menu .profile-list {
   float: left;
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 30px
 }
-.fixed-top .profile-list ul {
+#right-sidebar-menu .close-hambergmenu img {
+  margin: 12px 8px 0px 0px;
+  width: 14px;
+}
+#right-sidebar-menu .profile-list {
+  margin-top: 10px;
+}
+.fixed-top .profile-list ul, #right-sidebar-menu .profile-list ul {
   list-style: none;
   display: flex;
   align-items: center;
   padding: 0;
 }
-.fixed-top .profile-list ul li {
+.fixed-top .profile-list ul li, #right-sidebar-menu .profile-list ul li {
   float: left;
   position: relative;
   margin: 0 10px;
   max-width: 150px;
   text-align: center;
 }
-.fixed-top .profile-list ul li p { 
+.fixed-top .profile-list ul li p, #right-sidebar-menu .profile-list ul li p { 
   border-radius: 50%;
   color: #fff;  
   text-align: center;
@@ -349,67 +376,118 @@ div.scrollmenu a:last-child.active {
   align-items: center;
   justify-content: center;
   margin: 0px;
-  font-family: condensed-extra-bold;
+  font-family: 'condensed-extra-bold';
   font-size: 1.15em;
 }
-.fixed-top .profile-list ul li span {
+#right-sidebar-menu .profile-list ul li p { 
+  width: 32px;
+  height: 32px;
+}
+.fixed-top .profile-list ul li span, #right-sidebar-menu .profile-list ul li span {
   color: #CBCBCB;
   font-size: 0.825em;
 }
-.navbar-collapse .manage-profile {
+#right-sidebar-menu .profile-list ul li span {
+  font-size: 0.675em;  
+}
+.navbar-collapse .manage-profile, #right-sidebar-menu .manage-profile {
   color: #5EB7E5;
   float: left;
   margin-top: 15px;
   width: 100%;
 }
-.fixed-top .profile-list ul li:first-child p {
+ #right-sidebar-menu .manage-profile {
+  font-family: 'condensed-medium';  
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.fixed-top .profile-list ul li:first-child p, #right-sidebar-menu .profile-list ul li:first-child p {
   background: linear-gradient(to right, #AED898 , #74C5DA);  
 }
-.fixed-top .profile-list ul li:last-child p {
+.fixed-top .profile-list ul li:last-child p, #right-sidebar-menu .profile-list ul li:last-child p {
   background: linear-gradient(to right, #E98091 , #F19179);  
 }
 .fixed-top .profile-list ul li.active img {
   width: 110px;
 }
-.fixed-top .profile-list ul li.active p {
+ #right-sidebar-menu .profile-list ul li.active img {
+  width: 70px;  
+}
+
+.fixed-top .profile-list ul li.active p, #right-sidebar-menu .profile-list ul li.active p {
   position: absolute;
   color: #fff;
   top: 29%;
   left: 31%;
   font-size: 2.65em;
-  font-family: condensed-extra-bold;
+  font-family: 'condensed-extra-bold';
 }
-.fixed-top .profile-list ul li.active span {
+#right-sidebar-menu .profile-list ul li.active p {
+  top: 22%;
+  left: 29%;
+  font-size: 1.65em;
+}
+#right-sidebar-menu .profile-list ul li p {
+  font-size: 0.8em;
+  font-family: 'condensed-extra-bold';
+}
+.fixed-top .profile-list ul li.active span, #right-sidebar-menu .profile-list ul li.active span {
   color: #000000;
   float: left;
   width: 100%;
   font-family: 'condensed-extra-bold';
   font-size: 1em;
   margin-top: 10px;
+  
 }
-.fixed-top .navbar-nav {
+#right-sidebar-menu .profile-list ul li.active span {
+  font-family: 'condensed-extra-bold';
+  margin-left: -25%;
+  width: 150%;
+}
+.fixed-top .navbar-nav, #right-sidebar-menu .navbar-nav {
   float: left;
   margin: 0px 10px;
   overflow: scroll;    
-  width: 100%;
+  width: calc(100% - 20px);
 }
-.fixed-top .navbar-nav li {
+#right-sidebar-menu .navbar-nav {
+  overflow: auto;
+}
+.fixed-top .navbar-nav li, #right-sidebar-menu .navbar-nav li {
   border-bottom: 1px solid #F2F2F2;
   margin: 5px 0px;
   padding: 4px 0px 10px;
 }
-.fixed-top .navbar-nav li img {
+#right-sidebar-menu .navbar-nav li {
+      margin: 2px 0px;
+    padding: 3px 0px 6px;
+    font-size: 0.875em;
+}
+.fixed-top .navbar-nav li img, #right-sidebar-menu .navbar-nav li img {
   margin-right: 10px;
   width: 20px;
 }
-.fixed-top .navbar-nav li:first-child img,.fixed-top .navbar-nav li:nth-child(2) img, .fixed-top .navbar-nav li:nth-child(5) img, .fixed-top .navbar-nav li:nth-child(8) img {
+#right-sidebar-menu .navbar-nav li img {
   width: 16px;
 }
-.fixed-top .navbar-nav li:last-child {
+.fixed-top .navbar-nav li:first-child img, .fixed-top .navbar-nav li:nth-child(2) img,
+.fixed-top .navbar-nav li:nth-child(5) img, .fixed-top .navbar-nav li:nth-child(8) img {
+  width: 16px;
+}
+#right-sidebar-menu .navbar-nav li:nth-child(3) img, #right-sidebar-menu .navbar-nav li:nth-child(6) img {
+  width: 13px;
+}
+.fixed-top .navbar-nav li:last-child, #right-sidebar-menu .navbar-nav li:last-child {
   border-bottom: 0px;
 }
-.fixed-top .navbar-nav li a {
+#right-sidebar-menu .navbar-nav li:last-child {
+  bottom: 75px;
+  position: absolute;
+}
+.fixed-top .navbar-nav li a, #right-sidebar-menu .navbar-nav li a {
   font-family: 'condensed-light';
+  color: rgba(0,0,0,0.65);
 }
 
 /* Hamberg menu design ends */
