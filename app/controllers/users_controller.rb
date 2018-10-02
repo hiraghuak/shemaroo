@@ -39,18 +39,16 @@ class UsersController < ApplicationController
    end
    sign_in_response = User.sign_in(signin_params)
    p sign_in_response.inspect
-   p "3333"
    if sign_in_response.has_key?("data")
-    user_profiles = User.get_all_user_profiles(response["data"]["session"])
+    user_profiles = User.get_all_user_profiles(sign_in_response["data"]["session"])
     all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
-    first_profile = all_profiles.first.split("$")
-    p first_profile.inspect
-    byebug
-    render json: {status: true,user_id: "#{response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+    first_profile = all_profiles.flatten.first.split("$")
+    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
    else
     set_response(sign_in_response)
    end
   rescue Exception => e
+    render json: {status: false,error_message: "sorry something went wrong" }
     logger.info e.message
   end
 
@@ -60,6 +58,10 @@ class UsersController < ApplicationController
 
  def verify_otp
  
+ end
+
+ def welcome
+
  end
 
  def validate_otp

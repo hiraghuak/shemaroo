@@ -109,6 +109,7 @@ $(document).ready(function(){
 
 $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
+	var user_profiles = getShemarooCookies().
     $(".with_login_item").show();
     $(".with_out_login_item").hide();
    }
