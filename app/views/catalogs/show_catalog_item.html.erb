@@ -10,7 +10,8 @@ meta title: "#{@meta_title}",
        <%@items_list[0]['catalog_list_items'].each do |i|%>
           <div class="item">
             <a href="<%=get_item_url(i)%>">
-              <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+              <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>" class="d-none d-xl-block">
+              <img src="<%=i["thumbnails"]["xl_image_16_9"]["url"]%>" alt="<%=i['title']%>" title="<%=i['title']%>" class="d-block d-sm-none">
               <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
             </a>
           </div> 

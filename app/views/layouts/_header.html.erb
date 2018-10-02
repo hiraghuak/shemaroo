@@ -76,7 +76,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="" title="">Manage Payments</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item notifications">
         <a class="nav-link" href="#"><img src="/assets/notifications.svg" alt="" title="">Notifications</a>
       </li>
       <li class="nav-item">
@@ -204,19 +204,21 @@ $(document).ready(function(){
 $('.user_menu').click(function(event) {
   $('.user_menu').css("z-index", "1");
 var window_height = window.outerHeight;
+$("body").addClass("noscroll");
 $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
 
     value = $('#right-sidebar-menu').css('width') === '0px' ? '250px' : '0px';
     var show = $('#right-sidebar-menu').css('opacity') === 0 ? 1 : 0;
       $('#right-sidebar-menu').animate({
           width: "250px"          
-      }, 50);
+      }, 250);
       
 });
  
   $("#right-sidebar-menu .close-hambergmenu").click(function() {
     $('.user_menu').css("z-index", "1111");
     $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
+    $("body").removeClass("noscroll");
     value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
     var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
       $('#right-sidebar-menu').animate({
