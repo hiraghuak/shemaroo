@@ -253,7 +253,6 @@ section.header-section {
   float: left;
   /*max-height: 520px;
   overflow: scroll;*/
-  width: 420px;
   z-index: 1111111;
     
 }
