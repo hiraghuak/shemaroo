@@ -656,7 +656,7 @@ div.scrollmenu a:last-child.active {
   float: left;
   /*min-height: 236px;*/
   width: 100%;  
-  border: 1px solid transparent;
+  /*border: 1px solid transparent;*/
 }
 .owl-carousel .item:hover {
   /*-webkit-box-shadow: 1px 1px 7px 3px rgba(240,240,240,0.75); 
@@ -2059,6 +2059,7 @@ label.error {
     height: 100%;
     position: fixed;
     top: 0;
+    width: 100%;
   }
   .fixed-top .navbar-nav {
     max-height: 60%;
