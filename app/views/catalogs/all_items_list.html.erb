@@ -18,7 +18,7 @@ meta title: "#{@title}",
     end%>
     <div class="row <%=class_name%>">
      <%@all_items.each do |i|%>
-        <div class="item">                                                              
+        <div class="item <%= title == "yes" ? "rounded" : ""%>">                                                              
           <a href="<%=get_item_url(i)%>">
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
@@ -42,7 +42,7 @@ meta title: "#{@title}",
     <%end%>
     </div>  
   </div>
-       <%=render "layouts/page_height_setting"%>
+<%=render "layouts/page_height_setting"%>
 
 </section>
 <script>

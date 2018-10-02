@@ -10,8 +10,8 @@ meta title: "Shemaroo Entertainment Limited",
         <%@home_list[0]['catalog_list_items'].each do |h|%>
           <div class="item">
             <a href="<%=get_item_url(h)%>">            
-            <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-none d-xl-block">
-            <img src="<%=h["thumbnails"]["xl_image_16_9"]["url"]%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-block d-sm-none">
+            <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-none d-xl-block rounded">
+            <img src="<%=h["thumbnails"]["xl_image_16_9"]["url"]%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-block d-sm-none rounded">
             <!-- <img src="/assets/big_play.svg" alt="<%#=h['title']%>" title="<%#=h['title']%>"> -->
             </a>
           </div>

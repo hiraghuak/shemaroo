@@ -102,9 +102,9 @@
           <div id="other-shows-carousel" class="owl-carousel owl-theme">
            <%@other_items.each do |t|%>
            <%if t["thumbnails"].has_key?("small_16_9")%>
-              <div class="item horizontal_title details_shows_horizontal_title">
+              <div class="item horizontal_title details_shows_horizontal_title rounded">
                 <a href="<%=get_item_url(t)%>">
-                  <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
+                  <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" class="rounded" alt="<%=t['title']%>" title="<%=t['title']%>">
                   <span class="list-tile-title"><%=t['title']%></span>
                 </a>
               </div> 
