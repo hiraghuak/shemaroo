@@ -114,6 +114,13 @@ $("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("ke
     }
 });
 
+function set_user_cookies(resp){
+ $.cookie('user_id',resp.user_id, { expires: 14,path: '/'});
+ $.cookie('user_name',resp.user_name, { expires: 14,path: '/'});
+ $.cookie('profile_id',resp.profile_id, { expires: 14,path: '/'});
+ $.cookie('user_profiles',resp.user_profiles, { expires: 14,path: '/'})
+}
+
 $("#verify_otp").click(function(){
   $("#verify_otp_error").hide();
   var first_no  = $("#first_digit").val();
@@ -131,14 +138,13 @@ $("#verify_otp").click(function(){
 			success: function(response,status){
 			 console.log(response);
 			if(response.status == true){  
-			 $.cookie('user_id',response.user_id, { expires: 14,path: '/'});
-             $.cookie('user_name',response.user_name, { expires: 14,path: '/'});
-             $.cookie('profile_id',response.profile_id, { expires: 14,path: '/'});
-             $.cookie('user_profiles',response.user_profiles, { expires: 14,path: '/'})
-			 window.location = "/"
+			  set_user_cookies(response)
+			  $.removeCookie('user_registed_mobile_no', { path: '/' });
+			  window.location = "/"
 			}
 			else{
 			 $(".verify_text").text("Verify")
+			 $("#first_digit,#second_digit,#third_digit,#fourth_digit").val();
 			 $("#verify_otp_error").text(response.error_message).show();
 			}
 			}
@@ -219,12 +225,12 @@ function user_sign_in(){
 		success: function(response,status){
 		 $("#login_text").text("Login")
 		 if(response.status == true){
-		  $.cookie('user_id',response.user_id, { expires: 14,path: '/'});
+		  set_user_cookies(response)
 		  window.location = "/"
 		 }
 		else{
-		 $("#login_mobile_number,#login_password").val("");
-	     $("#bakend_user_errors").text(response.error_message).show().fadeOut(800);
+		 $("#login_mobile_number,#login_password,#login_email").val("");
+	     $("#bakend_user_errors").text(response.error_message).show().fadeOut(2000);
 		 }
 		}
 	});
