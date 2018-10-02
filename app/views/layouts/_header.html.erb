@@ -128,8 +128,8 @@
       <img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search">
     </div>
     <div class="profile-list">
-      <ul>
-        <li>
+      <ul id="mobile_user_profiles">
+        <!-- <li>
           <p>K</p>
           <span class="text-uppercase">Kids</span>
         </li>
@@ -141,44 +141,48 @@
         <li>
           <p>V</p>
           <span class="text-uppercase">Vaibhav</span>
-        </li>
+        </li> -->
       </ul>                
     </div>
-    <p class="text-center text-uppercase manage-profile"><a href="javascript:;">Manage</a></p>
+    <p class="text-center text-uppercase manage-profile mobile_with_login"><a href="javascript:;">Manage</a></p>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="/assets/home.svg" alt="" title="">Home <!-- <span class="sr-only">(current)</span> --></a>
+        <a class="nav-link" href="/"><img src="/assets/home.svg" alt="home" title="home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/tv.svg" alt="" title="">TV</a>
+        <a class="nav-link" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="" title="">Account Details</a>
+      <li class="nav-item mobile_with_login" style="display:none;">
+        <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="account details" title="account details">Account Details</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item mobile_with_login" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/watch_list.svg" alt="" title="">Watch List</a>
       </li>
+      
       <li class="nav-item">
+        <a class="nav-link" href="#"><img src="/assets/view_plans.svg" alt="view palns" title="view palns">View Plans</a>
+      </li>
+      <li class="nav-item mobile_with_login" style="display:none;">
+        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
+      </li>
+      
+      <li class="nav-item mobile_with_login" style="display:none;">
+        <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
+      </li>
+      
+      <li class="nav-item mobile_with_login" style="display:none;">
+        <a class="nav-link" href="#"><img src="/assets/log_out.svg" alt="logout" title="logout">Logout</a>
+      </li>   
+      <!--<li class="nav-item">
         <a class="nav-link" href="#"><img src="/assets/reminders.svg" alt="" title="">Reminders</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/view_plans.svg" alt="" title="">View Plans</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="" title="">Manage Payments</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/notifications.svg" alt="" title="">Notifications</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="" title="">Settings</a>
-      </li>
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" href="#"><img src="/assets/notifications.svg" alt="" title="">Refer a Friend</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/log_out.svg" alt="" title="">Logout</a>
-      </li>                
+     <li class="nav-item">
+        <a class="nav-link" href="#"><img src="/assets/notifications.svg" alt="" title="">Notifications</a>
+      </li>
+      -->             
     </ul>
    
   </div>

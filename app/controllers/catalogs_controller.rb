@@ -123,12 +123,22 @@ class CatalogsController < ApplicationController
     @all_genere_items = []
      Rails.cache.delete("all_items_#{params[:catalog_name]}_#{params[:genre]}")
    end
+  end
 
-
-   def get_more_episodes
-
+  def other_tvshows
+   begin 
+    items_response = Rails.cache.fetch("other_tvshows_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_catalog_details(params[:catalog_name])
+       }
+    @title = "Other  "+items_response["data"]["name"]
+    @all_tvshows = items_response["data"]["items"]
+    rescue
+      Rails.cache.delete("other_tvshows_#{params[:catalog_name]}")
+      @all_tvshows = []
     end
   end
+
+
 
 
 

@@ -94,7 +94,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
               <h2 class="margin-bottom-15 pull-left">Other <%=@catalog_name%></h2>
               <%if @other_items.count > 5 %>
-                <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
+                <a href="/<%=params[:catalog_name]%>/others/all" class="text-uppercase pull-right see-more">see more</a>
               <%end%>    
             </div>
           </div>
