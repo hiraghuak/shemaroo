@@ -148,10 +148,13 @@
         </li> -->
       </ul>                
     </div>
-    <p class="text-center text-uppercase manage-profile mobile_with_login"><a href="javascript:;">Manage</a></p>
+    <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;">Manage</a></p>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/"><img src="/assets/home.svg" alt="home" title="home">Home</a>
+      </li>
+      <li class="nav-item mobile_with_out_login_item">
+        <a class="nav-link" href="/users/login"><img src="/assets/account_detail.svg" alt="Login" title="Login">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
@@ -175,7 +178,7 @@
       </li>
       
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/log_out.svg" alt="logout" title="logout">Logout</a>
+        <a class="nav-link" href="javascript:void(0)" id="user_mobile_signout"><img src="/assets/log_out.svg" alt="logout" title="logout">Logout</a>
       </li>   
       <!--<li class="nav-item">
         <a class="nav-link" href="#"><img src="/assets/reminders.svg" alt="" title="">Reminders</a>

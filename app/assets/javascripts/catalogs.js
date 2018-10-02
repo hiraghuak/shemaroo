@@ -6,7 +6,7 @@ $(document).ready(function(){
 	}
  }
 
- $("#user_signout").click(function(){
+ $("#user_signout,#user_mobile_signout").click(function(){
 	$.ajax({
 		url: "/users/sign_out",
 		type: "POST",
