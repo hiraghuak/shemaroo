@@ -134,7 +134,7 @@ section.header-section {
 }
 .main-menu {
   padding: 23px 0px;
-  width: 65%;
+  width: 64%;
 }
 .main-menu ul li {
   float: left;
@@ -2388,9 +2388,13 @@ label.error {
   #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
     width: 43.75%;
   }
-  .payment-contianer, .static-container {
-    padding: 0px 15px;
+  .payment-contianer, .static-container, .onboarding-payment-contianer {
+    padding: 0px 0px;
     width: auto;
+  }
+  .payment-header ul {
+    padding-left: 15px !important;
+    padding-right: 15px !important;    
   }
   .full-width-content .owl-stage {
     left: -25px;
@@ -2453,6 +2457,34 @@ label.error {
   #payment-mode #accordion .card-body {
     padding-left: 10%;
     padding-right: 10%;
+  }
+  .payment-header ul {
+    padding-top: 12px!important;
+    padding-bottom: 2px!important;
+  }
+  .plans_summary_section .payment-header ul li:first-child {
+    width: calc(100% - 195px)
+  }
+  .plans_summary_section .payment-header ul li {
+    margin-bottom: 10px;
+    margin-right: 0px;
+    width: 100% !important;
+  }
+  .plans_summary_section .payment-header ul li:last-child {
+    margin-bottom: 0px;
+  }
+  .payment-header [type="radio"]:checked + label, .payment-header [type="radio"]:not(:checked) + label {
+    padding-left: 22px;
+  }
+  .payment-header [type="radio"]:checked + label:before, .payment-header [type="radio"]:not(:checked) + label:before {
+    width: 16px;
+    height: 16px;
+  }
+  .payment-header [type="radio"]:checked + label:after, .payment-header [type="radio"]:not(:checked) + label:after {
+    left: 4px;
+    height: 8px;
+    top: 4px;
+    width: 8px;
   }
   a.see-more {
     margin-right: 30px;
