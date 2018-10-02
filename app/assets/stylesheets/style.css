@@ -227,10 +227,24 @@ section.header-section {
   cursor: pointer;
   width: 20px;
 }
+.head-right ul li.with_login_item {
+  /*background: linear-gradient(to right, #f2681f, #f5791a, #f88915, #f99913, #faa915);*/
+  background: linear-gradient(to right, #f2681f 0%, #f5791a 34%, #f88915 40%, #f99913 60%, #faa915 100%);
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding-top: 4px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .head-right ul li span {
   color: #666;
   cursor: pointer;
   font-size: 0.75em;
+}
+.head-right ul li.with_login_item span {
+  color: #fff;
 }
 /* Header Design Ends */
 
@@ -1946,6 +1960,11 @@ label.error {
      justify-content: flex-end; 
   }
 }
+@media(min-width: 1200px) {
+  .head-right .user_menu {
+    display: block;
+  }
+}
 @media(max-width: 1500px) {
   .owl-carousel .owl-item .item.vertical {
    min-height: calc((100vw - 22px)/ 6);
@@ -2054,6 +2073,7 @@ label.error {
  
 }
 @media(max-width: 1199px) {
+
   .fixed-top .navbar-collapse {
     background: #fff;
     height: 100%;

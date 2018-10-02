@@ -1,5 +1,9 @@
+
 $(document).ready(function(){
-	
+	if(getShemarooCookies().user_id){
+		$(".with_login_item").show();
+		$(".with_out_login_item").hide();
+	}
 	// var window_height = window.outerHeight;
  //  	var window_height = window_height - 231;
  //  	$('.min-height-div').css('min-height',window_height+'px');
@@ -7,6 +11,8 @@ $(document).ready(function(){
 	/*$('.close-hambergmenu img').click(function() {
 		$('.fixed-top .navbar-collapse').removeClass('show');	
 	});*/
+
+
 
 	$('.header .navbar-toggler').on('click', function() {
       /*$navMenuCont = $($(this).data('target'));
@@ -124,6 +130,7 @@ $('.user_menu').click(function(event) {
 	$("#header_user_profiles").html(user_data);
     $(".with_login_item").show();
     $(".with_out_login_item").hide();
+
    }
   $('.user_menu').css("z-index", "1");
 var window_height = window.outerHeight;
