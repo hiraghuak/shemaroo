@@ -1133,12 +1133,14 @@ span.premium-txt {
   height: auto;
   max-width: 250px;
 }
-#combo_offer p {
+.modal p {
+  color: #6a6a6a;
   font-size: 1em;
   font-family: 'condensed-medium';
 }
 .modal-dialog {
   max-width: 462px;
+  margin: 10.75rem auto 2em;
 }
 #combo_offer .modal-body {
   padding-left: 125px;
@@ -1879,7 +1881,9 @@ label.error {
   margin-top: -10px;
   position: static;
 }
-
+.welcome_page_image {
+  width: 180px;
+}
 
 /* Error message design ends */
 
