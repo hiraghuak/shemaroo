@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 	  get 'login'
 	  post 'sign_in'
 	  post 'sign_up'
+	  post 'sign_out'
 	  get  'verify_otp'
 	  post 'validate_otp'
 	  post 'resend_otp'

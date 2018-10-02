@@ -12,6 +12,18 @@ class User
 	end
 
 	def self.resend_otp(resend_params)
-		HTTP.post "users/resend_verification_link",resend_params,"user"
+	  HTTP.post "users/resend_verification_link",resend_params,"user"
+	end
+
+	def self.get_all_user_profiles(session_id)
+       HTTP.get "users/#{session_id}/profiles?region=#{$region}","user"
+	end
+
+	def self.sign_out(session_id)
+      HTTP.post "users/#{session_id}/sign_out?region=#{$region}}" ,{},"user"
+	end
+
+	def self.sign_in(sign_in_params)
+	 HTTP.post "users/sign_in?region=#{$region}",sign_in_params,"user"
 	end
 end

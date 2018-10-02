@@ -104,6 +104,42 @@ $(document).ready(function(){
         return attr == "password" ? "text" : "password";
       });
     });
+
+
+
+$('.user_menu').click(function(event) {
+	if(getShemarooCookies().user_id){
+    $(".with_login_item").show();
+    $(".with_out_login_item").hide();
+   }
+  $('.user_menu').css("z-index", "1");
+var window_height = window.outerHeight;
+$("body").addClass("noscroll");
+$("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
+
+    value = $('#right-sidebar-menu').css('width') === '0px' ? '250px' : '0px';
+    var show = $('#right-sidebar-menu').css('opacity') === 0 ? 1 : 0;
+      $('#right-sidebar-menu').animate({
+          width: "250px"          
+      }, 250);
+      
+});
+ 
+  $("#right-sidebar-menu .close-hambergmenu").click(function() {
+    $('.user_menu').css("z-index", "1111");
+    $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
+    $("body").removeClass("noscroll");
+    value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
+    var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
+      $('#right-sidebar-menu').animate({
+          width: value          
+      }, 'fast');
+  });   
+
+
+
+
+
 });
 
 

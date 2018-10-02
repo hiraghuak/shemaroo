@@ -3,6 +3,7 @@
     <div class="onboarding-contianer margin-bottom-30">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+           <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
           <h2 class="block margin-bottom-10"><img src="/assets/back_arrow.svg" class="back_arrow" alt="back arrow" title="back arrow"> Register</h2>
           <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
           <div class="input-group all_error" >
@@ -13,13 +14,21 @@
               <span class="input-label">Name</span> 
               <label class="error" id="signup_name_error">Plese enter the name</label>
             </div>
+            <%if $region == "IN"%>
             <div class="input-group country">
               <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
               <input type="text" id="mobile_number" name="mobile no" class="form-control"> 
               <span class="input-label">Mobile Number</span>
               <label class="error" id="signup_mobile_error">Plese enter the mobile number</label>
-
             </div>
+            <%else%>
+
+            <div class="input-group email">
+              <input type="text" id="user_email" name="user email" class="form-control" required="true"> 
+              <span class="input-label">Email</span> 
+              <label class="error" id="signup_email_error">Plese enter the email</label>
+            </div>
+            <%end%>
             <div class="input-group pwd">
               <input type="password" id="password" name="password" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show password" title="show password">
@@ -42,7 +51,7 @@
              <label class="error" id="terms_check">Please check the terms of use</label> 
             </div>
             <div class="inline-block w-100 text-center margin-bottom-5 margin-top-25 light">
-              <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span>Register</span></a>
+              <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span id="register_text">Register</span></a>
             </div>
             
           </div>
