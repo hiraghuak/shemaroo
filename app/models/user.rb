@@ -20,7 +20,7 @@ class User
 	end
 
 	def self.sign_out(session_id)
-      HTTP.post "users/#{session_id}/sign_out?region=#{$region}}" ,{},"user"
+      HTTP.post "users/#{session_id}/sign_out?region=#{$region}" ,{},"user"
 	end
 
 	def self.sign_in(sign_in_params)

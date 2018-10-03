@@ -5,6 +5,10 @@ $(document).ready(function(){
 		$(".mobile_with_login").show();
         $(".mobile_with_out_login_item").hide();
 	}
+	else{
+		$(".with_login_item").hide();
+		$(".with_out_login_item").show();
+	}
 	// var window_height = window.outerHeight;
  //  	var window_height = window_height - 231;
  //  	$('.min-height-div').css('min-height',window_height+'px');

@@ -279,11 +279,11 @@ $("#otp_success_close,#user_email_close").click(function(){
 })
 
 
- function delete_cookies(){
-  var cookies = $.cookie();
-  for(var cookie in cookies) {
-     $.removeCookie(cookie);
-  }
+ function delete_user_cookies(){
+  document.cookie = 'user_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'user_name' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'profile_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'user_profiles' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
  }
 
  $("#user_signout,#user_mobile_signout").click(function(){
@@ -294,9 +294,8 @@ $("#otp_success_close,#user_email_close").click(function(){
     success: function(response,status){
     console.log(response);
     if(response.status == true){ 
-     delete_cookies(); 
+     delete_user_cookies(); 
      window.location.reload();
-     //window.location = "/"
     }
     }
   });
