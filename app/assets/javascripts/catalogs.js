@@ -15,7 +15,7 @@ $(document).ready(function(){
 		console.log(response);
 		if(response.status == true){ 
 		 delete_cookies(); 
-		 location.reload();
+		 window.location = "/"
 		}
 		}
 	});
