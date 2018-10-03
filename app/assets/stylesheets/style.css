@@ -1402,9 +1402,17 @@ span.premium-txt {
   font-family: 'condensed-light';
   height: calc(2em + 2px);
   margin-bottom: 35px;
-  padding: 5px 5px 5px 6px;
+  padding: 5px 5px 5px 10px;
 }
-.onboarding-contianer .input-group::before, #accordion .input-group::before {
+.onboarding-contianer  .input-group .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  left: 3px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+}
+/*.onboarding-contianer .input-group::before, #accordion .input-group::before {
   color: #B11A47;
   content: "\f111";
   font: normal normal normal 5px/1 FontAwesome;
@@ -1412,7 +1420,7 @@ span.premium-txt {
   position: absolute;    
   top: 9px;
   z-index: 1;  
-}
+}*/
 .onboarding-contianer .custom-controls-stacked::before {
   content: "";
   position: static;
@@ -1889,11 +1897,14 @@ label.error {
   position: absolute;
   bottom: 5px;
 }
-
+.input-group.cpwd label.error {
+  bottom: -10px;
+}
 .onboarding-contianer .input-group.all_error::before {
   content: "";
 }
 .all_error label.error {
+  margin-bottom: 12px;
   margin-top: -10px;
   position: static;
 }

@@ -53,18 +53,21 @@ meta title: "User Login",
 
 
 
-    <%=render "layouts/page_height_setting"%>
+    <%#=render "layouts/page_height_setting"%>
   </section>
 
 <script>
 $(document).ready(function(){
  $(".label.error").show();
+ var window_height = window.outerHeight;
+    var window_height = window_height - 153;
+    $('.min-height-div').css('min-height',window_height+'px');
 })
 
   $("input[type='text'], input[type='password']").keydown(function() {
       var inputlenth = $(this).val().length;
       if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
       }
       else {
         $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  

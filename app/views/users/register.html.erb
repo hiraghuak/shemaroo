@@ -15,12 +15,14 @@ meta title: "User Register",
               <label class="error" id="signup_resp_error_msg">Invalid Credentials</label>
             </div>
             <div class="input-group name">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="user_name" name="user name" class="form-control" required="true"> 
               <span class="input-label">Name</span> 
               <label class="error" id="signup_name_error">Plese enter the name</label>
             </div>
             <%if $region == "IN"%>
             <div class="input-group country">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
               <input type="text" id="mobile_number" name="mobile no" class="form-control"> 
               <span class="input-label">Mobile Number</span>
@@ -29,18 +31,21 @@ meta title: "User Register",
             <%else%>
 
             <div class="input-group email">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="user_email" name="user email" class="form-control" required="true"> 
               <span class="input-label">Email</span> 
               <label class="error" id="signup_email_error">Plese enter the email</label>
             </div>
             <%end%>
             <div class="input-group pwd">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="password" name="password" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show password" title="show password">
               <span class="input-label">Password</span>
               <label class="error" id="signup_password">Plese enter the password</label> 
             </div>
             <div class="input-group cpwd">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="confirm_password" name="confirm password" class="form-control margin-bottom-15"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show confirm password" title="show confirm password">
               <span class="input-label">Confirm Password</span>
@@ -66,7 +71,7 @@ meta title: "User Register",
     <%=render "layouts/page_height_setting"%>
 
       <!-- The Modal -->
-<div class="modal" id="reg_success" tabindex="-1">
+<div class="modal" id="reg_success">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal body -->
@@ -88,24 +93,37 @@ meta title: "User Register",
 $("#with_header_tabs").hide();
 $(document).ready(function(){
  $("#without_header_tabs").show();
-   var dot = "\f111";
-    $(".input-group.name input").keyup(function() {
+   
+    $(".input-group input").keyup(function() {
       var val = $(".input-group.name input").val();
       if(val.length != 0) {
-      $("body").append("<style>.input-group.name:before{content: ''}</style>");        
+        $(this).prev('.fa-circle').remove();
       }    
       else {
-        $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
+        $(this).parents(".input-group").insertBefore('<i class="fa fa-circle" aria-hidden="true"></i>');
       }  
     });
 
     $("input[type='text'], input[type='password']").keydown(function() {
       var inputlenth = $(this).val().length;
+      var id_val = $(this).attr("id");
+      
       if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
+        if(id_val == 'mobile_number') {
+          console.log("1");
+          $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
+        }
+        else {
+          $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
+        }
       }
       else {
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+        if(id_val == 'mobile_number') {
+          $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+        }
+        else {
+          $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+        }
       }
     });
 });
