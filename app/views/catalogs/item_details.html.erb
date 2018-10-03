@@ -51,14 +51,16 @@
             </ul>
           </div>  
           <p class="margin-bottom-20"><%=@item_details['description']%></p>
-          <p class="margin-bottom-20">
-            <b>Starring:</b><br>
-            <%=@item_details['star_cast'].join(",")%>
-          </p>
-          <p>
-            <b>Directed By:</b><br>
-            <%=@item_details['director'].collect{|x|x}.join(",").capitalize%>
-          </p>
+          <%unless @item_details['item_additional_data'].empty?%>
+            <%@item_details['item_additional_data'].each do |k,v|%>
+              <%unless v.empty?%>
+                 <p class="margin-bottom-20">
+                  <b><%=k%>:</b><br>
+                   <%=v.join(",")%>
+                </p>
+              <%end%>
+            <%end%>
+          <%end%>
         </div>  
       </div>
     </div>

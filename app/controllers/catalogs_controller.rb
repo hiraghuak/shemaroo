@@ -64,7 +64,7 @@ class CatalogsController < ApplicationController
         }
         if @all_episodes.count > 0
           url = sign_smarturl @all_episodes.first['play_url']['saranyu']['url']
-          @play_url = url['playback_urls'][0]["playback_url"]
+          @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
           @new_play_url,@key =  encrypt_play_url(@play_url)
         end
         @other_items = catalog_response["data"]["items"]
@@ -73,7 +73,7 @@ class CatalogsController < ApplicationController
       else
         @item_details = item_response["data"]
         url = sign_smarturl item_response["data"]['play_url']['saranyu']['url']
-        @play_url = url['playback_urls'][0]["playback_url"]
+        @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
         @new_play_url,@key =  encrypt_play_url(@play_url)
         more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_items_genre(params[:catalog_name],@item_details['genres'][0])
@@ -95,7 +95,7 @@ class CatalogsController < ApplicationController
       }
       @episode_details = response["data"]
       url = sign_smarturl response["data"]['play_url']['saranyu']['url']
-      @play_url = url['playback_urls'][0]["playback_url"]
+      @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
       @new_play_url,@key =  encrypt_play_url(@play_url)
       tvshow_response =  Rails.cache.fetch("all_epsiodes_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
