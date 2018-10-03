@@ -89,7 +89,7 @@
 <div class="inside-container">
   <div class="pull-left">
     <p class="text-uppercase margin-bottom-0"><span id="plans_count"></span> plan(s) selected</p>  
-    <span id="currnecy" class="currnecy" data-prive-val=""></span>
+    <span id="currency" class="currency" data-prive-val=""></span>
     <span id="amount" class="amount" data-prive-val=""></span>
   </div>
   <div class="pull-right light">
@@ -162,7 +162,8 @@
 
 $(document).ready(function(){
 $(".choose_plan").click(function(){
-  localStorage.removeItem("plan");
+  var  keysToRemove = ["plan", "currency","plan-category","amount"];
+  keysToRemove.forEach(k => localStorage.removeItem(k))
   parr = []
   var amount = 0
   $('li').each(function(i){
@@ -170,7 +171,7 @@ $(".choose_plan").click(function(){
       var pid = $(this).attr("id")
       parr.push(pid);
       amount = amount+parseFloat(pid.split("|")[3])
-      currnecy = pid.split("|")[4]
+      currency = pid.split("|")[4]
       category = pid.split("|")[1]
      console.log($(this).attr("id"));
     }
@@ -181,10 +182,10 @@ $(".choose_plan").click(function(){
 
    
    $("#plans_count").text(parr.length);
-   $("#currnecy").text(currnecy);
+   $("#currency").text(currency);
    $("#amount").text(amount.toFixed(2));
    localStorage.setItem("plan",parr);
-   localStorage.setItem("currnecy",currnecy);
+   localStorage.setItem("currency",currency);
    localStorage.setItem("amount",amount.toFixed(2));
    localStorage.setItem("plan-category",category);
 
