@@ -1865,7 +1865,9 @@ span.premium-txt {
 .no-items-found {
   align-items: center;
   display: flex;
-  height: calc(100% - 28%);
+  flex-direction: column;
+  flex-wrap: wrap;    
+  height: 100%;
   justify-content: center;
 }
 /* No items found design ends */
