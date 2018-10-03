@@ -585,7 +585,7 @@ div.scrollmenu a:last-child.active {
 .full-width-content h2, .onboarding-contianer h2, .onboarding-payment-contianer h2, .payment-contianer h2, .static-container h2, .transation_status_page h2 {
   color: #000000;
   font-size: 1.5em;
-  line-height: 1.3em;
+  line-height: 1.25em;
   margin-bottom: 13px!important;
 }
 .full-width-content .owl-carousel {
@@ -2030,7 +2030,7 @@ label#verify_otp_error {
   }
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 3.25 * 0.55);
-  }
+  }  
 }
 
 @media(max-width: 1366px) {
