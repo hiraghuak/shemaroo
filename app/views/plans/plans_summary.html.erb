@@ -173,7 +173,7 @@ $("#plans").val(localStorage.getItem("plan"));
                     window.location = "/plans/plans_purchase";
                   }
                   else{                 
-                    window.location = data.payment_url;
+                    window.location.href = data.payment_url;
                   }                    
                 }
               });            
