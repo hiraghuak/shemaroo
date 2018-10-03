@@ -8,7 +8,7 @@
       <li class="text-uppercase gradient1">all</li>
       <li class="text-uppercase">includes all<br>the categories</li>
       <%all_pack["plans"].each do |aa|%>
-      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
+      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
         <span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
         <br>
         <label><%=aa["title"]%></label>
@@ -34,7 +34,7 @@
                 <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
               </li>
               <%all_pack["plans"].each do |aa|%>
-              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
+              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
                 <span class="text-uppercase block"><%=aa["title"]%></span>
                 <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
                 <span class="block"><%=aa["price"]%></span>
@@ -66,7 +66,7 @@
               </li>
               <%unless plan["plans"].blank?%>
               <%plan["plans"].each do |p|%>
-              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
+              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
                 <span class="text-uppercase block"><%=p["title"]%></span>
                 <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                 <span class="block"><%=p["price"]%></span>
@@ -110,7 +110,7 @@
           <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
         </p>
         <p class="pull-left w-100 margin-top-15">
-          <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">no thanks</a>
+          <a href="/plans_summary" class="text-uppercase">no thanks</a>
         </p>
       </div>
       
@@ -169,21 +169,15 @@ $(".choose_plan").click(function(){
     if($(this).is('.packs_lists li.active')) {
       var pid = $(this).attr("id")
       parr.push(pid);
-      amount = amount+parseFloat(pid.split("|")[2])
-      currnecy = pid.split("|")[3]
+      amount = amount+parseFloat(pid.split("|")[3])
+      currnecy = pid.split("|")[4]
+      category = pid.split("|")[1]
      console.log($(this).attr("id"));
     }
 });
 
 
-  $(".combo_offer").click(function(){
-    $("#combo_offer").modal("show")
-  });
 
-    $("#combo_offer .radius-button").click(function(){
-    $("#combo_offer").modal("hide")
-
-  });
 
    
    $("#plans_count").text(parr.length);
@@ -192,44 +186,22 @@ $(".choose_plan").click(function(){
    localStorage.setItem("plan",parr);
    localStorage.setItem("currnecy",currnecy);
    localStorage.setItem("amount",amount.toFixed(2));
+   localStorage.setItem("plan-category",category);
 
   console.log("plans details");
   console.log(localStorage.getItem("plan"))
 })
 });
 
+  $(".combo_offer").click(function(){
+    if(parr.length)
+    {
+    $("#combo_offer").modal("show")
+    }
+  });
 
+    $("#combo_offer .radius-button").click(function(){
+    $("#combo_offer").modal("hide")
+
+  });
 </script>  
-
-<script type="text/javascript">
-     function summary_plans(){
-     localStorage.removeItem("tl_amount");
-    var plans = localStorage.getItem("plan")
-    var currnecy = localStorage.getItem("currnecy")
-    var amount = localStorage.getItem("amount")
-
-      // if(myCookies.session_id){                 
-              var data = 'plans='+plans
-              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
-              $.ajax({
-                url: "/payment_url",
-                type: 'POST',
-                data: data,
-                success: function(data){
-                  if(data.message == "adyen payment iniated"){
-                    localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
-                    localStorage.setItem("currency",data.init_data["currencyCode"]);
-                    localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans_purchase";
-                  }
-                  else{
-                    localStorage.setItem("tl_amount",amount);
-                    localStorage.setItem("currency",currnecy);
-                    localStorage.setItem("order_id",data.init_data["transaction_id"]);
-                    window.location = data.init_data["payment_url"];
-                  }                    
-                }
-              });            
-              // }
-            }
-</script>     

@@ -6,7 +6,13 @@ class PlansController < ApplicationController
 	end
 
 	def plans_summary
-		@plans_summary = "plans_summary"
+  response = Ott.subscription_plans
+  @all_plans = response["data"]["catalog_list_items"] 
+  @all_access_packs = @all_plans.last["catalog_list_items"].last
+
+   #  pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{params['pack_ids']}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+  #  raise pd.inspect
+  # sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
 	end
 
 	def payment_url
@@ -18,6 +24,7 @@ class PlansController < ApplicationController
 	platform = "android"  #TODO	
     plans = params["plans"].split(",")
     packs = []
+    # @pack_ids = []
     all_price = ""
     all_price_charged = ""
     currency = ""
@@ -39,6 +46,7 @@ class PlansController < ApplicationController
        sub_pack["subscription_catalog_id"] = pd["data"]["catalog_id"]
        sub_pack["plan_id"] = sp["id"]
        packs << sub_pack
+       # @pack_ids << content_id
     end  
 
 	payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs }
@@ -76,7 +84,8 @@ class PlansController < ApplicationController
     if payment_gateway == "adyen"
       render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
     else
-      render json: {:message => "ccavenue payment iniated",:init_data => response["data"] } , status: :ok
+      payment_url = "#{response['data']['payment_url']}&encRequest=#{response['data']['msg']}&access_code=#{response['data']['access_code']}"
+      render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok
     end 
 	end	
 
@@ -96,7 +105,6 @@ class PlansController < ApplicationController
      else
      	price_charged =  sp["pg_price"]["adyen"]
      end
-	
 	payment_info = { "price_charged": price_charged,"currency": sp["currency"], 
 		     "packs":[
 		     	{"plan_categories":[ pd["data"]["category"]],

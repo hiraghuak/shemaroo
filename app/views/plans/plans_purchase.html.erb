@@ -78,6 +78,7 @@
   <input type="hidden" id="plans" name="plans" value="">
   <input type="hidden" id="price_charged" name="price_charged" value="">
   <input type="hidden" id="order_id" name="order_id" value="">
+  <!-- <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" name="adyen-encrypted-form-expiry-generationtime" value=""> -->
 
                              <div class="input-group cardno">
                                 <input type="text" id="" name="" class="form-control" placeholder="Card Number" data-encrypted-name="number"> 
@@ -95,10 +96,16 @@
                                 <input type="text" id="" name="" class="form-control margin-bottom-10" placeholder="Name on Card" data-encrypted-name="holderName">
                                 <p>We will save this card for your convenience. If required you can delete the card in the 'Manage Payment Options' section in the 'Me' menu. We do no store CVV</p>                             
                               </div>
+
+                                 
+
+
                               <div class="input-group button margin-bottom-15">
                                 <input class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Proceed"  onclick="purchase_plans()">
                               </div>
                               <!-- <input _ngcontent-c1="" class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Pay" disabled=""> -->
+
+
                             </form>
                           </div>
                         </div>
@@ -130,10 +137,9 @@
 $("#plans").val(localStorage.getItem("plan"));
 $("#price_charged").val(localStorage.getItem("tl_amount"));
 $("#order_id").val(localStorage.getItem("order_id"));
+// $("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
   });  
 </script>       
-
-
 
    <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" name="adyen-encrypted-form-expiry-generationtime" value="">
 

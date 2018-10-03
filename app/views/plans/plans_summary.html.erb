@@ -2,31 +2,33 @@
           <div class="onboarding-payment-contianer margin-bottom-30">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
-                <h2 class="block margin-bottom-10"><img src="assets/back_arrow.svg" class="back_arrow" alt="" title=""> Summary</h2>
+                <h2 class="block margin-bottom-10"><a href="/plans"><img src="assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> Summary</h2>
                 <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
                   <div class="pull-left payment-header w-100 rounded">
                     <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
                       <li class="text-uppercase gradient1">all categories</li>
+                      <%@all_access_packs["plans"].each do |aa|%>
                       <li>
-                        <input type="radio" id="yealy" name="radio-group" data-amount="999" data-pack="yearly">
-                        <label for="yealy" class="font-bold"><span>999</span><span class="text-uppercase">Yearly</span></label>
+                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>">
+                        <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
                       </li>
-                      <li>
+                      <%end%>
+                     <!--  <li>
                       <input type="radio" id="monthly" name="radio-group" data-amount="99" data-pack="monthly">
                       <label for="monthly" class="font-bold"><span>99</span><span class="text-uppercase">Monthly</span></label>
-                      </li>
+                      </li> -->
                     </ul>                    
                   </div>
                   <p class="pull-left w-100 margin-bottom-0"><a href="javascript:;" class="font-light" id="revert_plan">Revert to original plan section</a></p>
                   <div class="pull-left w-100 payment-body margin-top-25">
                     <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
                       <li class="pull-left pack_details">
-                        <span class="font-bold">Combo Pack</span><br>
-                        <span class="font-light">Bollywood Classic + Bollywood Plus (Yearly)</span>
+                        <!-- <span class="font-bold">Combo Pack</span><br> -->
+                        <span class="font-light" id="plan-category"></span>
                       </li>
                       <li class="pull-right font-semibold">
-                        <br>
-                        699
+                         <span class="pull-right" id="total_amount"></span>
+                     <span class="pull-right" id="currency"></span>
                       </li>
                     </ul>
                     <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-25 margin-bottom-15 border-bottom">
@@ -44,9 +46,17 @@
                   <div class="pull-left w-100 payment-footer">
                     <ul class="pull-left w-100 padding-left-0 list-none">
                       <li class="font-semibold pull-left">Grand Amount</li>
-                      <li class="pull-right font-semibold">699</li>
+                      <li class="pull-right font-semibold" id="all_amount"></li>
+                                           <span class="pull-right" id="all_currency"></span>
+
                     </ul>
                   </div>
+
+                  <p class="pull-left w-100 margin-top-15">
+          <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">Proceed</a>
+        </p>
+
+
                 </div>
               </div>
             </div>
@@ -126,27 +136,47 @@ $('input[type=radio][name=radio-group]').change(function() {
       $(".payment-body ul:first-child li.pull-right").text(data_amount); 
     }
 });
-   function summary_plans(){
-    var myCookies = getCookies();
-      if(myCookies.session_id){                 
-              var data = 'plan_id='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price+"&payment_type="+payment_type+"&channel="+payment_channel;
+</script>       
+
+<script>
+  $(document).ready(function() {      
+   $("#currency").text(localStorage.getItem("currency")  );
+   $("#all_currency").text(localStorage.getItem("currency")  );
+   $("#total_amount").text(localStorage.getItem("amount"));
+   $("#all_amount").text(localStorage.getItem("amount"));
+   $("#plan-category").text(localStorage.getItem("plan-category"));
+
+$("#plans").val(localStorage.getItem("plan"));
+  });  
+</script> 
+
+
+
+<script type="text/javascript">
+     function summary_plans(){
+     localStorage.removeItem("tl_amount");
+    var plans = localStorage.getItem("plan")
+    var currnecy = localStorage.getItem("currnecy")
+    var amount = localStorage.getItem("amount")
+      // if(myCookies.session_id){                 
+              var data = 'plans='+plans
+              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
               $.ajax({
                 url: "/payment_url",
-                type: 'GET',
+                type: 'POST',
                 data: data,
                 success: function(data){
-                  if(data.message == "redirect to payments page"){
-                     //window.location = data.link_url;
-                     $("#payment_code").val('aaaaaaaaaaa');
-                     $('#payment_option').modal('hide');
-                     $('#promo').modal('show');
-                  }else if(data.message == "rescue error"){
-                    alert("Error occurred while redirecting to payments page, please try again!")
+                  if(data.message == "adyen payment iniated"){
+                    localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
+                    localStorage.setItem("currency",data.init_data["currencyCode"]);
+                    localStorage.setItem("order_id",data.init_data["merchantReference"]);
+                    window.location = "/plans_purchase";
                   }
+                  else{                 
+                    window.location = data.payment_url;
+                  }                    
                 }
               });            
-              }
+              // }
             }
-
-
-</script>       
+</script> 
