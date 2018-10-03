@@ -54,6 +54,7 @@ class CatalogsController < ApplicationController
         }
       if item_response["data"].has_key?("episode_flag")
         @episode_details = item_response["data"]
+        p @episode_details['item_caption'].inspect
         @image_url = @episode_details["thumbnails"]['large_16_9']['url']
         tvshow_response =  Rails.cache.fetch("all_epsiodes_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
@@ -81,7 +82,7 @@ class CatalogsController < ApplicationController
        @genere_items = more_item_response["data"]["items"]
       end
     rescue Exception => e
-      redirect_to "/500"
+      #redirect_to "/500"
       logger.info e.message
       Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
       @item_details = []
@@ -101,9 +102,11 @@ class CatalogsController < ApplicationController
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
         }
       @all_episodes = tvshow_response["data"]["items"]
-      @other_items = []
-      @catalog_name = ""
-      #catalog_response["data"]["title"]
+      catalog_response = Rails.cache.fetch("more_details_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_catalog_details(params[:catalog_name])
+        }
+      @other_items = catalog_response["data"]["items"]
+      @catalog_name = catalog_response["data"]["name"]
     rescue Exception => e
       redirect_to "/500"
       logger.info e.message
