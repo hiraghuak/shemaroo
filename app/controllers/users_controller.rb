@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 	  end
 	  response = User.sign_up(signup_params)
     p response.inspect
-    byebug
     if $region != "IN" && response.has_key?("data")
     user_profiles = User.get_all_user_profiles(response["data"]["session_id"])
     all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
