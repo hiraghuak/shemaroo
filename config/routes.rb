@@ -33,14 +33,13 @@ Rails.application.routes.draw do
 
  ##PLANS PAGES ROUTES STARTS HERE####
   get '/plans' => 'plans#all_plans'
-  get '/plans_summary' => 'plans#plans_summary'
-  get '/plans_final_summary' => 'plans#plans_final_summary'
-  get '/plans_purchase' => 'plans#plans_purchase'
-  post '/payment_url' => 'plans#payment_url'
-  get '/purchase_plans' => 'plans#purchase_plans'
-  get '/payment_processing' => 'plans#payment_processing'
-  get '/payment_success' => 'plans#payment_success'
-  get '/payment_failed' => 'plans#payment_failed'
+  get '/plans/plans_summary' => 'plans#plans_summary'
+  get '/plans/plans_purchase' => 'plans#plans_purchase'
+  post '/plans/payment_url' => 'plans#payment_url'
+  get '/plans/purchase_plans' => 'plans#purchase_plans'
+  get '/payment/payment_processing' => 'plans#payment_processing'
+  get '/payment/payment_success' => 'plans#payment_success'
+  get '/payment/payment_failed' => 'plans#payment_failed'
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
  ##PLANS PAGES ROUTES ENDS HERE####
 

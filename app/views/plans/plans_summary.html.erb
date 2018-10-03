@@ -162,7 +162,7 @@ $("#plans").val(localStorage.getItem("plan"));
               var data = 'plans='+plans
               // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
               $.ajax({
-                url: "/payment_url",
+                url: "/plans/payment_url",
                 type: 'POST',
                 data: data,
                 success: function(data){
@@ -170,7 +170,7 @@ $("#plans").val(localStorage.getItem("plan"));
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans_purchase";
+                    window.location = "/plans/plans_purchase";
                   }
                   else{                 
                     window.location = data.payment_url;
