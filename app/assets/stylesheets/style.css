@@ -1070,7 +1070,7 @@ span.premium-txt {
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   background-image: linear-gradient(#fff, #fff), linear-gradient(#D41F52, #F48567);
-  padding: 13px 18px 15px;
+  padding: 12px 10px 13px;
 }
 .custom-gradient .radius-button .btn:focus, .custom-gradient .radius-button .btn.focus {
   border: 0px;
