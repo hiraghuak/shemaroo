@@ -1,7 +1,7 @@
 <section class="full-width-content inside-container light padding-top-85 padding-top-155 min-height-div search-page">
 
 	<div class="row">
-		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-25">
 			<div class="search-box-wrap">
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:search_item]%>">
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:search_item].present? ? "" : "display:none"%>"></a>
@@ -48,7 +48,7 @@
 				</ul> 
 			</div> 
 		</div>
-	   <%=render "layouts/page_height_setting"%>
+	  
 </section>
 
 
@@ -58,7 +58,9 @@
 <script type="text/javascript">
  $(".search_icon").attr("src","/assets/search_active.svg")
  $(".search_icon").css("width","32px")
-  
+  var window_height = window.outerHeight;
+  var window_height = window_height - 153;
+  $('.min-height-div').css('min-height',window_height+'px');
   
 
 

@@ -224,7 +224,7 @@ section.header-section {
   cursor: pointer;
   width: 24px;
 }
-.head-right ul li:last-child img {
+.head-right ul li.with_out_login_item img {
   cursor: pointer;
   width: 20px;
 }
@@ -1422,6 +1422,9 @@ span.premium-txt {
   margin-bottom: 35px;
   padding: 5px 5px 5px 10px;
 }
+.onboarding-contianer input#login_mobile_number {
+  padding-left: 0px;
+}
 .onboarding-contianer  .input-group .fa-circle {
   color: #B11A47;
   font-size: 5px;
@@ -1868,7 +1871,7 @@ span.premium-txt {
   color: #000;
   font-size: 1em;
 }
-.static-container p {
+.static-container p, .static-container li {
   font-size: 0.875em;
   line-height: 1.425em;
 }

@@ -17,7 +17,7 @@ end
 #get the user region based on ip address
   def get_region
     begin
-        if Rails.env == "development"
+        if Rails.env != "development"
           @region = "IN"
           $region = @region
         else
