@@ -16,7 +16,16 @@ class UsersController < ApplicationController
 	    signup_params[:user][:email_id] = params[:email_id]
 	  end
 	  response = User.sign_up(signup_params)
-	  set_response(response)
+    p response.inspect
+    byebug
+    if $region != "IN" && response.has_key?("data")
+    user_profiles = User.get_all_user_profiles(response["data"]["session_id"])
+    all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
+    first_profile = all_profiles.flatten.first.split("$")
+    render json: {status: true,user_id: "#{response["data"]["session_id"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+   else
+    set_response(response)
+   end
 	rescue Exception => e
 	  logger.info e.message
 	end

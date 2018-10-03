@@ -37,14 +37,16 @@ $(document).ready(function(){
 			success: function(response,status){
 			 console.log(response);
 			 if(response.status == true){
-               $.cookie('user_registed_mobile_no',"91"+mobile_no, { expires: 14,path: '/'});
 			   $("#register_text").text("Register")
 			   if(signup_type == "msisdn"){
+			   	 $.cookie('user_registed_mobile_no',"91"+mobile_no, { expires: 14,path: '/'});
 			     window.location = "/users/verify_otp"
 			   }
 			   else{
+			   	set_user_cookies(response);
 			   	$("#user_name,#user_email,#password,#confirm_password").val("");
-                $("#signup_resp_error_msg").text("A verification Mail will be send to the Registered email id").show().fadeOut(800);
+                $("#reg_success").modal("show");
+                //$("#signup_resp_error_msg").text("A verification Mail will be send to the Registered email id").show().fadeOut(800);
 			   }
 			 }
 			else{
@@ -141,11 +143,10 @@ $("#verify_otp").click(function(){
 			  set_user_cookies(response)
 			  $.removeCookie('user_registed_mobile_no', { path: '/' });
 			  $("#otp_success").modal("show");
-			  //window.location = "/"
 			}
 			else{
 			 $(".verify_text").text("Verify")
-			 $("#first_digit,#second_digit,#third_digit,#fourth_digit").val();
+			 $("#first_digit,#second_digit,#third_digit,#fourth_digit").val("");
 			 $("#verify_otp_error").text(response.error_message).show();
 			}
 			}
@@ -273,7 +274,7 @@ $("#login_mobile_number,#login_password,#login_email").focusin(function(){
 
 
 
-$("#otp_success_close").click(function(){
+$("#otp_success_close,#user_email_close").click(function(){
 	window.location = "/users/welcome"
 })
 
