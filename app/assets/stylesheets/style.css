@@ -1055,11 +1055,29 @@ span.premium-txt {
 .plans_box .card-body {
   padding: 1rem 1.25rem;
 }
-.btn-outline-primary {
+.btn {
   border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
   border-image-slice: 1;
   border-width: 1px;
   padding: 5px 10px;
+}
+.custom-gradient .btn {
+  border-radius: 0px;
+  border-width: 0px;
+}
+.custom-gradient .radius-button {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(#D41F52, #F48567);
+  padding: 13px 18px 15px;
+}
+.custom-gradient .radius-button .btn:focus, .custom-gradient .radius-button .btn.focus {
+  border: 0px;
+  box-shadow: none;
+}
+.custom-gradient .radius-button .btn-outline-primary:hover {
+  border: 0px;
 }
 .plans_list_section .card-body li.active span {
   color: #fff;
