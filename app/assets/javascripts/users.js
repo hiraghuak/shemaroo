@@ -51,7 +51,7 @@ $(document).ready(function(){
 			 $("#register_text").text("Register")
 			 $("#user_name,#user_email,#password,#confirm_password").val("");
 			 $("#agree_terms").prop("checked", false);
-             $("#signup_resp_error_msg").text(response.error_message).show();
+             $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
 			 }
 			}
 		});
@@ -140,7 +140,8 @@ $("#verify_otp").click(function(){
 			if(response.status == true){  
 			  set_user_cookies(response)
 			  $.removeCookie('user_registed_mobile_no', { path: '/' });
-			  window.location = "/"
+			  $("#otp_success").modal("show");
+			  //window.location = "/"
 			}
 			else{
 			 $(".verify_text").text("Verify")
@@ -271,5 +272,9 @@ $("#login_mobile_number,#login_password,#login_email").focusin(function(){
 });
 
 
+
+$("#otp_success_close").click(function(){
+	window.location = "/users/welcome"
+})
 
 });
