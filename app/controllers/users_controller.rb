@@ -106,7 +106,7 @@ class UsersController < ApplicationController
 
  def sign_out
  	begin
-    response = User.sign_out(cookies[:user_id])
+    response = User.sign_out(params[:user_id])
     rescue Exception => e
       logger.info e.message
       send_exception_mail(e)
