@@ -16,6 +16,7 @@ meta title: "User Login",
             </div>
             <%if $region == "IN"%>
               <div class="input-group country">
+                <i class="fa fa-circle" aria-hidden="true"></i>
                 <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
                 <input type="text" id="login_mobile_number" name="mobile number" class="form-control">
                 <span class="input-label">Mobile Number</span> 
@@ -23,12 +24,14 @@ meta title: "User Login",
               </div>
             <%else%>
             <div class="input-group">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="login_email" name="login email" class="form-control">
               <span class="input-label">Email</span>
               <label class="error" id="login_email_error">Please enter the email address</label>
             </div>
             <%end%>
             <div class="input-group hide_password">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="login_password" name="" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="" title="">
               <span class="input-label">Password</span>
@@ -62,15 +65,34 @@ $(document).ready(function(){
  var window_height = window.outerHeight;
     var window_height = window_height - 153;
     $('.min-height-div').css('min-height',window_height+'px');
-})
+
 
   $("input[type='text'], input[type='password']").keydown(function() {
-      var inputlenth = $(this).val().length;
-      if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      if(id_val == 'login_mobile_number') {
+        console.log("1");
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
       }
       else {
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
       }
-    });
+    }
+    else {
+      if(id_val == 'login_mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
+    }
+  });
+
+});  
 </script>

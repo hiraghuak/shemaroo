@@ -92,40 +92,34 @@ meta title: "User Register",
 <script type="text/javascript">
 $("#with_header_tabs").hide();
 $(document).ready(function(){
- $("#without_header_tabs").show();
+$("#without_header_tabs").show();
    
-    $(".input-group input").keyup(function() {
-      var val = $(".input-group.name input").val();
-      if(val.length != 0) {
-        $(this).prev('.fa-circle').remove();
-      }    
+  $("input[type='text'], input[type='password']").keydown(function() {
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      if(id_val == 'mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
+      }
       else {
-        $(this).parents(".input-group").insertBefore('<i class="fa fa-circle" aria-hidden="true"></i>');
-      }  
-    });
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
+      }
+    }
+    else {
+      if(id_val == 'mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
+    }
+  });
 
-    $("input[type='text'], input[type='password']").keydown(function() {
-      var inputlenth = $(this).val().length;
-      var id_val = $(this).attr("id");
-      
-      if(inputlenth > 0) {
-        if(id_val == 'mobile_number') {
-          console.log("1");
-          $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
-        }
-        else {
-          $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
-        }
-      }
-      else {
-        if(id_val == 'mobile_number') {
-          $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
-        }
-        else {
-          $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
-        }
-      }
-    });
 });
 
 </script>

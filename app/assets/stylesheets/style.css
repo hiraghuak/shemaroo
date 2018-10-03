@@ -1900,6 +1900,14 @@ label.error {
 .input-group.cpwd label.error {
   bottom: -10px;
 }
+.input-group.custom-controls-stacked label.error {
+  bottom: -45px;
+  left: 0px;
+}
+label#verify_otp_error {  
+  bottom: -27px;
+  left: 11%;
+}
 .onboarding-contianer .input-group.all_error::before {
   content: "";
 }

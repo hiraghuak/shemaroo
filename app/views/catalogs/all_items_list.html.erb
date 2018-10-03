@@ -7,7 +7,7 @@ meta title: "#{@title}",
   <div class="row h-100">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
       <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
-    <%if @all_items.count > 0%>
+    <%if @all_items.count < 0%>
     
    <%if @layout_type == "t_2_3_movie" || @layout_type == "movies" 
       class_name = "row-movie-list all_movie_vertical" 
@@ -37,7 +37,13 @@ meta title: "#{@title}",
     </div>
     <%else%>
     <div class="light no-items-found">
-      <h2 class="margin-top-25 margin-bottom-20 text-capitalize 1-100 gradient1" style="">No items found</h2>
+      <!-- <h2 class="margin-top-25 margin-bottom-20 text-capitalize 1-100 gradient1" style="">No items found</h2> -->
+      <img src="/assets/no_content.svg" class="margin-bottom-5 welcome_page_image"  alt="" title="">
+      <p class="font-medium margin-top-20"><strong>Sorry!</strong></p>
+      <p class="font-light margin-top-20">There is no content to show</p>
+      <p class="pull-left w-100 margin-top-15 margin-bottom-15">
+        <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">go back</a>
+      </p>
     </div>
     <%end%>
     </div>  
