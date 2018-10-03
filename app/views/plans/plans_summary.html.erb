@@ -140,8 +140,8 @@ $('input[type=radio][name=radio-group]').change(function() {
 
 <script>
   $(document).ready(function() {      
-   $("#currency").text(localStorage.getItem("currency")  );
-   $("#all_currency").text(localStorage.getItem("currency")  );
+   $("#currency").text(localStorage.getItem("currency"));
+   $("#all_currency").text(localStorage.getItem("currency"));
    $("#total_amount").text(localStorage.getItem("amount"));
    $("#all_amount").text(localStorage.getItem("amount"));
    $("#plan-category").text(localStorage.getItem("plan-category"));
@@ -156,7 +156,7 @@ $("#plans").val(localStorage.getItem("plan"));
      function summary_plans(){
      localStorage.removeItem("tl_amount");
     var plans = localStorage.getItem("plan")
-    var currnecy = localStorage.getItem("currnecy")
+    var currency = localStorage.getItem("currency")
     var amount = localStorage.getItem("amount")
       // if(myCookies.session_id){                 
               var data = 'plans='+plans
