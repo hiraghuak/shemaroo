@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- 
+ skip_before_action  :verify_authenticity_token
  def sign_up
 	 begin
 	  signup_params = {
@@ -106,12 +106,10 @@ class UsersController < ApplicationController
 
  def sign_out
  	begin
-    response = User.sign_out(params[:user_id])
+    response = User.sign_out(cookies[:user_id])
     rescue Exception => e
       logger.info e.message
-      send_exception_mail(e)
     end
-
     render json: {error_message: "",status: true }
  end
 
