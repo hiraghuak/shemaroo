@@ -17,9 +17,8 @@ end
 #get the user region based on ip address
   def get_region
     begin
-        if Rails.env == "development"
+        if Rails.env != "development"
           @region = "IN"
-          #@region = "US"
           $region = @region
         else
           ip = get_user_ip
@@ -31,6 +30,51 @@ end
       @region = "IN"
       $region = @region
     end
+  end
+
+
+  def get_user_ip
+    if request.headers["HTTP_VIA"]
+      if request.headers["HTTP_VIA"].include?"1.1 Chrome-Compression-Proxy"
+        status,ip = get_x_forwarded_for_ip
+        unless status
+          ip = get_ip_from_http_true_client
+        end
+      else
+        ip = get_ip_from_http_true_client
+      end
+    elsif request.headers["HTTP_X_CONTENT_OPT"]
+      if request.headers["HTTP_X_CONTENT_OPT"].downcase.include?"turbo"
+        status,ip = get_x_forwarded_for_ip
+        unless status
+          ip = get_ip_from_http_true_client
+        end
+      else
+        ip = get_ip_from_http_true_client
+      end
+    else
+      ip = get_ip_from_http_true_client
+    end    
+  end
+
+  def get_x_forwarded_for_ip
+    ip_addresses = request.headers["X-FORWARDED-FOR"]
+    if ip_addresses
+      ip_array = ip_addresses.split(",")
+      ip = ip_array.first
+      return [true, ip]
+    else
+      return [false, ""]
+    end
+  end
+
+  def get_ip_from_http_true_client
+    if request.headers["HTTP_TRUE_CLIENT_IP"]
+      ip = request.headers["HTTP_TRUE_CLIENT_IP"]
+    else
+      ip = request.remote_ip
+    end
+    return ip
   end
 
 
