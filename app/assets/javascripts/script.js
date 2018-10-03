@@ -1,5 +1,14 @@
 $(document).ready(function(){
-	
+	if(getShemarooCookies().user_id){
+		$(".with_login_item").show();
+		$(".with_out_login_item").hide();
+		$(".mobile_with_login").show();
+        $(".mobile_with_out_login_item").hide();
+	}
+	else{
+		$(".with_login_item").hide();
+		$(".with_out_login_item").show();
+	}
 	// var window_height = window.outerHeight;
  //  	var window_height = window_height - 231;
  //  	$('.min-height-div').css('min-height',window_height+'px');
@@ -104,6 +113,73 @@ $(document).ready(function(){
         return attr == "password" ? "text" : "password";
       });
     });
+
+
+
+$('.user_menu').click(function(event) {
+	if(getShemarooCookies().user_id){
+	var user_profiles = getShemarooCookies().user_profiles.split(",");
+	console.log(user_profiles.length);
+	var user_data = ""
+	for(i=0;i< user_profiles.length;i++){
+		var user_name = user_profiles[i].split("$")
+		if(i == 1){
+       	  user_data+= '<li class="active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+		else{
+		  user_data+= '<li><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+	}
+	$("#header_user_profiles").html(user_data);
+    $(".with_login_item").show();
+    $(".with_out_login_item").hide();
+   }
+  $('.user_menu').css("z-index", "1");
+var window_height = window.outerHeight;
+$("body").addClass("noscroll");
+$("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
+
+    value = $('#right-sidebar-menu').css('width') === '0px' ? '250px' : '0px';
+    var show = $('#right-sidebar-menu').css('opacity') === 0 ? 1 : 0;
+      $('#right-sidebar-menu').animate({
+          width: "250px"          
+      }, 250);
+      
+});
+ 
+  $("#right-sidebar-menu .close-hambergmenu").click(function() {
+    $('.user_menu').css("z-index", "1111");
+    $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
+    $("body").removeClass("noscroll");
+    value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
+    var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
+      $('#right-sidebar-menu').animate({
+          width: value          
+      }, 'fast');
+  });   
+
+
+
+$(".navbar-toggler-icon").click(function(){
+	if(getShemarooCookies().user_id){
+	var user_profiles = getShemarooCookies().user_profiles.split(",");
+	console.log(user_profiles.length);
+	var user_data = ""
+	for(i=0;i< user_profiles.length;i++){
+		var user_name = user_profiles[i].split("$")
+		if(i == 1){
+       	  user_data+= '<li class="active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+		else{
+		  user_data+= '<li><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		}
+	}
+	$("#mobile_user_profiles").html(user_data);
+    $(".mobile_with_login").show();
+    $(".mobile_with_out_login_item").hide();
+   }
+})
+
 });
 
 

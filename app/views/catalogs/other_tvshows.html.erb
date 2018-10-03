@@ -1,0 +1,33 @@
+<%
+meta title: "#{@title}",
+     description: "",
+     keywords: ""
+%>
+<section class="full-width-content inside-container top-bg-gradient padding-top-80 padding-top-155 light min-height-div padding-bottom-20">
+  <div class="row h-100">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
+    <%if @all_tvshows.count > 0%>
+    <div class="row row-show-list all_show_horizontal_title">
+     <%@all_tvshows.each do |i|%>
+        <div class="item rounded">                                      
+          <a href="<%=get_item_url(i)%>">
+          <%if i['access_control']['is_free'] == false%>
+            <span class="text-uppercase premium-txt">Premium</span>
+          <%end%>
+          <img src="<%=i["thumbnails"]["medium_16_9"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+            <span class="list-tile-title"><%=i['title']%></span>
+          </a>
+        </div>
+      <%end%>
+    </div>
+    <%else%>
+    <div class="light no-items-found">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize 1-100 gradient1" style="">No items found</h2>
+    </div>
+    <%end%>
+    </div>  
+  </div>
+<%=render "layouts/page_height_setting"%>
+
+</section>

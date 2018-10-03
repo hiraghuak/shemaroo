@@ -4,7 +4,7 @@
     keywords: "#{@episode_details['keywords']}"
 %>
 <div class="min-height-div">
-  <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-155">
+  <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-80 padding-top-155">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
       <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
         <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
@@ -63,8 +63,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
           <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
           <div class="row row-show-list detail_page">
-           <%@all_episodes.each do |e|%>
-            <div class="item details_episode_horizontal_title">                                                              
+           <%@all_episodes[0..9].each do |e|%>
+            <div class="item details_episode_horizontal_title">                  
               <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
                 <img src="/assets/big_play.svg" alt="" title="">
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
@@ -74,7 +74,7 @@
             </div>  
            <%end%>    
           </div>  
-          <%if @all_episodes.count > 10%> 
+          <%if @all_episodes.count > 100%> 
             <div class="text-center margin-bottom-25 margin-top-20">
             <a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
             </div> 
@@ -94,7 +94,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
               <h2 class="margin-bottom-15 pull-left">Other <%=@catalog_name%></h2>
               <%if @other_items.count > 5 %>
-                <a href="javascript:;" class="text-uppercase pull-right see-more">see more</a>
+                <a href="/<%=params[:catalog_name]%>/others/all" class="text-uppercase pull-right see-more">see more</a>
               <%end%>    
             </div>
           </div>
@@ -102,9 +102,9 @@
           <div id="other-shows-carousel" class="owl-carousel owl-theme">
            <%@other_items.each do |t|%>
            <%if t["thumbnails"].has_key?("small_16_9")%>
-              <div class="item horizontal_title details_shows_horizontal_title">
+              <div class="item horizontal_title details_shows_horizontal_title rounded">
                 <a href="<%=get_item_url(t)%>">
-                  <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" alt="<%=t['title']%>" title="<%=t['title']%>">
+                  <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" class="rounded" alt="<%=t['title']%>" title="<%=t['title']%>">
                   <span class="list-tile-title"><%=t['title']%></span>
                 </a>
               </div> 

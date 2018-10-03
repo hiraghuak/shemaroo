@@ -3,14 +3,15 @@ meta title: "Shemaroo Entertainment Limited",
      description: "Shemaroo",
      keywords: %w(Shemaroo)
 %>
-<section class="banner-section padding-top-85 padding-top-155">
+<section class="banner-section padding-top-82 padding-top-155">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <div id="banner-carousel" class="owl-carousel owl-theme">
         <%@home_list[0]['catalog_list_items'].each do |h|%>
           <div class="item">
             <a href="<%=get_item_url(h)%>">            
-            <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>">
+            <img src="<%=get_image_url(h,@home_list[0]["layout_type"])%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-none d-md-block rounded">
+            <img src="<%=h["thumbnails"]["xl_image_16_9"]["url"]%>" alt="<%=h['title']%>" title="<%=h['title']%>" class="d-block d-md-none rounded">
             <!-- <img src="/assets/big_play.svg" alt="<%#=h['title']%>" title="<%#=h['title']%>"> -->
             </a>
           </div>

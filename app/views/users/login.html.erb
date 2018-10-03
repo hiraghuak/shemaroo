@@ -1,30 +1,47 @@
-<div class="padding-top-80">
-  <section class="onboarding-bg padding-top-155 min-height-div">
+<%
+meta title: "User Login",
+     description: "Login",
+     keywords: %w(Login)
+%>
+
+  <section class="onboarding-bg padding-top-80 padding-top-155 min-height-div">
     <div class="onboarding-contianer margin-bottom-30">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+         <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
           <h2 class="block margin-bottom-10">Login</h2>
           <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
             <div class="input-group all_error" >
-              <label class="error">Invalid Credentials</label>
+              <label class="error" id="bakend_user_errors">Invalid Credentials</label>
             </div>
-            <div class="input-group country">
-              <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
-              <input type="text" id="mobile_number" name="mobile number" class="form-control">
-              <span class="input-label">Mobile Number</span> 
-              <label class="error">Please enter the valid 10 digit number</label>
+            <%if $region == "IN"%>
+              <div class="input-group country">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
+                <input type="text" id="login_mobile_number" name="mobile number" class="form-control" maxlength="10">
+                <span class="input-label">Mobile Number</span> 
+                <label class="error" id="login_mobile_error">Please enter the mobile number</label>
+              </div>
+            <%else%>
+            <div class="input-group">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <input type="text" id="login_email" name="login email" class="form-control">
+              <span class="input-label">Email</span>
+              <label class="error" id="login_email_error">Please enter the email address</label>
             </div>
+            <%end%>
             <div class="input-group hide_password">
-              <input type="password" id="" name="" class="form-control"> 
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <input type="password" id="login_password" name="" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="" title="">
               <span class="input-label">Password</span>
-              <label class="error">Please enter the valid password</label>
+              <label class="error" id="login_pwd_error">Please enter the password</label>
             </div>
             <div class="text-center margin-bottom-25 margin-top-20 light">
-              <a href="javascript:;" class="inline-block text-uppercase gradient-button1"><span class="font-medium">login</span></a>
+              <a href="javascript:;" class="inline-block text-uppercase gradient-button1" id="user_login"><span class="font-medium" id="login_text">login</span></a>
             </div>
             <div class="text-center margin-bottom-25 margin-top-20">
-              <a href="javascript:;" class="inline-block text-uppercase margin-bottom-15 font-medium">forgot password ?</a>
+              <a href="javascript:void(0);" class="inline-block text-uppercase margin-bottom-15 font-medium">forgot password ?</a>
             </div>
             <div class="text-center margin-bottom-0 margin-top-20 font-medium">
               <span>Not a member?</span><a href="/users/register" class="inline-block text-uppercase">&nbsp;Register</a>
@@ -39,21 +56,43 @@
 
 
 
-    <%=render "layouts/page_height_setting"%>
+    <%#=render "layouts/page_height_setting"%>
   </section>
-</div>
+
 <script>
 $(document).ready(function(){
  $(".label.error").show();
-})
+ var window_height = window.outerHeight;
+    var window_height = window_height - 153;
+    $('.min-height-div').css('min-height',window_height+'px');
+
 
   $("input[type='text'], input[type='password']").keydown(function() {
-      var inputlenth = $(this).val().length;
-      if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      if(id_val == 'login_mobile_number') {
+        console.log("1");
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
       }
       else {
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
       }
-    });
+    }
+    else {
+      if(id_val == 'login_mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
+    }
+  });
+
+});  
 </script>

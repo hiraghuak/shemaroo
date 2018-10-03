@@ -1,32 +1,51 @@
+<%
+meta title: "User Register",
+     description: "Register",
+     keywords: %w(Register)
+%>
 <div class="padding-top-80">
   <section class="onboarding-bg min-height-div">
     <div class="onboarding-contianer margin-bottom-30">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+           <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
           <h2 class="block margin-bottom-10"><img src="/assets/back_arrow.svg" class="back_arrow" alt="back arrow" title="back arrow"> Register</h2>
           <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
           <div class="input-group all_error" >
               <label class="error" id="signup_resp_error_msg">Invalid Credentials</label>
             </div>
             <div class="input-group name">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="user_name" name="user name" class="form-control" required="true"> 
               <span class="input-label">Name</span> 
               <label class="error" id="signup_name_error">Plese enter the name</label>
             </div>
+            <%if $region == "IN"%>
             <div class="input-group country">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
-              <input type="text" id="mobile_number" name="mobile no" class="form-control"> 
+              <input type="text" id="mobile_number" name="mobile no" class="form-control" maxlength="10"> 
               <span class="input-label">Mobile Number</span>
               <label class="error" id="signup_mobile_error">Plese enter the mobile number</label>
-
             </div>
+            <%else%>
+
+            <div class="input-group email">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <input type="text" id="user_email" name="user email" class="form-control" required="true"> 
+              <span class="input-label">Email</span> 
+              <label class="error" id="signup_email_error">Plese enter the email</label>
+            </div>
+            <%end%>
             <div class="input-group pwd">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="password" name="password" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show password" title="show password">
               <span class="input-label">Password</span>
               <label class="error" id="signup_password">Plese enter the password</label> 
             </div>
             <div class="input-group cpwd">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="confirm_password" name="confirm password" class="form-control margin-bottom-15"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show confirm password" title="show confirm password">
               <span class="input-label">Confirm Password</span>
@@ -42,7 +61,7 @@
              <label class="error" id="terms_check">Please check the terms of use</label> 
             </div>
             <div class="inline-block w-100 text-center margin-bottom-5 margin-top-25 light">
-              <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span>Register</span></a>
+              <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="user_register"><span id="register_text">Register</span></a>
             </div>
             
           </div>
@@ -50,32 +69,55 @@
       </div>
     </div>
     <%=render "layouts/page_height_setting"%>
+
+<div class="modal" id="reg_success">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" aria-label="Close" id="user_email_close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="margin-bottom-20 margin-top-25">Congratulation!</h5>
+        <img src="/assets/transaction_successful.svg" class="plans_pop_image margin-top-10 margin-bottom-5" alt="" title="">
+        <p class="pull-left w-100 margin-top-25 margin-bottom-25 font-medium">Your Email id has been successfully registered</p>
+        </div>      
+    </div>
+  </div>
+</div>
+
   </section>
 </div>
 <script type="text/javascript">
 $("#with_header_tabs").hide();
 $(document).ready(function(){
- $("#without_header_tabs").show();
-   var dot = "\f111";
-    $(".input-group.name input").keyup(function() {
-      var val = $(".input-group.name input").val();
-      if(val.length != 0) {
-      $("body").append("<style>.input-group.name:before{content: ''}</style>");        
-      }    
+$("#without_header_tabs").show();
+   
+  $("input[type='text'], input[type='password']").keydown(function() {
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      if(id_val == 'mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
+      }
       else {
-        $("body").append('<style>.input-group.name:before{content:'+dot+'}</style>');
-      }  
-    });
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
+      }
+    }
+    else {
+      if(id_val == 'mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
+    }
+  });
 
-    $("input[type='text'], input[type='password']").keydown(function() {
-      var inputlenth = $(this).val().length;
-      if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
-      }
-      else {
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
-      }
-    });
 });
 
 </script>

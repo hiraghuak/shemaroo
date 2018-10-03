@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 	  get 'login'
 	  post 'sign_in'
 	  post 'sign_up'
+	  get 'welcome'
+	  post 'sign_out'
 	  get  'verify_otp'
 	  post 'validate_otp'
 	  post 'resend_otp'
@@ -54,6 +56,7 @@ Rails.application.routes.draw do
  get "/:catalog_name" => "catalogs#show_catalog_item"
  get "/:catalog_name/all" => "catalogs#all_items_list"
  get "/:catalog_name/:show_name" => "catalogs#item_details"
+ get "/:catalog_name/others/all" => "catalogs#other_tvshows"
  get "/:catalog_name/:genre/all" => "catalogs#genre_all_items"
  get "/:catalog_name/:show_name/:item_name" => "catalogs#episode_details"
  ##CATALOGS PAGES ROUTES ENDS HERE####

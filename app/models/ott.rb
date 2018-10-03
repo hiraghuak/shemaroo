@@ -51,4 +51,8 @@ class Ott
     HTTP.get "search?filters=category,all&q=#{search_name}&region=#{$region}","catalog"
   end
 
+  def self.get_user_region(ip_addrs)
+    HTTP.get "regions/ip/#{ip_addrs}","catalog"
+  end
+
 end

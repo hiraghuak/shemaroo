@@ -1,26 +1,59 @@
 $(document).ready(function(){
- $("#user_register").click(function(){
- 	$("#signup_name_error,#signup_mobile_error,#signup_password,#signup_confirm_password,#terms_check").hide();
+   function user_signup(){
+ 	$("#signup_name_error,#signup_mobile_error,#signup_email_error,#signup_password,#signup_confirm_password,#terms_check").hide();
  	var user_name = $("#user_name").val();
  	var mobile_no = $("#mobile_number").val();
+ 	var email_id = $("#user_email").val();
  	var pwd = $("#password").val();
  	var cf_pwd = $("#confirm_password").val();
  	var terms_check = $("#agree_terms").is(':checked')
- 	if(user_name.length != 0 && mobile_no.length != 0 && mobile_no.length == 10 && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
+ 	var status = false
+ 	var user_region = $(".user_region").val();
+ 	var regex_email = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 	if(user_region == "IN"){
+       if(user_name.length != 0 && mobile_no.length != 0 && mobile_no.length == 10 && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
+        status = true
+        signup_type = "msisdn"
+ 	  }
+ 	}
+ 	else{
+      if(user_name.length != 0 && email_id.length != 0 && regex_email.test(email_id) && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
+        status = true
+        signup_type = "email"
+ 	  }
+ 	}
+ 	if(status == true){
+		$("#register_text").text("Register..")
 		$.ajax({
 			url: "/users/sign_up",
 			type: "POST",
 			data: { 
 			name: user_name, 
 			mobileno: mobile_no,
+			email_id: email_id,
+		    type: signup_type,
 			password: pwd
 			},
 			success: function(response,status){
-			 if(status == "true"){
-	         
+			 console.log(response);
+			 if(response.status == true){
+			   $("#register_text").text("Register")
+			   if(signup_type == "msisdn"){
+			   	 $.cookie('user_registed_mobile_no',"91"+mobile_no, { expires: 14,path: '/'});
+			     window.location = "/users/verify_otp"
+			   }
+			   else{
+			   	set_user_cookies(response);
+			   	$("#user_name,#user_email,#password,#confirm_password").val("");
+                $("#reg_success").modal("show");
+                //$("#signup_resp_error_msg").text("A verification Mail will be send to the Registered email id").show().fadeOut(800);
+			   }
 			 }
 			else{
-
+			 $("#register_text").text("Register")
+			 $("#user_name,#user_email,#password,#confirm_password").val("");
+			 $("#agree_terms").prop("checked", false);
+             $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
 			 }
 			}
 		});
@@ -28,64 +61,93 @@ $(document).ready(function(){
 	else if(user_name.length == 0){
 	  $("#signup_name_error").show();
 	}
-	else if(mobile_no.length == 0){
+	
+	else if(user_region == "IN" && mobile_no.length == 0){
 	  $("#signup_mobile_error").show();
 	}
-	else if(mobile_no.length <= 9){
-	  $("#signup_mobile_error").text("Please enter the valid 10 digit number");
+	else if(user_region == "IN" && mobile_no.length != 0 && mobile_no.length != 10){
+	  $("#signup_mobile_error").text("Please enter the valid 10 digit number").show();
+	}
+	else if(user_region != "IN" && email_id.length == 0){
+		$("#signup_email_error").show();
+	}
+	else if(user_region != "IN" && !regex_email.test(email_id)){
+	  $("#signup_email_error").text("Please enter the valid email address").show();
 	}
 	else if(pwd.length == 0){
 	  $("#signup_password").show();
 	}
 	else if(pwd.length < 6){
-	  $("#signup_password").text("Password must contain at least 6 characters");
+	  $("#signup_password").text("Password must contains at least 6 characters").show();
 	}
 	else if(cf_pwd.length == 0){
 	  $("#signup_confirm_password").show();
 	}
 	else if(cf_pwd.length < 6){
-	  $("#signup_confirm_password").text("Confirm password must contain at least 6 characters");
+	  $("#signup_confirm_password").text("Confirm password must contains at least 6 characters").show();
 	}
 	else if(pwd != cf_pwd){
-      $("#signup_confirm_password").text("Confirm password must contain at least 6 characters");
+      $("#signup_confirm_password").text("Password and Confirm password not matched").show();
 	}
 	else if(terms_check == false){
 	  $("#terms_check").show();
 	}
- })
+	   }
+
+ $("#user_register").click(function(){
+ 	user_signup();
+ });
+
+$("#user_name,#mobile_number,#password,#confirm_password,#user_email").keypress(function(e){
+  if(e.which == 13){
+	user_signup();
+  }
+});
 
 
+$("#user_name,#mobile_number,#user_email,#password,#confirm_password").focusin(function(){
+ $("#signup_name_error,#signup_mobile_error,#signup_email_error,#signup_password,#signup_confirm_password,#terms_check").hide();
+});
 
-$("#mobile_number").on("keypress keyup blur",function (event) {    
+$("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("keypress keyup blur",function (event) {    
    $(this).val($(this).val().replace(/[^\d].+/, ""));
     if ((event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
 });
 
+function set_user_cookies(resp){
+ $.cookie('user_id',resp.user_id, { expires: 14,path: '/'});
+ $.cookie('user_name',resp.user_name, { expires: 14,path: '/'});
+ $.cookie('profile_id',resp.profile_id, { expires: 14,path: '/'});
+ $.cookie('user_profiles',resp.user_profiles, { expires: 14,path: '/'})
+}
+
 $("#verify_otp").click(function(){
-	$("#verify_otp_error").hide();
+  $("#verify_otp_error").hide();
   var first_no  = $("#first_digit").val();
   var second_no = $("#second_digit").val();
   var third_no  = $("#third_digit").val();
   var fouth_no  = $("#fourth_digit").val();
   if(first_no.length != 0 && second_no.length != 0 && third_no.length != 0 && fouth_no.length != 0){
-		$("#verify_text").text("Verifying..")
+	  $(".verify_text").text("Verifying..")
 		$.ajax({
 			url: "/users/validate_otp",
 			type: "POST",
 			data: { 
-			 //otp: first_no+second_no+third_no+fouth_no
-			 otp: "665524"
+			 otp: first_no+second_no+third_no+fouth_no
 			},
 			success: function(response,status){
-				console.log(response);
+			 console.log(response);
 			if(response.status == true){  
-				
+			  set_user_cookies(response)
+			  $.removeCookie('user_registed_mobile_no', { path: '/' });
+			  $("#otp_success").modal("show");
 			}
 			else{
-				$("#verify_text").text("Verify")
-				$("#verify_otp_error").text(response.error_message).show();
+			 $(".verify_text").text("Verify")
+			 $("#first_digit,#second_digit,#third_digit,#fourth_digit").val("");
+			 $("#verify_otp_error").text(response.error_message).show();
 			}
 			}
 		});
@@ -104,10 +166,14 @@ $("#verify_otp").click(function(){
 	}
 })
 
+$("#first_digit,#second_digit,#third_digit,#fourth_digit").focus(function(){
+   $("#verify_otp_error").hide();
+})
+
 /*Resend Otp */
 
 $("#resend_otp").click(function(){
-	var mobile_number = "918919390856"
+	var mobile_number = getShemarooCookies().user_registed_mobile_no;
 	$.ajax({
 		url: "/users/resend_otp",
 		type: "POST",
@@ -117,7 +183,7 @@ $("#resend_otp").click(function(){
 		success: function(response,status){
 		console.log(response);
 		if(response.status == true){  
-			$("#verify_otp_error").text("Otp sent sucessfully").show();
+		 $("#verify_otp_error").text("Otp sent sucessfully").show().fadeOut(800);
 		}
 		else{
 		 $("#verify_otp_error").text(response.error_message).show();
@@ -127,18 +193,111 @@ $("#resend_otp").click(function(){
 })
 
 
+function user_sign_in(){
+ $("#login_mobile_error,#login_pwd_error").hide();
+ var mobile_no = $("#login_mobile_number").val();
+ var user_email_id = $("#login_email").val();
+ var pwd = $("#login_password").val();
+ var user_region = $(".user_region").val();
+ var regex_email = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ var error_status = false
+ if(user_region == "IN"){
+  if(mobile_no.length != 0 && mobile_no.length == 10 && pwd.length != 0 && pwd.length >=6){
+  	error_status = true
+  	login_type = "msisdn"
+  }
+ }
+ else{
+   if(user_email_id.length != 0 && regex_email.test(user_email_id) && pwd.length != 0 && pwd.length >=6){
+   	error_status = true
+   	login_type = "email"
+   }
+ }
+ if(error_status == true){
+	$("#login_text").text("Login...")
+	$.ajax({
+		url: "/users/sign_in",
+		type: "POST",
+		data: { 
+		mobile_no: mobile_no, 
+		email_id: user_email_id,
+		password: pwd,
+		type: login_type
+		},
+		success: function(response,status){
+		 $("#login_text").text("Login")
+		 if(response.status == true){
+		  set_user_cookies(response)
+		  window.location = "/"
+		 }
+		else{
+		 $("#login_mobile_number,#login_password,#login_email").val("");
+	     $("#bakend_user_errors").text(response.error_message).show().fadeOut(2000);
+		 }
+		}
+	});
+ }
+ else if(user_region == "IN" && mobile_no.length == 0){
+  $("#login_mobile_error").show();
+ }
+ else if(user_region == "IN" && mobile_no.length != 10){
+  $("#login_mobile_error").text("Please enter the valid 10 digit number").show();
+ }
+ else if(user_region != "IN" && user_email_id.length == 0){
+  $("#login_email_error").show();
+ }
+ else if(user_region != "IN" && !regex_email.test(user_email_id)){
+  $("#login_email_error").show("Please enter the valid email address").show();;
+ }
+ else if(pwd.length == 0){
+  $("#login_pwd_error").show();
+ }
+ else if(pwd.length < 6){
+  $("#login_pwd_error").text("Password must contains at least 6 characters").show();
+ }
+}
 
+$("#user_login").click(function(){
+  user_sign_in();
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
+$("#login_mobile_number,#login_password,#login_email").keypress(function(e){
+  if(e.which == 13){
+	user_sign_in();
+  }
 });
+
+
+$("#login_mobile_number,#login_password,#login_email").focusin(function(){
+ $("#login_mobile_error,#login_pwd_error,#login_email_error").hide();
+});
+
+
+
+$("#otp_success_close,#user_email_close").click(function(){
+	window.location = "/users/welcome"
+})
+
+
+ function delete_user_cookies(){
+  document.cookie = 'user_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'user_name' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'profile_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'user_profiles' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+ }
+
+ $("#user_signout,#user_mobile_signout").click(function(){
+  $.ajax({
+    url: "/users/sign_out",
+    type: "POST",
+    data: { },
+    success: function(response,status){
+    console.log(response);
+    if(response.status == true){ 
+     delete_user_cookies(); 
+     window.location.reload();
+    }
+    }
+  });
+ })
+})

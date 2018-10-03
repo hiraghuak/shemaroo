@@ -3,14 +3,15 @@ meta title: "#{@meta_title}",
      description: "Shemaroo",
      keywords: %w(Shemaroo)
 %>
-<section class="banner-section padding-top-85 padding-top-155">
+<section class="banner-section padding-top-82 padding-top-155">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <div id="banner-carousel" class="owl-carousel owl-theme">
        <%@items_list[0]['catalog_list_items'].each do |i|%>
           <div class="item">
             <a href="<%=get_item_url(i)%>">
-              <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>">
+              <img src="<%=get_image_url(i,@items_list[0]["layout_type"])%>" alt="<%=i['title']%>" title="<%=i['title']%>" class="d-none d-md-block rounded">
+              <img src="<%=i["thumbnails"]["xl_image_16_9"]["url"]%>" alt="<%=i['title']%>" title="<%=i['title']%>" class="d-block d-md-none rounded">
               <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
             </a>
           </div> 
@@ -31,7 +32,7 @@ meta title: "#{@meta_title}",
               <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
               <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items_list[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
                 <%list['catalog_list_items'].each do |item|%>
-                  <div class="item <%=get_image_height(@items_list[index]["layout_type"])%>">
+                  <div class="item <%=get_image_height(@items_list[index]["layout_type"])%> <%=(@items_list[index]["layout_type"].split("_").last.downcase == "meta") ? "rounded" : ""%>">
                     <a href="<%=get_item_url(item)%>">
                     <img src="<%=get_image_url(item,@items_list[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
                     <%if @items_list[index]["layout_type"].split("_").last.downcase == "meta"
