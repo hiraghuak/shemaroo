@@ -1602,7 +1602,7 @@ span.premium-txt {
 .plans_summary_section .payment-header ul li {
   float: left;
   font-size: 0.875em;
-  margin-right: 20px;
+  margin-right: 8px;
   width: auto;
 }
 .plans_summary_section .payment-header ul li:first-child {
@@ -2425,7 +2425,7 @@ label#verify_otp_error {
     min-height: calc((100vw - 35px)/ 4.1);
   }
   .details_shows_horizontal_title {
-    min-height: calc((100vw - 0px)/ 2 * .56)!important;
+    min-height: calc((100vw - 0px)/ 3 * .56)!important;
   }
   .owl-carousel .owl-item .item.square {
     min-height: calc((100vw - 0px)/ 3 * 0.798);
@@ -2499,16 +2499,19 @@ label#verify_otp_error {
     width: 100%!important;
   }
   .owl-carousel .owl-item .item.vertical {
-    min-height: calc((100vw - 0px)/ 2 * 1.304);
+    min-height: calc((100vw - 0px)/ 2 * 1.26);
   }
   .all_movie_vertical .item {
     min-height: calc((100vw - 0px)/ 1.5);
   } 
   .owl-carousel .owl-item .item.horizontal {
-    min-height: calc((100vw - 0px)/ 1 * .4995);
+    min-height: calc((100vw - 0px)/ 1 * .487);
   }
   .owl-carousel .owl-item .item.horizontal_title {
     min-height: calc((100vw - 0px)/ 1 * .522);
+  }
+  .details_shows_horizontal_title {
+    min-height: calc((100vw - 0px)/ 2 * .56)!important;
   }
   .all_show_horizontal_title .item {
     min-height: calc((100vw - 35px)/ 3);
@@ -2517,7 +2520,7 @@ label#verify_otp_error {
     min-height: calc((100vw - 35px)/ 2.35 * .834);
   }
   .owl-carousel .owl-item .item.square {
-    min-height: calc((100vw - 0px)/ 2 * 0.869);
+    min-height: calc((100vw - 0px)/ 2 * 0.847);
   }
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 1 * 0.521);

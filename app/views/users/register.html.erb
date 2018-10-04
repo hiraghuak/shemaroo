@@ -92,7 +92,7 @@ $("#with_header_tabs").hide();
 $(document).ready(function(){
 $("#without_header_tabs").show();
    
-  $("input[type='text'], input[type='password']").keydown(function() {
+  $("input[type='text'], input[type='password']").keyup(function() {
     var inputlenth = $(this).val().length;
     var id_val = $(this).attr("id");
     
