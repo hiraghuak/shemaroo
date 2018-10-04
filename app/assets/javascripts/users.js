@@ -300,4 +300,32 @@ $("#otp_success_close,#user_email_close").click(function(){
     }
   });
  })
+
+$("input[type='text'], input[type='password']").keyup(function() {
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      if(id_val == 'mobile_number' || id_val == 'login_mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});  
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').hide();
+        $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});    
+      }
+    }
+    else {
+      if(id_val == 'mobile_number' || id_val == 'login_mobile_number') {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"37px"});    
+      }
+      else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
+    }
+  });
+
+
 })

@@ -1479,7 +1479,7 @@ span.premium-txt {
 }
 .input-group .form-control:focus~.input-label {
   left: 0px;
-  top: -20px;
+  top: -16px;
 }
 .input-group.country .input-label {
   left: 37px;
