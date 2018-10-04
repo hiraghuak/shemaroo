@@ -156,6 +156,30 @@ class PlansController < ApplicationController
     end
 
 
+    def mobile_payment_success
+      render :layout => false
+    end
+
+    def mobile_payment_failed
+      render :layout => false
+   end
+
+   def mobile_payment_processing
+     render :layout => false
+   end
+
+   def mobile_plans_purchase
+      render :layout => false
+   end
+
+   def mobile_plans_summary
+    response = Ott.subscription_plans
+  @all_plans = response["data"]["catalog_list_items"] 
+  @all_access_packs = @all_plans.last["catalog_list_items"].last
+      render :layout => false
+   end
+
+
     def mobile_plans
 
      response = Ott.subscription_plans
