@@ -1,0 +1,208 @@
+<%all_pack = @all_plans.last["catalog_list_items"].last%>
+<section class="full-width-content light padding-top-85 padding-top-155">
+<div class="row"><!-- Continue Watching starts -->
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
+    <h2>Modify Plans</h2>
+    <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
+    <ul class="list-none margin-right-0 packs_lists">
+      <li class="text-uppercase gradient1">all</li>
+      <li class="text-uppercase">includes all<br>the categories</li>
+      <%all_pack["plans"].each do |aa|%>
+      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
+        <span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+        <br>
+        <label><%=aa["title"]%></label>
+      </li>
+      <%end%>
+    </ul>
+
+  </div>  
+</div>
+</section>
+<section class="full-width-content light plans_list_section padding-bottom-30">
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-top-25">
+    <h2>Choose your plan</h2>
+    <p class="sub-title">Planthat provide access to all categories</p>
+    <div class="row1">
+      <div class="plans_box all_categories block">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
+              <li>
+                <h5 class="gradient1">All Categories</h5>
+                <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
+              </li>
+              <%all_pack["plans"].each do |aa|%>
+              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
+                <span class="text-uppercase block"><%=aa["title"]%></span>
+                <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+                <span class="block"><%=aa["price"]%></span>
+              </li>
+              <%end%>
+            </ul>
+            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </p>
+          </div>
+        </div>    
+      </div>
+    </div>
+    <p class="margin-bottom-10 margin-top-25">Individual Category Plans</p>
+    <div class="row1">
+    <%@all_plans[0..-3].each_with_index do  |plan,i|%>
+      <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
+              <li>
+                <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
+                <p><%=plan['category']%></p>
+                <div class="plan_list_show">
+                  <% plan["pack_details"].each do |d|%>
+                   <p><%=d["info"]%>:&nbsp;<%=d["value"]%></p>
+                   <%end%>
+                 </div>
+              </li>
+              <%unless plan["plans"].blank?%>
+              <%plan["plans"].each do |p|%>
+              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
+                <span class="text-uppercase block"><%=p["title"]%></span>
+                <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
+                <span class="block"><%=p["price"]%></span>
+              </li>
+              <%end%>
+              <%end%>
+            </ul>
+            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </p>
+          </div>
+        </div>    
+      </div>
+    <%end%>
+    </div>              
+  </div>
+</div>
+</section>
+<section class="plans_footer"> 
+<div class="inside-container">
+  <div class="pull-left">
+    <p class="text-uppercase margin-bottom-0"><span id="plans_count"></span> plan(s) selected</p>  
+    <span id="currency" class="currency" data-prive-val=""></span>
+    <span id="amount" class="amount" data-prive-val=""></span>
+  </div>
+  <div class="pull-right light">
+    <!-- <a href="/plans/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
+    <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
+    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a> 
+  </div>
+  <!-- The Modal -->
+<div class="modal" id="combo_offer" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <h5 class="margin-bottom-20 margin-top-25">Avail Combo Offer</h5>
+        <img src="/assets/subscription.svg" class="plans_pop_image margin-top-10" alt="" title="">
+        <p class="pull-left w-100 margin-top-10 margin-bottom-15 font-medium">Add any monthly category pack <span class="font-bold">at just 20</p>
+        <p class="pull-left w-100 margin-top-15 margin-bottom-15">
+          <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
+        </p>
+        <p class="pull-left w-100 margin-top-15">
+          <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>  
+</section>
+<script>
+
+  $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
+    //$(".plans_list_section ul li").removeClass("active");
+    $(this).addClass("active");
+    var gradient = $(this).siblings("li").find("h5").attr("class");
+    if(gradient == "gradient1") {
+      //$(this).css("background", "linear-gradient(to right,#D51E54, #F15A23)")
+      $(this).addClass("gradientbg1");
+    }
+    else if(gradient == "gradient2") {
+      $(this).addClass("gradientbg2");
+    }
+    else if(gradient == "gradient3") {
+      $(this).addClass("gradientbg3");
+    }
+    else if(gradient == "gradient4") {
+      $(this).addClass("gradientbg4");
+    }
+    else if(gradient == "gradient5") {
+     $(this).addClass("gradientbg5");
+    }
+    else if(gradient == "gradient6") {
+      $(this).addClass("gradientbg6");
+    }
+    else if(gradient == "gradient7") {
+      $(this).addClass("gradientbg7");
+    }
+    else if(gradient == "gradient8") {
+      $(this).addClass("gradientbg8");
+    }
+    else {
+      $(this).addClass("gradient");
+    }
+    $(".plans_footer").show();
+  });
+
+  $(".fa-chevron-down").click(function() {
+    $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
+  })
+
+$(document).ready(function(){
+$(".choose_plan").click(function(){
+  var  keysToRemove = ["plan", "currency","plan-category","amount"];
+  keysToRemove.forEach(k => localStorage.removeItem(k))
+  parr = []
+  var amount = 0
+  $('li').each(function(i){
+    if($(this).is('.packs_lists li.active')) {
+      var pid = $(this).attr("id")
+      parr.push(pid);
+      amount = amount+parseFloat(pid.split("|")[3])
+      currency = pid.split("|")[4]
+      category = pid.split("|")[1]
+     console.log($(this).attr("id"));
+    }
+});
+
+
+
+
+   
+   $("#plans_count").text(parr.length);
+   $("#currency").text(currency);
+   $("#amount").text(amount.toFixed(2));
+   localStorage.setItem("plan",parr);
+   localStorage.setItem("currency",currency);
+   localStorage.setItem("amount",amount.toFixed(2));
+   localStorage.setItem("plan-category",category);
+
+  console.log("plans details");
+  console.log(localStorage.getItem("plan"))
+})
+});
+
+  $(".combo_offer").click(function(){
+    if(parr.length)
+    {
+    $("#combo_offer").modal("show")
+    }
+  });
+
+    $("#combo_offer .radius-button").click(function(){
+    $("#combo_offer").modal("hide")
+
+  });
+</script>  
