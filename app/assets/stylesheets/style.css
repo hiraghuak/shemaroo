@@ -2439,10 +2439,10 @@ label#verify_otp_error {
     width: 35%;
   }
   .owl-carousel .owl-item .item.vertical {
-    min-height: calc((100vw - 0px)/ 3 * 1.188);
+    min-height: calc((100vw - 0px)/ 3 * 1.185);
   }
   .owl-carousel .owl-item .item.horizontal {
-    min-height: calc((100vw - 0px)/ 2 * .4552);
+    min-height: calc((100vw - 0px)/ 2 * .454);
   }
   .owl-carousel .owl-item .item.horizontal_title {
     min-height: calc((100vw - 0px)/ 2 * .547);
@@ -2654,10 +2654,10 @@ label#verify_otp_error {
     margin-right: 10px;
   }
   .owl-carousel .owl-item .item.vertical {
-    min-height: calc((100vw - 0px)/ 2 * 1.196);
+    min-height: calc((100vw - 0px)/ 2 * 1.19);
   }
   .owl-carousel .owl-item .item.horizontal {
-    min-height: calc((100vw - 0px)/ 1 * .4678);
+    min-height: calc((100vw - 0px)/ 1 * .462);
   }
   .owl-carousel .owl-item .item.horizontal_title {
     min-height: calc((100vw - 0px)/ 1 * .547) ;
@@ -2666,7 +2666,7 @@ label#verify_otp_error {
     min-height: calc((100vw - 35px)/ 2.814);
   }
   .owl-carousel .owl-item .item.square {
-    min-height: calc((100vw - 0px)/ 2 * 0.8025);
+    min-height: calc((100vw - 0px)/ 2 * 0.794);
   }
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 1 * 0.5454);
