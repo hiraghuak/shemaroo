@@ -169,13 +169,17 @@ $("#plans").val(localStorage.getItem("plan"));
 
 <script type="text/javascript">
      function summary_plans(){
-     localStorage.removeItem("tl_amount");
-    var plans = localStorage.getItem("plan")
-    var currency = localStorage.getItem("currency")
-    var amount = localStorage.getItem("amount")
-      // if(myCookies.session_id){                 
-              var data = 'plans='+plans
-              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
+if($('input[type=radio]:checked').length == 1){  
+var plan = $(this).attr("plan")
+var data = 'plans='+plan
+}
+else{
+var plans = localStorage.getItem("plan")
+var currency = localStorage.getItem("currency")
+var amount = localStorage.getItem("amount")
+// if(myCookies.session_id){                 
+var data = 'plans='+plans
+}
               $.ajax({
                 url: "/plans/payment_url",
                 type: 'POST',
