@@ -150,6 +150,10 @@ $('input[type=radio][name=radio-group]').change(function() {
      $("#total_amount").text(amount);
       $("#currency").text(currency);
    $("#all_currency").text(currency);
+   $("#revert_plan").show();
+});
+$("#revert_plan").click(function() {
+  window.location.href = "/plans/plans_summary"
 });
 </script>       
 
