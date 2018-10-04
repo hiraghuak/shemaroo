@@ -31,20 +31,15 @@
                      <span class="pull-right" id="currency"></span>
                       </li>
                     </ul>
-                    <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-0">
+                    <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-25 margin-bottom-15 border-bottom">
                       <li class="pull-left font-light margin-bottom-15">
                         Tax
                       </li>
                       <li class="pull-right margin-bottom-15">
-                        <span id="tax">1</span>
+                        -
                       </li>
-                    </ul>
-                     <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-25 margin-bottom-15 border-bottom">
-                      <li class="pull-left">
+                      <li class="pull-left w-100">
                         <a href="javascript:;" class="text-uppercase">Have a Promocode ?</a>
-                      </li>
-                      <li class="pull-right margin-bottom-15">
-                        <span id="promocode">2</span>
                       </li>
                     </ul>
                   </div>
@@ -154,14 +149,7 @@ $('input[type=radio][name=radio-group]').change(function() {
      $(".payment-body ul:first-child li.pull-right").text(amount);
      $("#total_amount").text(amount);
       $("#currency").text(currency);
-      
    $("#all_currency").text(currency);
-   $("#revert_plan").show();
-});
-$("#revert_plan").click(function() {
-   // $('input[type="radio"]').prop('checked', false);
-   // $("#revert_plan").hide();
-    window.location.href = "/plans/plans_summary"
 });
 </script>       
 
@@ -172,14 +160,6 @@ $("#revert_plan").click(function() {
    $("#total_amount").text(localStorage.getItem("amount"));
    $("#all_amount").text(localStorage.getItem("amount"));
    $("#plan-category").text(localStorage.getItem("plan-category"));
-
-  var total_amount = $("#total_amount").text();
-  var tax = $("#tax").text();
-  var promocode = $("#promocode").text();
-
-  var all_amount = total_amount-tax-promocode;
-  var all_amount = parseFloat(all_amount).toFixed(2)
-  $("#all_amount").text(all_amount)
 
 $("#plans").val(localStorage.getItem("plan"));
   });  

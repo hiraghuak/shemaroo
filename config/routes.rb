@@ -35,12 +35,17 @@ Rails.application.routes.draw do
   get '/plans' => 'plans#all_plans'
   get '/plans/m_plans' => 'plans#mobile_plans'
   get '/plans/plans_summary' => 'plans#plans_summary'
+  get '/plans/m_plans_summary' => 'plans#mobile_plans_summary'
   get '/plans/plans_purchase' => 'plans#plans_purchase'
+  get '/plans/m_plans_purchase' => 'plans#mobile_plans_purchase'
   post '/plans/payment_url' => 'plans#payment_url'
   get '/plans/purchase_plans' => 'plans#purchase_plans'
   get '/payment/payment_processing' => 'plans#payment_processing'
+  get '/payment/m_payment_processing' => 'plans#mobile_payment_processing'
   get '/payment/payment_success' => 'plans#payment_success'
+  get '/payment/m_payment_success' => 'plans#mobile_payment_success'
   get '/payment/payment_failed' => 'plans#payment_failed'
+  get '/payment/m_payment_failed' => 'plans#mobile_payment_failed'
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
  ##PLANS PAGES ROUTES ENDS HERE####
 
