@@ -123,30 +123,36 @@ class PlansController < ApplicationController
 		"user_info": user_info
 }
 	response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions/cse_payment", plans_purchase_params
-    #render json: {:message => "payment processed",:status_data => response["data"] } , status: :ok
-    #redirect_to  action: 'payment_response',  resp_data: response["data"]
-    redirect_to root_path
-	end
-
-	def payment_response
-		 params.require(:resp_data).permit
-		 if params["resp_data"]["message"] == "pack activated successfully"
-
-		 else
-		 end 
-		 	
-	end
-
-    def payment_processing
-        
+     if !response["data"].blank? && response["data"]["message"] == "pack activated successfully"
+     redirect_to  action: 'payment_success',  resp_data: response
+     else
+      redirect_to  action: 'payment_failed',  resp_data: response
     end
+	end
+
+	# def payment_response
+	# 	 params.require(:resp_data).permit
+	# 	 if params["resp_data"]["message"] == "pack activated successfully"
+ #           render partial: "payment_success"
+	# 	 end 
+	# end
+
+    # def payment_processing
+        
+    # end
 
     def payment_success
-        
+        params.require(:resp_data).permit
+        @resp = params[:resp_data]
+        p "&&&&&&&&&&&&&&&&&&&&&&"
+        p @resp
     end
 
     def payment_failed
-        
+       params.require(:resp_data).permit
+       @resp = params[:resp_data]
+        p "*********************"
+        p @resp
     end
 
 
