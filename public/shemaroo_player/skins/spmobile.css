@@ -87,15 +87,16 @@
 .sp-player-inner .sp-player-layers{
     position: absolute;
     width: inherit;
-    height: calc(100% - 40px - 15px - 30px);
-    top : 40px;
+    /*height: calc(100% - 40px - 15px - 30px);
+    top : 40px;*/
+    top: 0px;
 }
 
 /*Poster  Start*/
 .sp-player-inner .sp-player-layers .sp-player-poster{
     position: absolute;
     height: 100%;
-    width: 100%;
+    width: 66%;
 }
 .sp-player-inner .sp-player-layers .sp-player-poster img{
     height: 100%;

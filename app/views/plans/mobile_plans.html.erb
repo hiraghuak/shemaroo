@@ -1,5 +1,5 @@
 <%all_pack = @all_plans.last["catalog_list_items"].last%>
-<section class="full-width-content light padding-top-85 padding-top-145">
+<section class="full-width-content light padding-top-85 padding-top-155">
 <div class="row"><!-- Continue Watching starts -->
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
     <h2>Modify Plans</h2>
@@ -177,6 +177,10 @@ $(".choose_plan").click(function(){
     }
 });
 
+
+
+
+   
    $("#plans_count").text(parr.length);
    $("#currency").text(currency);
    $("#amount").text(amount.toFixed(2));
@@ -191,11 +195,7 @@ $(".choose_plan").click(function(){
 });
 
   $(".combo_offer").click(function(){
-    if(parr.length == 2 || category == "All Access Plans")
-    {
-    window.location.href = "/plans/plans_summary"
-    }
-    else
+    if(parr.length)
     {
     $("#combo_offer").modal("show")
     }

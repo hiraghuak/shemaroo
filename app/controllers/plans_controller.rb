@@ -148,4 +148,12 @@ class PlansController < ApplicationController
     def payment_failed
         
     end
+
+
+    def mobile_plans
+
+     response = Ott.subscription_plans
+    @all_plans = response["data"]["catalog_list_items"]
+    render :layout => false
+    end
 end

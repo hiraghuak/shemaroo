@@ -389,6 +389,9 @@ a.see-more:hover {
         margin-right: 100px;
         margin-top: 5px;
     }
+    .padding-top-145 {
+        padding-top: 145px!important;
+    }
     .padding-top-155 {
         padding-top: 155px!important;
     }
