@@ -32,7 +32,7 @@
 
 @font-face {    
   font-family: 'condensed-thin';
-  src: url('fonts/EEncodeSansCondensed-Thin.ttf');
+  src: url('fonts/EncodeSansCondensed-Thin.ttf');
 }
 
 html, body {
@@ -2306,8 +2306,36 @@ label#verify_otp_error {
   .row-show-list .item {
     width: 22.85%;
   }
+  .individual_category.plans_box, .plans_box {
+    max-width: 100%;
+    width: 100%;
+  }
   .plans-page ul, .plans-page ul.margin-right-0  {
-    width: 71%;
+    font-size: 15.35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    width: 97%;    
+  }
+  .plans-page ul.list-none li {
+    padding: 0px 17px;
+    text-align: center;
+    width: 25%;
+  }
+  .plans-page ul.margin-right-0 li:nth-child(2) {
+    padding-right: 17px;
+  }
+  .plans-page ul li .fa, .plans-page ul li span {
+    float: none;
+  }
+  .plans_box.odd-box {
+    margin-right: 0%;
+  }
+  .plans_box.even-box {
+    margin-left: 0%;
+  }
+  .plans-page ul li label {
+    width: 100%;
   }
   .owl-carousel .owl-item .item.vertical {
     min-height: calc((100vw - 0px)/ 4 * 1.15);
@@ -2381,38 +2409,6 @@ label#verify_otp_error {
   .full-width-content.plans_list_section {
     padding: 0px 7px;
   }
-  .individual_category.plans_box, .plans_box {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .plans-page ul, .plans-page ul.margin-right-0  {
-    font-size: 15.35px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-    width: 97%;    
-  }
-  .plans-page ul.list-none li {
-    padding: 0px 17px;
-    text-align: center;
-    width: 25%;
-  }
-  .plans-page ul.margin-right-0 li:nth-child(2) {
-    padding-right: 17px;
-  }
-  .plans-page ul li .fa, .plans-page ul li span {
-    float: none;
-  }
-  .plans_box.odd-box {
-    margin-right: 0%;
-  }
-  .plans_box.even-box {
-    margin-left: 0%;
-  }
-  .plans-page ul li label {
-    width: 100%;
-  }
   .owl-carousel .owl-item .item.vertical {
     min-height: calc((100vw - 0px)/ 3 * 1.197);
   }
@@ -2443,10 +2439,10 @@ label#verify_otp_error {
     width: 35%;
   }
   .owl-carousel .owl-item .item.vertical {
-    min-height: calc((100vw - 0px)/ 3 * 1.188);
+    min-height: calc((100vw - 0px)/ 3 * 1.185);
   }
   .owl-carousel .owl-item .item.horizontal {
-    min-height: calc((100vw - 0px)/ 2 * .4552);
+    min-height: calc((100vw - 0px)/ 2 * .454);
   }
   .owl-carousel .owl-item .item.horizontal_title {
     min-height: calc((100vw - 0px)/ 2 * .547);
@@ -2658,10 +2654,10 @@ label#verify_otp_error {
     margin-right: 10px;
   }
   .owl-carousel .owl-item .item.vertical {
-    min-height: calc((100vw - 0px)/ 2 * 1.196);
+    min-height: calc((100vw - 0px)/ 2 * 1.19);
   }
   .owl-carousel .owl-item .item.horizontal {
-    min-height: calc((100vw - 0px)/ 1 * .4678);
+    min-height: calc((100vw - 0px)/ 1 * .462);
   }
   .owl-carousel .owl-item .item.horizontal_title {
     min-height: calc((100vw - 0px)/ 1 * .547) ;
@@ -2670,7 +2666,7 @@ label#verify_otp_error {
     min-height: calc((100vw - 35px)/ 2.814);
   }
   .owl-carousel .owl-item .item.square {
-    min-height: calc((100vw - 0px)/ 2 * 0.8025);
+    min-height: calc((100vw - 0px)/ 2 * 0.794);
   }
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 1 * 0.5454);

@@ -1,124 +1,627 @@
-<%all_pack = @all_plans.last["catalog_list_items"].last%>
-<section class="full-width-content light padding-top-85 padding-top-155">
-<div class="row"><!-- Continue Watching starts -->
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
-    <h2>Modify Plans</h2>
-    <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
-    <ul class="list-none margin-right-0 packs_lists">
-      <li class="text-uppercase gradient1">all</li>
-      <li class="text-uppercase">includes all<br>the categories</li>
-      <%all_pack["plans"].each do |aa|%>
-      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
-        <span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
-        <br>
-        <label><%=aa["title"]%></label>
-      </li>
-      <%end%>
-    </ul>
+<!DOCTYPE html>
+  <!--[if IE 6]>
+  <html id="ie6" lang="en-US">
+  <![endif]-->
+  <!--[if IE 7]>
+  <html id="ie7" lang="en-US">
+  <![endif]-->
+  <!--[if IE 8]>
+  <html id="ie8" lang="en-US">
+  <![endif]-->
+  <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+  <html lang=en>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Shemaroo</title>
+  <meta name="ctest" content="ctest" /
+  ><link href="/assets/images/favic.ico" rel="shortcut icon" />    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
 
-  </div>  
-</div>
-</section>
-<section class="full-width-content light plans_list_section padding-bottom-30">
-<div class="row">
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-top-25">
-    <h2>Choose your plan</h2>
-    <p class="sub-title">Planthat provide access to all categories</p>
-    <div class="row1">
-      <div class="plans_box all_categories block">
-        <div class="card">
-          <div class="card-body">
-            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
-              <li>
-                <h5 class="gradient1">All Categories</h5>
-                <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
-              </li>
-              <%all_pack["plans"].each do |aa|%>
-              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
-                <span class="text-uppercase block"><%=aa["title"]%></span>
-                <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
-                <span class="block"><%=aa["price"]%></span>
-              </li>
-              <%end%>
-            </ul>
-            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
-              <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </p>
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    /* Font integration */
+    
+    @font-face {    
+      font-family: 'condensed-extra-bold';
+      src: url('/fonts/EncodeSansCondensed-ExtraBold.ttf');
+    }
+    @font-face {    
+      font-family: 'condensed-light';
+      src: url('/fonts/EncodeSansCondensed-Light.ttf');
+    }
+    @font-face {
+      font-family: 'condensed-medium';
+      src: url('/fonts/EncodeSansCondensed-Medium.ttf');
+        
+    }
+    @font-face {
+      font-family: 'condensed-semibold';
+      src: url('/fonts/EncodeSansCondensed-SemiBold.ttf');
+    }
+    .font-light {
+      font-family: 'condensed-light';
+    }
+    .font-medium {
+      font-family: 'condensed-medium';
+    }
+    .font-semibold {
+      font-family: 'condensed-semibold';
+    }
+    .font-extrabold {
+      font-family: 'condensed-extra-bold';
+    }
+    .padding-left-0 {
+      padding-left: 0px !important;
+    }
+    .margin-bottom-0 {
+      margin-bottom: 0px !important;
+    }
+    .margin-bottom-10 {
+      margin-bottom: 10px !important;
+    }
+    .margin-top-25 {
+      margin-top: 25px !important;
+    }
+    .margin-right-0 {
+      margin-right: 0px !important;
+    }
+    .padding-top-25 {
+      padding-top: 25px !important;
+    }
+    .inline-block {
+      display: inline-block !important;
+    }
+    .light .gradient1, .light .gradient2, .light .gradient3, .light .gradient4, .light .gradient5, .light .gradient6, .light .gradient7, .light .gradient8 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;    
+    }
+    body {
+      background-color: #161616;
+      float: left;
+      font-family: 'condensed-semibold';
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .container {
+      max-width: 1366px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .wrapper {
+      background-color: #161616;
+      float: left;
+      width: 100%;
+    }
+    .inside-wrapper {
+      background-color: #fff;
+      float: left;
+      min-height: 100%;
+      padding-top: 25px;
+      width: 100%;
+    }
+    section {
+      float: left;
+      width: 100%;
+    }
+    .full-width-content {
+      max-width: 100%;
+      padding-bottom: 11px;
+      padding-left: 96px;      
+    }
+    .full-width-content h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .plans-page p {
+      color: #6D6D6D;
+      font-family: 'condensed-medium';
+    }
+    .plans-page ul {
+      align-items: center;
+      border: 1px solid #F2F2F2;
+      float: left;
+      display: flex;
+      list-style: none;
+      margin-right: 6.5%;
+      padding: 18px 30px 19px;
+      width: 43%;
+    }
+  .plans-page ul.margin-right-0 li:nth-child(2) {
+     padding-right: 35px;
+  }
+  .plans-page ul li {
+    color: #666666;
+    float: left;
+    border-right: 1px solid #E5E5E5;
+    line-height: 20px;
+    padding: 0px 20px;
+  }
+  .plans-page ul li:first-child {
+    font-size: 2.75em;
+    font-family: 'condensed-extra-bold';
+    line-height: 38px;
+    padding-left: 0;
+  }
+  .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+    font-size: 0.75em;
+    padding-left: 26px;
+    text-align: center;
+  }
+  .plans-page ul li:nth-child(2), .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+    padding-top: 0px;
+  }
+  .plans-page ul li:last-child {
+    border-right: 0px;
+    padding-right: 0;
+  }
+  .plans-page ul li .fa, .plans-page ul li span {
+    color: #000;
+    float: left;
+    margin-left: -6px;
+  }
+  .plans-page ul li .fa {
+    font-size: 2em;
+    margin-right: 8px;
+  }
+  .plans-page ul li span {
+    font-size: 1.875em;
+    line-height: 18px;
+    margin-top: 0px;
+  }
+  .plans-page ul li label {
+    float: left;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    line-height: 12px;
+  }
+  .plans_list_section {
+    background: #F2F2F2;
+    padding: 0 7%;
+    padding-bottom: 30px;
+  }
+  .plans-page .sub-title, .plans_list_section .sub-title {
+    color: #666666;
+  }
+  .plans_list_section ul {
+    float: left;
+    list-style: none;
+    width: 100%;
+  }
+  .plans_list_section ul li {
+    float: left;
+    margin-right: 20px;
+  }
+  .plans_list_section ul li:first-child {
+    margin-right: 30px;
+    width: calc(100% - 200px);
+  }
+  .plans_list_section ul li:last-child {
+    margin-right: 0px;
+  }
+  .plans_list_section .card-body p {
+    color: #888;
+    font-family: 'condensed-medium';
+    font-size: 0.875em;
+    float: left;
+    width: 80%;
+  }
+  .plans_list_section .card-body li span {
+    float: left;
+    line-height: 1em;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child {
+    border: 2px dotted #F0F0F0;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 10px 0px 3px;
+    width: 70px;
+  }
+  .plans_list_section .card-body li span:first-child, .plans_list_section .card-body li span:last-child {
+    color: #666666;
+    font-size: 0.75em;
+  }
+  .plans_list_section .card-body li span:nth-child(2) {
+    color: #000;
+    font-size: 0.875em;
+  }
+  .plans_list_section .card-body li span:last-child {
+    position: relative;
+  }
+  .plans_list_section .card-body li span:last-child:before {
+    content: "/";
+    font-size: 3em;
+    font-family: 'condensed-medium';
+    left: 44%;
+    position: absolute;
+    top: 0px;
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+  }
+  .plans_box {
+    margin-bottom: 10px;
+    max-width: 46.5%;
+  }
+  .individual_category.plans_box {
+    width: 50%;
+  }
+  .plans_box.odd-box {
+    margin-right: 3.25%;
+  }
+  .plans_box.even-box {
+    margin-left: 3.25%;
+  }
+  .plans_box .fa-chevron-down {
+    cursor: pointer;
+  }
+  .plans_box .card-body {
+    padding: 1rem 1.25rem;
+  }
+  .btn {
+    -o-border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
+    border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
+    border-image-slice: 1;
+    border-width: 1px;
+    padding: 5px 10px;
+  }
+  .custom-gradient .btn {
+    border-radius: 0px;
+    border-width: 0px;
+  }
+  .custom-gradient .radius-button {
+    border: 1px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(#F48567, #D41F52);
+    padding: 12px 10px 13px;
+  }
+  .custom-gradient .radius-button .btn:focus, .custom-gradient .radius-button .btn.focus {
+    border: 0px;
+    box-shadow: none;
+  }
+  .custom-gradient .radius-button .btn-outline-primary:hover {
+    border: 0px;
+  }
+  .plans_list_section .card-body li.active span {
+    color: #fff;
+  }
+  .plans_list_section .card-body li.active {
+    border: 0px;
+  }
+  .plan_list_show {
+    display: none;
+  }
+  .plans_footer {
+    box-shadow: 0 -5px 80px -5px rgba(0, 0, 0, 0.45);
+    display: none;
+    padding: 10px 0px;
+  }
+  .inside-container {
+    padding: 0 7%;
+  }
+  .plans_footer p {
+    color: #6A6A6A;
+    font-size: 0.875em;
+  }
+  .plans_footer span.amount {
+    color: #000;
+    font-size: 18px;
+  }
+  .active.gradientbg1 {
+    background: linear-gradient(to right, #D51E54, #F15A23);
+  }
+  .active.gradientbg2 {
+    background: linear-gradient(to right, #181818, #3E3E3E);
+  }
+  .active.gradientbg3 {
+    background: linear-gradient(to right, #0095DB, #D93B65);
+  }
+  .active.gradientbg4 {
+    background: linear-gradient(to right, #D22856, #0095DB);
+  }
+  .active.gradientbg5 {
+    background: linear-gradient(to right, #8BC76D, #0096DC);
+  }
+  .active.gradientbg6 {
+    background: linear-gradient(to right, #F25922, #FCB613);
+  }
+  .active.gradientbg7 {
+    background: linear-gradient(to right, #FCB913, #8BC43E);
+  }
+  .active.gradientbg8 {
+    background: linear-gradient(to right, #2BA5E1, #ED6839);
+  }
+  @media(max-width: 1366px) {
+    .container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .container .row {
+      margin: 0px;
+    }
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+      padding: 0;
+    }
+    body {
+      background-color: #fff;
+    }
+    .wrapper {
+      background-color: #fff;
+    }
+  }
+  @media(max-width: 1280px) {
+    .plans-page ul {
+      margin-right: 3%;
+      width: 47.5%;
+    }
+    .plans-page ul.margin-right-0 {
+      padding-right: 0;
+      width: 44%;
+    }
+    .plans_list_section ul li:first-child {
+      margin-right: 10px;
+    }
+   
+  }
+  @media(max-width: 1199px) {
+    .plans_list_section ul li {
+      width: 100%;
+    }
+    .plans_list_section .card-body p {
+      float: left;
+      width: 100%;
+    }
+    .plans_box.odd-box {
+      margin-right: 2%;
+    }
+    .plans_box.even-box {
+      margin-left: 2%;
+    }
+    .plans_box {
+      width: 49.5%;
+    }
+  }
+  @media(max-width: 1150px) {
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      margin: 0;
+      margin-bottom: 30px;
+      width: 56%;
+    }
+  }
+  @media(max-width: 991px) {
+    .full-width-content {
+        padding-left: 40px;
+    }
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      font-size: 15.35px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: center;
+      width: 97%;    
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 17px;
+      text-align: center;
+      width: 25%;
+    }
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      padding-right: 17px;
+    }
+    .plans-page ul li .fa, .plans-page ul li span {
+      float: none;
+    }
+    .plans_box.odd-box {
+      margin-right: 0%;
+    }
+    .plans_box.even-box {
+      margin-left: 0%;
+    }
+    .plans-page ul li label {
+      width: 100%;
+    }
+    .individual_category.plans_box, .plans_box {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px) {
+    .full-width-content {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+  }
+  @media(max-width: 640px) {
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      width: 35%;
+    }
+  }
+  @media(max-width: 470px) {
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      font-size: 14.35px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;    
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 5px;
+    }  
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      width: 44%;
+    }
+    .plans_box .card-body {
+      padding: 0.65rem 0.75rem
+    }
+    .plans_box .card-body {
+      font-size: 15px;
+    }
+    .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child {
+      width: 66px;
+    }
+    .plans_list_section ul li {
+      margin-right: 8px;
+    }
+    .plans_list_section ul li:first-child {
+      width: calc(100% - 154px);
+    }
+  }
+  @media(max-width: 400px) {
+    .plans_list_section ul li {
+      margin-right: 10px;
+    }
+  }
+  @media(max-width: 359px) { 
+    .plans-page ul, .plans-page ul.margin-right-0 {
+      font-size: 12.35px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 5px;
+    }
+  }
+  </style>
+</head>
+<body>
+<%all_pack = @all_plans.last["catalog_list_items"].last%>
+<div class="wrapper">
+  <div class="container">
+    <div class="inside-wrapper">
+      <section class="full-width-content light">
+      <div class="row"><!-- Continue Watching starts -->
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
+          <h2>Modify Plans</h2>
+          <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
+          <ul class="list-none margin-right-0 packs_lists">
+            <li class="text-uppercase gradient1">all</li>
+            <li class="text-uppercase">includes all<br>the categories</li>
+            <%all_pack["plans"].each do |aa|%>
+            <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
+              <span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+              <br>
+              <label><%=aa["title"]%></label>
+            </li>
+            <%end%>
+          </ul>
+
+        </div>  
+      </div>
+      </section>
+      <section class="full-width-content light plans_list_section padding-bottom-30">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-top-25">
+          <h2>Choose your plan</h2>
+          <p class="sub-title">Planthat provide access to all categories</p>
+          <div class="row1">
+            <div class="plans_box all_categories block">
+              <div class="card">
+                <div class="card-body">
+                  <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
+                    <li>
+                      <h5 class="gradient1">All Categories</h5>
+                      <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
+                    </li>
+                    <%all_pack["plans"].each do |aa|%>
+                    <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
+                      <span class="text-uppercase block"><%=aa["title"]%></span>
+                      <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
+                      <span class="block"><%=aa["price"]%></span>
+                    </li>
+                    <%end%>
+                  </ul>
+                  <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </p>
+                </div>
+              </div>    
+            </div>
           </div>
-        </div>    
+          <p class="margin-bottom-10 margin-top-25">Individual Category Plans</p>
+          <div class="row1">
+          <%@all_plans[0..-3].each_with_index do  |plan,i|%>
+            <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
+              <div class="card">
+                <div class="card-body">
+                  <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
+                    <li>
+                      <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
+                      <p><%=plan['category']%></p>
+                      <div class="plan_list_show">
+                        <% plan["pack_details"].each do |d|%>
+                         <p><%=d["info"]%>:&nbsp;<%=d["value"]%></p>
+                         <%end%>
+                       </div>
+                    </li>
+                    <%unless plan["plans"].blank?%>
+                    <%plan["plans"].each do |p|%>
+                    <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
+                      <span class="text-uppercase block"><%=p["title"]%></span>
+                      <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
+                      <span class="block"><%=p["price"]%></span>
+                    </li>
+                    <%end%>
+                    <%end%>
+                  </ul>
+                  <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </p>
+                </div>
+              </div>    
+            </div>
+          <%end%>
+          </div>              
+        </div>
       </div>
-    </div>
-    <p class="margin-bottom-10 margin-top-25">Individual Category Plans</p>
-    <div class="row1">
-    <%@all_plans[0..-3].each_with_index do  |plan,i|%>
-      <div class="individual_category plans_box inline-block margin-bottom-10 <%=i.even? ? 'odd-box' : 'even-box'%>">                  
-        <div class="card">
-          <div class="card-body">
-            <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
-              <li>
-                <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
-                <p><%=plan['category']%></p>
-                <div class="plan_list_show">
-                  <% plan["pack_details"].each do |d|%>
-                   <p><%=d["info"]%>:&nbsp;<%=d["value"]%></p>
-                   <%end%>
-                 </div>
-              </li>
-              <%unless plan["plans"].blank?%>
-              <%plan["plans"].each do |p|%>
-              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
-                <span class="text-uppercase block"><%=p["title"]%></span>
-                <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
-                <span class="block"><%=p["price"]%></span>
-              </li>
-              <%end%>
-              <%end%>
-            </ul>
-            <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0 margin-bottom-0">
-              <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </p>
+      </section>
+      <section class="plans_footer"> 
+      <div class="inside-container">
+        <div class="pull-left">
+          <p class="text-uppercase margin-bottom-0"><span id="plans_count"></span> plan(s) selected</p>  
+          <span id="currency" class="currency" data-prive-val=""></span>
+          <span id="amount" class="amount" data-prive-val=""></span>
+        </div>
+        <div class="pull-right light">
+          <!-- <a href="/plans/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
+          <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
+          <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a> 
+        </div>
+        <!-- The Modal -->
+      <div class="modal" id="combo_offer" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+              <h5 class="margin-bottom-20 margin-top-25">Avail Combo Offer</h5>
+              <img src="/assets/subscription.svg" class="plans_pop_image margin-top-10" alt="" title="">
+              <p class="pull-left w-100 margin-top-10 margin-bottom-15 font-medium">Add any monthly category pack <span class="font-bold">at just 20</span></p>
+              <p class="pull-left w-100 margin-top-15 margin-bottom-15">
+                <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
+              </p>
+              <p class="pull-left w-100 margin-top-15">
+                <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
+              </p>
+            </div>
+            
           </div>
-        </div>    
+        </div>
       </div>
-    <%end%>
-    </div>              
-  </div>
-</div>
-</section>
-<section class="plans_footer"> 
-<div class="inside-container">
-  <div class="pull-left">
-    <p class="text-uppercase margin-bottom-0"><span id="plans_count"></span> plan(s) selected</p>  
-    <span id="currency" class="currency" data-prive-val=""></span>
-    <span id="amount" class="amount" data-prive-val=""></span>
-  </div>
-  <div class="pull-right light">
-    <!-- <a href="/plans/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
-    <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
-    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a> 
-  </div>
-  <!-- The Modal -->
-<div class="modal" id="combo_offer" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal body -->
-      <div class="modal-body text-center">
-        <h5 class="margin-bottom-20 margin-top-25">Avail Combo Offer</h5>
-        <img src="/assets/subscription.svg" class="plans_pop_image margin-top-10" alt="" title="">
-        <p class="pull-left w-100 margin-top-10 margin-bottom-15 font-medium">Add any monthly category pack <span class="font-bold">at just 20</p>
-        <p class="pull-left w-100 margin-top-15 margin-bottom-15">
-          <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
-        </p>
-        <p class="pull-left w-100 margin-top-15">
-          <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
-        </p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-</div>  
-</section>
+      </div>  
+      </section>
 <script>
 
   $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
@@ -177,10 +680,6 @@ $(".choose_plan").click(function(){
     }
 });
 
-
-
-
-   
    $("#plans_count").text(parr.length);
    $("#currency").text(currency);
    $("#amount").text(amount.toFixed(2));
@@ -206,3 +705,6 @@ $(".choose_plan").click(function(){
 
   });
 </script>  
+
+</body>
+</html>
