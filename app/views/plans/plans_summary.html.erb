@@ -138,13 +138,18 @@ $('input[type=radio][name=radio-group]').change(function() {
     //   $(".pack_details span:last-child").text("Bollywood Classic + Bollywood Plus (Yearly)");
     //   $(".payment-body ul:first-child li.pull-right").text(data_amount); 
     // }
-
+    
      var plan = $(this).attr("plan")
-      // amount = amount+parseFloat(plan.split("|")[3])
-      // currency = plan.split("|")[4]
-      // category = plan.split("|")[1]
-     console.log($(this).attr("plan"));
-     alert(plan);
+      currency = plan.split("|")[4]
+      category = plan.split("|")[1]
+      title = plan.split("|")[2]
+      amount = plan.split("|")[3]
+     var cat_title = category+ " ("+title+ ")"
+     $(".pack_details span:last-child").text(cat_title);
+     $(".payment-body ul:first-child li.pull-right").text(amount);
+     $("#total_amount").text(amount);
+      $("#currency").text(currency);
+   $("#all_currency").text(currency);
 });
 </script>       
 
