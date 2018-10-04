@@ -177,10 +177,6 @@ $(".choose_plan").click(function(){
     }
 });
 
-
-
-
-   
    $("#plans_count").text(parr.length);
    $("#currency").text(currency);
    $("#amount").text(amount.toFixed(2));
@@ -195,7 +191,11 @@ $(".choose_plan").click(function(){
 });
 
   $(".combo_offer").click(function(){
-    if(parr.length)
+    if(parr.length == 2 || category == "All Access Plans")
+    {
+    window.location.href = "/plans/plans_summary"
+    }
+    else
     {
     $("#combo_offer").modal("show")
     }
