@@ -151,12 +151,17 @@ $('input[type=radio][name=radio-group]').change(function() {
       amount = plan.split("|")[3]
      var cat_title = category+ " ("+title+ ")"
      $(".pack_details span:last-child").text(cat_title);
-     $(".payment-body ul:first-child li.pull-right").text(amount);
      $("#total_amount").text(amount);
-      $("#currency").text(currency);
+     $("#currency").text(currency);
       
    $("#all_currency").text(currency);
    $("#revert_plan").show();
+   var total_amount = parseFloat($("#total_amount").text());
+  var tax = parseFloat($("#tax").text());
+  var promocode = parseFloat($("#promocode").text());   
+  var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  var all_amount = parseFloat(all_amount).toFixed(2)
+  $("#all_amount").text(all_amount)
 });
 $("#revert_plan").click(function() {
    // $('input[type="radio"]').prop('checked', false);
@@ -176,8 +181,7 @@ $("#revert_plan").click(function() {
   var total_amount = $("#total_amount").text();
   var tax = $("#tax").text();
   var promocode = $("#promocode").text();
-
-  var all_amount = total_amount-tax-promocode;
+  var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
   var all_amount = parseFloat(all_amount).toFixed(2)
   $("#all_amount").text(all_amount)
 
