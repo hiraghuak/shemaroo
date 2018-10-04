@@ -9,7 +9,7 @@
                       <li class="text-uppercase gradient1">all categories</li>
                       <%@all_access_packs["plans"].each do |aa|%>
                       <li>
-                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs%>" plan='<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]%>'>
+                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan='<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]%>'>
                         <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
                       </li>
                       <%end%>
@@ -170,7 +170,9 @@ $("#plans").val(localStorage.getItem("plan"));
 <script type="text/javascript">
      function summary_plans(){
 if($('input[type=radio]:checked').length == 1){  
-var plan = $(this).attr("plan")
+//var plan = $(this).attr("plan")
+var plan = $('input[type=radio]:checked').attr("plan");
+console.log(plan);
 var data = 'plans='+plan
 }
 else{
