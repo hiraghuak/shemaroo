@@ -2,14 +2,14 @@
           <div class="onboarding-payment-contianer margin-bottom-30">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20">
-                <h2 class="block margin-bottom-10"><a href="/plans"><img src="assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> Summary</h2>
+                <h2 class="block margin-bottom-10"><a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> Summary</h2>
                 <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
                   <div class="pull-left payment-header w-100 rounded">
                     <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
                       <li class="text-uppercase gradient1">all categories</li>
                       <%@all_access_packs["plans"].each do |aa|%>
                       <li>
-                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>">
+                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan='<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]%>'>
                         <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
                       </li>
                       <%end%>
@@ -118,23 +118,38 @@
 
 
 $('input[type=radio][name=radio-group]').change(function() {
-    var data_pack = $(this).attr("data-pack");
-    var data_amount = $(this).attr("data-amount");
-    if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "yearly") {
-      $(".pack_details span:first-child").hide();
-      $(".pack_details span:last-child").text("All Category (Yearly)");
-      $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
-    }
-    else if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "monthly") {
-      $(".pack_details span:first-child").hide();
-      $(".pack_details span:last-child").text("All Category (Monthly)");
-      $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
-    }
-    else {
-      $(".pack_details span:first-child").show();
-      $(".pack_details span:last-child").text("Bollywood Classic + Bollywood Plus (Yearly)");
-      $(".payment-body ul:first-child li.pull-right").text(data_amount); 
-    }
+    // var data_pack = $(this).attr("data-pack");
+    // var data_amount = $(this).attr("data-amount");
+    // var category = $(this).attr("category");
+    // if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "Yearly") {
+    //   $(".pack_details span:first-child").hide();
+    //   // $(".pack_details span:last-child").text("All Category (Yearly)");
+    //   $("#plan-category").text("All Category (Yearly)");
+    //   $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
+    // }
+    // else if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "Monthly") {
+    //   $(".pack_details span:first-child").hide();
+    //   $(".pack_details span:last-child").text("All Category (Monthly)");
+    //   $("#plan-category").text("All Category (Yearly)");
+    //   $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
+    // }
+    // else {
+    //   $(".pack_details span:first-child").show();
+    //   $(".pack_details span:last-child").text("Bollywood Classic + Bollywood Plus (Yearly)");
+    //   $(".payment-body ul:first-child li.pull-right").text(data_amount); 
+    // }
+    
+     var plan = $(this).attr("plan")
+      currency = plan.split("|")[4]
+      category = plan.split("|")[1]
+      title = plan.split("|")[2]
+      amount = plan.split("|")[3]
+     var cat_title = category+ " ("+title+ ")"
+     $(".pack_details span:last-child").text(cat_title);
+     $(".payment-body ul:first-child li.pull-right").text(amount);
+     $("#total_amount").text(amount);
+      $("#currency").text(currency);
+   $("#all_currency").text(currency);
 });
 </script>       
 
@@ -154,13 +169,19 @@ $("#plans").val(localStorage.getItem("plan"));
 
 <script type="text/javascript">
      function summary_plans(){
-     localStorage.removeItem("tl_amount");
-    var plans = localStorage.getItem("plan")
-    var currency = localStorage.getItem("currency")
-    var amount = localStorage.getItem("amount")
-      // if(myCookies.session_id){                 
-              var data = 'plans='+plans
-              // var data = 'plans='+plan_id+'&payment_plan_id='+payment_plan_id+"&price="+price
+if($('input[type=radio]:checked').length == 1){  
+//var plan = $(this).attr("plan")
+var plan = $('input[type=radio]:checked').attr("plan");
+console.log(plan);
+var data = 'plans='+plan
+}
+else{
+var plans = localStorage.getItem("plan")
+var currency = localStorage.getItem("currency")
+var amount = localStorage.getItem("amount")
+// if(myCookies.session_id){                 
+var data = 'plans='+plans
+}
               $.ajax({
                 url: "/plans/payment_url",
                 type: 'POST',
