@@ -153,7 +153,9 @@ $('input[type=radio][name=radio-group]').change(function() {
    $("#revert_plan").show();
 });
 $("#revert_plan").click(function() {
-   $('input[type="radio"]').prop('checked', false);
+   // $('input[type="radio"]').prop('checked', false);
+   // $("#revert_plan").hide();
+    window.location.href = "/plans/plans_summary"
 });
 </script>       
 
