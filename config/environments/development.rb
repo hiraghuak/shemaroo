@@ -66,7 +66,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   API_SERVER = "http://18.210.75.7:3000"
   NEW_API_SERVER = "http://18.210.75.7:8080"
-  CC_API_SERVER = "http://54.160.162.185:6060"
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
   CACHE_EXPIRY_TIME = 1.seconds
   PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"

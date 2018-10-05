@@ -12,13 +12,6 @@ class HTTP
 	    response = Typhoeus::Request.post("#{NEW_API_SERVER}/#{url}", :body => data.to_json,:headers => http_headers, :ssl_verifypeer => false)
 	    check_error(response)
 	 end
-
-	 def self.post_cc_https url, data
-		url = "#{url}?region=IN&auth_token=c3gJKzoH3rzYRL8AaR3K"
-	    response = Typhoeus::Request.post("#{CC_API_SERVER}/#{url}", :body => data.to_json,:headers => http_headers, :ssl_verifypeer => false)
-	    check_error(response)
-	 end
-
 	
 	def self.get url,type
 	    url = set_url(url,type)

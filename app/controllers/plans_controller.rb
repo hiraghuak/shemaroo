@@ -159,8 +159,8 @@ class PlansController < ApplicationController
     def payment_canceled
       enc_resp = params["encResp"]
       order_id = params["orderNo"]
-      payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"c3gJKzoH3rzYRL8AaR3K", "payment_gateway":"ccavenue", "application"}
-      response =  HTTP.post_cc_https "payment_complete/ccavenue/secure_payment", payment_params
+      payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
+      response =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
       raise response.inspect
     end
 
