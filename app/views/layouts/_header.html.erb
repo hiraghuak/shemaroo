@@ -24,7 +24,7 @@
         <li>
           <a href="/search"><img src="/assets/search.svg" alt="search" title="search" class="search_icon"></a>
         </li>
-        <li class="d-none d-xl-block">
+        <li class="d-none d-xl-block coming_soon">
           <img src="/assets/tv_wo_highlight.svg" alt="tv icon" title="tv icon">
           <span class="text-center block">TV</span>
         </li>
@@ -209,6 +209,21 @@
     </div>
 </section>
 
+<div class="modal" id="coming_soon" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" aria-label="Close" id="close_coming_soon">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="coming_soon_content">
+          <h2 class="margin-top-0">Coming Soon...</h2>
+        </div>      
+        </div>      
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function(){
   if($('ul.nav').find('li a.active').attr('id') != undefined){
@@ -216,6 +231,12 @@ $(document).ready(function(){
   $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
 
   }
+  $('.coming_soon').click(function() {
+    $('#coming_soon').modal('show');
+  })
+  $('#close_coming_soon').click(function() {
+    $('#coming_soon').modal('hide');
+  })
 })
 
 </script>

@@ -1865,7 +1865,7 @@ span.premium-txt {
 .static-container {
   color: #787878;
   margin: 0 auto;
-  width: 564px;
+  max-width: 800px;
 }
 .static-container h5 {
   color: #000;
@@ -1971,6 +1971,28 @@ label#verify_otp_error {
 }
 
 /* player deisgn  ends */
+
+
+/* Coming soon popup design starts */
+
+#coming_soon .modal-content h2 {
+    background: linear-gradient(to right,#D51F53, #F15A22)!important;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+}
+.coming_soon_content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 250px;
+}
+button:focus {
+  outline: 0px;
+}
+/* Coming soon popup design ends */
 
 /* thumbnail height style starts */
 
