@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
+ skip_before_action :verify_authenticity_token  
 
 # protect_from_forgery unless: -> { request.format.json? }
 before_action :get_region,:check_browser
