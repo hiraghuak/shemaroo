@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get '/payment/m_payment_success' => 'plans#mobile_payment_success'
   get '/payment/payment_failed' => 'plans#payment_failed'
   get '/payment/m_payment_failed' => 'plans#mobile_payment_failed'
+  get '/payment/payment_canceled' => 'plans#payment_canceled'
+  get '/payment/m_payment_canceled' => 'plans#mobile_payment_canceled'
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
  ##PLANS PAGES ROUTES ENDS HERE####
 

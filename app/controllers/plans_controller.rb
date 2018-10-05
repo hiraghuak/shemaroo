@@ -142,6 +142,7 @@ class PlansController < ApplicationController
     # end
 
     def payment_success
+        raise params.inspect
         params.require(:resp_data).permit
         @resp = params[:resp_data]
         p "&&&&&&&&&&&&&&&&&&&&&&"
@@ -149,6 +150,14 @@ class PlansController < ApplicationController
     end
 
     def payment_failed
+       params.require(:resp_data).permit
+       @resp = params[:resp_data]
+        p "*********************"
+        p @resp
+    end
+
+    def payment_canceled
+                raise params.inspect
        params.require(:resp_data).permit
        @resp = params[:resp_data]
         p "*********************"
