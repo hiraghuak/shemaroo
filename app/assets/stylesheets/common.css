@@ -407,6 +407,7 @@ a.see-more:hover {
     }
 }
 .heading_title_color{
-    -webkit-background-clip: text;
+    display: inline-block;
+    -webkit-background-clip: text!important;
     -webkit-text-fill-color: transparent;
 }

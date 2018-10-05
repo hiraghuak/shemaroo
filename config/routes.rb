@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
  get "/privacy-policy" => "statics#privacy_policy"
 
+ get "/content_not_available" => "statics#content_not_available"
+
  get "/faq" => "statics#faq"
 
  get "/contact-us" => "statics#contact_us"
