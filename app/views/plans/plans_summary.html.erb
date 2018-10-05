@@ -36,7 +36,7 @@
                         Tax
                       </li>
                       <li class="pull-right margin-bottom-15">
-                        <span id="tax">1</span>
+                        <span id="tax">0</span>
                       </li>
                     </ul>
                      <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
@@ -44,7 +44,7 @@
                         <a href="javascript:;" class="text-uppercase">Have a Promocode ?</a>
                       </li>
                       <li class="pull-right margin-bottom-15">
-                        <span id="promocode">2</span>
+                        <span id="promocode">0</span>
                       </li>
                     </ul>
                   </div>
@@ -159,7 +159,8 @@ $('input[type=radio][name=radio-group]').change(function() {
    var total_amount = parseFloat($("#total_amount").text());
   var tax = parseFloat($("#tax").text());
   var promocode = parseFloat($("#promocode").text());   
-  var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  // var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+   var all_amount = parseFloat(total_amount)
   var all_amount = parseFloat(all_amount).toFixed(2)
   $("#all_amount").text(all_amount)
 });
