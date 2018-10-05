@@ -164,6 +164,15 @@ class PlansController < ApplicationController
     end
 
 
+    def payment_response
+      enc_resp = params["encResp"]
+      order_id = params["orderNo"]
+      payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
+      @resp =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
+      raise @resp.inspect
+    end
+
+
     def mobile_payment_success
       render :layout => false
     end
