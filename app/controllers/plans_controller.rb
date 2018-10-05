@@ -130,16 +130,6 @@ class PlansController < ApplicationController
     end
 	end
 
-	# def payment_response
-	# 	 params.require(:resp_data).permit
-	# 	 if params["resp_data"]["message"] == "pack activated successfully"
- #           render partial: "payment_success"
-	# 	 end 
-	# end
-
-    # def payment_processing
-        
-    # end
 
     def payment_success
         raise params.inspect
@@ -168,8 +158,7 @@ class PlansController < ApplicationController
       enc_resp = params["encResp"]
       order_id = params["orderNo"]
       payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
-      @resp =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
-      raise @resp.inspect
+  @resp =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
     end
 
 
