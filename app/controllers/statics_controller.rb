@@ -17,4 +17,10 @@ class StaticsController < ApplicationController
 
  end
 
+ def content_not_available 
+
+ 	 render :layout => false
+
+ end	
+
 end
