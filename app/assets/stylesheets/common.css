@@ -406,3 +406,7 @@ a.see-more:hover {
         margin-right: 15px;        
     }
 }
+.heading_title_color{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
