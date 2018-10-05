@@ -1,0 +1,14 @@
+<%="payment_success"%>
+<section class="min-height-div transation_status_page padding-top-85 padding-top-145">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap no_content_plans text-center">
+      <h2 class="block margin-bottom-10">Transaction Status</h2>
+      <img src="/assets/transaction_successful.svg" class="status_image" alt="something went wrong" title="something went wrong">
+      <p class="font-light margin-bottom-15"><%=@resp%></p> 
+   <!--    <p class="font-light margin-bottom-0">Transation ID</p> 
+      <p class="margin-bottom-0 font-medium margin-bottom-15"><strong>999999</strong></p> -->
+      <a href="/" class="radius-button text-uppercase margin-bottom-25" id="">continue browsing</a>
+    </div>
+  </div>
+  <%=render "layouts/page_height_setting"%>
+</section>

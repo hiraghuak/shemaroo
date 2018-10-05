@@ -135,15 +135,11 @@ class PlansController < ApplicationController
         raise params.inspect
         params.require(:resp_data).permit
         @resp = params[:resp_data]
-        p "&&&&&&&&&&&&&&&&&&&&&&"
-        p @resp
     end
 
     def payment_failed
        params.require(:resp_data).permit
        @resp = params[:resp_data]
-        p "*********************"
-        p @resp
     end
 
     def payment_canceled
@@ -158,7 +154,8 @@ class PlansController < ApplicationController
       enc_resp = params["encResp"]
       order_id = params["orderNo"]
       payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
-  @resp =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
+      response =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
+      @resp == response["data"]
     end
 
 
