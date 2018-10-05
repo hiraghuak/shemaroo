@@ -370,6 +370,9 @@
 .list-none {
     list-style: none;
 }
+.list-inside {
+    list-style-position: inside;
+}
 section {
   float: left;
   width: 100%;
@@ -383,6 +386,11 @@ a.see-more {
 a.see-more:hover {
     color: #D31F52;
     text-decoration: none;
+}
+.heading_title_color{
+    display: inline-block;
+    -webkit-background-clip: text!important;
+    -webkit-text-fill-color: transparent;
 }
 @media(max-width: 1199px) {
     a.see-more {
@@ -406,8 +414,4 @@ a.see-more:hover {
         margin-right: 15px;        
     }
 }
-.heading_title_color{
-    display: inline-block;
-    -webkit-background-clip: text!important;
-    -webkit-text-fill-color: transparent;
-}
+

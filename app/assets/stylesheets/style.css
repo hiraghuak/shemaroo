@@ -1880,6 +1880,9 @@ span.premium-txt {
   font-size: 0.975em;
   margin-top: -2px;
 }
+.terms_section ol h5 {
+  margin-left: -10px;
+}
 /* Static page container design ends */
 
 /* No items found design starts */
