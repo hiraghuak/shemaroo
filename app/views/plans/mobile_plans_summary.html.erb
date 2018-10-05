@@ -478,7 +478,7 @@ $('input[type=radio][name=radio-group]').change(function() {
 $("#revert_plan").click(function() {
    // $('input[type="radio"]').prop('checked', false);
    // $("#revert_plan").hide();
-    window.location.href = "/plans/plans_summary"
+    window.location.href = "/plans/m_plans_summary"
 });
 </script>       
 
@@ -527,7 +527,7 @@ var data = 'plans='+plans
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans/plans_purchase";
+                    window.location = "/plans/m_plans_purchase";
                   }
                   else{                 
                     window.location.href = data.payment_url;
