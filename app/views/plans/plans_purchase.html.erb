@@ -1,6 +1,6 @@
   <script src="https://test.adyen.com/hpp/cse/js/8215290589662396.shtml"></script> 
 
-        <section class="header-section small-header-content">
+        <!-- <section class="header-section small-header-content">
           <div class="header-border col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-none d-xl-block">
           </div>
           <div class="row">
@@ -10,9 +10,9 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
         
-        <section class="onboarding-bg onboarding-bg-min-height">
+        <section class="onboarding-bg onboarding-bg-min-height padding-top-85 padding-top-145">
           <div class="payment-contianer margin-bottom-30">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
@@ -80,16 +80,22 @@
                         <input type="hidden" id="order_id" name="order_id" value="">
 
                              <div class="input-group cardno">
-                                <input type="text" id="" name="" class="form-control" placeholder="Card Number" data-encrypted-name="number"> 
+                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                <input type="text" id="" name="" class="form-control" data-encrypted-name="number"> 
+                                <span class="input-label">Card Number</span>
                               </div>
                               <div class="input-group expiry">
-                                <input type="text" id="" name="" class="form-control" placeholder="MM" required="" size="2" data-encrypted-name="expiryMonth"> 
-                                <input type="text" id="" name="" class="form-control" placeholder="YYYY" required="" size="4" data-encrypted-name="expiryYear"> 
+                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                <input type="text" id="" name="" class="form-control" required="" data-encrypted-name="expiryMonth"> 
+                                <span class="input-label">Expiry</span>
+                                <!-- <input type="text" id="" name="" class="form-control" placeholder="YYYY" required="" size="4" data-encrypted-name="expiryYear">  -->
                               </div>
                              
                               <div class="input-group cvv">
-                                <input type="text" id="" name="" class="form-control" placeholder="CVV" data-encrypted-name="cvc">
-                                <img src="/assets/images/information.svg" alt="" title="">                              
+                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                <input type="text" id="" name="" class="form-control" data-encrypted-name="cvc">
+                                <span class="input-label">CVV</span>
+                                <img src="/assets/information.svg" alt="" title="">                              
                               </div>
 
                               <!-- <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" name="adyen-encrypted-form-expiry-generationtime" value=""> -->
@@ -97,7 +103,9 @@
 
 
                               <div class="input-group cardname">
-                                <input type="text" id="" name="" class="form-control margin-bottom-10" placeholder="Name on Card" data-encrypted-name="holderName">
+                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                <input type="text" id="" name="" class="form-control margin-bottom-10" data-encrypted-name="holderName">
+                                <span class="input-label">Name on Card</span>
                                 <p>We will save this card for your convenience. If required you can delete the card in the 'Manage Payment Options' section in the 'Me' menu. We do no store CVV</p>                             
                               </div>
 
@@ -143,6 +151,22 @@ $("#plans").val(localStorage.getItem("plan"));
 $("#price_charged").val(localStorage.getItem("tl_amount"));
 $("#order_id").val(localStorage.getItem("order_id"));
 $("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
+
+
+$("input[type='text'], input[type='password']").keyup(function() {
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      $(this).parents(".input-group").children('.fa-circle').hide();
+      $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});      
+    }
+    else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});            
+    }
+  });
+
   });  
 </script>       
 

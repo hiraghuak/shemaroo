@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+  <!--[if IE 6]>
+  <html id="ie6" lang="en-US">
+  <![endif]-->
+  <!--[if IE 7]>
+  <html id="ie7" lang="en-US">
+  <![endif]-->
+  <!--[if IE 8]>
+  <html id="ie8" lang="en-US">
+  <![endif]-->
+  <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+  <html lang=en>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Shemaroo</title>
+  <meta name="ctest" content="ctest" /
+  ><link href="/assets/images/favic.ico" rel="shortcut icon" />    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
+
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    /* Font integration */
+    
+    @font-face {    
+      font-family: 'condensed-extra-bold';
+      src: url('/fonts/EncodeSansCondensed-ExtraBold.ttf');
+    }
+    @font-face {    
+      font-family: 'condensed-light';
+      src: url('/fonts/EncodeSansCondensed-Light.ttf');
+    }
+    @font-face {
+      font-family: 'condensed-medium';
+      src: url('/fonts/EncodeSansCondensed-Medium.ttf');
+        
+    }
+    @font-face {
+      font-family: 'condensed-semibold';
+      src: url('/fonts/EncodeSansCondensed-SemiBold.ttf');
+    }
+    .font-light {
+      font-family: 'condensed-light';
+    }
+    .font-medium {
+      font-family: 'condensed-medium';
+    }
+    .font-semibold {
+      font-family: 'condensed-semibold';
+    }
+    .font-extrabold {
+      font-family: 'condensed-extra-bold';
+    }
+    .light .gradient1, .light .gradient2, .light .gradient3, .light .gradient4, .light .gradient5, .light .gradient6, .light .gradient7, .light .gradient8 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;    
+    }
+    body {
+      background-color: #161616;
+      float: left;
+      font-family: 'condensed-semibold';
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .container {
+      max-width: 1366px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .wrapper {
+      background-color: #161616;
+      float: left;
+      width: 100%;
+    }
+    .inside-wrapper {
+      background-color: #fff;
+      float: left;
+      min-height: 100%;
+      width: 100%;
+    }
+    section {
+      float: left;
+      width: 100%;
+    }
+    .onboarding-box-wrap {
+			margin-bottom: 20px;
+			margin-top: 30px;
+		}
+    .onboarding-box-wrap h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .back_arrow {
+      margin-right: 5px;
+      width: 22px;
+    }
+    a, a:hover {
+      color: #0496DC;
+      text-decoration: none;
+    }
+    .onboarding-box-wrap .tile-box-shadow {
+      background-color: #fff;
+      border-radius: 0.25rem !important;
+      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+    .payment-header {
+      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
+      border-radius: 0.25rem !important;
+    }
+    .list-none {
+      list-style: none;
+    }
+    .onboarding-bg {
+    	background-color: #F2F2F2;
+		}
+		.payment-contianer {
+	    margin: 0 auto;
+	    max-width: 526px;
+		}
+		#payable-amount {
+			margin-bottom: 20px;
+    	padding: 8px 15px;
+		}
+		#payable-amount span.pull-left {
+	    color: #666;
+	    font-size: 0.85em;
+	    margin-top: 2px;
+		}
+		#payable-amount span.pull-right {
+	    color: #000;
+		}
+		#saved-cards h5, #payment-mode h5 {
+	    font-size: 1em;
+	    margin-top: 25px;
+		}
+		#payment-mode #accordion .card, #faqs #accordion .card {
+	    border: 0px;
+	    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	    border-radius: 0px;
+		}
+		#payment-mode #accordion .card-header, #faqs #accordion .card-header {
+	    border: 0px;
+	    background: none;
+	    margin-bottom: -1px;
+	    padding: 0.75rem 0rem;
+	  }
+	  #payment-mode #accordion .card-link, #faqs #accordion .card-link {
+    	color: #767676;
+	    font-size: 0.875em;
+		}
+		#payment-mode #accordion .card-link::after {
+	    font-family: 'FontAwesome';
+	    content: "\f078";
+	    float: right;
+	  }
+		#payment-mode .list-group-item:last-child, #faqs .list-group-item:last-child {
+	    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		}
+		#saved-cards .list-group-item:first-child, #payment-mode .list-group-item:first-child, #faqs .list-group-item:first-child {
+		  border-top: 0px;
+		}
+		#payment-mode .list-group-item, #faqs .list-group-item {
+	    padding-left: 0px;
+	    padding-right: 0px;
+		}
+		.list-group-flush:last-child .list-group-item:last-child {
+		  border-bottom: 0;
+		}
+		.list-group-flush .list-group-item {
+	    color: #666;
+	    font-size: 0.875em;
+		}
+		#payment-mode .list-group-item a, #faqs .list-group-item a {
+	    color: #666;
+		}
+		#payment-mode #accordion .card-body {
+		  padding-left: 20%;
+		  padding-right: 20%;
+		}
+
+		#payment-mode #accordion .input-group.expiry {
+		  margin-right: 30px;
+		}
+
+		#payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+		  float: left;
+		  width: 44%;
+		}
+
+		.payment-contianer #accordion .input-group.button::before {
+		  content: "";
+		}
+
+		.payment-contianer #accordion .input-group.button {
+		  justify-content: center;
+		}
+
+		.payment-contianer .input-group.button a span {
+		  font-family: 'condensed-semibold';
+		  font-size: 0.753em;
+		}
+		.onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
+.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"] {
+  border: 0px;
+  border-bottom: 1px solid #E5E5E5;
+  border-radius: 0px;
+  font-family: 'condensed-light';
+  height: calc(2em + 2px);
+  margin-bottom: 35px;
+  padding: 5px 5px 5px 10px;
+}
+
+.onboarding-contianer input#login_mobile_number {
+  padding-left: 0px;
+}
+.onboarding-contianer .input-group .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  left: 3px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+}
+.onboarding-contianer .custom-controls-stacked::before {
+  content: "";
+  position: static;
+}
+.input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-select:focus, .input-group > .form-control:focus {
+	border-width: 0px;
+	border-bottom-width: 1px;
+	box-shadow: none;
+  z-index: 0;
+}
+.onboarding-contianer a, .onboarding-contianer span {
+  font-size: 0.875rem;
+}
+.onboarding-contianer span {
+  color: #666;
+}
+.onboarding-contianer .input-group {
+  position: relative;
+}
+.input-group .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  left: 3px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+}
+.input-group .input-label {
+  color: #666;
+  font-family: 'condensed-light';
+  opacity: 1;
+  left: 10px;
+  margin-bottom: 0;
+  top: 7px;
+  font-weight: 400;
+  position: absolute;
+  pointer-events: none;
+  transition: all .3s;
+}
+.input-group .form-control:focus ~ .input-label {
+  left: 0px;
+  top: -16px;
+}
+.onboarding-contianer .input-group img.show_password, #accordion .input-group img  {
+  cursor: pointer;
+  position: absolute;
+  right: 3px;
+  top: 15px;
+  width: 16px;
+  z-index: 1;
+}
+#accordion .input-group img {
+  left: 45px;
+  top: 8px;
+  width: 16px;
+}
+#accordion .input-group p {
+  color: #989898;
+  font-size: 0.875em;
+}
+@media(max-width: 576px) {
+	.payment-contianer {
+		padding: 0px 15px;
+	}
+	#payment-mode #accordion .card-body {
+		padding-left: 9%;
+		padding-right: 9%;
+	}
+}
+@media(max-width: 480px) {
+	#payment-mode #accordion .card-body {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}	
+@media(max-width: 359px) {
+	#payment-mode #accordion .input-group.expiry {
+		margin-right: 26px;
+	}
+}	
+  </style>
+
+</head>
+<body>
+	<div class="wrapper">
+    <div class="container">
+      <div class="inside-wrapper">
+      	<script src="https://test.adyen.com/hpp/cse/js/8215290589662396.shtml"></script> 
+      	<section class="onboarding-bg onboarding-bg-min-height padding-top-85 padding-top-145">
+          <div class="payment-contianer margin-bottom-30">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+                <h2 class="block margin-bottom-10">
+                	<img src="/assets/images/back_arrow.svg" class="back_arrow" alt="" title=""> Select Payment Method</h2>
+                	<div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
+	                  <div id="payable-amount" class="w-100 pull-left onboarding-bg">
+	                    <span class="pull-left">
+	                      Payable Amount
+	                    </span>
+	                    <span class="pull-right" id="total_amount"></span>
+	                     <span class="pull-right" id="currency"></span>
+	                  </div>
+                  
+	                  <div id="payment-mode">
+	                    <h5 class="margin-top-25">Choose Payment Mode</h5>
+	                    <div id="accordion" class="font-light">
+
+	                      <div class="card">
+	                        <div class="card-header">
+	                          <a class="card-link" data-toggle="collapse" href="#collapseCB">
+	                            Credit/Debit Card
+	                          </a>
+	                        </div>
+	                        <div id="collapseCB" class="collapse" data-parent="#accordion">
+	                          <div class="card-body">
+	                            <form id="adyen-encrypted-form" action="/plans/purchase_plans" method="get">
+	                             
+				                        <input type="hidden" id="plans" name="plans" value="">
+				                        <input type="hidden" id="price_charged" name="price_charged" value="">
+				                        <input type="hidden" id="order_id" name="order_id" value="">
+
+	                             	<div class="input-group cardno">
+	                             		<i class="fa fa-circle" aria-hidden="true"></i>
+	                                <input type="text" id="" name="" class="form-control" data-encrypted-name="number"> 
+	                                <span class="input-label">Card Number</span>
+	                              </div>
+	                              <div class="input-group expiry">
+	                              	<i class="fa fa-circle" aria-hidden="true"></i>
+	                                <input type="text" id="" name="" class="form-control" required="" data-encrypted-name="expiryMonth"> 
+                                	<span class="input-label">Expiry</span>
+	                                <!-- <input type="text" id="" name="" class="form-control" placeholder="YYYY" required="" size="4" data-encrypted-name="expiryYear">  -->
+		                            </div>
+		                             
+	                              <div class="input-group cvv">
+	                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                <input type="text" id="" name="" class="form-control" data-encrypted-name="cvc">
+                                <span class="input-label">CVV</span>
+	                                <img src="/assets/information.svg" alt="" title="">                              
+	                              </div>
+		                              
+	  			                      <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" value="generate-this-server-side" data-encrypted-name="generationtime" />
+
+	                              <div class="input-group cardname">
+	                              	<i class="fa fa-circle" aria-hidden="true"></i>
+	                                <input type="text" id="" name="" class="form-control margin-bottom-10" data-encrypted-name="holderName">
+	                                <span class="input-label">Name on Card</span>
+	                                <p>We will save this card for your convenience. If required you can delete the card in the 'Manage Payment Options' section in the 'Me' menu. We do no store CVV</p>                             
+	                              </div>
+
+	                              <div class="input-group button margin-bottom-15">
+	                                <input class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Proceed">
+	                              </div>
+
+	                            </form>
+	                          </div>
+	                        </div>
+	                      </div>
+
+	                      <ul class="list-group list-group-flush font-light">
+	                        <li class="list-group-item">
+	                          <a href="javascript:;" target="_blank">
+	                            <span class="pull-left">Paypal</span>                            
+	                          </a>
+	                        </li>
+	                      </ul>
+
+	                    </div>
+	                  </div>
+                	</div> 
+              </div>
+            </div>
+          </div>
+          
+        </section>
+      </div>      
+    </div>
+  </div>
+<script>
+  $(document).ready(function() {      
+  
+	  var window_height = window.innerHeight;
+	  $('.onboarding-bg-min-height').css('min-height', window_height);
+  
+    $("#currency").text(localStorage.getItem("currency")  );
+    $("#total_amount").text(localStorage.getItem("tl_amount"));
+
+		$("#plans").val(localStorage.getItem("plan"));
+		$("#price_charged").val(localStorage.getItem("tl_amount"));
+		$("#order_id").val(localStorage.getItem("order_id"));
+		$("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
+
+		$("input[type='text'], input[type='password']").keyup(function() {
+
+    var inputlenth = $(this).val().length;
+    var id_val = $(this).attr("id");
+    
+    if(inputlenth > 0) {
+      $(this).parents(".input-group").children('.fa-circle').hide();
+      $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});      
+    }
+    else {
+        $(this).parents(".input-group").children('.fa-circle').show();
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});            
+    }
+  });
+
+
+  });  
+</script>       
+
+
+
+  <script type="text/javascript">
+
+            
+// generate time client side for testing only... Don't deploy on a
+// real integration!!!
+document.getElementById('adyen-encrypted-form-expiry-generationtime').value = new Date().toISOString();
+
+// the form element to encrypt
+var form    = document.getElementById('adyen-encrypted-form');
+
+// the public key
+ var key = "10001|D24F70B0EBF0F65C522B79130DB92B7B6636CDFF4CA6F42310A5043"+
+ "807345F93E342C0DE24D945415E3CAC030A2206DCBC4312A65B5305FFA658122CC1DED4508665F4"+
+ "4BF7075D7A575402B35F6A912204A81CD91D297D83E5468291CC9B8B281944F5513A333A371E1E37EFA"+
+ "4CB87A246B60371368B3286C5FF174C1E6F390051A5EE53303BF540C8118B4795CE2399270294D"+
+ "F574EAB8A86B3B07FBFB7936B56933DB6FF52C86CE13838660F48775487EDBC22E70F6ED265"+
+ "952D598522025D70BD83D54BC57E649F836E729372B7A94C89D1B8898EFD66911FD0EB0F6D89"+
+ "29459F21F828E960FA106ECDF3C87761D3802BF83837B9E9212C6E71F8A219495D"; 
+
+var options = {};
+
+// Enable basic field validation (default is true)
+// The submit button will be disabled when fields
+// proof to be invalid. The form submission will be
+// prevented as well.
+// options.enableValidations = true;
+
+
+// Always have the submit button enabled (default is false)
+// Leave the submit button enabled, even in case
+// of validation errors.
+// options.submitButtonAlwaysEnabled = false;
+
+// Ignore non-numeric characters in the card number field (default
+// is true)
+// The payment handling ignores non-numeric characters for the card
+// field.
+// By default non-numeric characters will also be ignored while
+// validating
+// the card number field. This can be disabled for UX reasons.
+// options.numberIgnoreNonNumeric = true;
+
+// Ignore CVC validations for certain bins. Supply a comma separated
+// list.
+// options.cvcIgnoreBins = '6703'; // Ignore CVC for BCMC
+
+// Use 4digit cvc for certain bins. Supply a comma separated list.
+// options.fourDigitCvcForBins = '34,37'; // Set 4 digit CVC for Amex
+
+
+// Use a different attribute to identify adyen fields
+// Note that the attributes needs to start with data-.
+// options.fieldNameAttribute = 'data-encrypted-name';
+
+// Set a element that should display the card type
+options.cardTypeElement = document.getElementById('cardType');
+console.log("form");
+console.log(form);
+console.log("key");
+console.log(key);
+console.log("options");
+console.log(options);
+// the form will be encrypted before it is submitted
+var encryptedForm = adyen.encrypt.createEncryptedForm(form, key, options);
+console.log("encryptedForm");
+console.log(encryptedForm);
+function checkNumberValidity(){
+    var element = document.getElementById("errormessageHere");
+     var valid = encryptedForm.validate("number");
+     var p = document.createElement("p");
+     p.innerHTML = "";
+     if(valid.number == false || valid.luhn == false){
+        element.innerHTML = "Card Number is invalid";
+     }else{
+        element.innerHTML = "";
+     }
+}
+
+//encryptedForm.checkCardNumber("","","");
+ //encryptedForm.addCardTypeDetection(options.cardTypeElement)
+  </script>
+
+</body>
+</html>

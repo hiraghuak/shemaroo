@@ -18,8 +18,9 @@ end
 #get the user region based on ip address
   def get_region
     begin
-        if Rails.env != "development"
+        if Rails.env == "development"
           @region = "IN"
+          #@region = "UK"
           $region = @region
         else
           ip = get_user_ip
@@ -27,6 +28,10 @@ end
           @region = response["region"]["country_code2"]
           $region = @region
         end
+        allowed_regions = ["IN","US"]
+        # unless allowed_regions.include?($region)
+        #   render "statics/content_not_available", :layout => false
+        # end
     rescue
       @region = "IN"
       $region = @region

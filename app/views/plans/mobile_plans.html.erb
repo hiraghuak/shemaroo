@@ -503,7 +503,7 @@
   <div class="container">
     <div class="inside-wrapper">
       <section class="full-width-content light">
-      <div class="row"><!-- Continue Watching starts -->
+      <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- plans-page">              
           <h2>Modify Plans</h2>
           <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
@@ -613,7 +613,7 @@
                 <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
               </p>
               <p class="pull-left w-100 margin-top-15">
-                <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
+                <a href="/plans/m_plans_summary" class="text-uppercase">no thanks</a>
               </p>
             </div>
             
@@ -623,6 +623,8 @@
       </div>  
       </section>
 <script>
+  var window_height = window.innerHeight;
+  $('.inside-wrapper').css('min-height', window_height);
 
   $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
     //$(".plans_list_section ul li").removeClass("active");

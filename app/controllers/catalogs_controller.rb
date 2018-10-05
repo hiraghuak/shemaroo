@@ -64,25 +64,23 @@ class CatalogsController < ApplicationController
          Ott.get_catalog_details(params[:catalog_name])
         }
         if @all_episodes.count > 0
-          url = sign_smarturl @all_episodes.first['play_url']['saranyu']['url']
-          @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
-          @new_play_url,@key =  encrypt_play_url(@play_url)
+          @new_play_url,@key =  get_play_url_key(@all_episodes.first)
+        else
+          @new_play_url,@key = ""
         end
         @other_items = catalog_response["data"]["items"]
         @catalog_name = catalog_response["data"]["name"]
         render "episode_details"
       else
         @item_details = item_response["data"]
-        url = sign_smarturl item_response["data"]['play_url']['saranyu']['url']
-        @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
-        @new_play_url,@key =  encrypt_play_url(@play_url)
+        @new_play_url,@key =  get_play_url_key(item_response['data'])
         more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_items_genre(params[:catalog_name],@item_details['genres'][0])
        }
        @genere_items = more_item_response["data"]["items"]
       end
     rescue Exception => e
-      #redirect_to "/500"
+      redirect_to "/500"
       logger.info e.message
       Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
       @item_details = []
@@ -95,9 +93,7 @@ class CatalogsController < ApplicationController
        Ott.get_episode_details(params[:catalog_name],params[:show_name],params[:item_name])
       }
       @episode_details = response["data"]
-      url = sign_smarturl response["data"]['play_url']['saranyu']['url']
-      @play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first
-      @new_play_url,@key =  encrypt_play_url(@play_url)
+      @new_play_url,@key =  get_play_url_key(response["data"])
       tvshow_response =  Rails.cache.fetch("all_epsiodes_#{params[:catalog_name]}_#{params[:show_name]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_all_epsiodes(params[:catalog_name],params[:show_name])
         }
@@ -162,6 +158,13 @@ private
     encrypted = aes.update(url) + aes.final
     new_url = Base64.encode64(encrypted).gsub(/\n/, '')
     return new_url,e_key
+  end
+
+  def get_play_url_key(response)
+    url = sign_smarturl response['play_url']['saranyu']['url']
+    play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_#{$region.downcase}_logo"}.compact.first
+    play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first if play_url.nil?
+    return encrypt_play_url(play_url)
   end
 
 

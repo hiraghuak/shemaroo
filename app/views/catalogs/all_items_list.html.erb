@@ -24,7 +24,7 @@ meta title: "#{@title}",
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
           <%end%>
-          <%if @layout_type == "t_1_1_album"%>
+          <%if @layout_type == "t_1_1_album" || @layout_type == "songs"%>
           <img src="<%=i["thumbnails"]["medium_16_9"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
           <%else%>
           <img src="<%=get_image_url(i,@layout_type)%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
