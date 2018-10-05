@@ -155,7 +155,7 @@ class PlansController < ApplicationController
       order_id = params["orderNo"]
       payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
       response =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
-      @resp == response["data"]
+      @resp = response["data"]
     end
 
 
