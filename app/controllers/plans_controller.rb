@@ -11,7 +11,6 @@ class PlansController < ApplicationController
   @all_access_packs = @all_plans.last["catalog_list_items"].last
 
    #  pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{params['pack_ids']}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-  #  raise pd.inspect
   # sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
 	end
 
@@ -132,7 +131,6 @@ class PlansController < ApplicationController
 
 
     def payment_success
-        raise params.inspect
         params.require(:resp_data).permit
         @resp = params[:resp_data]
     end
