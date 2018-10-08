@@ -116,7 +116,7 @@ $(document).ready(function(){
     });
 
 
-$(document).click(function() { 
+/*$(document).click(function() { 
 	//$('#right-sidebar-menu').hide(); \
 	value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
     var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
@@ -124,7 +124,7 @@ $(document).click(function() {
           width: value,
           opacity: "0"          
       }, 'fast');
-});
+});*/
 
 $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
@@ -154,11 +154,11 @@ $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );
       $('#right-sidebar-menu').animate({
           width: "250px"          
       }, 250);
-    event.stopPropagation();  
+    //event.stopPropagation();  
 });
-$('#right-sidebar-menu').click(function(event) {
+/*$('#right-sidebar-menu').click(function(event) {
 	event.stopPropagation();  
-}) 
+}) */
 	
  
   $("#right-sidebar-menu .close-hambergmenu img").click(function() {
