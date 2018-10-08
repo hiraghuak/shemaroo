@@ -1281,7 +1281,7 @@ span.premium-txt {
   font-size: 0.875em;
   margin-top: 5px;
 }
-.row-show-list.detail_page .item img:first-child {
+.row-show-list.detail_page .item img:nth-child(2) {
   left: 43%;
   overflow: hidden;
   position: absolute;
