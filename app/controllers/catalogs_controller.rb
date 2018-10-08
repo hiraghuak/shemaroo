@@ -27,6 +27,7 @@ class CatalogsController < ApplicationController
     # @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
     # @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
    rescue Exception => e
+    redirect_to "/500"
       logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
      @items_list = []
