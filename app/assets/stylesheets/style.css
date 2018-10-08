@@ -1069,8 +1069,12 @@ span.premium-txt {
   border: 1px solid transparent;
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
-  background-image: linear-gradient(#fff, #fff), linear-gradient(#F48567, #D41F52);
+  /*background-image: linear-gradient(#fff, #fff), linear-gradient(#F48567, #D41F52);*/
+  background-image: linear-gradient(#fff, #fff), linear-gradient(45deg,#D41F52 0%, #D41F52 50%, #F48567 51%, #F48567 100%);
   padding: 12px 10px 13px;
+}
+.custom-gradient .radius-button2 {
+  background-image: linear-gradient(#fff, #fff), linear-gradient(45deg,#A6A6A6 0%, #A4A4A4 50%, #A3A3A3 51%, #AAAAAA 100%);
 }
 .custom-gradient .radius-button .btn:focus, .custom-gradient .radius-button .btn.focus {
   border: 0px;
@@ -1413,7 +1417,8 @@ span.premium-txt {
   box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.2);
 }
 .onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
-.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"] {
+.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"], 
+.onboarding-payment-contianer input[type="text"], .onboarding-payment-contianer input[type="password"] {
   border: 0px;
   border-bottom: 1px solid #E5E5E5;
   border-radius: 0px;
@@ -1676,6 +1681,12 @@ span.premium-txt {
 }
 .modal {
   background: rgba(0,0,0,0.125);
+}
+#promocode_pop .modal-dialog {
+  max-width: 340px;
+}
+.promocode_pop_textbox_wrap {
+  width: calc(100% - 10px);
 }
 .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::before {
   border-right: 7px solid transparent;

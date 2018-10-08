@@ -95,28 +95,38 @@
   <div class="pull-right light">
     <!-- <a href="/plans/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
     <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
-    <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a> 
-  </div>
-  <!-- The Modal -->
-<div class="modal" id="combo_offer" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal body -->
-      <div class="modal-body text-center">
-        <h5 class="margin-bottom-20 margin-top-25">Avail Combo Offer</h5>
-        <img src="/assets/subscription.svg" class="plans_pop_image margin-top-10" alt="" title="">
-        <p class="pull-left w-100 margin-top-10 margin-bottom-15 font-medium">Add any monthly category pack <span class="font-bold">at just 20</span></p>
-        <p class="pull-left w-100 margin-top-15 margin-bottom-15">
-          <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a>
-        </p>
-        <p class="pull-left w-100 margin-top-15">
-          <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
-        </p>
-      </div>
-      
+    <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" >Proceed</a>  -->
+    <div class="inline-block margin-top-10 margin-bottom-10 custom-gradient">
+      <p class="inline radius-button">
+        <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold combo_offer" data-toggle="modal" data-target="combo_offer">Proceed</a>
+      </p>
     </div>
   </div>
-</div>
+    <!-- The Modal -->
+  <div class="modal" id="combo_offer" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body text-center">
+          <h5 class="margin-bottom-20 margin-top-25">Avail Combo Offer</h5>
+          <img src="/assets/subscription.svg" class="plans_pop_image margin-top-10" alt="" title="">
+          <p class="pull-left w-100 margin-top-10 margin-bottom-15 font-medium">Add any monthly category pack <span class="font-bold">at just 20</span></p>
+          <p class="pull-left w-100 margin-top-10 margin-bottom-15">
+            <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a> -->
+            <div class="inline-block custom-gradient">
+              <p class="inline radius-button">
+                <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold">Add category pack</a>
+              </p>
+            </div>
+          </p>
+          <p class="pull-left w-100 margin-top-15">
+            <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 </div>  
 </section>
 <script>
@@ -201,7 +211,7 @@ $(".choose_plan").click(function(){
     }
   });
 
-    $("#combo_offer .radius-button").click(function(){
+    $("#combo_offer .radius-button gradient1").click(function(){
     $("#combo_offer").modal("hide")
 
   });

@@ -105,7 +105,7 @@
     @include gradient-text('linear-gradient(to right,#D41F52, #F48567)', 'custom-gradient');
   }
   .gradient2 {
-    @include gradient-text('linear-gradient(to right,#181818, #3E3E3E)', 'light');
+    @include gradient-text('linear-gradient(to right,#a6a6a6, #aaaaaa)', 'custom-gradient');
   }
 }
 
