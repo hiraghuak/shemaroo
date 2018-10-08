@@ -225,12 +225,12 @@
 </div>
 
 <script type="text/javascript">
-$(document).ready(function(){
+//
   if($('ul.nav').find('li a.active').attr('id') != undefined){
   var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
   $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
-
   }
+  $(document).ready(function(){
   $('.coming_soon').click(function() {
     $('#coming_soon').modal('show');
   })

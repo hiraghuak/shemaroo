@@ -3,10 +3,10 @@
 	<div class="row">
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-25">
 			<div class="search-box-wrap">
-				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:search_item]%>">
-				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:search_item].present? ? "" : "display:none"%>"></a>
+				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:q]%>">
+				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:q].present? ? "" : "display:none"%>"></a>
 			</div> 
-			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:search_item].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:q].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
 			</div>	
 		</div>
 			<div class="row" id="search_all_results"> 
@@ -66,14 +66,14 @@
 
 
 $(document).ready(function(){
-	var search_item = "<%=params[:search_item].present? ? "true" : "false"%>";
+	var search_item = "<%=params[:q].present? ? "true" : "false"%>";
 	if(search_item == "false"){
 	if(getShemarooCookies().recent_search_data){
     $("#clear_search").show();
     var search_val = $.unique(getShemarooCookies().recent_search_data.split(","));
     $("#user_recent_search").html("");
     for(i=0; i < search_val.length;i++){
-    	 $("#user_recent_search").append('<a href="/search/'+search_val[i]+'"><li class="list-group-item padding-left-0">'+search_val[i]+'</li> </a>')
+    	 $("#user_recent_search").append('<a href="/search?q='+search_val[i]+'"><li class="list-group-item padding-left-0">'+search_val[i]+'</li> </a>')
     }
 	}
 	else{

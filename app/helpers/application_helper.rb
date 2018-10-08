@@ -69,7 +69,6 @@ module ApplicationHelper
         end
 			elsif i["theme"] == "show_episode"
         url = "/#{i['catalog_object']['friendly_id']}/#{i['show_object']['friendly_id']}/#{i['friendly_id']}"
-
       else
 			 url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
 			end

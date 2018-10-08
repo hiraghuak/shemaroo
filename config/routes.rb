@@ -58,7 +58,7 @@ Rails.application.routes.draw do
 
  ###SEARCH ROUTES STARTS HERE#################
  match "/search" => "search#index",via: [:get,:post]
- get "/search/:search_item" => "search#index"
+ # get "/search" => "search#index"
 
  ###SEARCH ROUTES ENDS HERE#################
 

@@ -1,3 +1,8 @@
+<%
+   meta title: "More In #{params[:genre]}",
+    description: "#{params[:genre]}",
+    keywords: "#{params[:genre]}"
+%>
 <section class="full-width-content inside-container top-bg-gradient min-height-div padding-top-80 padding-top-145 light">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
@@ -9,7 +14,13 @@
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
           <%end%>
-          <img src="<%=i["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%if @theme == "video"
+            img_url = i["thumbnails"]["medium_16_9"]["url"]
+          else
+            img_url = i["thumbnails"]["medium_2_3"]["url"]
+          end
+            %>
+          <img src="<%=img_url%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
           </a>
         </div>
       <%end%>

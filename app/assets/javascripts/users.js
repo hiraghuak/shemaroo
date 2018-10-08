@@ -23,7 +23,7 @@ $(document).ready(function(){
  	  }
  	}
  	if(status == true){
-		$("#register_text").text("Register..")
+		$("#user_register").text("Register..")
 		$.ajax({
 			url: "/users/sign_up",
 			type: "POST",
@@ -37,7 +37,7 @@ $(document).ready(function(){
 			success: function(response,status){
 			 console.log(response);
 			 if(response.status == true){
-			   $("#register_text").text("Register")
+			   $("#user_register").text("Register")
 			   if(signup_type == "msisdn"){
 			   	 $.cookie('user_registed_mobile_no',"91"+mobile_no, { expires: 14,path: '/'});
 			     window.location = "/users/verify_otp"
@@ -50,7 +50,7 @@ $(document).ready(function(){
 			   }
 			 }
 			else{
-			 $("#register_text").text("Register")
+			 $("#user_register").text("Register")
 			 $("#user_name,#user_email,#password,#confirm_password").val("");
 			 $("#agree_terms").prop("checked", false);
              $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
@@ -130,7 +130,7 @@ $("#verify_otp").click(function(){
   var third_no  = $("#third_digit").val();
   var fouth_no  = $("#fourth_digit").val();
   if(first_no.length != 0 && second_no.length != 0 && third_no.length != 0 && fouth_no.length != 0){
-	  $(".verify_text").text("Verifying..")
+	  $("#verify_otp").text("Verifying..")
 		$.ajax({
 			url: "/users/validate_otp",
 			type: "POST",
@@ -145,7 +145,7 @@ $("#verify_otp").click(function(){
 			  $("#otp_success").modal("show");
 			}
 			else{
-			 $(".verify_text").text("Verify")
+			 $("#verify_otp").text("Verify")
 			 $("#first_digit,#second_digit,#third_digit,#fourth_digit").val("");
 			 $("#verify_otp_error").text(response.error_message).show();
 			}
@@ -214,7 +214,7 @@ function user_sign_in(){
    }
  }
  if(error_status == true){
-	$("#login_text").text("Login...")
+	$("#user_login").text("Login...")
 	$.ajax({
 		url: "/users/sign_in",
 		type: "POST",
@@ -225,7 +225,7 @@ function user_sign_in(){
 		type: login_type
 		},
 		success: function(response,status){
-		 $("#login_text").text("Login")
+		 $("#user_login").text("Login")
 		 if(response.status == true){
 		  set_user_cookies(response)
 		  window.location = "/"

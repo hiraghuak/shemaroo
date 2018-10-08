@@ -41,7 +41,7 @@ $(document).ready(function(){
 	  if(search_val.length != 0 && search_val != "%"){
 	  // $(".spinner").show();
 	  if(e.which == 13){
-       window.location = "/search/"+$(this).val();
+       window.location = "/search?q="+$(this).val();
      }
      else{
 	  	$.ajax({ 
@@ -70,6 +70,7 @@ $(document).ready(function(){
 	          }
 	          else {
 	          	$("#search_heading").hide();
+	          	$("#search_all_results").html("");
 	          	$("#search_all_results").append('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center"><img src="/assets/no_result.svg" class="search-no-results-image" alt="no search results" title="no search results"><p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <span class="searched_text"></span></strong></p><p class="font-light">Please check the spelling or try another search term.</p></div></div>')
 	            $(".searched_text").text(search_val.toUpperCase());
 	          }
