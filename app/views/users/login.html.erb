@@ -10,12 +10,13 @@ meta title: "User Login",
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
          <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
           <h2 class="block margin-bottom-10">Login</h2>
-          <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-            <div class="input-group all_error" >
-              <label class="error" id="bakend_user_errors">Invalid Credentials</label>
+          <div class="w-100 tile-box-shadow padding-bottom-30 padding-top-30 rounded">
+            <div class="input-group all_error padding-left-10 padding-right-10" >
+              <label class="error rounded text-center" id="bakend_user_errors">Invalid Credentials</label>
             </div>
+            <div class="padding-left-30 padding-right-30">
             <%if $region == "IN"%>
-              <div class="input-group country">
+              <div class="input-group country margin-top-15">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
                 <input type="text" id="login_mobile_number" name="mobilenumber" class="form-control" maxlength="10" onkeypress='return validateNumber(event);'>
@@ -52,7 +53,7 @@ meta title: "User Login",
               <span>Not a member?</span><a href="/users/register" class="inline-block text-uppercase">&nbsp;Register</a>
             </div>
           </div>
-
+        </div>
       
 
         </div>
@@ -66,10 +67,31 @@ meta title: "User Login",
 
 <script>
 $(document).ready(function(){
- $(".label.error").show();
- var window_height = window.outerHeight;
-    var window_height = window_height - 153;
-    $('.min-height-div').css('min-height',window_height+'px');
+  $(".label.error").show();
+  var window_height = window.outerHeight;
+  var window_height = window_height - 153;
+  $('.min-height-div').css('min-height',window_height+'px');
+
+  /* placholder design for auto-fill values in initial time page load */
+
+  var input1 =  $("input#login_mobile_number").val().length;
+  var input2 =  $("input#login_password").val().length;
+  console.log(input1);
+  console.log(input2);
+  /*var input3 =  $("input#user_name").val().length
+  var input4 =  $("input#mobile_number").val().length
+  var input5 =  $("input#password").val().length
+  var input6 =  $("input#confirm_password").val().length*/
+  if(input1 > 0) {
+    console.log("1")
+    $(this).parents(".input-group").children('.fa-circle').hide();
+    $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  }
+  if(input2 > 0) {
+    console.log("2")
+    $(this).parents(".input-group").children('.fa-circle').hide();
+    $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  }
 
 });  
 function validateNumber(event) {
