@@ -11,8 +11,8 @@
     <div class="main-menu pull-left d-none d-xl-block">
       <ul class="nav">
        <%@header_tabs.each_with_index do |i,j|%>
-       <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
-       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
+       <%if @layout_scheme.present?%>
+       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%else%>
         <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase gradient2 <%= (request.path == "/" && j == 0) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%end%>
@@ -65,24 +65,24 @@
         </li>
       </ul>   -->              
     </div>
-    <p class="text-center text-uppercase manage-profile with_login_item" style="display:none;"><a href="javascript:;">Manage Profile</a></p>
+    <p class="text-center text-uppercase manage-profile with_login_item" style="display:none;"><a href="javascript:;" class="coming_soon">Manage Profile</a></p>
     <ul class="navbar-nav mr-auto">
      <li class="nav-item with_out_login_item">
         <a class="nav-link" href="/users/login"><img src="/assets/account_detail.svg" alt="Login" title="Login">Login</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
+      <li class="nav-item with_login_item coming_soon" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="account Details" title="Account Details">Account Details</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
+      <li class="nav-item with_login_item coming_soon" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/watch_list.svg" alt="watch list" title="watch list">Watch List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/plans"><img src="/assets/view_plans.svg" alt="plans" title="plans">View Plans</a>
+        <a class="nav-link coming_soon" href="javascript:void(0)"><img src="/assets/view_plans.svg" alt="plans" title="plans">View Plans</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
+      <li class="nav-item with_login_item coming_soon" style="display:none;">
+        <a class="nav-link coming_soon" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
+      <li class="nav-item with_login_item coming_soon" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
       </li>
       <li class="nav-item with_login_item" style="display:none;">
@@ -118,9 +118,8 @@
     <div class="scrollmenuwrap">
       <div class="scrollmenu">
        <%@header_tabs.each_with_index do |i,j|%>
-        <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
-        <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=
-        "<%=(params[:catalog_name] == i["home_link"]) ? "active" : ""%>"><%=i['display_title']%></a>
+        <%if @layout_scheme.present?%>
+       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
         <%else%>
         <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=" <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a>
         <%end%>
@@ -148,7 +147,7 @@
         </li> -->
       </ul>                
     </div>
-    <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;">Manage</a></p>
+    <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;" class="coming_soon">Manage</a></p>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/"><img src="/assets/home.svg" alt="home" title="home">Home</a>
@@ -157,24 +156,24 @@
         <a class="nav-link" href="/users/login"><img src="/assets/account_detail.svg" alt="Login" title="Login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="account details" title="account details">Account Details</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/account_detail.svg" alt="account details" title="account details">Account Details</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/watch_list.svg" alt="" title="">Watch List</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/watch_list.svg" alt="" title="">Watch List</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="/plans"><img src="/assets/view_plans.svg" alt="view palns" title="view palns">View Plans</a>
+        <a class="nav-link coming_soon" href="javascript:void(0)"><img src="/assets/view_plans.svg" alt="view palns" title="view palns">View Plans</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
       </li>
       
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
       </li>
       
       <li class="nav-item mobile_with_login" style="display:none;">

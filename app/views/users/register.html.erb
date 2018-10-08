@@ -37,14 +37,14 @@ meta title: "User Register",
               <label class="error" id="signup_email_error">Plese enter the email</label>
             </div>
             <%end%>
-            <div class="input-group pwd">
+            <div class="input-group pwd hide_password">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="password" name="password" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show password" title="show password">
               <span class="input-label">Password</span>
               <label class="error" id="signup_password">Plese enter the password</label> 
             </div>
-            <div class="input-group cpwd">
+            <div class="input-group cpwd hide_password">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="confirm_password" name="confirm password" class="form-control margin-bottom-15"> 
               <img src="/assets/show_password.svg" class="show_password" alt="show confirm password" title="show confirm password">
@@ -84,12 +84,12 @@ meta title: "User Register",
         <button type="button" class="close" aria-label="Close" id="user_email_close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="margin-bottom-20 margin-top-25">Congratulation!</h5>
-        <img src="/assets/transaction_successful.svg" class="plans_pop_image margin-top-10 margin-bottom-5" alt="" title="">
+        <h5 class="margin-bottom-20 margin-top-25">Congratulations!</h5>
+        <img src="/assets/transaction_successful.svg" class="plans_pop_image margin-top-10 margin-bottom-5" alt="congratulations" title="congratulations">
         <p class="pull-left w-100 margin-top-25 margin-bottom-25 font-medium">Your Email id has been successfully registered</p>
         <div class="pull-left w-100 inline-block margin-top-5 margin-bottom-20 custom-gradient">
           <p class="inline radius-button">
-            <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="">proceed</a>
+            <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="user_email_process">proceed</a>
           </p>
         </div>
         </div>      

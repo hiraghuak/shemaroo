@@ -274,7 +274,7 @@ $("#login_mobile_number,#login_password,#login_email").focusin(function(){
 
 
 
-$("#otp_success_close,#user_email_close").click(function(){
+$("#otp_success_close,#user_email_close,#user_email_process,#otp_success_process").click(function(){
 	window.location = "/users/welcome"
 })
 
@@ -287,6 +287,7 @@ $("#otp_success_close,#user_email_close").click(function(){
  }
 
  $("#user_signout,#user_mobile_signout").click(function(){
+   var current_path = window.location.pathname;
   $.ajax({
     url: "/users/sign_out",
     type: "POST",
@@ -294,8 +295,13 @@ $("#otp_success_close,#user_email_close").click(function(){
     success: function(response,status){
     console.log(response);
     if(response.status == true){ 
-     delete_user_cookies(); 
-     window.location.reload();
+     delete_user_cookies();
+     if(current_path == "/users/welcome"){
+      window.location = "/";
+     } 
+     else{
+     	window.location.reload();
+     }
     }
     }
   });
