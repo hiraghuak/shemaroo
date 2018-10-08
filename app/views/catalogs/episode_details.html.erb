@@ -97,7 +97,7 @@
                 <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
-                <span class="list-tile-duration"><%=(e['episode_number']+"|") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=e['duration_string']%></span>
+                <span class="list-tile-duration"><%=(e['episode_number']+"|") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=get_duration_time(e['duration_string'])%></span>
               </a>
             </div>  
            <%end%>    

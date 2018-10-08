@@ -51,8 +51,8 @@ $(document).ready(function(){
 			 }
 			else{
 			 $("#user_register").text("Register")
-			 $("#user_name,#user_email,#password,#confirm_password").val("");
-			 $("#agree_terms").prop("checked", false);
+			 //$("#user_name,#user_email,#password,#confirm_password").val("");
+			 //$("#agree_terms").prop("checked", false);
              $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
 			 }
 			}
@@ -231,7 +231,7 @@ function user_sign_in(){
 		  window.location = "/"
 		 }
 		else{
-		 $("#login_mobile_number,#login_password,#login_email").val("");
+		 //$("#login_mobile_number,#login_password,#login_email").val("");
 	     $("#bakend_user_errors").text(response.error_message).show().fadeOut(2000);
 		 }
 		}
@@ -296,12 +296,13 @@ $("#otp_success_close,#user_email_close,#user_email_process,#otp_success_process
     console.log(response);
     if(response.status == true){ 
      delete_user_cookies();
-     if(current_path == "/users/welcome"){
+     window.location = "/";
+     /*if(current_path == "/users/welcome"){
       window.location = "/";
      } 
      else{
      	window.location.reload();
-     }
+     }*/
     }
     }
   });

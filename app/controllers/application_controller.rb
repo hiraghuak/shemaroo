@@ -29,9 +29,9 @@ end
           $region = @region
         end
         allowed_regions = ["IN","US"]
-        # unless allowed_regions.include?($region)
-        #   render "statics/content_not_available", :layout => false
-        # end
+        unless allowed_regions.include?($region)
+          render "statics/content_not_available", :layout => false
+        end
     rescue
       @region = "IN"
       $region = @region

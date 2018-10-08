@@ -24,6 +24,13 @@
 					</div>
 					</div>
 				<%end%>
+				<%else%>
+				 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results">
+              <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
+              <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <%=params[:q]%></strong></p>
+              <p class="font-light">Please check the spelling or try another search term.</p>
+            </div>
+            </div>
 				<%end%>
 
 					<div class="spinner" style="display:none;">
@@ -38,7 +45,7 @@
             </div>
 			
 		
-	
+	    <%unless params[:q].present?%>
 		<div class="row" id="recent_search">
  	     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
@@ -48,6 +55,7 @@
 				</ul> 
 			</div> 
 		</div>
+		<%end%>
 	  
 </section>
 

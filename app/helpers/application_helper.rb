@@ -102,4 +102,9 @@ module ApplicationHelper
   end
   return image_name
 end
+
+def get_duration_time(time)
+ new_time = time.split(":")
+ t = new_time[0]+"h:"+new_time[1]+"m:"+new_time[2]+"s"
+end
 end
