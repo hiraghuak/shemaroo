@@ -502,8 +502,10 @@ div.scrollmenu a:last-child.active {
   position: absolute;
 }
 .fixed-top .navbar-nav li a, #right-sidebar-menu .navbar-nav li a {
-  font-family: 'condensed-light';
   color: rgba(0,0,0,0.65);
+  float: left;
+  font-family: 'condensed-light';
+  width: auto;  
 }
 #right-sidebar-menu .navbar-nav li.notifications a:after {
   color: red;
