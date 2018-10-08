@@ -92,7 +92,7 @@ $(document).ready(function(){
 	else if(terms_check == false){
 	  $("#terms_check").show();
 	}
-	   }
+ }
 
  $("#user_register").click(function(){
  	user_signup();
@@ -109,12 +109,12 @@ $("#user_name,#mobile_number,#user_email,#password,#confirm_password").focusin(f
  $("#signup_name_error,#signup_mobile_error,#signup_email_error,#signup_password,#signup_confirm_password,#terms_check").hide();
 });
 
-$("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("keypress keyup blur",function (event) {    
+/*$("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("keypress keyup blur",function (event) {    
    $(this).val($(this).val().replace(/[^\d].+/, ""));
     if ((event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
-});
+});*/
 
 function set_user_cookies(resp){
  $.cookie('user_id',resp.user_id, { expires: 14,path: '/'});

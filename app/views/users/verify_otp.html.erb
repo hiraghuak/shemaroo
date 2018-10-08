@@ -12,10 +12,10 @@ meta title: "User Otp Verify",
           <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded otp-verification-page">
             <span class="pull-left w-100 margin-bottom-20 font-light">Enter the 4 digit OTP sent to your mobile number via SMS</span>
             <div class="input-group margin-bottom-25">
-              <input type="text" id="first_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)">
-              <input type="text" id="second_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)">
-              <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)">
-              <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)">        
+              <input type="text" id="first_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="second_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>        
               <span class="pull-left w-100 text-center font-light" id="timer">00:60</span>
               <label class="error" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
             </div>
@@ -105,4 +105,16 @@ function checkSecond(sec) {
   if (sec < 0) {sec = "59"};
   return sec;
 }
+
+function validateNumber(event) {
+  var key = window.event ? event.keyCode : event.which;
+  if (event.keyCode == 8 || event.keyCode == 46 || event.keyCode == 37 || event.keyCode == 39) {
+      return true;
+  }
+  else if ( key < 48 || key > 57 ) {
+     return false;
+  }
+  else return true;
+};
+
 </script>

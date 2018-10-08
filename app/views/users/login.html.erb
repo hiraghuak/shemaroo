@@ -18,7 +18,7 @@ meta title: "User Login",
               <div class="input-group country">
                 <i class="fa fa-circle" aria-hidden="true"></i>
                 <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
-                <input type="text" id="login_mobile_number" name="mobile number" class="form-control" maxlength="10">
+                <input type="text" id="login_mobile_number" name="mobilenumber" class="form-control" maxlength="10" onkeypress='return validateNumber(event);'>
                 <span class="input-label">Mobile Number</span> 
                 <label class="error" id="login_mobile_error">Please enter the mobile number</label>
               </div>
@@ -72,4 +72,14 @@ $(document).ready(function(){
     $('.min-height-div').css('min-height',window_height+'px');
 
 });  
+function validateNumber(event) {
+  var key = window.event ? event.keyCode : event.which;
+  if (event.keyCode == 8 || event.keyCode == 46 || event.keyCode == 37 || event.keyCode == 39) {
+      return true;
+  }
+  else if ( key < 48 || key > 57 ) {
+     return false;
+  }
+  else return true;
+};
 </script>
