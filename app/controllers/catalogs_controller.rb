@@ -173,7 +173,12 @@ private
     url = sign_smarturl response['play_url']['saranyu']['url']
     play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_#{$region.downcase}_logo"}.compact.first
     play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first if play_url.nil?
-    return encrypt_play_url(play_url)
+    if play_url.nil?
+      new_play_url = ""
+    else
+      new_play_url = encrypt_play_url(play_url)
+    end
+    return new_play_url
   end
 
 

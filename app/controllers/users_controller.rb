@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     if $region != "IN" && response.has_key?("data")
     user_profiles = User.get_all_user_profiles(response["data"]["session_id"])
     all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
+    p all_profiles.inspect
     first_profile = all_profiles.flatten.first.split("$")
     render json: {status: true,user_id: "#{response["data"]["session_id"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
    else

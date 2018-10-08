@@ -15,10 +15,10 @@
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10">
 					<div class="row1">
 					<div class="search-image-wrap">
-						<img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>">
+						<a href="<%=get_item_url(s)%>"><img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>"></a>
 					</div>
 					<div class="search-category-wrap">
-						<p class="search-tile-title"><%=s['title']%></p>
+						<a href="<%=get_item_url(s)%>"><p class="search-tile-title"><%=s['title']%></p></a>
 						<p class="search-tile-category"><%=s['theme'].capitalize%> | <%=s['language'].capitalize%> | <%=s['genres'][0].capitalize%></p>
 					</div>
 					</div>
