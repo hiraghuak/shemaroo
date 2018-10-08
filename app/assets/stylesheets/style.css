@@ -1950,9 +1950,11 @@ label#verify_otp_error {
   content: "";
 }
 .all_error label.error {
+  background: #f2f2f2;
   margin-bottom: 12px;
   margin-top: -10px;
   position: static;
+  padding: 9px 0px 7px;  
 }
 .welcome_page_image {
   width: 180px;

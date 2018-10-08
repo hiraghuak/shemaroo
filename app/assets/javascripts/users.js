@@ -307,6 +307,7 @@ $("#otp_success_close,#user_email_close,#user_email_process,#otp_success_process
   });
  })
 
+
 $("input[type='text'], input[type='password']").keyup(function() {
     var inputlenth = $(this).val().length;
     var id_val = $(this).attr("id");
