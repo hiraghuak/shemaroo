@@ -24,7 +24,7 @@
 					</div>
 					</div>
 				<%end%>
-				<%else%>
+				<%elsif params[:q].present?%>
 				 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
               <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <%=params[:q]%></strong></p>
