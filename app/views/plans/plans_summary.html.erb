@@ -41,7 +41,7 @@
             </ul>
              <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
               <li class="pull-left margin-bottom-15">
-                <a href="javascript:;" class="text-uppercase" data-toggle="modal" data-target="promocode_pop">Have a Promocode ?</a>
+                <a href="javascript:;" class="text-uppercase" data-toggle="modal" data-target="promocode_pop" id="promocode_link">Have a Promocode ?</a>
               </li>
               <li class="pull-right margin-bottom-15">
                 <span id="promocode">2</span>
@@ -142,6 +142,10 @@
   $(".fa-chevron-down").click(function() {
     //$(this).parent("p").parent(".card-body").children(".plan_list_show").toggle();
     $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
+  })
+
+    $("#promocode_link").click(function() {
+    $('#promocode_pop').modal('show')
   })
 
 
