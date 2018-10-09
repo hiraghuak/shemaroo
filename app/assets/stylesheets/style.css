@@ -109,6 +109,9 @@ body {
   width: 120px;
   margin-bottom: 10px;
 }
+.header .main-logo img{
+  width: 100%;
+}
 /*.onboarding-bg.min-height-div {
   align-items: center;
   display: flex;
@@ -227,6 +230,10 @@ section.header-section {
 .head-right ul li.with_out_login_item img {
   cursor: pointer;
   width: 20px;
+}
+.head-right ul li.with_login_item img {
+  cursor: pointer;
+  width: 16px;
 }
 .head-right ul li.with_login_item {
   /*background: linear-gradient(to right, #f2681f, #f5791a, #f88915, #f99913, #faa915);*/
@@ -1973,7 +1980,7 @@ label.error {
   bottom: -45px;
   left: 0px;
 }
-label#verify_otp_error {  
+label#verify_otp_error,label#resend_otp_msg {  
   bottom: -27px;
   left: 11%;
 }

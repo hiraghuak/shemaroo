@@ -79,7 +79,8 @@ $(document).ready(function(){
 	    }
 	  }
 	  else{
-	   $("#search_all_results").html("");
+	  	 $(".search_errors").show().fadeOut(1000);
+	     $("#search_all_results").html("");
 		 $("#search").val("");
 		 $(".cancel_search,#search_heading").hide();
 	  }

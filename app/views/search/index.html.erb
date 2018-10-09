@@ -4,6 +4,7 @@
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-25">
 			<div class="search-box-wrap">
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:q]%>">
+				<span class="search_errors" style="display:none;">Please enter the text</span>
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:q].present? ? "" : "display:none"%>"></a>
 			</div> 
 			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:q].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
