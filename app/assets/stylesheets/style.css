@@ -1617,6 +1617,7 @@ span.premium-txt {
 .custom-control span.overflow-control-description {
   float: left;
   margin-top: 3px;
+  width: calc(100% - 30px);
 }
 .otp-verification-page span {
   font-size: 0.75em;
