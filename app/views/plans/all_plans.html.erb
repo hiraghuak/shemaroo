@@ -115,12 +115,12 @@
             <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary gradient1 radius-button">Add category pack</a> -->
             <div class="inline-block custom-gradient">
               <p class="inline radius-button">
-                <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold">Add category pack</a>
+                <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="add-category">Add category pack</a>
               </p>
             </div>
           </p>
           <p class="pull-left w-100 margin-top-15">
-            <a href="/plans/plans_summary" class="text-uppercase">no thanks</a>
+            <a href="/plans/plans_summary?plans="+parr class="text-uppercase">no thanks</a>
           </p>
         </div>
         
@@ -185,11 +185,10 @@ $(".choose_plan").click(function(){
       amount = amount+parseFloat(pid.split("|")[3])
       currency = pid.split("|")[4]
       category = category + pid.split("|")[1]
-            // category = category + "+" + pid.split("|")[1]
-     console.log($(this).attr("id"));
+    console.log($(this).attr("id"));
     }
 });
-
+   var all_categories = category
    $("#plans_count").text(parr.length);
    $("#currency").text(currency);
    $("#amount").text(amount.toFixed(2));
@@ -204,7 +203,8 @@ $(".choose_plan").click(function(){
 });
 
   $(".combo_offer").click(function(){
-    if(parr.length == 2 || category == "All Access Plans")
+    var cat = localStorage.getItem("plan-category")
+    if(parr.length == 2 || cat == "All Access Plans")
     {
     window.location.href = "/plans/plans_summary?plans="+parr
     }
@@ -214,8 +214,7 @@ $(".choose_plan").click(function(){
     }
   });
 
-    $("#combo_offer .radius-button gradient1").click(function(){
-    $("#combo_offer").modal("hide")
-
+    $("#add-category").click(function(){
+    $("#combo_offer").modal("hide");
   });
 </script>  

@@ -23,12 +23,13 @@ class PlansController < ApplicationController
      payment_gateway = "ccavenue"
     end
 	platform = "android"  #TODO	
-    plans = params["plans"].split(",")
+    plans = params["plans"].to_a.split(",")
     packs = []
     # @pack_ids = []
     all_price = ""
     all_price_charged = ""
     currency = ""
+    byebug
     plans.each do |plan|
      content_id  = plan.split("|").last
      pack_id  = plan.split("|").first
