@@ -35,6 +35,9 @@ meta title: "Shemaroo Entertainment Limited",
           <%list['catalog_list_items'].each do |item|%>
             <div class="item <%=get_image_height(@items[index]["layout_type"])%>">
               <a href="<%=get_item_url(item)%>">
+              <%if item["access_control"]["is_free"] == false%>
+                <span class="premium-txt text-uppercase">premium</span>
+              <%end%>
               <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
               </a>
             </div> 

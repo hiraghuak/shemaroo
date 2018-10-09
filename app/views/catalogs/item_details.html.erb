@@ -73,6 +73,9 @@
           <%@genere_items.each do |gi|%>
             <div class="item">
               <a href="<%=get_item_url(gi)%>">
+               <%if gi['access_control']['is_free'] == false%>
+                  <span class="text-uppercase premium-txt">Premium</span>
+                 <%end%>
                 <img src="<%=gi["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
               </a>
             </div> 

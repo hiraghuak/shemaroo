@@ -94,6 +94,9 @@
            <%@all_episodes[0..9].each do |e|%>
             <div class="item details_episode_horizontal_title">                  
               <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
+               <%if e['access_control']['is_free'] == false%>
+                 <span class="text-uppercase premium-txt">Premium</span>
+               <%end%>
                 <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
@@ -132,6 +135,9 @@
            <%if t["thumbnails"].has_key?("small_16_9")%>
               <div class="item horizontal_title details_shows_horizontal_title rounded">
                 <a href="<%=get_item_url(t)%>">
+                 <%if t['access_control']['is_free'] == false%>
+                  <span class="text-uppercase premium-txt">Premium</span>
+                 <%end%>
                   <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" class="rounded" alt="<%=t['title']%>" title="<%=t['title']%>">
                   <span class="list-tile-title"><%=t['title']%></span>
                 </a>
