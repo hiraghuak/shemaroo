@@ -119,7 +119,7 @@
       <div class="scrollmenu">
        <%@header_tabs.each_with_index do |i,j|%>
         <%if @layout_scheme.present?%>
-       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
+       <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a>
         <%else%>
         <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=" <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a>
         <%end%>
