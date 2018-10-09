@@ -146,17 +146,28 @@ class CatalogsController < ApplicationController
       @all_tvshows = []
     end
   end
-
+  
+  def all_episodes
+    next_page = "true"
+    if params[:page_no].present?
+     page_number = params[:page_no].to_i
+    else
+     page_number = 0
+    end
+    response = Ott.get_all_epsiodes_with_pagination(params[:catalog_name],params[:show_name],page_number)
+    no_of_pages = response["data"]["total_items_count"]/10.round
+    items =  response["data"]["items"].collect{|x|x["title"]+"$"+x["thumbnails"]["small_16_9"]["url"]+"$"+get_duration_time(x['duration_string']) +"$"+"/"+params[:catalog_name]+"/"+params[:show_name]+"/"+x["friendly_id"]}
+    if page_number+1 > no_of_pages
+     next_page = "false"
+    end
+    render :json => {:status => true,:episodes => items,:next_page => next_page,:pageno => page_number+1}
+  end
 
 
 
 
 
 private
-
-  def get_all_catalogs
-   response = Ott.get_all_catalogs
-  end
 
   def encrypt_play_url(url)
     new_url = ""

@@ -17,6 +17,7 @@
         <div class="player_desc_section w-100 margin-left-0 margin-top-0">
           <div class="video_feature1 pull-left">
             <h2 class="margin-bottom-15 margin-top-5"><%=@episode_details['title']%></h2>
+            <input type="hidden" value="1" id="page_no">
             <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
             <%if @episode_details.has_key?('item_caption')%>
               <%@episode_details['item_caption'].split("|").each do |s|%>
@@ -90,7 +91,7 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
           <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
-          <div class="row row-show-list detail_page">
+          <div class="row row-show-list detail_page" id="all_episodes">
            <%@all_episodes[0..9].each do |e|%>
             <div class="item details_episode_horizontal_title">                  
               <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
@@ -105,9 +106,9 @@
             </div>  
            <%end%>    
           </div>  
-          <%if @all_episodes.count > 100%> 
-            <div class="text-center margin-bottom-25 margin-top-20">
-            <a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
+          <%if @all_episodes.count > 10%> 
+            <div class="text-center margin-bottom-25 margin-top-20" id="load_more_link">
+            <a href="javascript:void(0);" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
             </div> 
           <%end%>       
         </div>                
@@ -192,5 +193,39 @@ $(document).ready(function(){
   var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+player_data+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         })
+
+$(document).ready(function(){
+  $("#load_more").click(function(){
+    $(this).text("Load more...");
+    var path = "";
+    var current_path = window.location.pathname.split("/")
+    if(current_path.length == 3){
+      path = window.location.pathname+"/all_episodes";
+    }
+    else{
+      path = "/"+current_path[1]+"/"+current_path[2]+"/all_episodes";
+    }
+    var pageno = $("#page_no").val();
+    $.ajax({
+    url: path,
+    type: "GET",
+    data: { 
+     page_no: pageno 
+    },
+    success: function(response){
+      $("#load_more").text("Load more")
+      var episodes = response.episodes;
+      $("#page_no").val(response.pageno);
+      for (var i=0; i< episodes.length; i++){
+        var item_det = episodes[i].split("$");
+        $("#all_episodes").append('<div class="item details_episode_horizontal_title"><a href="'+item_det[3]+'"><img src="'+item_det[1]+'" alt="'+item_det[0]+'" title="'+item_det[0]+'"><span class="list-tile-title">'+item_det[0]+'</span><span class="list-tile-duration">&nbsp;&nbsp;'+item_det[2]+'</span></a></div>')
+      }
+      if(response.next_page == "false"){
+       $("#load_more_link").hide();
+      }
+    }
+  });
+  })
+})
 </script> 
 
