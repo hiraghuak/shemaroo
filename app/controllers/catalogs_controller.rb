@@ -27,6 +27,7 @@ class CatalogsController < ApplicationController
     # @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
     # @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
    rescue Exception => e
+    redirect_to "/500"
       logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
      @items_list = []
@@ -173,7 +174,12 @@ private
     url = sign_smarturl response['play_url']['saranyu']['url']
     play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_#{$region.downcase}_logo"}.compact.first
     play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first if play_url.nil?
-    return encrypt_play_url(play_url)
+    if play_url.nil?
+      new_play_url = ""
+    else
+      new_play_url = encrypt_play_url(play_url)
+    end
+    return new_play_url
   end
 
 

@@ -63,7 +63,7 @@ $(document).ready(function(){
 	            $('#search_all_results').html(''); 
 	            for (var i = 0; i < search_results.length; i++) {
 	             var r = search_results[i].split("$");
-	              $('#search_all_results').append('<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10"><div class="row1"><div class="search-image-wrap"><span class="premium-txt text-uppercase" style="display:none;">premium</span><a href="'+r[5]+'"><img src="'+r[0]+'" class="img-fluid rounded tile-box-shadow" alt="'+r[1]+'" title="'+r[1]+'"></a></div><div class="search-category-wrap"><p class="search-tile-title">'+r[1]+'</p><p class="search-tile-category"> '+r[2]+' | '+r[3]+' | '+r[4]+'</p></div></div></div>');
+	              $('#search_all_results').append('<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10"><div class="row1"><div class="search-image-wrap"><span class="premium-txt text-uppercase" style="display:none;">premium</span><a href="'+r[5]+'"><img src="'+r[0]+'" class="img-fluid rounded tile-box-shadow" alt="'+r[1]+'" title="'+r[1]+'"></a></div><div class="search-category-wrap"><a href="'+r[5]+'"><p class="search-tile-title">'+r[1]+'</p></a><p class="search-tile-category"> '+r[2]+' | '+r[3]+' | '+r[4]+'</p></div></div></div>');
             	  $(".search_count").text(search_results.length)
             	   e.stopPropagation();
 	             }
@@ -116,6 +116,15 @@ $(document).ready(function(){
     });
 
 
+/*$(document).click(function() { 
+	//$('#right-sidebar-menu').hide(); \
+	value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
+    var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
+      $('#right-sidebar-menu').animate({
+          width: value,
+          opacity: "0"          
+      }, 'fast');
+});*/
 
 $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
@@ -145,11 +154,15 @@ $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );
       $('#right-sidebar-menu').animate({
           width: "250px"          
       }, 250);
-      
+    //event.stopPropagation();  
 });
+/*$('#right-sidebar-menu').click(function(event) {
+	event.stopPropagation();  
+}) */
+	
  
-  $("#right-sidebar-menu .close-hambergmenu").click(function() {
-    $('.user_menu').css("z-index", "1111");
+  $("#right-sidebar-menu .close-hambergmenu img").click(function() {
+  	var window_height = window.outerHeight;
     $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
     $("body").removeClass("noscroll");
     value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
@@ -157,6 +170,8 @@ $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );
       $('#right-sidebar-menu').animate({
           width: value          
       }, 'fast');
+
+      $('.user_menu').css("z-index", "1111");
   });   
 
 

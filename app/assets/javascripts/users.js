@@ -51,8 +51,8 @@ $(document).ready(function(){
 			 }
 			else{
 			 $("#user_register").text("Register")
-			 $("#user_name,#user_email,#password,#confirm_password").val("");
-			 $("#agree_terms").prop("checked", false);
+			 //$("#user_name,#user_email,#password,#confirm_password").val("");
+			 //$("#agree_terms").prop("checked", false);
              $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
 			 }
 			}
@@ -92,7 +92,7 @@ $(document).ready(function(){
 	else if(terms_check == false){
 	  $("#terms_check").show();
 	}
-	   }
+ }
 
  $("#user_register").click(function(){
  	user_signup();
@@ -109,12 +109,12 @@ $("#user_name,#mobile_number,#user_email,#password,#confirm_password").focusin(f
  $("#signup_name_error,#signup_mobile_error,#signup_email_error,#signup_password,#signup_confirm_password,#terms_check").hide();
 });
 
-$("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("keypress keyup blur",function (event) {    
+/*$("#mobile_number,#first_digit,#second_digit,#third_digit,#fourth_digit").on("keypress keyup blur",function (event) {    
    $(this).val($(this).val().replace(/[^\d].+/, ""));
     if ((event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
-});
+});*/
 
 function set_user_cookies(resp){
  $.cookie('user_id',resp.user_id, { expires: 14,path: '/'});
@@ -231,7 +231,7 @@ function user_sign_in(){
 		  window.location = "/"
 		 }
 		else{
-		 $("#login_mobile_number,#login_password,#login_email").val("");
+		 //$("#login_mobile_number,#login_password,#login_email").val("");
 	     $("#bakend_user_errors").text(response.error_message).show().fadeOut(2000);
 		 }
 		}
@@ -274,7 +274,7 @@ $("#login_mobile_number,#login_password,#login_email").focusin(function(){
 
 
 
-$("#otp_success_close,#user_email_close").click(function(){
+$("#otp_success_close,#user_email_close,#user_email_process,#otp_success_process").click(function(){
 	window.location = "/users/welcome"
 })
 
@@ -287,6 +287,7 @@ $("#otp_success_close,#user_email_close").click(function(){
  }
 
  $("#user_signout,#user_mobile_signout").click(function(){
+   var current_path = window.location.pathname;
   $.ajax({
     url: "/users/sign_out",
     type: "POST",
@@ -294,12 +295,19 @@ $("#otp_success_close,#user_email_close").click(function(){
     success: function(response,status){
     console.log(response);
     if(response.status == true){ 
-     delete_user_cookies(); 
-     window.location.reload();
+     delete_user_cookies();
+     window.location = "/";
+     /*if(current_path == "/users/welcome"){
+      window.location = "/";
+     } 
+     else{
+     	window.location.reload();
+     }*/
     }
     }
   });
  })
+
 
 $("input[type='text'], input[type='password']").keyup(function() {
     var inputlenth = $(this).val().length;
