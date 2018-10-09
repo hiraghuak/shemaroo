@@ -8,7 +8,7 @@
       <li class="text-uppercase gradient1">all</li>
       <li class="text-uppercase">includes all<br>the categories</li>
       <%all_pack["plans"].each do |aa|%>
-      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>"></i>
+      <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>"></i>
         <span><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
         <br>
         <label><%=aa["title"]%></label>
@@ -34,7 +34,7 @@
                 <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
               </li>
               <%all_pack["plans"].each do |aa|%>
-              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]%>">
+              <li class="text-center choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>">
                 <span class="text-uppercase block"><%=aa["title"]%></span>
                 <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
                 <span class="block"><%=aa["price"]%></span>
@@ -66,7 +66,7 @@
               </li>
               <%unless plan["plans"].blank?%>
               <%plan["plans"].each do |p|%>
-              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]%>">
+              <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>">
                 <span class="text-uppercase block"><%=p["title"]%></span>
                 <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                 <span class="block"><%=p["price"]%></span>
@@ -177,13 +177,15 @@ $(".choose_plan").click(function(){
   keysToRemove.forEach(k => localStorage.removeItem(k))
   parr = []
   var amount = 0
+  var category = ""
   $('li').each(function(i){
     if($(this).is('.packs_lists li.active')) {
       var pid = $(this).attr("id")
       parr.push(pid);
       amount = amount+parseFloat(pid.split("|")[3])
       currency = pid.split("|")[4]
-      category = pid.split("|")[1]
+      category = category + pid.split("|")[1]
+            // category = category + "+" + pid.split("|")[1]
      console.log($(this).attr("id"));
     }
 });
@@ -204,7 +206,7 @@ $(".choose_plan").click(function(){
   $(".combo_offer").click(function(){
     if(parr.length == 2 || category == "All Access Plans")
     {
-    window.location.href = "/plans/plans_summary"
+    window.location.href = "/plans/plans_summary?plans="+parr
     }
     else
     {

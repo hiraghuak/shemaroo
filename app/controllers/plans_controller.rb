@@ -9,9 +9,11 @@ class PlansController < ApplicationController
   response = Ott.subscription_plans
   @all_plans = response["data"]["catalog_list_items"] 
   @all_access_packs = @all_plans.last["catalog_list_items"].last
-
-   #  pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{params['pack_ids']}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-  # sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
+  if params["plans"].split(",").count == 2
+  items  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+  @combo_pack = items["data"]["items"].last  
+  render "combo_plans_summary"
+ end
 	end
 
 	def payment_url
@@ -186,5 +188,10 @@ class PlansController < ApplicationController
      response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
     render :layout => false
+    end
+
+    def apply_promocode
+      byebug
+      
     end
 end

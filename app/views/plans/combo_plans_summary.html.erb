@@ -20,10 +20,10 @@
             <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
               <li class="pull-left pack_details">
                 <!-- <span class="font-bold">Combo Pack</span><br> -->
-                <span class="font-light" id="plan-category"></span>
+                <span class="font-light" id="plan-category"><%=@combo_pack["display_title"]%></span>
               </li>
               <li class="pull-right font-semibold">
-                 <span class="pull-right" id="total_amount"></span>
+                 <span class="pull-right" id="total_amount"><%= @combo_pack["plans"][0]["discounted_price"]%></span>
              <span class="pull-right" id="currency"></span>
               </li>
             </ul>
@@ -178,11 +178,11 @@ $("#revert_plan").click(function() {
 
 <script>
   $(document).ready(function() {      
-   $("#currency").text(localStorage.getItem("currency"));
-   $("#all_currency").text(localStorage.getItem("currency"));
-   $("#total_amount").text(localStorage.getItem("amount"));
-   $("#all_amount").text(localStorage.getItem("amount"));
-   $("#plan-category").text(localStorage.getItem("plan-category"));
+   // $("#currency").text(localStorage.getItem("currency"));
+   // $("#all_currency").text(localStorage.getItem("currency"));
+   // $("#total_amount").text(localStorage.getItem("amount"));
+   // $("#all_amount").text(localStorage.getItem("amount"));
+   // $("#plan-category").text(localStorage.getItem("plan-category"));
 
   var total_amount = $("#total_amount").text();
   var tax = $("#tax").text();

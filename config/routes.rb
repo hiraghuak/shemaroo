@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   post '/payment/payment_response' => 'plans#payment_response'
   post '/payment/m_payment_response' => 'plans#mobile_payment_response'
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
+  get '/plans/apply_promocode' => 'plans#apply_promocode'
+
  ##PLANS PAGES ROUTES ENDS HERE####
 
 
