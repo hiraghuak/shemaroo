@@ -10,6 +10,22 @@
 <script src="../plugin/saranyuplayer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../plugin/cookies_plugin.js" type="text/javascript" charset="utf-8"></script>
 
+  
+  <!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.apisaranyu.in/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
 <style type="text/css">
 body {
 	background: black;
@@ -179,6 +195,7 @@ body {
         }
 		var video_url = contenturlobtained[1].split("|")[0];
 		var key = contenturlobtained[1].split("key=")[1].split("|")[0]
+    var video_name = contenturlobtained[1].split("title=")[1].split("|")[0] 
     var video_image_url = contenturlobtained[1].split("image=")[1].split("|")[0]
 
 		var decrypted = CryptoJS.AES.decrypt({
@@ -257,6 +274,11 @@ body {
 	function getTotalDuration(){  
 		return hlsPlayer._getTotalDuration();
 	}
+
+
+$(document).on('DOMNodeInserted', function (e) {
+    $('video').attr("data-matomo-title", video_name);
+  });
 
 var current_url = window.location.protocol + "//" + window.location.host;
 var url = "";

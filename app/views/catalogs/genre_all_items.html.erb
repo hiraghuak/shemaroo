@@ -11,7 +11,7 @@
     <h2 class="margin-bottom-20 margin-top-25 text-capitalize heading_title_color" style="<%=get_title_item_color(@layout_scheme)%>">More in  <%=params[:genre].capitalize%></h2>
     </div>
     </div>
-    <div class="row row-movie-list">
+    <div class="row row-<%=@theme == "video" ? "show" : "movie"%>-list">
      <%@all_genere_items.each do |i|%>
         <div class="item">                                                              
           <a href="<%=get_item_url(i)%>">
