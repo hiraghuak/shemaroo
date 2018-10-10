@@ -120,6 +120,7 @@
     width: 100%;
     /*background: url(image/loading.gif) no-repeat center center;*/
     background:  url(image/loading.svg) no-repeat center center;
+    background-size: 40px;
 }
 
 
@@ -550,7 +551,7 @@
  	border-radius: 25px;
     position: relative;
     /*display: none;*/
-    width: 40px;
+    width: 140px;
     background-color: #5D5B5C;
     box-sizing: border-box;
     height: 5px;
@@ -610,13 +611,13 @@
     margin-left: 0px;
     font-size: 0.8em;
     top: -17px;
-    left: 52px;
+    left: 152px;
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
 	left: 0px;
 }
 .sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
-	left: 52px;
+	left: 152px;
 }
 .sp-player-time .sp-plyr-currenttime{
 
