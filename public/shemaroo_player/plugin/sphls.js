@@ -95,6 +95,9 @@ SaranyuHlsHTML5Player.Utils = {
 	},
 	getWidthInPercentage: function (b) {
 		var a = b.parent();
+		console.log(a.width());
+		console.log(b.width());
+		console.log(((b.width() / a.width()) * 100).toFixed(0) + "%")
 		return ((b.width() / a.width()) * 100).toFixed(0) + "%"
 	},
 	getHeightInPercentage: function (b) {
@@ -487,6 +490,7 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("width", f * 100 + "%");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("right", (1 - f) * 100 + "%");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.css("right", "calc(" + (100 - (f * 100)) + "% - " + c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.width() / 2 + "px)");
+			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.css("left", "unset");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip()
 		};
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.handleVolumeMove = function (k) {
@@ -504,20 +508,20 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip();
 		e.addEventListener("volumechange", function () {
 			try {
-				SaranyuHlsHTML5Player.Utils.DLOG("volume change triggered");
+				SaranyuHlsHTML5Player.Utils.DLOG("volume change triggered12");
 				if (e.muted) {
-					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.addClass("sp-mute");
+					//c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.addClass("sp-mute");
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.removeClass("sp-unmute");
-					c.fullControls.bottomControlBar.bottomPlayerControls.addClass("mute_add");
-					c.fullControls.bottomControlBar.bottomPlayerControls.removeClass("mute_remove");
+					// c.fullControls.bottomControlBar.bottomPlayerControls.addClass("mute_add");
+					// c.fullControls.bottomControlBar.bottomPlayerControls.removeClass("mute_remove");
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.tooltip.html(SaranyuHlsHTML5Player.defaultOptions.titleStrings.unmuteText);
-					c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide();
+					// c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide();
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip()
 				} else {
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.addClass("sp-unmute");
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.removeClass("sp-mute");
-					c.fullControls.bottomControlBar.bottomPlayerControls.addClass("mute_remove");
-					c.fullControls.bottomControlBar.bottomPlayerControls.removeClass("mute_add");
+					// c.fullControls.bottomControlBar.bottomPlayerControls.addClass("mute_remove");
+					// c.fullControls.bottomControlBar.bottomPlayerControls.removeClass("mute_add");
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.tooltip.html(SaranyuHlsHTML5Player.defaultOptions.titleStrings.muteText);
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.show();
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip()
