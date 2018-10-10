@@ -564,11 +564,11 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 		}
 		$(c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn).hover(function () {
 			if (!e.muted) {
-				c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.show()
+				//c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.show()
 			}
 		}, function () {
 			if (!$(c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider).is(":hover")) {
-				c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide()
+				//c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide()
 			}
 		});
 		$(c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider).hover(function () {
@@ -577,7 +577,7 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 			}
 		}, function () {
 			if (!$(c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn).is(":hover")) {
-				c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide()
+				//c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.hide()
 			}
 		})
 	},

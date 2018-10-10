@@ -376,7 +376,9 @@
 	opacity: inherit;
 	cursor: pointer;
 }
-
+.sp-controls-bottom-plyr-controls .sp-button.sp-volume-btn-wrap {
+	padding-right: 0;
+}
 .sp-controls-middle .sp-button{
 	position: relative;
 	width: 140px;
@@ -547,14 +549,14 @@
 .sp-controls-bottom-plyr-controls .sp-volume-slider.sp-volume-slider-wrap{
  	border-radius: 25px;
     position: relative;
-    display: none;
+    /*display: none;*/
     width: 40px;
     background-color: #5D5B5C;
     box-sizing: border-box;
     height: 5px;
     top: -23px;
     cursor: pointer;
-    left: 21px;
+    left: 30px;
 }
 
 .sp-volume-slider .sp-volume-current{
@@ -608,13 +610,13 @@
     margin-left: 0px;
     font-size: 0.8em;
     top: -17px;
-    /*left: 45px;*/
+    left: 52px;
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
 	left: 0px;
 }
 .sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
-	left: 45px;
+	left: 52px;
 }
 .sp-player-time .sp-plyr-currenttime{
 
