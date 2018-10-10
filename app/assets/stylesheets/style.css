@@ -509,7 +509,7 @@ div.scrollmenu a:last-child.active {
   border-bottom: 0px;
 }
 #right-sidebar-menu .navbar-nav li:last-child {
-  bottom: 75px;
+  /*bottom: 75px;*/
   position: absolute;
 }
 .fixed-top .navbar-nav li a, #right-sidebar-menu .navbar-nav li a {
@@ -1371,6 +1371,9 @@ span.premium-txt {
 .black-button {
   color: #000000;
 }
+#load_more:hover {
+  color: inherit;
+}
 /* Movie/Show Detail page design ends */
 
 
@@ -1617,6 +1620,7 @@ span.premium-txt {
 .custom-control span.overflow-control-description {
   float: left;
   margin-top: 3px;
+  width: calc(100% - 30px);
 }
 .otp-verification-page span {
   font-size: 0.75em;

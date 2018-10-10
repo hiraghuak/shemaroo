@@ -38,7 +38,12 @@ class Ott
   def self.get_all_epsiodes(catalog_slug,show_slug)
     HTTP.get "catalogs/#{catalog_slug}/items/#{show_slug}/episodes?region=#{$region}","catalog"
   end
+ 
+  def self.get_all_epsiodes_with_pagination(catalog_slug,show_slug,page_no)
+    HTTP.get "catalogs/#{catalog_slug}/items/#{show_slug}/episodes?page=#{page_no}&page_size=10&region=#{$region}","catalog"
+  end
 
+  
   def self.get_episode_details(catalog_slug,show_slug,episode_slug)
     HTTP.get "catalogs/shows/#{show_slug}/episodes/#{episode_slug}?region=#{$region}","catalog"
   end
