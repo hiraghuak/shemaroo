@@ -509,7 +509,7 @@ div.scrollmenu a:last-child.active {
   border-bottom: 0px;
 }
 #right-sidebar-menu .navbar-nav li:last-child {
-  bottom: 75px;
+  /*bottom: 75px;*/
   position: absolute;
 }
 .fixed-top .navbar-nav li a, #right-sidebar-menu .navbar-nav li a {
