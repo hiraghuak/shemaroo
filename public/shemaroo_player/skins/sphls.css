@@ -549,7 +549,7 @@
     position: relative;
     display: none;
     width: 40px;
-    background-color: #918e8e;
+    background-color: #5D5B5C;
     box-sizing: border-box;
     height: 5px;
     top: -23px;
@@ -560,7 +560,7 @@
 .sp-volume-slider .sp-volume-current{
 	border-radius: 25px;
 	position : absolute;
-	background-color: red;
+	background-color: #AEAEB0;
 	height: inherit;
 	width: 100%;
 }
@@ -569,10 +569,10 @@
 	position : absolute;
 	background-color: white;
 	border-radius:100%;
-	top: -4px;
+	top: -2px;
 	left: calc(100% - 9px);
-	height: 12px;
-	width: 12px;	
+	height: 8px;
+	width: 8px;	
 }
 
 .sp-volume-slider .sp-volume-handle .tooltiptext {
@@ -608,8 +608,12 @@
     margin-left: 0px;
     font-size: 0.8em;
     top: -17px;
+    /*left: 45px;*/
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
+	left: 0px;
+}
+.sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
 	left: 45px;
 }
 .sp-player-time .sp-plyr-currenttime{

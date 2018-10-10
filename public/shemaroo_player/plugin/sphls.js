@@ -484,9 +484,9 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.tooltip.html(SaranyuHlsHTML5Player.Utils.getWidthInPercentage(c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent))
 		};
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.positionVolumeHandle = function (f) {
-			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("height", f * 100 + "%");
-			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("top", (1 - f) * 100 + "%");
-			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.css("top", "calc(" + (100 - (f * 100)) + "% - " + c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.height() / 2 + "px)");
+			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("width", f * 100 + "%");
+			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("right", (1 - f) * 100 + "%");
+			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.css("right", "calc(" + (100 - (f * 100)) + "% - " + c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.width() / 2 + "px)");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip()
 		};
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.handleVolumeMove = function (k) {
