@@ -10,19 +10,11 @@ class PlansController < ApplicationController
   @all_plans = response["data"]["catalog_list_items"] 
   @all_access_packs = @all_plans.last["catalog_list_items"].last
   if params["plans"].split(",").count == 2
-  # items  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-  # @combo_pack = items["data"]["items"].last 
 
      plan_title = params["plans"].split(",").map{|a| a.split("|")[2] }.last
-p "&&&&&&&&&&&&"
-p plan_title
     items  =   Ott.get_catalog_details("5b3c917fc1df417b9a00002c")
       @combo_plan = items["data"]["items"].last
-      p "************"
-      p @combo_plan
       @combo_pack = items["data"]["items"].last["plans"].map{|e| e if e["title"].downcase == plan_title.downcase}.compact.last
-      p "$$$$$$$$$$$$$$$$"
-      p @combo_pack
   render "combo_plans_summary"
  end
 	end
@@ -41,7 +33,6 @@ p plan_title
    end
     if plans.count != 2 &&  !plans.empty?
     packs = []
-    # @pack_ids = []
     all_price = ""
     all_price_charged = ""
     currency = ""
@@ -63,10 +54,8 @@ p plan_title
        sub_pack["subscription_catalog_id"] = pd["data"]["catalog_id"]
        sub_pack["plan_id"] = sp["id"]
        packs << sub_pack
-       # @pack_ids << content_id
     end  
     else
-      # plan_title = plans.map{|a| a.split("|")[2] }.last
       pack_id =params["combo_pack_id"]
       items  =   Ott.get_catalog_details("5b3c917fc1df417b9a00002c")
       @combo_plan = items["data"]["items"].last
@@ -134,9 +123,6 @@ p plan_title
     plan_id = params["combo_plan_id"]
     pack_id = params["combo_pack_id"]
   end
-    # plans.each do 
-
-    # end    
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
      if @region == "IN"
