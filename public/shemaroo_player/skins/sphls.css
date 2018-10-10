@@ -698,7 +698,29 @@
 	float: right;
 }
 
-
+.sp-controls-bottom-plyr-controls .sp-subtitles-switch .sp-subtitles-switch-btn {
+	background: url(image/cc.svg) no-repeat;
+    background-size: 75%;
+    top: 7px;
+}
+.sp-controls-bottom-plyr-controls .sp-share {
+	float: right;
+	padding-right: 0;
+}
+.sp-controls-bottom-plyr-controls .sp-share .sp-share-btn  {
+	background: url(image/fs_share.svg) no-repeat;
+    background-size: 66%;
+    top: 7px;	
+}
+.sp-controls-bottom-plyr-controls .sp-watchlater .sp-watchlater-btn  {
+	background: url(image/fs_watch_list.svg) no-repeat;
+    background-size: 75%;
+    top: 7px;	
+}
+.sp-controls-bottom-plyr-controls .sp-watchlater {
+	float: right;
+	padding-right: 0;
+}
 .sp-controls-bottom-plyr-controls .sp-close-button .sp-close-btn{
     background: url(image/close1.png) no-repeat;
 	background-size: 20px;
@@ -829,7 +851,7 @@ background : url("image/controls.png") -215px -244px;
 	position : relative;
 	display : inline-block;
 	height: 20px;
-	width: 60px;
+	width: 25px;
 	text-align: center;
 	float: right;
 	color: white;
@@ -845,7 +867,7 @@ background : url("image/controls.png") -215px -244px;
 	font-size: 0.7em;
 	cursor: pointer;
 }
-.sp-subtitles-switch .sp-subtitles-switch-btn:hover{
+/*.sp-subtitles-switch .sp-subtitles-switch-btn:hover{
 	height: inherit;
 	width: inherit;
 	background: inherit;
@@ -853,7 +875,7 @@ background : url("image/controls.png") -215px -244px;
 	outline: none;
 	color: #39f;
 	padding: 0 !important;
-}
+}*/
 .sp-subtitles-switch-wrap .sp-subtitles-switch-popup-wrap{
     position: absolute;
     bottom: 200%;

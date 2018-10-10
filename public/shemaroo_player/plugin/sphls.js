@@ -508,7 +508,7 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.writeToVolumeHandleTooltip();
 		e.addEventListener("volumechange", function () {
 			try {
-				SaranyuHlsHTML5Player.Utils.DLOG("volume change triggered12");
+				SaranyuHlsHTML5Player.Utils.DLOG("volume change triggered");
 				if (e.muted) {
 					//c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.addClass("sp-mute");
 					c.fullControls.bottomControlBar.bottomPlayerControls.volumebtn.removeClass("sp-unmute");
@@ -1010,6 +1010,22 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 			a.fullControls.bottomControlBar.bottomPlayerControls.saranyuPlayerTime.duration.html(SaranyuHlsHTML5Player.Utils.secondsToTimeCode(b.duration))
 		}.bind(a))
 	},
+	_buildshare: function () {
+		SaranyuHlsHTML5Player.Utils.DLOG("Attaching share");
+		var a = this;
+		var b = a.mediaElement.videoElement;
+		var c = '<div class="sp-button sp-share sp-share-wrap"><span class="tooltiptext">Share</span><button class="sp-share-btn"></button>';
+		a.fullControls.bottomControlBar.bottomPlayerControls.append(c);
+		
+	},
+	_buildwatchlater: function () {
+		SaranyuHlsHTML5Player.Utils.DLOG("Attaching watchlater");
+		var a = this;
+		var b = a.mediaElement.videoElement;
+		var c = '<div class="sp-button sp-watchlater sp-watchlater-wrap"><span class="tooltiptext">Watchlater</span><button class="sp-watchlater-btn"></button>';
+		a.fullControls.bottomControlBar.bottomPlayerControls.append(c);
+		
+	},
 	_buildnxplayback: function () {
 		SaranyuHlsHTML5Player.Utils.DLOG("Attaching nxplayback");
 		var d = this;
@@ -1217,8 +1233,8 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 		var c = this;
 		var e = c.mediaElement.videoElement;
 		var b = c.options;
-		var a = "Subtitles";
-		var f = '<div class="sp-subtitles-switch sp-subtitles-switch-wrap"><button class="sp-subtitles-switch-btn"></button><div class="sp-subtitles-switch-wrap sp-subtitles-switch-popup-wrap"></div></div>';
+		var a = "";
+		var f = '<div class="sp-button sp-subtitles-switch sp-subtitles-switch-wrap"><span class="tooltiptext">Subtitles</span><button class="sp-subtitles-switch-btn"></button><div class="sp-subtitles-switch-wrap sp-subtitles-switch-popup-wrap"></div></div>';
 		c.fullControls.bottomControlBar.bottomPlayerControls.append(f);
 		c.fullControls.bottomControlBar.bottomPlayerControls.subtitles = c.fullControls.bottomControlBar.bottomPlayerControls.find(".sp-subtitles-switch-wrap");
 		c.fullControls.bottomControlBar.bottomPlayerControls.subtitles.button = c.fullControls.bottomControlBar.bottomPlayerControls.subtitles.find(".sp-subtitles-switch-btn");
