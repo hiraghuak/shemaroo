@@ -20,10 +20,10 @@
             <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
               <li class="pull-left pack_details">
                 <!-- <span class="font-bold">Combo Pack</span><br> -->
-                <span class="font-light" id="plan-category"><%=@combo_pack["display_title"]%></span>
+                <span class="font-light" id="plan-category"><%=@combo_plan["display_title"]%></span>
               </li>
               <li class="pull-right font-semibold">
-                 <span class="pull-right" id="total_amount"><%= @combo_pack["plans"][0]["discounted_price"]%></span>
+                 <span class="pull-right" id="total_amount"><%= @combo_pack["discounted_price"]%></span>
              <span class="pull-right" id="currency"></span>
               </li>
             </ul>
@@ -51,9 +51,8 @@
                 <span class="pull-right" id="all_currency"></span>
             </ul>
           </div>
-
           <p class="pull-left w-100 margin-top-15">
-            <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">Proceed</a>
+            <a href="javascript:;" class="text-uppercase"  onclick='summary_plans("<%=@combo_pack['id']%>","<%=@combo_plan['id']%>")'>Proceed</a>
           </p>
 
 
@@ -198,7 +197,7 @@ $("#plans").val(localStorage.getItem("plan"));
 
 
 <script type="text/javascript">
-     function summary_plans(){
+     function summary_plans(pack_id,plan_id){
 if($('input[type=radio]:checked').length == 1){  
 //var plan = $(this).attr("plan")
 var plan = $('input[type=radio]:checked').attr("plan");
@@ -206,11 +205,15 @@ console.log(plan);
 var data = 'plans='+plan
 }
 else{
+localStorage.setItem("combo_pack_id",pack_id);
+localStorage.setItem("combo_plan_id",plan_id);
+var pack_id = localStorage.getItem("combo_pack_id")
 var plans = localStorage.getItem("plan")
 var currency = localStorage.getItem("currency")
 var amount = localStorage.getItem("amount")
+console.log(pack_id);
 // if(myCookies.session_id){                 
-var data = 'plans='+plans
+var data = 'combo_pack_id='+pack_id+'&plans='+plans
 }
               $.ajax({
                 url: "/plans/payment_url",

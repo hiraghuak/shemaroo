@@ -218,6 +218,8 @@ var data = 'plans='+plans
                 data: data,
                 success: function(data){
                   if(data.message == "adyen payment iniated"){
+                    console.log("adyen data Combo");
+                    console.log(data);
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);

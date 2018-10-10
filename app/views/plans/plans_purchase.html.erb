@@ -27,6 +27,8 @@
                             <form id="adyen-encrypted-form" action="/plans/purchase_plans" method="get">
                              
                         <input type="hidden" id="plans" name="plans" value="">
+                        <input type="hidden" id="combo_plan_id" name="combo_plan_id" value="">
+                        <input type="hidden" id="combo_pack_id" name="combo_pack_id" value="">
                         <input type="hidden" id="price_charged" name="price_charged" value="">
                         <input type="hidden" id="order_id" name="order_id" value="">
 
@@ -98,6 +100,8 @@
    $("#total_amount").text(localStorage.getItem("tl_amount"));
 
 $("#plans").val(localStorage.getItem("plan"));
+$("#combo_plan_id").val(localStorage.getItem("combo_plan_id"));
+$("#combo_pack_id").val(localStorage.getItem("combo_pack_id"));
 $("#price_charged").val(localStorage.getItem("tl_amount"));
 $("#order_id").val(localStorage.getItem("order_id"));
 $("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
