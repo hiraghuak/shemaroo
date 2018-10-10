@@ -108,10 +108,10 @@ body {
     var user_status = "false"
 		var to_mute = "false";
 		var auto_playz = "true";
-		var featureszz = ['playpause','rewind','forward','time','progressbar','fullscreen','volume','videotitle','qualityswitch','bigicons','hotkeys','eventcallbacks','advertisement'];
+		var featureszz = ['rewind','playpause','forward','progressbar','volume','time','fullscreen','qualityswitch','videotitle','bigicons','hotkeys','eventcallbacks','advertisement'];
 
          if(isiPad){
-            featureszz = ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];       
+            featureszz = ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];       
          }
 
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -120,7 +120,7 @@ body {
             if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || iOS){
                //to_mute = "true";
                auto_playz = "false"
-               featureszz =  ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];
+               featureszz =  ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];
              }
         }
 
@@ -242,7 +242,8 @@ body {
 	}
 	
 	function playPlayer(){
-		hlsPlayer._videoPlayerControls("play");	
+        alert("12");
+		/*hlsPlayer._videoPlayerControls("play");	*/
 	}
 	
 	function seekPlayer(val){
@@ -259,49 +260,16 @@ body {
 
 var current_url = window.location.protocol + "//" + window.location.host;
 var url = "";
- if (current_url == "https://epicon.epicchannel.com"){
-    url = "https://epicon.epicchannel.com";
-  }
-	else if (current_url == "http://localhost:3000"){
+ 
+	if (current_url == "http://localhost:3000"){
 		url = "http://localhost:3000";
 	}
-	else if (current_url == "http://23.22.199.3"){
-		url = "http://23.22.199.3";
-	}
-	else if (current_url == "http://23.22.199.3:3000"){
-		url = "http://23.22.199.3:3000";
-	}
-	else if (current_url == "http://localhost:3006"){
-		url = "http://localhost:3006";
-	}
-	else if (current_url == "http://23.22.199.3:4000"){
-		url = "http://23.22.199.3:4000";
-	}
-	else if (current_url == "http://preprod.epicon.in"){
-		url = "http://preprod.epicon.in";
-	}
-	else if (current_url == "http://origin.preprod.epicon.in/"){
-		url = "http://origin.preprod.epicon.in";
-	}
-	 else if (current_url == "http://prod.epicon.in"){
-    url = "http://prod.epicon.in";
-  }
-  else if (current_url == "http://origin.prod.epicon.in"){
-    url = "http://origin.prod.epicon.in";
-  }
-  else if (current_url == "https://prod.epicon.in"){
-    url = "https://prod.epicon.in";
-  }
-  else if (current_url == "https://preprod.epicon.in"){
-    url = "https://preprod.epicon.in";
-  }
-
+	
 	
 function createEventCallBacks(){
 
 	hlsPlayer.eventcallbacks.onPlay = function(presentTime,duration,mediaId){
-       // alert("player is started");
-		player_status = true;
+        player_status = true;
 		top.postMessage({ga_event: 'playstart'}, url);
 	};
 
