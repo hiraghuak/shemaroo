@@ -149,7 +149,7 @@ var navigation = [
   
 $(".shemaroo_player").empty();
 $(document).ready(function(){
-  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>"
+  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>|title=<%=@item_details["title"]%>";
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item img-fluid' id='iframe' allowfullscreen> </iframe>")
         })
 </script> 

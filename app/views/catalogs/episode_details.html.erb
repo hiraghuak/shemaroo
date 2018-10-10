@@ -190,7 +190,7 @@ $(document).ready(function(){
   
 $("#shemaroo_player").empty();
 $(document).ready(function(){
-  var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>"
+  var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>|title=<%=@episode_details["title"]%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+player_data+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         })
 
