@@ -1371,6 +1371,9 @@ span.premium-txt {
 .black-button {
   color: #000000;
 }
+#load_more:hover {
+  color: inherit;
+}
 /* Movie/Show Detail page design ends */
 
 
