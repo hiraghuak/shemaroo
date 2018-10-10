@@ -83,6 +83,7 @@ class CatalogsController < ApplicationController
        }
        @layout_scheme = item_response["data"]["catalog_object"]["layout_scheme"]
        @genere_items = more_item_response["data"]["items"]
+       @layout_type = item_response["data"]["catalog_object"]["layout_type"]
       end
     rescue Exception => e
       redirect_to "/500"
@@ -109,6 +110,7 @@ class CatalogsController < ApplicationController
         }
       @other_items = catalog_response["data"]["items"]
       @catalog_name = catalog_response["data"]["name"]
+      @layout_type = catalog_response["data"]["catalog_object"]["layout_type"]
     rescue Exception => e
       redirect_to "/500"
       logger.info e.message

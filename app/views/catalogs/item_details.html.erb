@@ -98,7 +98,13 @@
                <%if gi['access_control']['is_free'] == false%>
                   <span class="text-uppercase premium-txt">Premium</span>
                  <%end%>
-                <img src="<%=gi["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
+                 <%if @layout_type == "song"
+                  img_url = gi["thumbnails"]["medium_16_9"]["url"]
+                else
+                  img_url = gi["thumbnails"]["medium_2_3"]["url"]
+                end
+                  %>
+                <img src="<%=img_url%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
               </a>
             </div> 
           <%end%>            
@@ -115,6 +121,23 @@ var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
     ];
+    var layout_type = "<%=@layout_type%>"
+    if(layout_type == "song"){
+      var items_0 = 2;
+      var stage_padding = 50;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 4;
+      var items_1200 = 5
+    }
+    else{
+      var items_0 = 2;
+      var stage_padding = 40;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 5;
+      var items_1200 = 7;
+    }
     $('#more-comedy-carousel').owlCarousel({
     navText: navigation,
     loop:false,
@@ -124,20 +147,20 @@ var navigation = [
     stagePadding: 50,
     responsive:{
       0:{
-          items:2,
-          stagePadding: 40
+          items:items_0,
+          stagePadding: stage_padding
       },
       576:{
-          items:3
+          items: items_576
       },
       768:{
-          items:4
+          items: items_768
       },
       992:{
-          items:5
+          items: items_992
       },
       1200:{
-          items:7
+          items: items_1200
       }
     }
   });
