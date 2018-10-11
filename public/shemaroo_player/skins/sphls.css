@@ -660,6 +660,13 @@
 	background-size: 70%!important;
     top: 5px;
 }
+.sp-is-fullscreen  .sp-player-layers .sp-player-poster {
+	    height: auto;
+    padding-top: 60.75%;
+}
+.sp-is-fullscreen .sp-full-controls .sp-controls-middle {
+	top: 46%!important;
+}
 /*The tooltip was going out of player window under fullscreen mode*/
 .sp-fullscreen-unfullscreen .tooltiptext{
 	left : -50%;

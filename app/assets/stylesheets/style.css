@@ -2522,6 +2522,9 @@ button:focus {
   .full-width-content.plans_list_section {
     padding: 0px 7px;
   }
+  .embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+  }
   .owl-carousel .owl-item .item.vertical {
     min-height: calc((100vw - 0px)/ 3 * 1.197);
   }

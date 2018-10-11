@@ -1239,9 +1239,18 @@ background : url("image/controls.png") -215px -244px;
 		padding: 0;
 		width: 100%;
 	}
+	.sp-player-inner .sp-full-controls .sp-controls-bottom {
+		height: 25px;
+	}
 	.sp-player-inner .sp-full-controls .sp-controls-bottom .sp-controls-bottom-plyr-controls {
+		height: 25px;
 		width: 100%;
 	}
+	/*.sp-player-inner .sp-player-layers .sp-player-poster {
+		height: auto;
+		padding-top: 57.5%;
+	}*/
+
 }  
 @media(max-width: 640px) {
 	.sp-player-inner .sp-player-layers .sp-player-bigplay {
