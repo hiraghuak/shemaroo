@@ -79,7 +79,8 @@ $(document).ready(function(){
 	    }
 	  }
 	  else{
-	   $("#search_all_results").html("");
+	  	 $(".search_errors").show().fadeOut(1000);
+	     $("#search_all_results").html("");
 		 $("#search").val("");
 		 $(".cancel_search,#search_heading").hide();
 	  }
@@ -195,7 +196,14 @@ $(".navbar-toggler-icon").click(function(){
     $(".mobile_with_out_login_item").hide();
    }
 })
-
+/*$(document).click(function(e) {
+	$('.share_feature').hide();	
+});*/
+/*$('.share_social_icons').click(function(e) {
+	$('.share_feature').toggle();
+	//e.stopPropagation;
+});
+*/
 });
 
 

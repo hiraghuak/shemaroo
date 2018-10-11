@@ -35,6 +35,9 @@ meta title: "#{@meta_title}",
                 <%list['catalog_list_items'].each do |item|%>
                   <div class="item <%=get_image_height(@items_list[index]["layout_type"])%> <%=(@items_list[index]["layout_type"].split("_").last.downcase == "meta") ? "rounded" : ""%>">
                     <a href="<%=get_item_url(item)%>">
+                    <%if item["access_control"]["is_free"] == false%>
+                      <span class="premium-txt text-uppercase">premium</span>
+                    <%end%>
                     <img src="<%=get_image_url(item,@items_list[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
                     <%if @items_list[index]["layout_type"].split("_").last.downcase == "meta"
                     %>

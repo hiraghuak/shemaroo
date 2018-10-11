@@ -17,6 +17,7 @@
         <div class="player_desc_section w-100 margin-left-0 margin-top-0">
           <div class="video_feature1 pull-left">
             <h2 class="margin-bottom-15 margin-top-5"><%=@episode_details['title']%></h2>
+            <input type="hidden" value="1" id="page_no">
             <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
             <%if @episode_details.has_key?('item_caption')%>
               <%@episode_details['item_caption'].split("|").each do |s|%>
@@ -26,49 +27,49 @@
             </ul>
           </div>
           <div class="video_feature2  pull-right">  
-            <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+            <ul class="play_feature2 list-none padding-left-0 margin-bottom-15">
               <li class="text-uppercase text-center">
-                <a href="javascript:;">
+                <a href="javascript:;" class="coming_soon">
                   <img src="/assets/preview.svg" class="text-center" alt="" title="">
                   <span>Preview</span>
                 </a>
               </li>
               <li class="text-uppercase text-center">
-                <a href="javascript:;">
+                <a href="javascript:;" class="coming_soon">
                   <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
                   <span>Watch Later</span>
                 </a>
               </li>
-              <li class="text-uppercase text-center">
-                <a href="javascript:;">
+              <li class="text-uppercase text-center share_social_icons">
+                <a href="javascript:;" class="coming_soon">
                   <img src="/assets/share.svg" class="text-center" alt="" title="">
                   <span>Share</span>
                 </a>
+                <ul class="share_feature list-none padding-left-20 padding-right-20 padding-bottom-10 padding-top-10">
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/google_share.svg" class="text-center google" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/facebook_share.svg" class="text-center facebook" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/twitter_share.svg" class="text-center twitter" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li class="margin-right-0">
+                    <a href="javascript:;">
+                      <img src="/assets/copy_link.svg" class="text-center copy_link" alt="" title="">                  
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
-            <ul class="share_feature list-none padding-left-20 padding-bottom-10 padding-top-10">
-              <!-- <li class="arrow_left"></li> -->
-              <li class="margin-right-20">
-                <a href="javascript:;">
-                  <img src="/assets/google_share.svg" class="text-center google" alt="" title="">                  
-                </a>
-              </li>
-              <li class="margin-right-20">
-                <a href="javascript:;">
-                  <img src="/assets/facebook_share.svg" class="text-center facebook" alt="" title="">                  
-                </a>
-              </li class="margin-right-20">
-              <li class="margin-right-20">
-                <a href="javascript:;">
-                  <img src="/assets/twitter_share.svg" class="text-center twitter" alt="" title="">                  
-                </a>
-              </li>
-              <li class="margin-right-20">
-                <a href="javascript:;">
-                  <img src="/assets/copy_link.svg" class="text-center copy_link" alt="" title="">                  
-                </a>
-              </li>
-            </ul>
+            
           </div>  
           <p class="margin-bottom-20"><%=@episode_details['description']%></p>
           <%if @episode_details.has_key?("item_additional_data")%>
@@ -89,11 +90,14 @@
     <%if @all_episodes.count > 0 %>
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-20">
-          <h2 class="margin-bottom-15 text-capitalize w-100">All Episodes</h2>
-          <div class="row row-show-list detail_page">
+          <h2 class="margin-bottom-15 text-capitalize w-100">All  <%= (@layout_type.present? && @layout_type.downcase) == "album" ? "songs" : "episodes"%></h2>
+          <div class="row row-show-list detail_page" id="all_episodes">
            <%@all_episodes[0..9].each do |e|%>
             <div class="item details_episode_horizontal_title">                  
               <a href="/<%=params[:catalog_name]%>/<%=params[:show_name]%>/<%=e['friendly_id']%>">
+               <%if e['access_control']['is_free'] == false%>
+                 <span class="text-uppercase premium-txt">Premium</span>
+               <%end%>
                 <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
@@ -102,9 +106,9 @@
             </div>  
            <%end%>    
           </div>  
-          <%if @all_episodes.count > 100%> 
-            <div class="text-center margin-bottom-25 margin-top-20">
-            <a href="javascript:;" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
+          <%if @all_episodes.count > 10%> 
+            <div class="text-center margin-bottom-25 margin-top-20" id="load_more_link">
+            <a href="javascript:void(0);" class="inline-block radius-button black-button text-uppercase" id="load_more">Load more</a>
             </div> 
           <%end%>       
         </div>                
@@ -132,6 +136,9 @@
            <%if t["thumbnails"].has_key?("small_16_9")%>
               <div class="item horizontal_title details_shows_horizontal_title rounded">
                 <a href="<%=get_item_url(t)%>">
+                 <%if t['access_control']['is_free'] == false%>
+                  <span class="text-uppercase premium-txt">Premium</span>
+                 <%end%>
                   <img src="<%=t["thumbnails"]["small_16_9"]["url"]%>" class="rounded" alt="<%=t['title']%>" title="<%=t['title']%>">
                   <span class="list-tile-title"><%=t['title']%></span>
                 </a>
@@ -183,8 +190,42 @@ $(document).ready(function(){
   
 $("#shemaroo_player").empty();
 $(document).ready(function(){
-  var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>"
+  var player_data = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@episode_details['thumbnails']['large_16_9']['url']%>|title=<%=@episode_details["title"]%>"
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+player_data+"' class='embed-responsive-item' style='border:0px;'id='iframe' allowfullscreen> </iframe>")
         })
+
+$(document).ready(function(){
+  $("#load_more").click(function(){
+    $(this).text("Load more...");
+    var path = "";
+    var current_path = window.location.pathname.split("/")
+    if(current_path.length == 3){
+      path = window.location.pathname+"/all_episodes";
+    }
+    else{
+      path = "/"+current_path[1]+"/"+current_path[2]+"/all_episodes";
+    }
+    var pageno = $("#page_no").val();
+    $.ajax({
+    url: path,
+    type: "GET",
+    data: { 
+     page_no: pageno 
+    },
+    success: function(response){
+      $("#load_more").text("Load more")
+      var episodes = response.episodes;
+      $("#page_no").val(response.pageno);
+      for (var i=0; i< episodes.length; i++){
+        var item_det = episodes[i].split("$");
+        $("#all_episodes").append('<div class="item details_episode_horizontal_title"><a href="'+item_det[3]+'"><img src="'+item_det[1]+'" alt="'+item_det[0]+'" title="'+item_det[0]+'"><span class="list-tile-title">'+item_det[0]+'</span><span class="list-tile-duration">&nbsp;&nbsp;'+item_det[2]+'</span></a></div>')
+      }
+      if(response.next_page == "false"){
+       $("#load_more_link").hide();
+      }
+    }
+  });
+  })
+})
 </script> 
 

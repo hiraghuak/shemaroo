@@ -6,7 +6,11 @@ meta title: "#{@title}",
 <section class="full-width-content inside-container top-bg-gradient padding-top-80 padding-top-145 light min-height-div padding-bottom-20">
   <div class="row h-100">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
-      <h2 class="margin-top-25 margin-bottom-20 text-capitalize w-100 gradient2"><%=@title%></h2>
+    <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize heading_title_color" style="<%=get_title_item_color(@layout_scheme)%>"><%=@title%></h2>
+      </div>
+      </div>
     <%if @all_tvshows.count > 0%>
     <div class="row row-show-list all_show_horizontal_title">
      <%@all_tvshows.each do |i|%>

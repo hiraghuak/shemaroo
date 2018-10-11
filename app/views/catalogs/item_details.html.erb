@@ -37,11 +37,33 @@
                   <span>Watch Later</span>
                 </a>
               </li>
-              <li class="text-uppercase text-center">
+              <li class="text-uppercase text-center share_social_icons">
                 <a href="javascript:void(0);" class="coming_soon">
                   <img src="/assets/share.svg" class="text-center" alt="" title="">
                   <span>Share</span>
                 </a>
+                <ul class="share_feature list-none padding-left-20 padding-right-20 padding-bottom-10 padding-top-10">
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/google_share.svg" class="text-center google" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/facebook_share.svg" class="text-center facebook" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/twitter_share.svg" class="text-center twitter" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li class="margin-right-0">
+                    <a href="javascript:;">
+                      <img src="/assets/copy_link.svg" class="text-center copy_link" alt="" title="">                  
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>  
@@ -73,7 +95,16 @@
           <%@genere_items.each do |gi|%>
             <div class="item">
               <a href="<%=get_item_url(gi)%>">
-                <img src="<%=gi["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
+               <%if gi['access_control']['is_free'] == false%>
+                  <span class="text-uppercase premium-txt">Premium</span>
+                 <%end%>
+                 <%if @layout_type == "song" || @layout_type == "video"
+                  img_url = gi["thumbnails"]["medium_16_9"]["url"]
+                else
+                  img_url = gi["thumbnails"]["medium_2_3"]["url"]
+                end
+                  %>
+                <img src="<%=img_url%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
               </a>
             </div> 
           <%end%>            
@@ -90,6 +121,23 @@ var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
     ];
+    var layout_type = "<%=@layout_type%>"
+    if(layout_type == "song" || layout_type == "video"){
+      var items_0 = 2;
+      var stage_padding = 50;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 4;
+      var items_1200 = 5
+    }
+    else{
+      var items_0 = 2;
+      var stage_padding = 40;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 5;
+      var items_1200 = 7;
+    }
     $('#more-comedy-carousel').owlCarousel({
     navText: navigation,
     loop:false,
@@ -99,23 +147,24 @@ var navigation = [
     stagePadding: 50,
     responsive:{
       0:{
-          items:2,
-          stagePadding: 40
+          items:items_0,
+          stagePadding: stage_padding
       },
       576:{
-          items:3
+          items: items_576
       },
       768:{
-          items:4
+          items: items_768
       },
       992:{
-          items:5
+          items: items_992
       },
       1200:{
-          items:7
+          items: items_1200
       }
     }
   });
+    
   });
 </script> 
 
@@ -124,7 +173,7 @@ var navigation = [
   
 $(".shemaroo_player").empty();
 $(document).ready(function(){
-  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>"
+  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url']%>|title=<%=@item_details["title"]%>";
  $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item img-fluid' id='iframe' allowfullscreen> </iframe>")
         })
 </script> 

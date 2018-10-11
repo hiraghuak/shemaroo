@@ -11,13 +11,13 @@ $(document).ready(function(){
  	var user_region = $(".user_region").val();
  	var regex_email = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
  	if(user_region == "IN"){
-       if(user_name.length != 0 && mobile_no.length != 0 && mobile_no.length == 10 && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
+       if(user_name.trim().length != 0 && mobile_no.length != 0 && mobile_no.length == 10 && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
         status = true
         signup_type = "msisdn"
  	  }
  	}
  	else{
-      if(user_name.length != 0 && email_id.length != 0 && regex_email.test(email_id) && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
+      if(user_name.trim().length != 0 && email_id.length != 0 && regex_email.test(email_id) && pwd.length != 0 && pwd.length >=6 && cf_pwd.length != 0 && cf_pwd.length >= 6 && (pwd == cf_pwd) && terms_check == true){
         status = true
         signup_type = "email"
  	  }
@@ -58,7 +58,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	else if(user_name.length == 0){
+	else if(user_name.trim().length == 0){
 	  $("#signup_name_error").show();
 	}
 	
@@ -124,7 +124,7 @@ function set_user_cookies(resp){
 }
 
 $("#verify_otp").click(function(){
-  $("#verify_otp_error").hide();
+  $("#verify_otp_error,#resend_otp_msg").hide();
   var first_no  = $("#first_digit").val();
   var second_no = $("#second_digit").val();
   var third_no  = $("#third_digit").val();
@@ -183,10 +183,10 @@ $("#resend_otp").click(function(){
 		success: function(response,status){
 		console.log(response);
 		if(response.status == true){  
-		 $("#verify_otp_error").text("Otp sent sucessfully").show().fadeOut(800);
+		 $("#resend_otp_msg").show();
 		}
 		else{
-		 $("#verify_otp_error").text(response.error_message).show();
+		 $("#resend_otp_msg").text(response.error_message).show();
 		}
 		}
 	});

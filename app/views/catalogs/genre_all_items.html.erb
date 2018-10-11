@@ -6,8 +6,12 @@
 <section class="full-width-content inside-container top-bg-gradient min-height-div padding-top-80 padding-top-145 light">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
-    <h2 class="margin-bottom-20 margin-top-25 text-capitalize gradient2 w-100">More in  <%=params[:genre].capitalize%></h2>
-    <div class="row row-movie-list">
+     <div class="row">
+     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+    <h2 class="margin-bottom-20 margin-top-25 text-capitalize heading_title_color" style="<%=get_title_item_color(@layout_scheme)%>">More in  <%=params[:genre].capitalize%></h2>
+    </div>
+    </div>
+    <div class="row row-<%=@theme == "video" ? "show" : "movie"%>-list">
      <%@all_genere_items.each do |i|%>
         <div class="item">                                                              
           <a href="<%=get_item_url(i)%>">

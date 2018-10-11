@@ -10,6 +10,22 @@
 <script src="../plugin/saranyuplayer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../plugin/cookies_plugin.js" type="text/javascript" charset="utf-8"></script>
 
+  
+  <!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.apisaranyu.in/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
 <style type="text/css">
 body {
 	background: black;
@@ -108,10 +124,10 @@ body {
     var user_status = "false"
 		var to_mute = "false";
 		var auto_playz = "true";
-		var featureszz = ['playpause','rewind','forward','time','progressbar','fullscreen','volume','videotitle','qualityswitch','bigicons','hotkeys','eventcallbacks','advertisement'];
+		var featureszz = ['rewind','playpause','forward','progressbar','volume','time','fullscreen','qualityswitch','subtitles','share','watchlater','videotitle','bigicons','hotkeys','eventcallbacks','advertisement'];
 
          if(isiPad){
-            featureszz = ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];       
+            featureszz = ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];       
          }
 
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -120,7 +136,7 @@ body {
             if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || iOS){
                //to_mute = "true";
                auto_playz = "false"
-               featureszz =  ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];
+               featureszz =  ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];
              }
         }
 
@@ -179,6 +195,7 @@ body {
         }
 		var video_url = contenturlobtained[1].split("|")[0];
 		var key = contenturlobtained[1].split("key=")[1].split("|")[0]
+    var video_name = contenturlobtained[1].split("title=")[1].split("|")[0] 
     var video_image_url = contenturlobtained[1].split("image=")[1].split("|")[0]
 
 		var decrypted = CryptoJS.AES.decrypt({
@@ -242,7 +259,8 @@ body {
 	}
 	
 	function playPlayer(){
-		hlsPlayer._videoPlayerControls("play");	
+        alert("12");
+		/*hlsPlayer._videoPlayerControls("play");	*/
 	}
 	
 	function seekPlayer(val){
@@ -257,51 +275,23 @@ body {
 		return hlsPlayer._getTotalDuration();
 	}
 
+
+$(document).on('DOMNodeInserted', function (e) {
+    $('video').attr("data-matomo-title", video_name);
+  });
+
 var current_url = window.location.protocol + "//" + window.location.host;
 var url = "";
- if (current_url == "https://epicon.epicchannel.com"){
-    url = "https://epicon.epicchannel.com";
-  }
-	else if (current_url == "http://localhost:3000"){
+ 
+	if (current_url == "http://localhost:3000"){
 		url = "http://localhost:3000";
 	}
-	else if (current_url == "http://23.22.199.3"){
-		url = "http://23.22.199.3";
-	}
-	else if (current_url == "http://23.22.199.3:3000"){
-		url = "http://23.22.199.3:3000";
-	}
-	else if (current_url == "http://localhost:3006"){
-		url = "http://localhost:3006";
-	}
-	else if (current_url == "http://23.22.199.3:4000"){
-		url = "http://23.22.199.3:4000";
-	}
-	else if (current_url == "http://preprod.epicon.in"){
-		url = "http://preprod.epicon.in";
-	}
-	else if (current_url == "http://origin.preprod.epicon.in/"){
-		url = "http://origin.preprod.epicon.in";
-	}
-	 else if (current_url == "http://prod.epicon.in"){
-    url = "http://prod.epicon.in";
-  }
-  else if (current_url == "http://origin.prod.epicon.in"){
-    url = "http://origin.prod.epicon.in";
-  }
-  else if (current_url == "https://prod.epicon.in"){
-    url = "https://prod.epicon.in";
-  }
-  else if (current_url == "https://preprod.epicon.in"){
-    url = "https://preprod.epicon.in";
-  }
-
+	
 	
 function createEventCallBacks(){
 
 	hlsPlayer.eventcallbacks.onPlay = function(presentTime,duration,mediaId){
-       // alert("player is started");
-		player_status = true;
+        player_status = true;
 		top.postMessage({ga_event: 'playstart'}, url);
 	};
 

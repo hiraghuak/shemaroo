@@ -17,7 +17,8 @@ meta title: "User Otp Verify",
               <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
               <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>        
               <span class="pull-left w-100 text-center font-light" id="timer">00:60</span>
-              <label class="error" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
+              <label class="error text-center" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
+              <label class="error text-center" id="resend_otp_msg">Otp sent sucessfully</label>
             </div>
             <div class="text-center margin-bottom-15 margin-top-0 font-light">
               <p>Didn't receive the OTP?</p>
