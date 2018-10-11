@@ -4,12 +4,12 @@
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20">
         <h2 class="block margin-bottom-10"><!-- <a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> --> Summary</h2>
         <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-          <div class="pull-left payment-header w-100 rounded">
+          <div class="pull-left payment-header w-100 rounded" id="all-pack-div">
             <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
               <li class="text-uppercase gradient1">all categories</li>
               <%@all_access_packs["plans"].each do |aa|%>
               <li>
-                <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan='<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]%>'>
+                <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan="<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]+"|"+ @all_access_packs["category"]%>">
                 <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
               </li>
               <%end%>
@@ -32,7 +32,7 @@
                 Tax
               </li>
               <li class="pull-right margin-bottom-15">
-                <span id="tax">1</span>
+                <span id="tax"></span>
               </li>
             </ul>
              <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
@@ -40,7 +40,7 @@
                 <a href="javascript:;" class="text-uppercase" data-toggle="modal" data-target="promocode_pop" id="promocode_link">Have a Promocode ?</a>
               </li>
               <li class="pull-right margin-bottom-15">
-                <span id="promocode">2</span>
+                <span id="promocode"></span>
               </li>
             </ul>
           </div>
@@ -153,6 +153,7 @@ $('input[type=radio][name=radio-group]').change(function() {
      var plan = $(this).attr("plan")
       currency = plan.split("|")[4]
       category = plan.split("|")[1]
+      localStorage.setItem("all_plan_category",category)
       title = plan.split("|")[2]
       amount = plan.split("|")[3]
      var cat_title = category+ " ("+title+ ")"
@@ -187,30 +188,44 @@ $("#revert_plan").click(function() {
   var total_amount = $("#total_amount").text();
   var tax = $("#tax").text();
   var promocode = $("#promocode").text();
-  var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
-  var all_amount = parseFloat(all_amount).toFixed(2)
+  // var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  // var all_amount = parseFloat(all_amount).toFixed(2)
+  var all_amount = localStorage.getItem("net_amount")
   $("#all_amount").text(all_amount)
+
+  var cpn_amount = localStorage.getItem("cpn_price")
+  $("#promocode").text(cpn_amount)
 
 $("#plans").val(localStorage.getItem("plan"));
   });  
+  if(localStorage.getItem("all_plan_category")=="All Access Plans"){
+                    $('input[type="radio"]').prop('checked', true);
+                  }
+if(localStorage.getItem("plan-category")=="All Access Plans"){
+   $("#all-pack-div").hide();
+ }
 </script> 
 
 
 
 <script type="text/javascript">
      function summary_plans(){
-if($('input[type=radio]:checked').length == 1){  
+           var disc_amount = localStorage.getItem("net_amount");
+      var cname = localStorage.getItem("cpn_name");
+      var cid = localStorage.getItem("cpn_id");
+    var ap_cat = localStorage.getItem("all_plan_category")
+if($('input[type=radio]:checked').length == 1 | ap_cat == "All Access Plans"){  
 //var plan = $(this).attr("plan")
 var plan = $('input[type=radio]:checked').attr("plan");
 console.log(plan);
-var data = 'plans='+plan
+var data = 'plans='+plan+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
 else{
 var plans = localStorage.getItem("plan")
 var currency = localStorage.getItem("currency")
 var amount = localStorage.getItem("amount")
 // if(myCookies.session_id){                 
-var data = 'plans='+plans
+var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
               $.ajax({
                 url: "/plans/payment_url",
@@ -255,16 +270,12 @@ var data = 'plans='+plans
                 type: 'GET',
                 data: data,
                 success: function(data){
-                  if(data.message == "adyen payment iniated"){
-                    localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
-                    localStorage.setItem("currency",data.init_data["currencyCode"]);
-                    localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans/plans_purchase";
-                  }
-                  else{                 
-                    window.location.href = data.payment_url;
-                    // window.location.replace(data.payment_url);
-                  }                    
+                    $('#promocode_pop').modal('hide');
+                    localStorage.setItem("cpn_price",data.cpn_price);
+                    localStorage.setItem("net_amount",data.net_amount);
+                    localStorage.setItem("cpn_name",data.cpn_name);
+                    localStorage.setItem("cpn_id",data.cpn_id);                    
+                    location.reload();                    
                 }
               });            
               // }

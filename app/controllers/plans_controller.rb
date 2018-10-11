@@ -9,8 +9,7 @@ class PlansController < ApplicationController
   response = Ott.subscription_plans
   @all_plans = response["data"]["catalog_list_items"] 
   @all_access_packs = @all_plans.last["catalog_list_items"].last
-  if params["plans"].split(",").count == 2
-
+  if params["plans"].present? && params["plans"].split(",").count == 2
      plan_title = params["plans"].split(",").map{|a| a.split("|")[2] }.last
     items  =   Ott.get_catalog_details("5b3c917fc1df417b9a00002c")
       @combo_plan = items["data"]["items"].last
@@ -33,35 +32,31 @@ class PlansController < ApplicationController
    end
     if plans.count != 2 &&  !plans.empty?
     packs = []
-    all_price = ""
-    all_price_charged = ""
-    currency = ""
-    plans.each do |plan|
+     plan =  plans[0]
      content_id  = plan.split("|")[5]
      pack_id  = plan.split("|").first
      pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{content_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
      sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
-     price = sp["price"]
-     all_price += price 
-
-     price_charged = sp["discounted_price"]
-     all_price_charged += price_charged 
+    
+     all_price = sp["price"] 
      currency = sp["currency"]
+     price_charged = sp["discounted_price"]
+     all_price_charged = params["disc_amount"] == "null" ? price_charged : params["disc_amount"]
+
        sub_pack = {}
        sub_pack["plan_categories"] = [pd["data"]["category"]]
        sub_pack["category_type"] = pd["data"]["category_type"]
        sub_pack["category_pack_id"] = content_id
        sub_pack["subscription_catalog_id"] = pd["data"]["catalog_id"]
        sub_pack["plan_id"] = sp["id"]
-       packs << sub_pack
-    end  
+       packs << sub_pack    
     else
       pack_id =params["combo_pack_id"]
       items  =   Ott.get_catalog_details("5b3c917fc1df417b9a00002c")
       @combo_plan = items["data"]["items"].last
       @combo_pack = items["data"]["items"].last["plans"].map{|e| e if e["id"] == pack_id}.compact.last
       all_price = @combo_pack["price"]
-      all_price_charged = @combo_pack["discounted_price"]
+      all_price_charged = params["disc_amount"] == "null" ? @combo_pack["discounted_price"] : params["disc_amount"]
       currency = @combo_pack["currency"]
       packs = []
       sub_pack = {}
@@ -72,9 +67,14 @@ class PlansController < ApplicationController
        sub_pack["plan_id"] = @combo_pack["id"]
        packs << sub_pack
     end
-
-	payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs }
-	transaction_info = 	{"app_txn_id":"", "txn_message":"One Day Pack_10.00", "txn_status":"init", "order_id":"", "pg_transaction_id":""	}
+   if  params["coupon_code"] == "null"
+      payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs }
+   else
+     coupon_code = params["coupon_code"]
+     coupon_code_id = params["coupon_code_id"]
+     payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs, "coupon_code": coupon_code,"coupon_code_id": coupon_code_id  }
+   end
+  transaction_info = 	{"app_txn_id":"", "txn_message":"One Day Pack_10.00", "txn_status":"init", "order_id":"", "pg_transaction_id":""	}
 	 user_info = {"email":"ankita@saranyu.in", "mobile_number":""}
 
     browser = Browser.new(:ua => request.env["HTTP_USER_AGENT"], :accept_language => "en-us")
@@ -102,10 +102,14 @@ class PlansController < ApplicationController
     	"user_info": user_info,
         "miscellaneous": miscellaneous
     }
+    # byebug
+    # raise purchase_params.inspect
     response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions", purchase_params
     if payment_gateway == "adyen"
       render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
     else
+      # byebug
+      # raise payment_info.inspect
       payment_url = "#{response['data']['payment_url']}&encRequest=#{response['data']['msg']}&access_code=#{response['data']['access_code']}"
       render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok
     end 
@@ -215,13 +219,55 @@ class PlansController < ApplicationController
 
 
     def mobile_plans
-
      response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
     render :layout => false
     end
 
     def apply_promocode
+       if params["combo_plan_id"].blank?
+        plan_id = params["plans"].split(",").map{|a| a.split("|")[-2]}[0]
+        pack_id = params["plans"].split(",").map{|a| a.split("|")[0]}[0]
+        else
+          plan_id = params["combo_plan_id"]
+          pack_id = params["combo_pack_id"]
+        end
+     pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+     sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last    
+     if params["combo_plan_id"].blank?
+        plan_categories = [ pd["data"]["category"]]
+       else
+        plan_categories = params["plans"].split(",").map{|a| a.split("|")[6] }
+       end
+
+       packs = [
+          {"plan_categories": plan_categories,
+          "category_type": pd["data"]["category_type"],
+          "subscription_catalog_id": pd["data"]["catalog_id"],
+          "category_pack_id": plan_id,
+          "plan_id": sp["id"]
+            }]
+
+          us = get_signature_key(packs)
+          coupon_params = {
+            "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
+            "us": us ,
+            "category_pack_id": plan_id ,
+            "plan_id": sp["id"],
+            "coupon_code": params["promocode"],
+            "region": @region
+          }
+       response = HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/apply_coupon_code", coupon_params
       
+      if @region == "IN"
+      price_charged = sp["pg_price"]["cc_avenue"]
+     else
+      price_charged =  sp["pg_price"]["adyen"]
+     end    
+     cpn_id = response["data"]["payment"]["coupon_id"]
+     cpn_name = response["data"]["payment"]["coupon_code"]
+      cpn_price = price_charged.to_f - response["data"]["payment"]["net_amount"].to_f
+      render json: {:cpn_price => cpn_price, :net_amount => response["data"]["payment"]["net_amount"],:cpn_name => cpn_name, :cpn_id => cpn_id } , status: :ok
+
     end
 end
