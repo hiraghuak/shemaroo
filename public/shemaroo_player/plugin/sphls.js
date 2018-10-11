@@ -95,9 +95,9 @@ SaranyuHlsHTML5Player.Utils = {
 	},
 	getWidthInPercentage: function (b) {
 		var a = b.parent();
-		console.log(a.width());
+		/*console.log(a.width());
 		console.log(b.width());
-		console.log(((b.width() / a.width()) * 100).toFixed(0) + "%")
+		console.log(((b.width() / a.width()) * 100).toFixed(0) + "%")*/
 		return ((b.width() / a.width()) * 100).toFixed(0) + "%"
 	},
 	getHeightInPercentage: function (b) {
@@ -487,6 +487,7 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.tooltip.html(SaranyuHlsHTML5Player.Utils.getWidthInPercentage(c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent))
 		};
 		c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.positionVolumeHandle = function (f) {
+			console.log(f);
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("width", f * 100 + "%");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeCurrent.css("right", (1 - f) * 100 + "%");
 			c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.css("right", "calc(" + (100 - (f * 100)) + "% - " + c.fullControls.bottomControlBar.bottomPlayerControls.volumeSlider.volumeHandle.width() / 2 + "px)");
@@ -2794,3 +2795,7 @@ SaranyuHlsHTML5Player.MediaPlayer.prototype = {
 		return false
 	}
 };
+/*$('.sp-volume-btn').click(function() {
+	alert("234");
+});
+*/

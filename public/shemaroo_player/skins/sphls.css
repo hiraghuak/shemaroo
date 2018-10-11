@@ -95,8 +95,8 @@
     position: absolute;
     height: 100%;
     /*width: 100%;*/
-    padding: 0 17%;
-    width: 66%;
+    padding: 0 16.85%;
+    width: 67.7%;
 }
 .sp-player-inner .sp-player-layers .sp-player-poster img{
     height: 100%;
@@ -658,12 +658,9 @@
 }
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-unfullscreen .sp-fullscreen-btn {
 	background-size: 70%!important;
-    top: 5px;
+    top: 10px;
 }
-.sp-is-fullscreen  .sp-player-layers .sp-player-poster {
-	    height: auto;
-    padding-top: 60.75%;
-}
+
 .sp-is-fullscreen .sp-full-controls .sp-controls-middle {
 	top: 46%!important;
 }
@@ -1482,7 +1479,7 @@ background : url("image/controls.png") -215px -244px;
 }
 @media(max-width: 768px) {
 	.sp-player-inner .sp-full-controls .sp-controls-middle {
-		top: 38%;
+		top: 40%;
 	}
 }
 @media(max-width: 576px) {
@@ -1491,17 +1488,21 @@ background : url("image/controls.png") -215px -244px;
 		background-size: 90%;
 	}
 	.sp-player-inner .sp-full-controls .sp-controls-middle {
-		top: 34%;
+		top: 35%;
 	}
 }
 @media(max-width: 470px) { 
 	.sp-player-inner .sp-full-controls .sp-controls-middle {
-		top: 28%;
+		top: 30%;
+	}
+	.sp-is-fullscreen  .sp-player-layers .sp-player-poster {
+		height: auto!important;
+	    padding-top: 60.75%!important;
 	}
 }
 @media(max-width: 359px) { 
 	.sp-player-inner .sp-full-controls .sp-controls-middle {
-		top: 23%;
+		top: 27%;
 	}
 	.sp-controls-middle .sp-button.sp-forward .sp-forward-btn, .sp-controls-middle .sp-button.sp-rewind .sp-rewind-btn, 
 	.sp-controls-middle .sp-button.sp-play-pause.sp-pause .sp-play-pause-btn {
