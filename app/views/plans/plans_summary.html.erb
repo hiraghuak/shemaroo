@@ -218,6 +218,7 @@ if($('input[type=radio]:checked').length == 1 | ap_cat == "All Access Plans"){
 //var plan = $(this).attr("plan")
 var plan = $('input[type=radio]:checked').attr("plan");
 console.log(plan);
+localStorage.setItem("plan",plan)
 var data = 'plans='+plan+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
 else{
