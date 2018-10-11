@@ -127,7 +127,7 @@ body {
 		var featureszz = ['rewind','playpause','forward','progressbar','volume','time','fullscreen','qualityswitch','subtitles','share','watchlater','videotitle','bigicons','hotkeys','eventcallbacks','advertisement'];
 
          if(isiPad){
-            featureszz = ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];       
+            featureszz = ['rewind','playpause','forward','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];       
          }
 
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -136,7 +136,7 @@ body {
             if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || iOS){
                //to_mute = "true";
                auto_playz = "false"
-               featureszz =  ['playpause','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];
+               featureszz =  ['rewind','playpause','forward','progressbar','time','fullscreen','videotitle','bigicons','advertisement'];
              }
         }
 

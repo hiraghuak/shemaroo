@@ -106,6 +106,7 @@
 
 /*Big Play Icon*/
 .sp-player-inner .sp-player-layers .sp-player-bigplay{
+	display: none;
     position: absolute;
     height: 100%;
     width: 100%;

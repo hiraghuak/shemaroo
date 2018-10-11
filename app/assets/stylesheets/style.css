@@ -2352,6 +2352,9 @@ button:focus {
   .owl-carousel .owl-item .item.square_big_title {
     min-height: calc((100vw - 0px)/ 3 * 0.55);
   }
+  .embed-responsive-16by9 {
+    
+  }
 }
 @media(max-width: 1150px) {
   .plans-page ul, .plans-page ul.margin-right-0  {
