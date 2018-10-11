@@ -21,14 +21,14 @@ meta title: "#{@meta_title}",
   </div>
 </section>
 <div class="min-height-div">
-  <section class="full-width-content light home-page">
+  <section class="full-width-content light home-page" id="show_catalog_items" style="min-height: 600px;">
     <%@items_list.each_with_index do |list,index|%>
      <%if index != 0 %>
      <%if @items_list[index]["layout_type"] != "t_subscription" %>
         <%unless list['catalog_list_items'].blank?%>
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- show_item_color">
-              <a href="<%=list["home_link"]%>/all">
+              <a href="<%=list["home_link"]%>/all" id="show_catalog_title_<%=index%>" style="display:none;">
                 <h2 class="margin-bottom-15 text-capitalize heading_title_color" style="<%=get_title_item_color(list['layout_scheme'])%>"><%=list['display_title']%></h2></a>
               <a href="<%=list["home_link"]%>/all" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
               <div id="catalog_lists_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items_list[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>">
@@ -203,13 +203,14 @@ var navigation = [
       }
     }
   });
+  $("#show_catalog_title_"+i).show();
 }
 /*var color = $(".gradient8").attr("id").split("|");
  $("body").append("<style>.show_item_color h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");*/
  // var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
 
  // $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
-
+$("#show_catalog_items").css("min-height","1px");
 });  
 
 </script>
