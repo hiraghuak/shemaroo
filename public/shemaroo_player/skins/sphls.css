@@ -224,6 +224,11 @@
 	width: 66%;
 }
 
+.sp-player-inner .sp-full-controls .sp-controls-bottom:before {
+	background-image: linear-gradient(to bottom right,#5c5c5c,#5a5a5a);
+	content: "";
+    opacity: .6;
+}
 .sp-player-inner .sp-full-controls .sp-controls-bottom1 {
 	bottom: 20px;
 	padding: 0 17%;
@@ -231,7 +236,7 @@
 .sp-player-inner .sp-full-controls .sp-controls-middle {
 	position: absolute;
     padding: 0;
-    top: 43%;
+    top: 47%;
     height: 70px;
     /* width: 100%; */
     left: 0%;
@@ -479,51 +484,35 @@
 
 /*play icon*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-play .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -147px -340px;*/
 	background: url(image/pause.svg) no-repeat; 
 	background-size: 100%;
 	top: 0px;
 }
-/*.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-play .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -102px -45px ;
-}
-*/
 /*pause icon*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-pause .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -42px -340px;*/
 	background: url(image/play.svg) no-repeat;
 	background-size: 100%;
 	top: 0px;
 }
-/*.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-pause .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -101px -100px;
-}
-*/
+
 /*replay icon Start*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-replay .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -138px -199px;*/
 	background: url(image/pause.svg) no-repeat;
 	background-size: 100%;
 	top: 0px;
 }
-/*
-.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-replay .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -389px -49px;
-}
-*/
+
 /*Play Pause End */
 
 
 /* Forward and Rewind Button Starts*/
 .sp-controls-middle .sp-button.sp-forward .sp-forward-btn{
-	/*background: url(image/new_epic_sprite.png) -41px -410px;*/
 	background: url(image/10forward.svg) no-repeat; 	
 	background-size: 100%;
 	top: 0px;
 }
 
 .sp-controls-middle .sp-button.sp-rewind .sp-rewind-btn{
-	/*background: url(image/new_epic_sprite.png) -148px -409px;*/	
 	background: url(image/10back.svg) no-repeat; 	
 	background-size: 100%;
 	top: 0px;
@@ -537,15 +526,15 @@
 }*/
 
 .sp-controls-bottom-plyr-controls .sp-button.sp-volume-btn-wrap .sp-volume-btn{
-    /*background: url(image/new_epic_sprite.png) -247px -268px;*/
+    
     background: url(image/fs_volume.svg) no-repeat;
     background-size: 70%;
     top: 6px;
 }
 
 .sp-controls-bottom-plyr-controls .sp-button.sp-volume-btn-wrap.sp-mute .sp-volume-btn{
-    /*background: url(image/new_epic_sprite.png) -247px -339px;*/
-    background: url(image/mute.png) no-repeat; 
+    background: url(image/mute.svg) no-repeat; 
+    background-size: 80%;
 }
 /*volume buttons end*/
 /*volume slider start*/
@@ -676,7 +665,6 @@
 
 		/*fullscreen*/
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-fullscreen .sp-fullscreen-btn{
-    /*background: url(image/new_epic_sprite.png) -42px -198px;*/
     background: url(image/fullscreen.svg) no-repeat;
     background-size: 62%;
     top: 7px;
@@ -688,7 +676,6 @@
 */
 		/*un-fullscreen*/
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-unfullscreen .sp-fullscreen-btn{
-    /*background: url(image/new_epic_sprite.png) -42px -269px;*/
     background: url(image/exit_fullscreen.svg) no-repeat;
 }
 /*
@@ -935,7 +922,6 @@ background : url("image/controls.png") -215px -244px;
 	padding: 0 !important;
 	font-size: 0.7em;
 	cursor: pointer;
-	/*background: url(image/new_epic_sprite.png) -246px -56px;*/
 	background: url(image/fs_settings.svg) no-repeat; 
 	background-size: 66%;
 	top: 7px;
