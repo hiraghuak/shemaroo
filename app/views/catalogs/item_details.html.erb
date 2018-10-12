@@ -166,8 +166,42 @@ var navigation = [
   });
     
   });
-</script> 
 
+
+function listener(event){
+  var current_url = window.location.protocol + "//" + window.location.host;
+  var url = "";
+  if (current_url == "http://localhost:3000"){
+    url = "http://localhost:3000";
+  }
+  else if (current_url == "http://staging.shemaroome.com"){
+    url = "http://staging.shemaroome.com";
+  }
+  else if (current_url == "http://52.220.137.44:3000"){
+    url = "http://52.220.137.44:3000";
+  }
+  else if(current_url == "http://origin.staging.shemaroome.com"){
+    url = "http://origin.staging.shemaroome.com";
+  }
+
+
+  console.log("event is fired");
+  console.log(event.data);
+
+  if (event.origin !== url)
+  return
+    switch(event.data.ga_event){
+    case 'loginpop':
+      window.location = "/users/login"
+    break;
+   }  
+ }
+ if (window.addEventListener){
+    addEventListener("message", listener, true)
+  } else {
+    attachEvent("onmessage", listener)
+  }
+</script> 
 
 <script type="text/javascript">
   

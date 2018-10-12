@@ -26,4 +26,8 @@ class User
 	def self.sign_in(sign_in_params)
 	 HTTP.post "users/sign_in?region=#{$region}",sign_in_params,"user"
 	end
+
+	def self.get_user_profile(session_id)
+      HTTP.get "users/#{session_id}/account?region=#{$region}","user"
+	end
 end

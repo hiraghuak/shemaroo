@@ -98,7 +98,6 @@
                <%if e['access_control']['is_free'] == false%>
                  <span class="text-uppercase premium-txt">Premium</span>
                <%end%>
-                <!-- <img src="/assets/big_play.svg" alt="" title=""> -->
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
                 <span class="list-tile-duration"><%=(e['episode_number']+"|") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=get_duration_time(e['duration_string'])%></span>
@@ -227,5 +226,40 @@ $(document).ready(function(){
   });
   })
 })
+
+function listener(event){
+  var current_url = window.location.protocol + "//" + window.location.host;
+  var url = "";
+  if (current_url == "http://localhost:3000"){
+    url = "http://localhost:3000";
+  }
+  else if (current_url == "http://staging.shemaroome.com"){
+    url = "http://staging.shemaroome.com";
+  }
+  else if (current_url == "http://52.220.137.44:3000"){
+    url = "http://52.220.137.44:3000";
+  }
+  else if(current_url == "http://origin.staging.shemaroome.com"){
+    url = "http://origin.staging.shemaroome.com";
+  }
+
+
+  console.log("event is fired");
+  console.log(event.data);
+
+  if (event.origin !== url)
+  return
+    switch(event.data.ga_event){
+    case 'loginpop':
+      window.location = "/users/login"
+    break;
+   }  
+ }
+ if (window.addEventListener){
+    addEventListener("message", listener, true)
+  } else {
+    attachEvent("onmessage", listener)
+  }
 </script> 
+
 

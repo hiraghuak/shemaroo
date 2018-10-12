@@ -1343,7 +1343,7 @@ span.premium-txt {
   font-size: 0.875em;
   margin-top: 5px;
 }
-.row-show-list.detail_page .item img:nth-child(2) {
+/*.row-show-list.detail_page .item img:nth-child(2) {
   left: 43%;
   overflow: hidden;
   position: absolute;
@@ -1351,7 +1351,7 @@ span.premium-txt {
   top: 28%;
   white-space: nowrap;
   width: 32px;
-}
+}*/
 .row-show-list .item .list-tile-duration {
   color: #838383;
   float: left;

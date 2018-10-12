@@ -177,6 +177,7 @@ body {
 		var contenturlobtained = res;
     var video_img = ""
     var  user_played_time = "0"
+    var user_status = "false";
     //contenturlobtained[1].split("video_img=")[1].split("|")[0];
     // console.log(video_img);
     // alert(video_img)
@@ -203,7 +204,26 @@ body {
 		}, CryptoJS.enc.Base64.parse(key),
 		{ iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000') });
 		video_url  = decrypted.toString(CryptoJS.enc.Utf8);
-
+     var getShemarooCookies = function(){
+    var pairs = document.cookie.split("; ");
+    var cookies = {};
+    for (var i=0; i<pairs.length; i++){
+        var pair = pairs[i].split("=");
+        cookies[pair[0]] = unescape(pair[1]);
+    }
+    return cookies;
+  }
+    $(document).ready(function(){
+  // console.log("usercookiesstart")
+  // console.log($.cookie('user_id'));
+  // console.log("usercookiend")
+ var my_cookies = getShemarooCookies();
+ console.log("my_cookies"+my_cookies);
+ if(!!$.cookie('user_id')){
+   user_status = 'true'
+   //sub_status = my_cookies.is_subsribed;
+ }
+});
 		if(contenturlobtained[1].indexOf("is_free") > -1){ free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0];}
 		// var free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0]
 	    var time = parseInt(user_played_time);
@@ -286,34 +306,45 @@ var url = "";
 	if (current_url == "http://localhost:3000"){
 		url = "http://localhost:3000";
 	}
-	
-	
+  else if (current_url == "http://staging.shemaroome.com"){
+    url = "http://staging.shemaroome.com";
+  }
+  else if (current_url == "http://52.220.137.44:3000"){
+    url = "http://52.220.137.44:3000";
+  }
+  else if(current_url == "http://origin.staging.shemaroome.com"){
+    url = "http://origin.staging.shemaroome.com";
+  }
 function createEventCallBacks(){
 
 	hlsPlayer.eventcallbacks.onPlay = function(presentTime,duration,mediaId){
-        player_status = true;
-		top.postMessage({ga_event: 'playstart'}, url);
+    if(user_status == "false"){
+      top.postMessage({ga_event: 'loginpop'}, url);
+    }
 	};
 
 	hlsPlayer.eventcallbacks.onPause = function(presentTime,duration,mediaId){
-		player_status = false;
-		top.postMessage({ga_event: 'paused'}, url);
+		if(user_status == "false"){
+      top.postMessage({ga_event: 'loginpop'}, url);
+    }
 	};
 
 	hlsPlayer.eventcallbacks.onResume = function(presentTime,duration,mediaId){
-		player_status = true;
-		top.postMessage({ga_event: 'resume'}, url);
+		if(user_status == "false"){
+      top.postMessage({ga_event: 'loginpop'}, url);
+    }
 	};
 
 	hlsPlayer.eventcallbacks.onComplete = function(presentTime,duration,mediaId){
-		player_status = false;
-		sendPlaybackTime(0);
-		top.postMessage({ga_event: 'playComplete'}, url);
+		if(user_status == "false"){
+      top.postMessage({ga_event: 'loginpop'}, url);
+    }
 	};		
 
 	hlsPlayer.eventcallbacks.onSeeked = function(presentTime,duration,mediaId){
-		player_status = true;
-		top.postMessage({ga_event: 'onseeked'}, url);
+		if(user_status == "false"){
+      top.postMessage({ga_event: 'loginpop'}, url);
+    }
 	};
 }
 
