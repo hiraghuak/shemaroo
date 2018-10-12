@@ -44,8 +44,10 @@ class UsersController < ApplicationController
    if $region == "IN"
       signin_params[:user][:user_id] = "91"+params[:mobile_no]
       signin_params[:user][:type] = "msisdn"
+      login_id = signin_params[:user][:user_id] 
    else
       signin_params[:user][:email_id] = params[:email_id]
+      login_id = signin_params[:user][:email_id]
    end
    sign_in_response = User.sign_in(signin_params)
    p sign_in_response.inspect
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
     user_profiles = User.get_all_user_profiles(sign_in_response["data"]["session"])
     all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
     first_profile = all_profiles.flatten.first.split("$")
-    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0],:login_id => login }
    else
     set_response(sign_in_response)
    end
@@ -81,7 +83,13 @@ class UsersController < ApplicationController
    	user_profiles = User.get_all_user_profiles(response["data"]["messages"][0]["session"])
    	all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
     first_profile = all_profiles.first.split("$")
-   	render json: {status: true,user_id: "#{response["data"]["messages"][0]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+     user_login_profile =  User.get_user_profile(response["data"]["messages"][0]["session"])
+     if user_login_profile["data"]["login_type"] == "msisdn"
+      login_id = user_login_profile["data"]["mobile_number"]
+     else
+        login_id = user_login_profile["data"]["email_id"]
+      end
+   	render json: {status: true,user_id: "#{response["data"]["messages"][0]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0],:login_id => login_id }
    else
     set_response(response)
    end

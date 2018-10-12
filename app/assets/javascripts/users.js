@@ -118,6 +118,7 @@ $("#user_name,#mobile_number,#user_email,#password,#confirm_password").focusin(f
 
 function set_user_cookies(resp){
  $.cookie('user_id',resp.user_id, { expires: 14,path: '/'});
+ $.cookie('user_login_id',resp.login_id, { expires: 14,path: '/'});
  $.cookie('user_name',resp.user_name, { expires: 14,path: '/'});
  $.cookie('profile_id',resp.profile_id, { expires: 14,path: '/'});
  $.cookie('user_profiles',resp.user_profiles, { expires: 14,path: '/'})
@@ -281,6 +282,7 @@ $("#otp_success_close,#user_email_close,#user_email_process,#otp_success_process
 
  function delete_user_cookies(){
   document.cookie = 'user_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  document.cookie = 'user_login_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   document.cookie = 'user_name' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   document.cookie = 'profile_id' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   document.cookie = 'user_profiles' + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';

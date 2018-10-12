@@ -95,8 +95,8 @@
     position: absolute;
     height: 100%;
     /*width: 100%;*/
-    padding: 0 16.85%;
-    width: 67.7%;
+    padding: 0 17.1%;
+    width: 65.8%;
 }
 .sp-player-inner .sp-player-layers .sp-player-poster img{
     height: 100%;
@@ -220,24 +220,28 @@
 	/*width: 100%;*/
 	left: 0%;
 	background-color: transparent;
-	padding: 0 17%;
-	width: 66%;
+	padding: 0 17.1%;
+	width: 65.8%;
 }
 
+.sp-player-inner .sp-full-controls .sp-controls-bottom:before {
+	background-image: linear-gradient(to bottom right,#5c5c5c,#5a5a5a);
+	content: "";
+    opacity: .6;
+}
 .sp-player-inner .sp-full-controls .sp-controls-bottom1 {
 	bottom: 20px;
-	padding: 0 17%;
 }
 .sp-player-inner .sp-full-controls .sp-controls-middle {
 	position: absolute;
     padding: 0;
-    top: 43%;
+    top: 47%;
     height: 70px;
     /* width: 100%; */
     left: 0%;
     background-color: transparent;
-    padding: 0 17%;
-    width: 66%;
+    padding: 0 17.1%;
+    width: 65.8%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -479,51 +483,35 @@
 
 /*play icon*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-play .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -147px -340px;*/
 	background: url(image/pause.svg) no-repeat; 
 	background-size: 100%;
 	top: 0px;
 }
-/*.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-play .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -102px -45px ;
-}
-*/
 /*pause icon*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-pause .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -42px -340px;*/
 	background: url(image/play.svg) no-repeat;
 	background-size: 100%;
 	top: 0px;
 }
-/*.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-pause .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -101px -100px;
-}
-*/
+
 /*replay icon Start*/
 .sp-controls-middle .sp-button.sp-play-pause.sp-replay .sp-play-pause-btn{
-	/*background: url(image/new_epic_sprite.png) -138px -199px;*/
 	background: url(image/pause.svg) no-repeat;
 	background-size: 100%;
 	top: 0px;
 }
-/*
-.sp-controls-bottom-plyr-controls .sp-button.sp-play-pause.sp-replay .sp-play-pause-btn:hover{
-	background: url(image/spritesheet_etv.png) -389px -49px;
-}
-*/
+
 /*Play Pause End */
 
 
 /* Forward and Rewind Button Starts*/
 .sp-controls-middle .sp-button.sp-forward .sp-forward-btn{
-	/*background: url(image/new_epic_sprite.png) -41px -410px;*/
 	background: url(image/10forward.svg) no-repeat; 	
 	background-size: 100%;
 	top: 0px;
 }
 
 .sp-controls-middle .sp-button.sp-rewind .sp-rewind-btn{
-	/*background: url(image/new_epic_sprite.png) -148px -409px;*/	
 	background: url(image/10back.svg) no-repeat; 	
 	background-size: 100%;
 	top: 0px;
@@ -537,29 +525,28 @@
 }*/
 
 .sp-controls-bottom-plyr-controls .sp-button.sp-volume-btn-wrap .sp-volume-btn{
-    /*background: url(image/new_epic_sprite.png) -247px -268px;*/
+    
     background: url(image/fs_volume.svg) no-repeat;
     background-size: 70%;
     top: 6px;
 }
 
 .sp-controls-bottom-plyr-controls .sp-button.sp-volume-btn-wrap.sp-mute .sp-volume-btn{
-    /*background: url(image/new_epic_sprite.png) -247px -339px;*/
-    background: url(image/mute.png) no-repeat; 
+    background: url(image/mute.svg) no-repeat; 
+    background-size: 80%;
 }
 /*volume buttons end*/
 /*volume slider start*/
 .sp-controls-bottom-plyr-controls .sp-volume-slider.sp-volume-slider-wrap{
  	border-radius: 25px;
     position: relative;
-    /*display: none;*/
-    width: 140px;
+    width: 60px;
     background-color: #5D5B5C;
     box-sizing: border-box;
     height: 5px;
     top: -23px;
     cursor: pointer;
-    left: 30px;
+    left: 27px;
 }
 
 .sp-volume-slider .sp-volume-current{
@@ -607,20 +594,20 @@
 
 /*player time Start*/
 .sp-controls-bottom-plyr-controls .sp-player-time{
-	position: relative;
+	position: absolute;
     display: inline;
     color: white;
     text-align: center;
     margin-left: 0px;
     font-size: 0.8em;
-    top: -17px;
-    left: 152px;
+    top: 8px;
+    left: 105px;
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
 	left: 0px;
 }
 .sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
-	left: 152px;
+	left: 72px;
 }
 .sp-player-time .sp-plyr-currenttime{
 
@@ -657,8 +644,8 @@
 	bottom: 22px;
 }
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-unfullscreen .sp-fullscreen-btn {
-	background-size: 70%!important;
-    top: 10px;
+	background-size: 68%!important;
+    top: 6px;
 }
 
 .sp-is-fullscreen .sp-full-controls .sp-controls-middle {
@@ -676,10 +663,9 @@
 
 		/*fullscreen*/
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-fullscreen .sp-fullscreen-btn{
-    /*background: url(image/new_epic_sprite.png) -42px -198px;*/
     background: url(image/fullscreen.svg) no-repeat;
     background-size: 62%;
-    top: 7px;
+    top: 6px;
 }
 /*
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-fullscreen .sp-fullscreen-btn:hover{
@@ -688,7 +674,6 @@
 */
 		/*un-fullscreen*/
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-unfullscreen .sp-fullscreen-btn{
-    /*background: url(image/new_epic_sprite.png) -42px -269px;*/
     background: url(image/exit_fullscreen.svg) no-repeat;
 }
 /*
@@ -706,7 +691,7 @@
 .sp-controls-bottom-plyr-controls .sp-subtitles-switch .sp-subtitles-switch-btn {
 	background: url(image/cc.svg) no-repeat;
     background-size: 75%;
-    top: 7px;
+    top: 6px;
 }
 .sp-controls-bottom-plyr-controls .sp-share {
 	float: right;
@@ -715,12 +700,12 @@
 .sp-controls-bottom-plyr-controls .sp-share .sp-share-btn  {
 	background: url(image/fs_share.svg) no-repeat;
     background-size: 66%;
-    top: 7px;	
+    top: 6px;	
 }
 .sp-controls-bottom-plyr-controls .sp-watchlater .sp-watchlater-btn  {
 	background: url(image/fs_watch_list.svg) no-repeat;
     background-size: 75%;
-    top: 7px;	
+    top: 6px;	
 }
 .sp-controls-bottom-plyr-controls .sp-watchlater {
 	float: right;
@@ -925,7 +910,7 @@ background : url("image/controls.png") -215px -244px;
 	float: right;
 	color: white;
 }
-.sp-quality-switch .sp-quality-switch-btn{
+.sp-quality-switch .sp-quality-switch-btn {
 	height: inherit;
 	width: inherit;
 	background: inherit;
@@ -935,13 +920,17 @@ background : url("image/controls.png") -215px -244px;
 	padding: 0 !important;
 	font-size: 0.7em;
 	cursor: pointer;
-	/*background: url(image/new_epic_sprite.png) -246px -56px;*/
 	background: url(image/fs_settings.svg) no-repeat; 
-	background-size: 66%;
-	top: 7px;
+	background-size: 68%;
+	margin-left: 2px;
+	top: 6px;
 	position: relative;
 }
-
+@supports (-moz-appearance:none) { 
+	.sp-quality-switch .sp-quality-switch-btn {
+	    top: 4px;
+	  }
+}
 /*.sp-quality-switch .sp-quality-switch-btn:hover{
 	height: inherit;
 	width: inherit;

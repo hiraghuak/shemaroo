@@ -98,7 +98,7 @@
                <%if gi['access_control']['is_free'] == false%>
                   <span class="text-uppercase premium-txt">Premium</span>
                  <%end%>
-                 <%if @layout_type == "song" || @layout_type == "video"
+                 <%if @layout_type == "song" || @layout_type == "video" || @layout_type == "videos"
                   img_url = gi["thumbnails"]["medium_16_9"]["url"]
                 else
                   img_url = gi["thumbnails"]["medium_2_3"]["url"]
@@ -122,7 +122,7 @@ var navigation = [
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
     ];
     var layout_type = "<%=@layout_type%>"
-    if(layout_type == "song" || layout_type == "video"){
+    if(layout_type == "song" || layout_type == "video" || layout_type == "videos"){
       var items_0 = 2;
       var stage_padding = 50;
       var items_576 = 3;
@@ -166,8 +166,42 @@ var navigation = [
   });
     
   });
-</script> 
 
+
+function listener(event){
+  var current_url = window.location.protocol + "//" + window.location.host;
+  var url = "";
+  if (current_url == "http://localhost:3000"){
+    url = "http://localhost:3000";
+  }
+  else if (current_url == "http://staging.shemaroome.com"){
+    url = "http://staging.shemaroome.com";
+  }
+  else if (current_url == "http://52.220.137.44:3000"){
+    url = "http://52.220.137.44:3000";
+  }
+  else if(current_url == "http://origin.staging.shemaroome.com"){
+    url = "http://origin.staging.shemaroome.com";
+  }
+
+
+  console.log("event is fired");
+  console.log(event.data);
+
+  if (event.origin !== url)
+  return
+    switch(event.data.ga_event){
+    case 'loginpop':
+      window.location = "/users/login"
+    break;
+   }  
+ }
+ if (window.addEventListener){
+    addEventListener("message", listener, true)
+  } else {
+    attachEvent("onmessage", listener)
+  }
+</script> 
 
 <script type="text/javascript">
   

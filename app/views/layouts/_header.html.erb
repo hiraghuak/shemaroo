@@ -224,21 +224,27 @@
 </div>
 
 <script type="text/javascript">
-//
+
+  /* Apply respective graident color to active main menu */
+
   if($('ul.nav').find('li a.active').attr('id') != undefined){
   var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
   $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
   }
+  
   $(document).ready(function(){
-  $('.coming_soon').click(function() {
-    $('#coming_soon').modal('show');
+    $('.coming_soon').click(function() {
+      $('#coming_soon').modal('show');
+    })
+    $('#close_coming_soon').click(function() {
+      $('#coming_soon').modal('hide');
+    })
+
+    var window_height = window.innerHeight - 55;
+    $("#right-sidebar-menu .navbar-nav li:last-child").css('top', window_height); /* Place Logout link in bottom of screen */
+
+    $(".gradient2.active").focus();  /* Focus respective main-menu after page load */
+    
   })
-  $('#close_coming_soon').click(function() {
-    $('#coming_soon').modal('hide');
-  })
-  //var window_height = window.outerHeight - 120;
-  var window_height = window.innerHeight - 55;
-  $("#right-sidebar-menu .navbar-nav li:last-child").css('top', window_height);
-})
 
 </script>
