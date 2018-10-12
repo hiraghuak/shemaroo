@@ -398,6 +398,7 @@ a.see-more:hover {
 .text-ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 @media(max-width: 1199px) {
     a.see-more {
