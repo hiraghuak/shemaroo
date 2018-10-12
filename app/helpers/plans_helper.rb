@@ -24,13 +24,10 @@ module PlansHelper
    secret_key = "7c32c524a67f405812ca"
     all_plan_id = "" 
     packs.each do |p| 
-      p "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPp"
-      p p
     plan_id = p["plan_id"].blank? ? p[:plan_id] : p["plan_id"]
     all_plan_id += plan_id 
     end 
-    p all_plan_id
-    session_id = "b16e4bf2afd8d4ab472adbb48ef1a2d8" #params["user_id"] #-------- user session_id 
+    session_id = cookies[:user_id]
     region = @region
     sec_key = secret_key+session_id+region+all_plan_id 
     md5_sign = Gibberish::MD5(sec_key) 

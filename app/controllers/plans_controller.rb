@@ -75,7 +75,7 @@ class PlansController < ApplicationController
      payment_info = {"net_amount": all_price, "price_charged": all_price_charged,"currency": currency, "packs": packs, "coupon_code": coupon_code,"coupon_code_id": coupon_code_id  }
    end
   transaction_info = 	{"app_txn_id":"", "txn_message":"One Day Pack_10.00", "txn_status":"init", "order_id":"", "pg_transaction_id":""	}
-	 user_info = {"email":"ankita@saranyu.in", "mobile_number":""}
+	 user_info = {"email": cookies[:user_login_id], "mobile_number": cookies[:user_login_id]}
 
     browser = Browser.new(:ua => request.env["HTTP_USER_AGENT"], :accept_language => "en-us")
     device_os = "NA" #,browser.ios? ? 'iOS' : (browser.android? ? 'android' : browser.platform.to_s)
@@ -104,12 +104,12 @@ class PlansController < ApplicationController
     }
     # byebug
     # raise purchase_params.inspect
-    response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions", purchase_params
+    response =  HTTP.post_https "users/#{cookies[:user_id]}/transactions", purchase_params
     if payment_gateway == "adyen"
       render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
     else
-      # byebug
-      # raise payment_info.inspect
+      byebug
+      raise payment_info.inspect
       payment_url = "#{response['data']['payment_url']}&encRequest=#{response['data']['msg']}&access_code=#{response['data']['access_code']}"
       render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok
     end 
@@ -151,14 +151,14 @@ class PlansController < ApplicationController
 		     	"plan_id": sp["id"]
 		        }]}
     adyen_encrypted_data = params["adyen-encrypted-data"]
-    user_info = {"email":"ankita@saranyu.in", "mobile_number":""}
+    user_info = {"email": cookies[:user_login_id], "mobile_number": cookies[:user_login_id]}
 		plans_purchase_params = {
 		"auth_token": "Ts4XpMvGsB2SW7NZsWc3", 
 		"payment_info": payment_info,
 		"transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
 		"user_info": user_info
 }
-	response =  HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/transactions/cse_payment", plans_purchase_params
+	response =  HTTP.post_https "users/#{cookies[:user_id]}/transactions/cse_payment", plans_purchase_params
      if !response["data"].blank? && response["data"]["message"] == "pack activated successfully"
      redirect_to  action: 'payment_success',  resp_data: response
      else
@@ -257,7 +257,7 @@ class PlansController < ApplicationController
             "coupon_code": params["promocode"],
             "region": @region
           }
-       response = HTTP.post_https "users/b16e4bf2afd8d4ab472adbb48ef1a2d8/apply_coupon_code", coupon_params
+       response = HTTP.post_https "users/#{cookies[:user_id]}/apply_coupon_code", coupon_params
       
       if @region == "IN"
       price_charged = sp["pg_price"]["cc_avenue"]
