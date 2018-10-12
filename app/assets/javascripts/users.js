@@ -229,8 +229,8 @@ function user_sign_in(){
 		success: function(response,status){
 		 $("#user_login").text("Login")
 		 if(response.status == true){
-		  set_user_cookies(response)
-		  window.location = "/"
+		   set_user_cookies(response)
+		   window.location = "/"
 		 }
 		else{
 		 //$("#login_mobile_number,#login_password,#login_email").val("");
