@@ -95,8 +95,8 @@
     position: absolute;
     height: 100%;
     /*width: 100%;*/
-    padding: 0 16.85%;
-    width: 67.7%;
+    padding: 0 17.1%;
+    width: 65.8%;
 }
 .sp-player-inner .sp-player-layers .sp-player-poster img{
     height: 100%;
@@ -220,8 +220,8 @@
 	/*width: 100%;*/
 	left: 0%;
 	background-color: transparent;
-	padding: 0 17%;
-	width: 66%;
+	padding: 0 17.1%;
+	width: 65.8%;
 }
 
 .sp-player-inner .sp-full-controls .sp-controls-bottom:before {
@@ -231,7 +231,6 @@
 }
 .sp-player-inner .sp-full-controls .sp-controls-bottom1 {
 	bottom: 20px;
-	padding: 0 17%;
 }
 .sp-player-inner .sp-full-controls .sp-controls-middle {
 	position: absolute;
@@ -241,8 +240,8 @@
     /* width: 100%; */
     left: 0%;
     background-color: transparent;
-    padding: 0 17%;
-    width: 66%;
+    padding: 0 17.1%;
+    width: 65.8%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -541,14 +540,13 @@
 .sp-controls-bottom-plyr-controls .sp-volume-slider.sp-volume-slider-wrap{
  	border-radius: 25px;
     position: relative;
-    /*display: none;*/
-    width: 140px;
+    width: 60px;
     background-color: #5D5B5C;
     box-sizing: border-box;
     height: 5px;
     top: -23px;
     cursor: pointer;
-    left: 30px;
+    left: 27px;
 }
 
 .sp-volume-slider .sp-volume-current{
@@ -596,20 +594,20 @@
 
 /*player time Start*/
 .sp-controls-bottom-plyr-controls .sp-player-time{
-	position: relative;
+	position: absolute;
     display: inline;
     color: white;
     text-align: center;
     margin-left: 0px;
     font-size: 0.8em;
-    top: -17px;
-    left: 152px;
+    top: 8px;
+    left: 105px;
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
 	left: 0px;
 }
 .sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
-	left: 152px;
+	left: 72px;
 }
 .sp-player-time .sp-plyr-currenttime{
 
@@ -646,8 +644,8 @@
 	bottom: 22px;
 }
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-unfullscreen .sp-fullscreen-btn {
-	background-size: 70%!important;
-    top: 10px;
+	background-size: 68%!important;
+    top: 6px;
 }
 
 .sp-is-fullscreen .sp-full-controls .sp-controls-middle {
@@ -667,7 +665,7 @@
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-fullscreen .sp-fullscreen-btn{
     background: url(image/fullscreen.svg) no-repeat;
     background-size: 62%;
-    top: 7px;
+    top: 6px;
 }
 /*
 .sp-controls-bottom-plyr-controls .sp-button.sp-fullscreen-unfullscreen.sp-fullscreen .sp-fullscreen-btn:hover{
@@ -693,7 +691,7 @@
 .sp-controls-bottom-plyr-controls .sp-subtitles-switch .sp-subtitles-switch-btn {
 	background: url(image/cc.svg) no-repeat;
     background-size: 75%;
-    top: 7px;
+    top: 6px;
 }
 .sp-controls-bottom-plyr-controls .sp-share {
 	float: right;
@@ -702,12 +700,12 @@
 .sp-controls-bottom-plyr-controls .sp-share .sp-share-btn  {
 	background: url(image/fs_share.svg) no-repeat;
     background-size: 66%;
-    top: 7px;	
+    top: 6px;	
 }
 .sp-controls-bottom-plyr-controls .sp-watchlater .sp-watchlater-btn  {
 	background: url(image/fs_watch_list.svg) no-repeat;
     background-size: 75%;
-    top: 7px;	
+    top: 6px;	
 }
 .sp-controls-bottom-plyr-controls .sp-watchlater {
 	float: right;
@@ -912,7 +910,7 @@ background : url("image/controls.png") -215px -244px;
 	float: right;
 	color: white;
 }
-.sp-quality-switch .sp-quality-switch-btn{
+.sp-quality-switch .sp-quality-switch-btn {
 	height: inherit;
 	width: inherit;
 	background: inherit;
@@ -923,11 +921,16 @@ background : url("image/controls.png") -215px -244px;
 	font-size: 0.7em;
 	cursor: pointer;
 	background: url(image/fs_settings.svg) no-repeat; 
-	background-size: 66%;
-	top: 7px;
+	background-size: 68%;
+	margin-left: 2px;
+	top: 6px;
 	position: relative;
 }
-
+@supports (-moz-appearance:none) { 
+	.sp-quality-switch .sp-quality-switch-btn {
+	    top: 4px;
+	  }
+}
 /*.sp-quality-switch .sp-quality-switch-btn:hover{
 	height: inherit;
 	width: inherit;
