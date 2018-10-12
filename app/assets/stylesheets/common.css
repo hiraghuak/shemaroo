@@ -395,6 +395,11 @@ a.see-more:hover {
     -webkit-background-clip: text!important;
     -webkit-text-fill-color: transparent;
 }
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 @media(max-width: 1199px) {
     a.see-more {
         margin-right: 100px;

@@ -40,6 +40,7 @@ $(document).ready(function(){
 			   $("#user_register").text("Register")
 			   if(signup_type == "msisdn"){
 			   	 $.cookie('user_registed_mobile_no',"91"+mobile_no, { expires: 14,path: '/'});
+			   	 $("#user_name,#user_email,#mobile_number,#password,#confirm_password").val("");
 			     window.location = "/users/verify_otp"
 			   }
 			   else{
@@ -53,7 +54,7 @@ $(document).ready(function(){
 			 $("#user_register").text("Register")
 			 //$("#user_name,#user_email,#password,#confirm_password").val("");
 			 //$("#agree_terms").prop("checked", false);
-             $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(1500);
+             $("#signup_resp_error_msg").text(response.error_message).show().fadeOut(4500);
 			 }
 			}
 		});
