@@ -108,8 +108,8 @@ class PlansController < ApplicationController
     if payment_gateway == "adyen"
       render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
     else
-      byebug
-      raise payment_info.inspect
+      # byebug
+      # raise payment_info.inspect
       payment_url = "#{response['data']['payment_url']}&encRequest=#{response['data']['msg']}&access_code=#{response['data']['access_code']}"
       render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok
     end 
