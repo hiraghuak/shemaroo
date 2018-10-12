@@ -4,7 +4,7 @@
 		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-25">
 			<div class="search-box-wrap">
 				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:q]%>">
-				<span class="search_errors" style="display:none;">Please enter the text</span>
+				<span class="search_errors" style="display:none;">Please enter Search text</span>
 				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:q].present? ? "" : "display:none"%>"></a>
 			</div> 
 			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:q].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
@@ -19,7 +19,7 @@
 						<a href="<%=get_item_url(s)%>"><img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>"></a>
 					</div>
 					<div class="search-category-wrap">
-						<a href="<%=get_item_url(s)%>"><p class="search-tile-title"><%=s['title']%></p></a>
+						<a href="<%=get_item_url(s)%>"><p class="search-tile-title text-ellipsis"><%=s['title']%></p></a>
 						<p class="search-tile-category"><%=s['theme'].capitalize%> | <%=s['language'].capitalize%> | <%=s['genres'][0].capitalize%></p>
 					</div>
 					</div>
@@ -28,7 +28,7 @@
 				<%elsif params[:q].present?%>
 				 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
-              <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for <%=params[:q]%></strong></p>
+              <p class="margin-bottom-0 font-medium text-ellipsis"><strong>Sorry, No Result was found for <%=params[:q]%></strong></p>
               <p class="font-light">Please check the spelling or try another search term.</p>
             </div>
             </div>
@@ -40,7 +40,7 @@
 				
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results" style="display:none;">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
-              <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p>
+              <p class="margin-bottom-0 font-medium text-ellipsis"><strong>Sorry, No Result was found for Ozx</strong></p>
               <p class="font-light">Please check the spelling or try another search term.</p>
             </div>
             </div>

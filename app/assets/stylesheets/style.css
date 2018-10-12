@@ -1392,7 +1392,7 @@ span.premium-txt {
   font-family: 'condensed-light';
   float: left;
   margin-bottom: 5px;
-  padding: 13px 15px;
+  padding: 13px 30px 13px 15px;
   width: 100%;
 }
 .search-image-wrap {
@@ -2755,6 +2755,10 @@ button:focus {
     top: 8px;
     width: 0;
   }
+  .custom-gradient .gradient1, .custom-gradient .gradient2 {
+    line-height: 40px;
+    padding: 0px 11px;
+  }
   .owl-carousel, .row-show-list, .row-movie-list {
     font-size: 15px;
   }
@@ -2815,6 +2819,10 @@ button:focus {
   .player_desc_section .share_feature li img {
     height: 21px;
   }
+  .custom-gradient .gradient1, .custom-gradient .gradient2 {
+    line-height: 26px;
+    padding: 8px 9px;
+  }
   .owl-carousel .owl-item .item.vertical {
     min-height: calc((100vw - 0px)/ 2 * 1.19);
   }
@@ -2834,7 +2842,7 @@ button:focus {
     min-height: calc((100vw - 0px)/ 1 * 0.5454);
   }
   .details_episode_horizontal_title {
-    min-height: calc((100vw - 35px)/ 2.35 * .88);
+    min-height: calc((100vw - 35px)/ 2.35 * .92);
   }
 }
 @media(max-width: 359px) {

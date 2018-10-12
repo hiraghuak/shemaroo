@@ -102,7 +102,7 @@
 
 .custom-gradient {
   .gradient1 {
-    @include gradient-text('linear-gradient(to right,#D41F52, #F48567)', 'custom-gradient');
+    @include gradient-text('linear-gradient(42deg, #D92F5C 0%, #D92F5C 50%, #F6704A 51%, #F6704A 100%)', 'custom-gradient');
   }
   .gradient2 {
     @include gradient-text('linear-gradient(to right,#a6a6a6, #aaaaaa)', 'custom-gradient');
