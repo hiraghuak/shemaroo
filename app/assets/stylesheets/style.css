@@ -2013,9 +2013,8 @@ label.error {
   bottom: -45px;
   left: 0px;
 }
-label#verify_otp_error,label#resend_otp_msg {  
-  bottom: -27px;
-  left: 11%;
+label#verify_otp_error, label#resend_otp_msg {  
+  bottom: -27px;  
 }
 .onboarding-contianer .input-group.all_error::before {
   content: "";

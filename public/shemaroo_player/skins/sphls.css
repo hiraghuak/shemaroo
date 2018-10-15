@@ -605,10 +605,10 @@
     left: 105px;
 }
 .sp-controls-bottom-plyr-controls.mute_add .sp-player-time {
-	left: 0px;
+	left: 40px;
 }
 .sp-controls-bottom-plyr-controls.mute_remove .sp-player-time {
-	left: 72px;
+	left: 105px;
 }
 .sp-player-time .sp-plyr-currenttime{
 
