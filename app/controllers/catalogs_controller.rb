@@ -158,7 +158,7 @@ class CatalogsController < ApplicationController
     end
     response = Ott.get_all_epsiodes_with_pagination(params[:catalog_name],params[:show_name],page_number)
     no_of_pages = response["data"]["total_items_count"]/10.round
-    items =  response["data"]["items"].collect{|x|x["title"]+"$"+x["thumbnails"]["small_16_9"]["url"]+"$"+get_duration_time(x['duration_string']) +"$"+"/"+params[:catalog_name]+"/"+params[:show_name]+"/"+x["friendly_id"]}
+    items =  response["data"]["items"].collect{|x|x["title"]+"$"+x["thumbnails"]["small_16_9"]["url"]+"$"+get_duration_time(x['duration_string']) +"$"+"/"+params[:catalog_name]+"/"+params[:show_name]+"/"+x["friendly_id"]+"$"+x['episode_number']}
     if page_number+1 > no_of_pages
      next_page = "false"
     end

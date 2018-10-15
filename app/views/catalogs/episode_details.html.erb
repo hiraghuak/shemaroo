@@ -100,7 +100,7 @@
                <%end%>
                 <img src="<%=e["thumbnails"]["small_16_9"]["url"]%>" alt="<%=e["title"]%>" title="<%=e['title']%>">
                 <span class="list-tile-title"><%=e['title']%></span>
-                <span class="list-tile-duration"><%=(e['episode_number']+"|") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=get_duration_time(e['duration_string'])%></span>
+                <span class="list-tile-duration"><%=(e['episode_number'] +" | ") unless e['episode_number'].blank?%>&nbsp;&nbsp;<%=get_duration_time(e['duration_string'])%></span>
               </a>
             </div>  
            <%end%>    
@@ -217,7 +217,7 @@ $(document).ready(function(){
       $("#page_no").val(response.pageno);
       for (var i=0; i< episodes.length; i++){
         var item_det = episodes[i].split("$");
-        $("#all_episodes").append('<div class="item details_episode_horizontal_title"><a href="'+item_det[3]+'"><img src="'+item_det[1]+'" alt="'+item_det[0]+'" title="'+item_det[0]+'"><span class="list-tile-title">'+item_det[0]+'</span><span class="list-tile-duration">&nbsp;&nbsp;'+item_det[2]+'</span></a></div>')
+        $("#all_episodes").append('<div class="item details_episode_horizontal_title"><a href="'+item_det[3]+'"><img src="'+item_det[1]+'" alt="'+item_det[0]+'" title="'+item_det[0]+'"><span class="list-tile-title">'+item_det[0]+'</span><span class="list-tile-duration">'+item_det[4]+' |&nbsp;&nbsp;'+item_det[2]+'</span></a></div>')
       }
       if(response.next_page == "false"){
        $("#load_more_link").hide();
