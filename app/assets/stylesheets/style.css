@@ -1489,7 +1489,8 @@ padding: 12px 10px 13px;
 }
 .onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
 .onboarding-contianer input[type="number"], #accordion .input-group input[type="text"], 
-.onboarding-payment-contianer input[type="text"], .onboarding-payment-contianer input[type="password"] {
+.onboarding-payment-contianer input[type="text"], .onboarding-payment-contianer input[type="password"], 
+.static-container input[type="text"], .static-container textarea, .static-container select {
   border: 0px;
   border-bottom: 1px solid #E5E5E5;
   border-radius: 0px;
@@ -1948,7 +1949,7 @@ padding: 12px 10px 13px;
 .static-container {
   color: #787878;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .static-container h5 {
   color: #000;
