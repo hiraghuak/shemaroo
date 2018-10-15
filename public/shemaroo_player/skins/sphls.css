@@ -131,6 +131,7 @@
     height: 100%;
     width: 100%;
     background: url(image/replay.svg) no-repeat center center;
+    background-size: 34px;
 }
 
 /*Feeback Text Elements*/
