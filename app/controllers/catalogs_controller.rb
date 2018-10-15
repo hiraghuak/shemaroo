@@ -27,7 +27,7 @@ class CatalogsController < ApplicationController
     # @subscribe_img = subscribe_item["list_item_object"]["banner_image"]
     # @plan_det = subscribe_item["catalog_list_items"][0]["plans"].first
    rescue Exception => e
-    redirect_to "/500"
+    redirect_to "#{SITE}/500"
       logger.info e.message
      Rails.cache.delete("catalog_item_list_#{params[:catalog_name]}")
      @items_list = []
@@ -86,7 +86,7 @@ class CatalogsController < ApplicationController
        @layout_type = item_response["data"]["catalog_object"]["layout_type"]
       end
     rescue Exception => e
-      redirect_to "/500"
+      redirect_to "#{SITE}/500"
       logger.info e.message
       Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}")
       @item_details = []
@@ -112,7 +112,7 @@ class CatalogsController < ApplicationController
       @catalog_name = catalog_response["data"]["name"]
       @layout_type = catalog_response["data"]["catalog_object"]["layout_type"]
     rescue Exception => e
-      redirect_to "/500"
+      redirect_to "#{SITE}/500"
       logger.info e.message
      Rails.cache.delete("item_details_#{params[:catalog_name]}_#{params[:show_name]}_#{params[:item_name]}")
      @epsiode_details = []
