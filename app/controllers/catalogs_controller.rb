@@ -138,7 +138,7 @@ class CatalogsController < ApplicationController
   def other_tvshows
    begin 
     items_response = Rails.cache.fetch("other_tvshows_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
-         Ott.get_catalog_details(params[:catalog_name])
+         Ott.get_catalog_details_with_pagination(params[:catalog_name])
        }
     @title = "Other  "+items_response["data"]["name"]
     @all_tvshows = items_response["data"]["items"]
