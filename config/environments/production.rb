@@ -99,5 +99,5 @@ Rails.application.configure do
   CACHE_EXPIRY_TIME = 120.seconds
   PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"
   #SITE = "http://localhost:3000"
-  SITE = "http://18.215.64.21"
+  SITE = "http://staging.shemaroome.com"
 end

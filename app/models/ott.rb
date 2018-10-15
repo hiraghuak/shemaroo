@@ -18,11 +18,16 @@ class Ott
 	end
 
   def self.get_items_list(list_id)
-  	HTTP.get "catalog_lists/#{list_id}?region=#{$region}","catalog"
+  	HTTP.get "catalog_lists/#{list_id}?region=#{$region}&page=0&page_size=100","catalog"
   end
 
   def self.get_catalog_details(catalog_slug)
     HTTP.get "catalogs/#{catalog_slug}/items?region=#{$region}","catalog"
+  end
+
+  def self.get_catalog_details_with_pagination(catalog_slug)
+   HTTP.get "catalogs/#{catalog_slug}/items?region=#{$region}&page=0&page_size=100","catalog"
+
   end
 
   def self.get_items_details(catalog_slug,item_slug)
@@ -31,7 +36,7 @@ class Ott
 
 
   def self.get_items_genre(catalog_slug,genre)
-     HTTP.get "catalogs/#{catalog_slug}/items?genre=#{genre}&region=#{$region}","catalog"
+     HTTP.get "catalogs/#{catalog_slug}/items?genre=#{genre}&region=#{$region}&page=0&page_size=100","catalog"
   end
 
 
