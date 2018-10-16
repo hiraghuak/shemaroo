@@ -385,11 +385,15 @@ div.scrollmenu a:last-child.active {
   padding: 0;
 }
 .fixed-top .profile-list ul li, #right-sidebar-menu .profile-list ul li {
+  color: #CBCBCB;
   float: left;
   position: relative;
   margin: 0 10px;
-  max-width: 150px;
+  max-width: 40px;
   text-align: center;
+}
+#right-sidebar-menu .profile-list ul li.active {
+  max-width: 150px;
 }
 .fixed-top .profile-list ul li p, #right-sidebar-menu .profile-list ul li p { 
   border-radius: 50%;

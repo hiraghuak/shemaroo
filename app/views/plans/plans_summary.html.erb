@@ -165,8 +165,15 @@ $('input[type=radio][name=radio-group]').change(function() {
    $("#revert_plan").show();
    var total_amount = parseFloat($("#total_amount").text());
   var tax = parseFloat($("#tax").text());
+  if(tax == "") {
+    tax = 0;
+  }
   var promocode = parseFloat($("#promocode").text());   
+  if(promocode == "") {
+    promocode = 0;
+  }
   var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  //total_amount)+parseFloat(tax)-parseFloat(promocode)
   var all_amount = parseFloat(all_amount).toFixed(2)
   $("#all_amount").text(all_amount)
 });
@@ -186,16 +193,33 @@ $("#revert_plan").click(function() {
    $("#plan-category").text(localStorage.getItem("plan-category"));
 
   var total_amount = $("#total_amount").text();
+  
+  
   var tax = $("#tax").text();
   var promocode = $("#promocode").text();
   // var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
   // var all_amount = parseFloat(all_amount).toFixed(2)
-  var all_amount = localStorage.getItem("net_amount")
-  $("#all_amount").text(all_amount)
 
-  var cpn_amount = localStorage.getItem("cpn_price")
-  $("#promocode").text(cpn_amount)
+  if($("#tax").text() == "") {
+    tax = 1;
+    $("#tax").text(tax);
+    //var tax_amount = $("#tax").text(tax);
+  }
+//  var promocode = parseFloat($("#promocode").text());   
+  if($("#promocode").text() == "") {
+    promocode = 2;
+    $("#promocode").text(promocode);
+    //var promocode_amount = $("#promocode").text(promocode);
+  }
 
+  //var all_amount = localStorage.getItem("net_amount")
+  //$("#all_amount").text(all_amount)
+
+  //var cpn_amount = localStorage.getItem("cpn_price")
+  var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
+  //var net_amount = net_amount.toFixed(2);
+  $("#all_amount").text(net_amount);  
+  
 $("#plans").val(localStorage.getItem("plan"));
   });  
   if(localStorage.getItem("all_plan_category")=="All Access Plans"){
@@ -210,7 +234,8 @@ if(localStorage.getItem("plan-category")=="All Access Plans"){
 
 <script type="text/javascript">
      function summary_plans(){
-           var disc_amount = localStorage.getItem("net_amount");
+     var disc_amount = localStorage.getItem("net_amount");
+     $('#all_amount').text(all_amount)
       var cname = localStorage.getItem("cpn_name");
       var cid = localStorage.getItem("cpn_id");
     var ap_cat = localStorage.getItem("all_plan_category")
@@ -272,11 +297,19 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
                 data: data,
                 success: function(data){
                     $('#promocode_pop').modal('hide');
-                    localStorage.setItem("cpn_price",data.cpn_price);
+                    var cpn_price =  data.cpn_price.toFixed(2);
+                    var net_amount = data.net_amount.toFixed(2);
+                    var tax = 0.00;
+                    var net_amount = net_amount+tax;
+                    //var net_amount = net_amount.toFixed(2);
+                    localStorage.setItem("cpn_price",cpn_price);
                     localStorage.setItem("net_amount",data.net_amount);
                     localStorage.setItem("cpn_name",data.cpn_name);
-                    localStorage.setItem("cpn_id",data.cpn_id);                    
-                    location.reload();                    
+                    localStorage.setItem("cpn_id",data.cpn_id);  
+                    $("#promocode").text(cpn_price);    
+
+                    $('#all_amount').text(net_amount+tax)          
+                    //location.reload();                    
                 }
               });            
               // }
