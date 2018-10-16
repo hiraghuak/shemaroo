@@ -337,6 +337,18 @@ $("input[type='text'], input[type='password']").keyup(function() {
       }
     }
   });
+	
+	$('textarea').keyup(function() {
+    var inputlenth = $(this).val().length;
+    if(inputlenth > 0) { 
 
+    	$(this).parents(".input-group").children('.fa-circle').hide();
+      $(this).nextAll(".input-group .input-label").css({"top":"-25px","left":"0px"}); 
+    }
+    else {
+    	$(this).parents(".input-group").children('.fa-circle').show();
+      $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});
+    }
+  }); 	
 
 })
