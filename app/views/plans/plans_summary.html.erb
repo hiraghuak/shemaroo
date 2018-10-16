@@ -175,6 +175,7 @@ $('input[type=radio][name=radio-group]').change(function() {
   var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
   //total_amount)+parseFloat(tax)-parseFloat(promocode)
   var all_amount = parseFloat(all_amount).toFixed(2)
+
   $("#all_amount").text(all_amount)
 });
 $("#revert_plan").click(function() {
@@ -201,13 +202,13 @@ $("#revert_plan").click(function() {
   // var all_amount = parseFloat(all_amount).toFixed(2)
 
   if($("#tax").text() == "") {
-    tax = 1;
+    tax = 0;
     $("#tax").text(tax);
     //var tax_amount = $("#tax").text(tax);
   }
 //  var promocode = parseFloat($("#promocode").text());   
   if($("#promocode").text() == "") {
-    promocode = 2;
+    promocode = 0;
     $("#promocode").text(promocode);
     //var promocode_amount = $("#promocode").text(promocode);
   }
@@ -216,8 +217,10 @@ $("#revert_plan").click(function() {
   //$("#all_amount").text(all_amount)
 
   //var cpn_amount = localStorage.getItem("cpn_price")
-  var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
+  //var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
+  var net_amount = (total_amount+$("#tax").text()-$("#promocode").text()).toFixed(2)
   //var net_amount = net_amount.toFixed(2);
+  console.log(net_amount);
   $("#all_amount").text(net_amount);  
   
 $("#plans").val(localStorage.getItem("plan"));
@@ -296,19 +299,20 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
                 type: 'GET',
                 data: data,
                 success: function(data){
+                  
                     $('#promocode_pop').modal('hide');
                     var cpn_price =  data.cpn_price.toFixed(2);
                     var net_amount = data.net_amount.toFixed(2);
-                    var tax = 0.00;
-                    var net_amount = net_amount+tax;
+                    console.log(net_amount);
+                    //var tax = 0.00;
+                    //var net_amount = net_amount+tax;
                     //var net_amount = net_amount.toFixed(2);
                     localStorage.setItem("cpn_price",cpn_price);
                     localStorage.setItem("net_amount",data.net_amount);
                     localStorage.setItem("cpn_name",data.cpn_name);
                     localStorage.setItem("cpn_id",data.cpn_id);  
                     $("#promocode").text(cpn_price);    
-
-                    $('#all_amount').text(net_amount+tax)          
+                    $('#all_amount').text(net_amount)          
                     //location.reload();                    
                 }
               });            
