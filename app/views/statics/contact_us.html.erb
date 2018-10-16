@@ -14,10 +14,8 @@
                 Off Andheri Kurla Road,<br>
                 Andheri (E), Mumbai - 400 059.<br><br>
 
-                T: +91(22) 40319911
+                T: +91(22) 40319911<br><br>
               </p>
-            </div>
-            <div class="pull-left w-50">
               <h5 class="margin-bottom-10 font-medium">Delhi</h5>  
               <p class="font-light">
                 Shemaroo Entertainment Limited,<br>
@@ -25,10 +23,8 @@
                 Okhla Industrial Estate, Phase |||,<br>
                 Inside Modi Mill Complex,<br>
                 New Delhi - 110020<br><br>
-                T: +91(11) 4161 2917<br>
+                T: +91(11) 4161 2917<br><br>
               </p>
-            </div>
-            <div class="pull-left w-50">
               <h5 class="margin-bottom-10 margin-top-10 font-medium">New York</h5>
               <p class="font-light">
                 Shemaroo Media & Entertainment, LLC<br>
@@ -39,8 +35,123 @@
               </p>
             </div>
             <div class="pull-left w-50">
-              <h5 class="margin-bottom-10 margin-top-10 font-medium">For more information</h5>
-              <a href="mailto:shemaroo@shemaroo.com" class="font-light email">shemaroo@shemaroo.com</a>
+              <h5 class="margin-bottom-10 font-medium">Write to us below, in case of queries</h5>
+              <div class="input-group query_type margin-bottom-5 margin-top-20">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <!-- <select id="query_type" name="" class="form-control margin-bottom-30" required="true">
+                  <option>General</option>
+                  <option>General1</option>
+                  <option>General2</option>
+                </select> -->
+                <div class="custom-select font-light">
+                  <select>
+                    <option value="0">General</option>
+                    <option value="1">General 1</option>
+                    <option value="2">General 2</option>                   
+                  </select>
+                </div>
+                <span class="input-label">Type of Query</span> 
+                <label class="error" id="">Please select type of query</label>
+              </div>
+              <div class="input-group contact-email margin-bottom-5">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <input type="text" id="contact-email" name="" class="form-control" required="true"> 
+                <span class="input-label">Your Email ID</span> 
+                <label class="error" id="">Please enter your Email ID </label>
+              </div>
+              <div class="input-group query_description margin-bottom-25">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <textarea id="query_description" class="form-control rounded margin-bottom-5" required="true" rows="2"  resize="false">
+                  
+                </textarea>                
+                <span class="input-label">Enter Your Query</span> 
+                <label class="error" id="">Please enter your query </label>
+
+
+              </div>
+              <div class="inline-block w-100 text-center margin-top-10 margin-bottom-15 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="">submit</a>
+                </p>
+              </div>
+
+
+
+<script>
+var x, i, j, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 0; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+
             </div>             
           </div>                     
         </div>

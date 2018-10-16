@@ -1502,6 +1502,65 @@ padding: 12px 10px 13px;
 .onboarding-contianer input#login_mobile_number {
   padding-left: 0px;
 }
+.static-container .input-group textarea.form-control, .static-container .input-group textarea.form-control:focus {
+  border: 1px solid #E5E5E5;
+  height: calc(4.5em + 2px);
+  resize: none;
+}
+.input-group textarea.form-control:focus .input-label {
+  top: -25px;
+}
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: white;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #666;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 .input-group .fa-circle {
   color: #B11A47;
   font-size: 5px;
@@ -1555,6 +1614,10 @@ padding: 12px 10px 13px;
   transition: all .3s;
 }
 .input-group .form-control:focus~.input-label {
+  left: 0px;
+  top: -16px;
+}
+.input-group.query_type .input-label {
   left: 0px;
   top: -16px;
 }
@@ -1964,6 +2027,30 @@ padding: 12px 10px 13px;
   font-size: 0.975em;
   margin-top: -2px;
 }
+
+.static-container select {
+  position: relative;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.custom-select {
+  border: 0px;
+  border-bottom: 1px solid #E5E5E5;
+  border-radius: 0px;
+  height: calc(2em + 2px);
+  margin-bottom: 35px;
+  padding: 5px 5px 5px 10px;
+}
+/*.static-container .input-group.query_type:before {
+  color: #999999;
+  content: '\f078';  
+  cursor: pointer;
+  font: normal normal normal 12px/1 FontAwesome;
+  position: absolute;
+  right: 10px;
+  top: 10px;  
+  z-index: 1;
+}*/
 .terms_section ol h5 {
   margin-left: -10px;
 }
