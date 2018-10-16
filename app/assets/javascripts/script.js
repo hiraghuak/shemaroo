@@ -79,7 +79,7 @@ $(document).ready(function(){
 	    }
 	  }
 	  else{
-	  	 $(".search_errors").show().fadeOut(1000);
+	  	 $(".search_errors").show().fadeOut(2000);
 	     $("#search_all_results").html("");
 		 $("#search").val("");
 		 $(".cancel_search,#search_heading").hide();
