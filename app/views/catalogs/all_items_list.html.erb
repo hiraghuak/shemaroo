@@ -38,7 +38,12 @@ meta title: "#{@title}",
           </a>
         </div>
       <%end%>
-    </div>    
+    </div>  
+     <%if @all_items.count > 10%> 
+       <!--  <div class="text-center margin-bottom-25 margin-top-20" id="load_more_link">
+            <a href="javascript:void(0);" class="inline-block radius-button black-button text-uppercase" id="load_more_all_items">Load more</a>
+        </div> -->
+      <%end%>  
     </div>  
   </div>
 <%=render "layouts/page_height_setting"%>
@@ -58,3 +63,18 @@ meta title: "#{@title}",
     $('.no-items-found').css('min-height',window_height+'px');
 </script>  
  <%end%>
+<script type="text/javascript">
+/*$(document).ready(function(){
+  $("#load_more_all_items").click(function(){
+    $.ajax({
+    url: "/classic-all-movies/all",
+    type: "GET",
+    data: { },
+    success: function(response,status){
+    }
+  });
+  })
+})*/
+
+</script>
+

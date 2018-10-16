@@ -36,16 +36,27 @@ class CatalogsController < ApplicationController
 
   def all_items_list
     begin
-      response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
-       Ott.get_items_list(params[:catalog_name])
+    next_page = "true"
+    page_size = 20
+    if params[:page_no].present?
+      page_number = params[:page_no].to_i
+    else
+      page_number = 0
+    end
+      response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}_#{page_number}", expires_in: CACHE_EXPIRY_TIME){
+       Ott.get_items_list_with_pagination(params[:catalog_name],page_number,page_size)
       }
       @all_items = response["data"]["catalog_list_items"]
       @layout_type =  response["data"]["layout_type"]
       @layout_scheme = response["data"]["layout_scheme"]
-      @title = response["data"]["display_title"] 
+      @title = response["data"]["display_title"]
+      @next_page = true
+      if request.xhr?
+      else
+      end
     rescue Exception => e
       logger.info e.message
-     Rails.cache.delete("all_items_list_#{params[:catalog_name]}")
+     Rails.cache.delete("all_items_list_#{params[:catalog_name]}_#{page_number}")
      @all_items = []
     end
   end
@@ -74,6 +85,7 @@ class CatalogsController < ApplicationController
         end
         @other_items = catalog_response["data"]["items"]
         @catalog_name = catalog_response["data"]["name"]
+        @tvshow_name = item_response["data"]["title"]
         render "episode_details"
       else
         @item_details = item_response["data"]
@@ -110,6 +122,7 @@ class CatalogsController < ApplicationController
         }
       @other_items = catalog_response["data"]["items"]
       @catalog_name = catalog_response["data"]["name"]
+      @tvshow_name = response["data"]["show_name"]
       @layout_type = catalog_response["data"]["catalog_object"]["layout_type"]
     rescue Exception => e
       redirect_to "#{SITE}/500"

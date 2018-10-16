@@ -21,6 +21,10 @@ class Ott
   	HTTP.get "catalog_lists/#{list_id}?region=#{$region}&page=0&page_size=100","catalog"
   end
 
+  def self.get_items_list_with_pagination(list_id,page_no,page_size)
+    HTTP.get "catalog_lists/#{list_id}?region=#{$region}&page=#{page_no}&page_size=#{page_size}","catalog"
+  end
+
   def self.get_catalog_details(catalog_slug)
     HTTP.get "catalogs/#{catalog_slug}/items?region=#{$region}","catalog"
   end
