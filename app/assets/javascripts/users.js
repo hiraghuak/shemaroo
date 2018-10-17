@@ -46,7 +46,9 @@ $(document).ready(function(){
 			   else{
 			   	set_user_cookies(response);
 			   	$("#user_name,#user_email,#password,#confirm_password").val("");
-                $("#reg_success").modal("show");
+                $("#reg_success").modal({
+                	backdrop: 'static'
+                });
                 //$("#signup_resp_error_msg").text("A verification Mail will be send to the Registered email id").show().fadeOut(800);
 			   }
 			 }
@@ -144,7 +146,9 @@ $("#verify_otp").click(function(){
 			if(response.status == true){  
 			  set_user_cookies(response)
 			  $.removeCookie('user_registed_mobile_no', { path: '/' });
-			  $("#otp_success").modal("show");
+			  $("#otp_success").modal({
+			  	backdrop: 'static'
+			  });
 			}
 			else{
 			 $("#verify_otp").text("Verify")
