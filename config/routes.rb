@@ -35,25 +35,40 @@ Rails.application.routes.draw do
 
  ##PLANS PAGES ROUTES STARTS HERE####
   get '/plans' => 'plans#all_plans'
-  get '/plans/m_plans' => 'plans#mobile_plans'
+  get '/plans/m_plans' => 'plans#mobile_all_plans'
+ 
   get '/plans/plans_summary' => 'plans#plans_summary'
   get '/plans/m_plans_summary' => 'plans#mobile_plans_summary'
+ 
   get '/plans/plans_purchase' => 'plans#plans_purchase'
   get '/plans/m_plans_purchase' => 'plans#mobile_plans_purchase'
+ 
   post '/plans/payment_url' => 'plans#payment_url'
+  post '/plans/m_payment_url' => 'plans#mobile_payment_url'
+
   get '/plans/purchase_plans' => 'plans#purchase_plans'
+  get '/plans/m_purchase_plans' => 'plans#mobile_purchase_plans'
+ 
   get '/payment/payment_processing' => 'plans#payment_processing'
   get '/payment/m_payment_processing' => 'plans#mobile_payment_processing'
+ 
   get '/payment/payment_success' => 'plans#payment_success'
   get '/payment/m_payment_success' => 'plans#mobile_payment_success'
+ 
   get '/payment/payment_failed' => 'plans#payment_failed'
   get '/payment/m_payment_failed' => 'plans#mobile_payment_failed'
+ 
   post '/payment/payment_canceled' => 'plans#payment_canceled'
   post '/payment/m_payment_canceled' => 'plans#mobile_payment_canceled'
-  post '/payment/payment_response' => 'plans#payment_response'
-  post '/payment/m_payment_response' => 'plans#mobile_payment_response'
+ 
+  # post '/payment/payment_response' => 'plans#payment_response'
+  # post '/payment/m_payment_response' => 'plans#mobile_payment_response'
+ 
   match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
+  match 'plans/m_payment_response' => 'plans##mobile_payment_response', via: [:get, :post]
+ 
   get '/plans/apply_promocode' => 'plans#apply_promocode'
+  get '/plans/m_apply_promocode' => 'plans##mobile_apply_promocode'
 
  ##PLANS PAGES ROUTES ENDS HERE####
 

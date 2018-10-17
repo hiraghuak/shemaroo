@@ -1,210 +1,210 @@
-  <script src="https://test.adyen.com/hpp/cse/js/8215290589662396.shtml"></script> 
-        <section class="onboarding-bg onboarding-bg-min-height">
-          <div class="payment-contianer margin-bottom-30">
-            <div class="row">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
-                <h2 class="block margin-bottom-10"><!-- <img src="/assets/images/back_arrow.svg" class="back_arrow" alt="" title=""> --> Select Payment Method</h2>
-                <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-                  <div id="payable-amount" class="w-100 pull-left onboarding-bg margin-bottom-20">
+<script src="https://test.adyen.com/hpp/cse/js/8215290589662396.shtml"></script>
+<section class="onboarding-bg onboarding-bg-min-height">
+  <div class="payment-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+        <h2 class="block margin-bottom-10"><!-- <img src="/assets/images/back_arrow.svg" class="back_arrow" alt="" title=""> --> Select Payment Method</h2>
+        <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
+          <div id="payable-amount" class="w-100 pull-left onboarding-bg margin-bottom-20">
                     <span class="pull-left">
                       Payable Amount
                     </span>
-                    <span class="pull-right" id="total_amount"></span>
-                     <span class="pull-right" id="currency"></span>
-                  </div>
-                  <div id="payment-mode">
-                    <h5 class="margin-top-25">Choose Payment Mode</h5>
-                    <div id="accordion" class="font-light">
+            <span class="pull-right" id="total_amount"></span>
+            <span class="pull-right" id="currency"></span>
+          </div>
+          <div id="payment-mode">
+            <h5 class="margin-top-25">Choose Payment Mode</h5>
+            <div id="accordion" class="font-light">
 
-                      <div class="card">
-                        <div class="card-header">
-                          <a class="card-link" data-toggle="collapse" href="#collapseCB">
-                            Credit/Debit Card
-                          </a>
-                        </div>
-                        <div id="collapseCB" class="collapse" data-parent="#accordion">
-                          <div class="card-body">
-                            <form id="adyen-encrypted-form" action="/plans/purchase_plans" method="get">
-                             
-                        <input type="hidden" id="plans" name="plans" value="">
-                        <input type="hidden" id="combo_plan_id" name="combo_plan_id" value="">
-                        <input type="hidden" id="combo_pack_id" name="combo_pack_id" value="">
-                        <input type="hidden" id="price_charged" name="price_charged" value="">
-                        <input type="hidden" id="order_id" name="order_id" value="">
+              <div class="card">
+                <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseCB">
+                    Credit/Debit Card
+                  </a>
+                </div>
+                <div id="collapseCB" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <form id="adyen-encrypted-form" action="/plans/purchase_plans" method="get">
 
-                             <div class="input-group cardno">
-                                <i class="fa fa-circle" aria-hidden="true"></i>
-                                <input type="text" id="" name="" class="form-control" data-encrypted-name="number"> 
-                                <span class="input-label">Card Number</span>
-                              </div>
-                              <div class="input-group expiry">
-                                   <i class="fa fa-circle" aria-hidden="true"></i>
-                                <input type="text" id="" name="" class="form-control" required="" size="2" data-encrypted-name="expiryMonth"> 
-                                <input type="text" id="" name="" class="form-control" placeholder="YYYY" required="" size="4" data-encrypted-name="expiryYear"> 
-                                <span class="input-label">Expiry</span>
-                              </div>
-                             
-                              <div class="input-group cvv">
-                                <input type="text" id="" name="" class="form-control" data-encrypted-name="cvc">
-                                 <i class="fa fa-circle" aria-hidden="true"></i>
-                                <img src="/assets/images/information.svg" alt="" title="">                             
-                              </div>
+                      <input type="hidden" id="plans" name="plans" value="">
+                      <input type="hidden" id="combo_plan_id" name="combo_plan_id" value="">
+                      <input type="hidden" id="combo_pack_id" name="combo_pack_id" value="">
+                      <input type="hidden" id="price_charged" name="price_charged" value="">
+                      <input type="hidden" id="order_id" name="order_id" value="">
 
-                              <!-- <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" name="adyen-encrypted-form-expiry-generationtime" value=""> -->
-                         <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" value="generate-this-server-side" data-encrypted-name="generationtime" />
-
-
-                              <div class="input-group cardname">
-                            <i class="fa fa-circle" aria-hidden="true"></i>
-                                <input type="text" id="" name="" class="form-control margin-bottom-10"  data-encrypted-name="holderName">
-                               <span class="input-label">Name on Card</span>
-                                <p>We will save this card for your convenience. If required you can delete the card in the 'Manage Payment Options' section in the 'Me' menu. We do no store CVV</p>                             
-                              </div>
-
-          
-   
-
-
-                              <div class="input-group button margin-bottom-15">
-                                <input class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Proceed">
-                              </div>
-                              <!-- <input _ngcontent-c1="" class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Pay" disabled=""> -->
-
-
-                            </form>
-                          </div>
-                        </div>
+                      <div class="input-group cardno">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <input type="text" id="" name="" class="form-control" data-encrypted-name="number">
+                        <span class="input-label">Card Number</span>
                       </div>
-                      <ul class="list-group list-group-flush font-light">
-                        <li class="list-group-item">
-                          <a href="javascript:;" target="_blank">
-                            <span class="pull-left">Paypal</span>                            
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                      <div class="input-group expiry">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <input type="text" id="" name="" class="form-control" required="" size="2" data-encrypted-name="expiryMonth">
+                        <input type="text" id="" name="" class="form-control" placeholder="YYYY" required="" size="4" data-encrypted-name="expiryYear">
+                        <span class="input-label">Expiry</span>
+                      </div>
+
+                      <div class="input-group cvv">
+                        <input type="text" id="" name="" class="form-control" data-encrypted-name="cvc">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <img src="/assets/images/information.svg" alt="" title="">
+                      </div>
+
+                      <!-- <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" name="adyen-encrypted-form-expiry-generationtime" value=""> -->
+                      <input type="hidden" id="adyen-encrypted-form-expiry-generationtime" value="generate-this-server-side" data-encrypted-name="generationtime" />
+
+
+                      <div class="input-group cardname">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <input type="text" id="" name="" class="form-control margin-bottom-10"  data-encrypted-name="holderName">
+                        <span class="input-label">Name on Card</span>
+                        <p>We will save this card for your convenience. If required you can delete the card in the 'Manage Payment Options' section in the 'Me' menu. We do no store CVV</p>
+                      </div>
+
+
+
+
+
+                      <div class="input-group button margin-bottom-15">
+                        <input class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Proceed">
+                      </div>
+                      <!-- <input _ngcontent-c1="" class="btn btn-primary" id="buttonpay" style="padding:5px 20px;" type="submit" value="Pay" disabled=""> -->
+
+
+                    </form>
                   </div>
-                </div> 
+                </div>
               </div>
+              <ul class="list-group list-group-flush font-light">
+                <li class="list-group-item">
+                  <a href="javascript:;" target="_blank">
+                    <span class="pull-left">Paypal</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          </div>
-        </section>
-      </div>      
+        </div>
+      </div>
     </div>
-    <!-- </div> -->
   </div>
+  </div>
+</section>
+</div>
+</div>
+<!-- </div> -->
+</div>
 <script>
-  $(document).ready(function() {      
-   $("#currency").text(localStorage.getItem("currency")  );
-   $("#total_amount").text(localStorage.getItem("tl_amount"));
+    $(document).ready(function() {
+        $("#currency").text(localStorage.getItem("currency")  );
+        $("#total_amount").text(localStorage.getItem("tl_amount"));
 
-$("#plans").val(localStorage.getItem("plan"));
-$("#combo_plan_id").val(localStorage.getItem("combo_plan_id"));
-$("#combo_pack_id").val(localStorage.getItem("combo_pack_id"));
-$("#price_charged").val(localStorage.getItem("tl_amount"));
-$("#order_id").val(localStorage.getItem("order_id"));
-$("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
+        $("#plans").val(localStorage.getItem("plan"));
+        $("#combo_plan_id").val(localStorage.getItem("combo_plan_id"));
+        $("#combo_pack_id").val(localStorage.getItem("combo_pack_id"));
+        $("#price_charged").val(localStorage.getItem("tl_amount"));
+        $("#order_id").val(localStorage.getItem("order_id"));
+        $("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
 
 
-$("input[type='text'], input[type='password']").keyup(function() {
-    var inputlenth = $(this).val().length;
-    var id_val = $(this).attr("id");
-    
-    if(inputlenth > 0) {
-      $(this).parents(".input-group").children('.fa-circle').hide();
-      $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});      
+        $("input[type='text'], input[type='password']").keyup(function() {
+            var inputlenth = $(this).val().length;
+            var id_val = $(this).attr("id");
+
+            if(inputlenth > 0) {
+                $(this).parents(".input-group").children('.fa-circle').hide();
+                $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
+            }
+            else {
+                $(this).parents(".input-group").children('.fa-circle').show();
+                $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});
+            }
+        });
+
+
+    });
+</script>
+
+
+
+<script type="text/javascript">
+
+
+    // generate time client side for testing only... Don't deploy on a
+    // real integration!!!
+    document.getElementById('adyen-encrypted-form-expiry-generationtime').value = new Date().toISOString();
+
+    // the form element to encrypt
+    var form    = document.getElementById('adyen-encrypted-form');
+
+    // the public key
+    var key = "10001|D24F70B0EBF0F65C522B79130DB92B7B6636CDFF4CA6F42310A5043"+
+            "807345F93E342C0DE24D945415E3CAC030A2206DCBC4312A65B5305FFA658122CC1DED4508665F4"+
+            "4BF7075D7A575402B35F6A912204A81CD91D297D83E5468291CC9B8B281944F5513A333A371E1E37EFA"+
+            "4CB87A246B60371368B3286C5FF174C1E6F390051A5EE53303BF540C8118B4795CE2399270294D"+
+            "F574EAB8A86B3B07FBFB7936B56933DB6FF52C86CE13838660F48775487EDBC22E70F6ED265"+
+            "952D598522025D70BD83D54BC57E649F836E729372B7A94C89D1B8898EFD66911FD0EB0F6D89"+
+            "29459F21F828E960FA106ECDF3C87761D3802BF83837B9E9212C6E71F8A219495D";
+
+    var options = {};
+
+    // Enable basic field validation (default is true)
+    // The submit button will be disabled when fields
+    // proof to be invalid. The form submission will be
+    // prevented as well.
+    // options.enableValidations = true;
+
+
+    // Always have the submit button enabled (default is false)
+    // Leave the submit button enabled, even in case
+    // of validation errors.
+    // options.submitButtonAlwaysEnabled = false;
+
+    // Ignore non-numeric characters in the card number field (default
+    // is true)
+    // The payment handling ignores non-numeric characters for the card
+    // field.
+    // By default non-numeric characters will also be ignored while
+    // validating
+    // the card number field. This can be disabled for UX reasons.
+    // options.numberIgnoreNonNumeric = true;
+
+    // Ignore CVC validations for certain bins. Supply a comma separated
+    // list.
+    // options.cvcIgnoreBins = '6703'; // Ignore CVC for BCMC
+
+    // Use 4digit cvc for certain bins. Supply a comma separated list.
+    // options.fourDigitCvcForBins = '34,37'; // Set 4 digit CVC for Amex
+
+
+    // Use a different attribute to identify adyen fields
+    // Note that the attributes needs to start with data-.
+    // options.fieldNameAttribute = 'data-encrypted-name';
+
+    // Set a element that should display the card type
+    options.cardTypeElement = document.getElementById('cardType');
+    console.log("form");
+    console.log(form);
+    console.log("key");
+    console.log(key);
+    console.log("options");
+    console.log(options);
+    // the form will be encrypted before it is submitted
+    var encryptedForm = adyen.encrypt.createEncryptedForm(form, key, options);
+    console.log("encryptedForm");
+    console.log(encryptedForm);
+    function checkNumberValidity(){
+        var element = document.getElementById("errormessageHere");
+        var valid = encryptedForm.validate("number");
+        var p = document.createElement("p");
+        p.innerHTML = "";
+        if(valid.number == false || valid.luhn == false){
+            element.innerHTML = "Card Number is invalid";
+        }else{
+            element.innerHTML = "";
+        }
     }
-    else {
-        $(this).parents(".input-group").children('.fa-circle').show();
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});            
-    }
-  });
 
-  
-  });  
-</script>       
-
-
-
-  <script type="text/javascript">
-
-            
-// generate time client side for testing only... Don't deploy on a
-// real integration!!!
-document.getElementById('adyen-encrypted-form-expiry-generationtime').value = new Date().toISOString();
-
-// the form element to encrypt
-var form    = document.getElementById('adyen-encrypted-form');
-
-// the public key
- var key = "10001|D24F70B0EBF0F65C522B79130DB92B7B6636CDFF4CA6F42310A5043"+
- "807345F93E342C0DE24D945415E3CAC030A2206DCBC4312A65B5305FFA658122CC1DED4508665F4"+
- "4BF7075D7A575402B35F6A912204A81CD91D297D83E5468291CC9B8B281944F5513A333A371E1E37EFA"+
- "4CB87A246B60371368B3286C5FF174C1E6F390051A5EE53303BF540C8118B4795CE2399270294D"+
- "F574EAB8A86B3B07FBFB7936B56933DB6FF52C86CE13838660F48775487EDBC22E70F6ED265"+
- "952D598522025D70BD83D54BC57E649F836E729372B7A94C89D1B8898EFD66911FD0EB0F6D89"+
- "29459F21F828E960FA106ECDF3C87761D3802BF83837B9E9212C6E71F8A219495D"; 
-
-var options = {};
-
-// Enable basic field validation (default is true)
-// The submit button will be disabled when fields
-// proof to be invalid. The form submission will be
-// prevented as well.
-// options.enableValidations = true;
-
-
-// Always have the submit button enabled (default is false)
-// Leave the submit button enabled, even in case
-// of validation errors.
-// options.submitButtonAlwaysEnabled = false;
-
-// Ignore non-numeric characters in the card number field (default
-// is true)
-// The payment handling ignores non-numeric characters for the card
-// field.
-// By default non-numeric characters will also be ignored while
-// validating
-// the card number field. This can be disabled for UX reasons.
-// options.numberIgnoreNonNumeric = true;
-
-// Ignore CVC validations for certain bins. Supply a comma separated
-// list.
-// options.cvcIgnoreBins = '6703'; // Ignore CVC for BCMC
-
-// Use 4digit cvc for certain bins. Supply a comma separated list.
-// options.fourDigitCvcForBins = '34,37'; // Set 4 digit CVC for Amex
-
-
-// Use a different attribute to identify adyen fields
-// Note that the attributes needs to start with data-.
-// options.fieldNameAttribute = 'data-encrypted-name';
-
-// Set a element that should display the card type
-options.cardTypeElement = document.getElementById('cardType');
-console.log("form");
-console.log(form);
-console.log("key");
-console.log(key);
-console.log("options");
-console.log(options);
-// the form will be encrypted before it is submitted
-var encryptedForm = adyen.encrypt.createEncryptedForm(form, key, options);
-console.log("encryptedForm");
-console.log(encryptedForm);
-function checkNumberValidity(){
-    var element = document.getElementById("errormessageHere");
-     var valid = encryptedForm.validate("number");
-     var p = document.createElement("p");
-     p.innerHTML = "";
-     if(valid.number == false || valid.luhn == false){
-        element.innerHTML = "Card Number is invalid";
-     }else{
-        element.innerHTML = "";
-     }
-}
-
-//encryptedForm.checkCardNumber("","","");
- //encryptedForm.addCardTypeDetection(options.cardTypeElement)
-  </script>
+    //encryptedForm.checkCardNumber("","","");
+    //encryptedForm.addCardTypeDetection(options.cardTypeElement)
+</script>

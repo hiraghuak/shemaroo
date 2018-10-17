@@ -1,392 +1,99 @@
-<!DOCTYPE html>
-  <!--[if IE 6]>
-  <html id="ie6" lang="en-US">
-  <![endif]-->
-  <!--[if IE 7]>
-  <html id="ie7" lang="en-US">
-  <![endif]-->
-  <!--[if IE 8]>
-  <html id="ie8" lang="en-US">
-  <![endif]-->
-  <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-  <html lang=en>
-  <head>
-  <meta charset="UTF-8" />
-  <title>Shemaroo</title>
-  <meta name="ctest" content="ctest" /
-  ><link href="/assets/images/favic.ico" rel="shortcut icon" />    
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
+<section class="onboarding-bg min-height-div padding-top-85 padding-top-145">
+  <div class="onboarding-payment-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20">
+        <h2 class="block margin-bottom-10"><!-- <a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> --> Summary</h2>
+        <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
+          <div class="pull-left payment-header w-100 rounded" id="all-pack-div">
+            <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
+              <li class="text-uppercase gradient1">all categories</li>
+              <%@all_access_packs["plans"].each do |aa|%>
+              <li>
+                <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan="<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]+"|"+ @all_access_packs["category"]%>">
+                <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
+              </li>
+              <%end%>
+            </ul>                    
+          </div>
+          <p class="pull-left w-100 margin-bottom-0"><a href="javascript:;" class="font-light" id="revert_plan">Revert to original plan section</a></p>
+          <div class="pull-left w-100 payment-body margin-top-25">
+            <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
+              <li class="pull-left pack_details">
+                <!-- <span class="font-bold">Combo Pack</span><br> -->
+                <span class="font-light" id="plan-category"></span>
+              </li>
+              <li class="pull-right font-semibold">
+                 <span class="pull-right" id="total_amount"></span>
+             <span class="pull-right" id="currency"></span>
+              </li>
+            </ul>
+            <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-0">
+              <li class="pull-left font-light margin-bottom-15">
+                Tax
+              </li>
+              <li class="pull-right margin-bottom-15">
+                <span id="tax"></span>
+              </li>
+            </ul>
+             <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
+              <li class="pull-left margin-bottom-15">
+                <a href="javascript:;" class="text-uppercase" data-toggle="modal" data-target="promocode_pop" id="promocode_link">Have a Promocode ?</a>
+              </li>
+              <li class="pull-right margin-bottom-15">
+                <span id="promocode"></span>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-left w-100 payment-footer">
+            <ul class="pull-left w-100 padding-left-0 list-none">
+              <li class="font-semibold pull-left">Grand Amount</li>
+              <li class="pull-right font-semibold" id="all_amount"></li>
+                <span class="pull-right" id="all_currency"></span>
+            </ul>
+          </div>
 
-   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    /* Font integration */
-    
-    @font-face {    
-      font-family: 'condensed-extra-bold';
-      src: url('/fonts/EncodeSansCondensed-ExtraBold.ttf');
-    }
-    @font-face {    
-      font-family: 'condensed-light';
-      src: url('/fonts/EncodeSansCondensed-Light.ttf');
-    }
-    @font-face {
-      font-family: 'condensed-medium';
-      src: url('/fonts/EncodeSansCondensed-Medium.ttf');
-        
-    }
-    @font-face {
-      font-family: 'condensed-semibold';
-      src: url('/fonts/EncodeSansCondensed-SemiBold.ttf');
-    }
-    .font-light {
-      font-family: 'condensed-light';
-    }
-    .font-medium {
-      font-family: 'condensed-medium';
-    }
-    .font-semibold {
-      font-family: 'condensed-semibold';
-    }
-    .font-extrabold {
-      font-family: 'condensed-extra-bold';
-    }
-    .padding-left-0 {
-      padding-left: 0px !important;
-    }
-    .margin-bottom-0 {
-      margin-bottom: 0px !important;
-    }
-    .margin-bottom-10 {
-      margin-bottom: 10px !important;
-    }
-    .margin-bottom-15 {
-      margin-bottom: 15px !important;
-    }
-    .margin-top-25 {
-      margin-top: 25px !important;
-    }
-    .margin-right-0 {
-      margin-right: 0px !important;
-    }
-    .padding-top-25 {
-      padding-top: 25px !important;
-    }
-    .inline-block {
-      display: inline-block !important;
-    }
-    .light .gradient1, .light .gradient2, .light .gradient3, .light .gradient4, .light .gradient5, .light .gradient6, .light .gradient7, .light .gradient8 {
-      display: inline-block;
-      position: relative;
-      color: #000;
-      background: #fff;
-      mix-blend-mode: multiply;    
-    }
-    body {
-      background-color: #161616;
-      float: left;
-      font-family: 'condensed-semibold';
-      font-size: 16px;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-    }
-    .container {
-      max-width: 1366px;
-      margin: 0 auto;
-      padding: 0;
-    }
-    .wrapper {
-      background-color: #161616;
-      float: left;
-      width: 100%;
-    }
-    .inside-wrapper {
-      background-color: #fff;
-      float: left;
-      min-height: 100%;
-      padding-top: 25px;
-      width: 100%;
-    }
-    section {
-      float: left;
-      width: 100%;
-    }
-    .onboarding-box-wrap h2 {
-      color: #000000;
-      font-size: 1.5em;
-      line-height: 1.25em;
-      margin-bottom: 13px !important;
-    }
-    .back_arrow {
-      margin-right: 5px;
-      width: 22px;
-    }
-    a, a:hover {
-      color: #0496DC;
-      text-decoration: none;
-    }
-    .onboarding-box-wrap .tile-box-shadow {
-      background-color: #fff;
-      border-radius: 0.25rem !important;
-      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
-      padding: 30px;
-    }
-    .payment-header {
-      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
-      border-radius: 0.25rem !important;
-    }
-    .list-none {
-      list-style: none;
-    }
-    .margin-bottom-0 {
-      margin-bottom: 0px !important;
-    }
-    .padding-right-30 {
-      padding-right: 30px !important;
-    }
-    .padding-left-30 {
-      padding-left: 30px !important;
-    }
-    .padding-top-15 {
-      padding-top: 15px !important;
-    }
-    .padding-bottom-5 {
-      padding-bottom: 5px !important;
-    }
-    .onboarding-payment-contianer {
-      margin: 0 auto;
-      margin-bottom: 30px;
-      max-width: 586px;
-      padding: 0px 15px;
-    }
-    .onboarding-box-wrap {
-      margin-bottom: 20px;
-    }
-    .payment-header {
-      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
-    }
-    .plans_summary_section .payment-header ul li {
-      float: left;
-      font-size: 0.875em;
-      margin-right: 8px;
-      width: auto;
-    }
-    .plans_summary_section .payment-header ul li:first-child {
-      margin-right: 0;
-      width: calc(100% - 215px);
-    }
-    .plans_summary_section .payment-header ul li:last-child {
-      margin-right: 0px;
-    }
-    .plans_summary_section .payment-header ul li .custom-control span.overflow-control-description {
-      color: #010300;
-      font-size: 1.25em;
-      margin-top: 0px;
-    }
-    .plans_summary_section .payment-header ul li .custom-control span.overflow-control-description label {
-      color: #686669;
-      float: left;
-      font-size: 0.7em;
-      margin-bottom: 0px;
-      margin-top: -5px;
-    }
-    [type="radio"]:checked,
-    [type="radio"]:not(:checked) {
-      position: absolute;
-      left: -9999px;
-    }
-    [type="radio"]:checked + label,
-    [type="radio"]:not(:checked) + label {
-      position: relative;
-      padding-left: 28px;
-      cursor: pointer;
-      line-height: 20px;
-      display: inline-block;
-      color: #666;
-    }
-    [type="radio"]:checked + label:before,
-    [type="radio"]:not(:checked) + label:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 22px;
-      height: 22px;
-      border: 1px solid #686868;
-      border-radius: 100%;
-      background: transparent;
-    }
-    [type="radio"]:checked + label:after,
-    [type="radio"]:not(:checked) + label:after {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: #201E1C;
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      border-radius: 100%;
-      transition: all 0.2s ease;
-    }
-    [type="radio"]:not(:checked) + label:after {
-      opacity: 0;
-      -webkit-transform: scale(0);
-      transform: scale(0);
-    }
-    [type="radio"]:checked + label:after {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    .modal {
-      background: rgba(0, 0, 0, 0.125);
-    }
-    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::before {
-      border-right: 7px solid transparent;
-    }
+          <p class="pull-left w-100 margin-top-15">
+            <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">Proceed</a>
+          </p>
 
-    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::after {
-      border-bottom: 3px solid #010300;
-      border-right: 3px solid #010300;
-    }
 
-    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator {
-      border: 1px solid #817C7A;
-    }
+        </div>
+      </div>
+    </div>
 
-    .payment-header label span:first-child {
-      color: #212529;
-      font-size: 1.15em;
-    }
-    .payment-header label span {
-      float: left;
-      margin-bottom: -5px;
-      width: 100%;
-    }
-    .payment-header label span:last-child {
-      font-size: 0.875em;
-    }
-    #revert_plan {
-      color: #ABABAB;
-      font-size: 0.75em;
-      display: none;
-    }
-    .payment-body li {
-      color: #666666;
-      font-size: 0.875em;
-    }
-    .payment-body li.pull-right {
-      color: #a1a1a1;
-      font-size: 1em;
-    }
-    .payment-body .border-bottom {
-      border-color: #F2F2F2 !important;
-    }
-    @media(max-width: 576px) {      
-      .onboarding-box-wrap {
-        padding: 0px 15px;    
-      }
-    }
-    @media(max-width: 470px) {
-      .plans_summary_section .payment-header ul li {
-        margin-bottom: 10px;
-        margin-right: 0px;
-        width: 100% !important;
-      }
-      .plans_summary_section .payment-header ul li:last-child {
-        margin-bottom: 0px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="container">
-      <div class="inside-wrapper">
-        <section class="onboarding-bg">
-          <div class="onboarding-payment-contianer">
-            <div class="row">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap">
-                <h2 class="block margin-bottom-10"><!-- <a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> --> Summary</h2>
-                <div class="w-100 pull-left tile-box-shadow plans_summary_section">
-                  <div class="pull-left payment-header w-100">
-                    <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
-                      <li class="text-uppercase gradient1">all categories</li>
-                      <%@all_access_packs["plans"].each do |aa|%>
-                      <li>
-                        <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan='<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]%>'>
-                        <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
-                      </li>
-                      <%end%>
-                     <!--  <li>
-                      <input type="radio" id="monthly" name="radio-group" data-amount="99" data-pack="monthly">
-                      <label for="monthly" class="font-bold"><span>99</span><span class="text-uppercase">Monthly</span></label>
-                      </li> -->
-                    </ul>                    
-                  </div>
-                  <p class="pull-left w-100 margin-bottom-0"><a href="javascript:;" class="font-light" id="revert_plan">Revert to original plan section</a></p>
-                  <div class="pull-left w-100 payment-body margin-top-25">
-                    <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
-                      <li class="pull-left pack_details">
-                        <!-- <span class="font-bold">Combo Pack</span><br> -->
-                        <span class="font-light" id="plan-category"></span>
-                      </li>
-                      <li class="pull-right font-semibold">
-                         <span class="pull-right" id="total_amount"></span>
-                     <span class="pull-right" id="currency"></span>
-                      </li>
-                    </ul>
-                    <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-0">
-                      <li class="pull-left font-light margin-bottom-15">
-                        Tax
-                      </li>
-                      <li class="pull-right margin-bottom-15">
-                        <span id="tax">1</span>
-                      </li>
-                    </ul>
-                     <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
-                      <li class="pull-left margin-bottom-15">
-                        <a href="javascript:;" class="text-uppercase">Have a Promocode ?</a>
-                      </li>
-                      <li class="pull-right margin-bottom-15">
-                        <span id="promocode">2</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="pull-left w-100 payment-footer">
-                    <ul class="pull-left w-100 padding-left-0 list-none">
-                      <li class="font-semibold pull-left">Grand Amount</li>
-                      <li class="pull-right font-semibold" id="all_amount"></li>
-                        <span class="pull-right" id="all_currency"></span>
+      <!-- The Modal -->
+    <div class="modal" id="promocode_pop" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal body -->
+          <div class="modal-body text-center padding-left-30 padding-right-30">
 
-                    </ul>
-                  </div>
+            <h6 class="margin-bottom-20 margin-top-10">Enter Promo Code or Add a Gift card</h6>
 
-                  <p class="pull-left w-100 padding-top-15">
-                    <a href="javascript:;" class="text-uppercase"  onclick="summary_plans()">Proceed</a>
-                  </p>
-                </div>
-              </div>
+            <p class="input-group margin-top-20 margin-bottom-10 promocode_pop_textbox_wrap font-medium">
+              <input type="text" id="promo_code" name="promo_code" class="form-control margin-bottom-20" value="">  
+              <span class="input-label">Promo Code</span>
+            </p>
+            <div class="inline-block custom-gradient margin-bottom-15 margin-top-5">
+              <p class="inline radius-button radius-button2 margin-right-10">
+                <a href="javascript:void(0);" class="text-uppercase btn gradient2 font-bold" id="cancel-promo">cancel</a>
+              </p>
+              <p class="inline radius-button radius-button margin-left-10">
+                <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold"   onclick="apply_promocode()">apply</a>
+              </p>
             </div>
           </div>
-        </section>
-        </div>      
+          
+        </div>
+      </div>
     </div>
-    
+<%=render "layouts/page_height_setting"%>
   </div>
+</section>
+
   
 <script>
 
-  var window_height = window.innerHeight;
-  $('.inside-wrapper').css('min-height', window_height);
 
   $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
     $(".plans_list_section ul li").removeClass("active");
@@ -433,32 +140,20 @@
     $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
   })
 
+    $("#promocode_link").click(function() {
+    $('#promocode_pop').modal('show');
+  })
+    
+    $("#cancel-promo").click(function() {
+    $('#promocode_pop').modal('hide');
+  })
+
 
 $('input[type=radio][name=radio-group]').change(function() {
-    // var data_pack = $(this).attr("data-pack");
-    // var data_amount = $(this).attr("data-amount");
-    // var category = $(this).attr("category");
-    // if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "Yearly") {
-    //   $(".pack_details span:first-child").hide();
-    //   // $(".pack_details span:last-child").text("All Category (Yearly)");
-    //   $("#plan-category").text("All Category (Yearly)");
-    //   $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
-    // }
-    // else if(data_pack !="" && data_pack!= undefined && data_pack != null && data_pack == "Monthly") {
-    //   $(".pack_details span:first-child").hide();
-    //   $(".pack_details span:last-child").text("All Category (Monthly)");
-    //   $("#plan-category").text("All Category (Yearly)");
-    //   $(".payment-body ul:first-child li.pull-right").html('<br>'+data_amount);
-    // }
-    // else {
-    //   $(".pack_details span:first-child").show();
-    //   $(".pack_details span:last-child").text("Bollywood Classic + Bollywood Plus (Yearly)");
-    //   $(".payment-body ul:first-child li.pull-right").text(data_amount); 
-    // }
-    
      var plan = $(this).attr("plan")
       currency = plan.split("|")[4]
       category = plan.split("|")[1]
+      localStorage.setItem("all_plan_category",category)
       title = plan.split("|")[2]
       amount = plan.split("|")[3]
      var cat_title = category+ " ("+title+ ")"
@@ -470,15 +165,23 @@ $('input[type=radio][name=radio-group]').change(function() {
    $("#revert_plan").show();
    var total_amount = parseFloat($("#total_amount").text());
   var tax = parseFloat($("#tax").text());
+  if(tax == "") {
+    tax = 0;
+  }
   var promocode = parseFloat($("#promocode").text());   
+  if(promocode == "") {
+    promocode = 0;
+  }
   var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  //total_amount)+parseFloat(tax)-parseFloat(promocode)
   var all_amount = parseFloat(all_amount).toFixed(2)
+
   $("#all_amount").text(all_amount)
 });
 $("#revert_plan").click(function() {
    // $('input[type="radio"]').prop('checked', false);
    // $("#revert_plan").hide();
-    window.location.href = "/plans/m_plans_summary"
+    window.location.href = "/plans/plans_summary"
 });
 </script>       
 
@@ -491,32 +194,67 @@ $("#revert_plan").click(function() {
    $("#plan-category").text(localStorage.getItem("plan-category"));
 
   var total_amount = $("#total_amount").text();
+  
+  
   var tax = $("#tax").text();
   var promocode = $("#promocode").text();
-  var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
-  var all_amount = parseFloat(all_amount).toFixed(2)
-  $("#all_amount").text(all_amount)
+  // var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+  // var all_amount = parseFloat(all_amount).toFixed(2)
 
+  if($("#tax").text() == "") {
+    tax = 0;
+    $("#tax").text(tax);
+    //var tax_amount = $("#tax").text(tax);
+  }
+//  var promocode = parseFloat($("#promocode").text());   
+  if($("#promocode").text() == "") {
+    promocode = 0;
+    $("#promocode").text(promocode);
+    //var promocode_amount = $("#promocode").text(promocode);
+  }
+
+  //var all_amount = localStorage.getItem("net_amount")
+  //$("#all_amount").text(all_amount)
+
+  //var cpn_amount = localStorage.getItem("cpn_price")
+  //var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
+  var net_amount = (total_amount+$("#tax").text()-$("#promocode").text()).toFixed(2)
+  //var net_amount = net_amount.toFixed(2);
+  console.log(net_amount);
+  $("#all_amount").text(net_amount);  
+  
 $("#plans").val(localStorage.getItem("plan"));
   });  
+  if(localStorage.getItem("all_plan_category")=="All Access Plans"){
+                    $('input[type="radio"]').prop('checked', true);
+                  }
+if(localStorage.getItem("plan-category")=="All Access Plans"){
+   $("#all-pack-div").hide();
+ }
 </script> 
 
 
 
 <script type="text/javascript">
      function summary_plans(){
-if($('input[type=radio]:checked').length == 1){  
+     var disc_amount = localStorage.getItem("net_amount");
+     $('#all_amount').text(all_amount)
+      var cname = localStorage.getItem("cpn_name");
+      var cid = localStorage.getItem("cpn_id");
+    var ap_cat = localStorage.getItem("all_plan_category")
+if($('input[type=radio]:checked').length == 1 | ap_cat == "All Access Plans"){  
 //var plan = $(this).attr("plan")
 var plan = $('input[type=radio]:checked').attr("plan");
 console.log(plan);
-var data = 'plans='+plan
+localStorage.setItem("plan",plan)
+var data = 'plans='+plan+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
 else{
 var plans = localStorage.getItem("plan")
 var currency = localStorage.getItem("currency")
 var amount = localStorage.getItem("amount")
 // if(myCookies.session_id){                 
-var data = 'plans='+plans
+var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
               $.ajax({
                 url: "/plans/payment_url",
@@ -524,10 +262,12 @@ var data = 'plans='+plans
                 data: data,
                 success: function(data){
                   if(data.message == "adyen payment iniated"){
+                    console.log("adyen data Combo");
+                    console.log(data);
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans/m_plans_purchase";
+                    window.location = "/plans/plans_purchase";
                   }
                   else{                 
                     window.location.href = data.payment_url;
@@ -537,6 +277,45 @@ var data = 'plans='+plans
               });            
               // }
             }
+
+
+
+     function apply_promocode(){
+            var pcode = $("#promo_code").val()
+            if($('input[type=radio]:checked').length == 1){  
+            //var plan = $(this).attr("plan")
+            var plan = $('input[type=radio]:checked').attr("plan");
+            var data = 'plans='+plan+'&promocode='+pcode
+            }
+            else{
+            var plans = localStorage.getItem("plan")
+            var currency = localStorage.getItem("currency")
+            var amount = localStorage.getItem("amount")
+            // if(myCookies.session_id){                 
+            var data = 'plans='+plans+'&promocode='+pcode
+            }
+              $.ajax({
+                url: "/plans/apply_promocode",
+                type: 'GET',
+                data: data,
+                success: function(data){
+                  
+                    $('#promocode_pop').modal('hide');
+                    var cpn_price =  data.cpn_price.toFixed(2);
+                    var net_amount = data.net_amount.toFixed(2);
+                    console.log(net_amount);
+                    //var tax = 0.00;
+                    //var net_amount = net_amount+tax;
+                    //var net_amount = net_amount.toFixed(2);
+                    localStorage.setItem("cpn_price",cpn_price);
+                    localStorage.setItem("net_amount",data.net_amount);
+                    localStorage.setItem("cpn_name",data.cpn_name);
+                    localStorage.setItem("cpn_id",data.cpn_id);  
+                    $("#promocode").text(cpn_price);    
+                    $('#all_amount').text(net_amount)          
+                    //location.reload();                    
+                }
+              });            
+              // }
+            }            
 </script> 
-</body>
-</html>
