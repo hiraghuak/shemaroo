@@ -75,7 +75,14 @@ function focusNext(event) {
 
   var maxLength = parseInt(target.attributes["maxlength"].value, 10)
   var myLength = target.value.length;
-  
+  if(event.keyCode == 8) {
+		//console.log(target.previousSibling.previousSibling);		
+		var prevElement = target.previousSibling.previousSibling
+		if(prevElement != null) {
+			prevElement.focus();	
+		}
+				
+	} 
   if (myLength >= maxLength) {
       var next = target;
       while (next = next.nextElementSibling) {
