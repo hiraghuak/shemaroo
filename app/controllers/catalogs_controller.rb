@@ -36,27 +36,27 @@ class CatalogsController < ApplicationController
 
   def all_items_list
     begin
-    next_page = "true"
-    page_size = 20
-    if params[:page_no].present?
-      page_number = params[:page_no].to_i
-    else
-      page_number = 0
-    end
-      response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}_#{page_number}", expires_in: CACHE_EXPIRY_TIME){
-       Ott.get_items_list_with_pagination(params[:catalog_name],page_number,page_size)
+    # next_page = "true"
+    # page_size = 20
+    # if params[:page_no].present?
+    #   page_number = params[:page_no].to_i
+    # else
+    #   page_number = 0
+    # end
+      # response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}_#{page_number}", expires_in: CACHE_EXPIRY_TIME){
+      #  Ott.get_items_list_with_pagination(params[:catalog_name],page_number,page_size)
+      # }
+      response = Rails.cache.fetch("all_items_list_#{params[:catalog_name]}", expires_in: CACHE_EXPIRY_TIME){
+       Ott.get_items_list(params[:catalog_name])
       }
       @all_items = response["data"]["catalog_list_items"]
       @layout_type =  response["data"]["layout_type"]
       @layout_scheme = response["data"]["layout_scheme"]
       @title = response["data"]["display_title"]
       @next_page = true
-      if request.xhr?
-      else
-      end
     rescue Exception => e
       logger.info e.message
-     Rails.cache.delete("all_items_list_#{params[:catalog_name]}_#{page_number}")
+     Rails.cache.delete("all_items_list_#{params[:catalog_name]}")
      @all_items = []
     end
   end
