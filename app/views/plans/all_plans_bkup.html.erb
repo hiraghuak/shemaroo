@@ -66,7 +66,7 @@
               </li>
               <%unless plan["plans"].blank?%>
               <%plan["plans"].each do |p|%>
-              <li class="text-center choose_plan <%= p["title"].downcase+" "+ plan["category"]+"_"+ p["title"].downcase %>" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>">
+              <li class="text-center choose_plan <%= p["title"].downcase %>" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>">
                 <span class="text-uppercase block"><%=p["title"]%></span>
                 <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                 <span class="block"><%=p["price"]%></span>
@@ -189,7 +189,7 @@ $(".choose_plan").click(function(){
     a++
     console.log("second"+a)
     $(this).attr("selected", a);
-    /*if(a == 2) {
+    if(a == 2) {
       $(this).removeClass('active');      
       a = 0;
       x = 0;
@@ -199,7 +199,7 @@ $(".choose_plan").click(function(){
       z = 0;
       x++;
        $(this).Class('active');
-    }*/
+    }
     console.log(x);
     if(x == 3) {
       x = 0;
