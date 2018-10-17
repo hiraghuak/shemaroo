@@ -181,7 +181,7 @@ $('input[type=radio][name=radio-group]').change(function() {
 $("#revert_plan").click(function() {
    // $('input[type="radio"]').prop('checked', false);
    // $("#revert_plan").hide();
-    window.location.href = "/plans/plans_summary"
+    window.location.href = "/plans/m_plans_summary"
 });
 </script>       
 
@@ -257,7 +257,7 @@ var amount = localStorage.getItem("amount")
 var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
 }
               $.ajax({
-                url: "/plans/payment_url",
+                url: "/plans/m_payment_url",
                 type: 'POST',
                 data: data,
                 success: function(data){
@@ -267,7 +267,7 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
                     localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
                     localStorage.setItem("currency",data.init_data["currencyCode"]);
                     localStorage.setItem("order_id",data.init_data["merchantReference"]);
-                    window.location = "/plans/plans_purchase";
+                    window.location = "/plans/m_plans_purchase";
                   }
                   else{                 
                     window.location.href = data.payment_url;
@@ -295,7 +295,7 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
             var data = 'plans='+plans+'&promocode='+pcode
             }
               $.ajax({
-                url: "/plans/apply_promocode",
+                url: "/plans/m_apply_promocode",
                 type: 'GET',
                 data: data,
                 success: function(data){

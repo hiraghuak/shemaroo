@@ -93,7 +93,7 @@
       <span id="amount" class="amount" data-prive-val=""></span>
     </div>
     <div class="pull-right light">
-      <!-- <a href="/plans/plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
+      <!-- <a href="/plans/m_plans_purchase" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1">Proceed</a>   -->
       <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1" data-toggle="modal" data-target="#myModal" onclick="summary_plans()">Proceed</a>  -->
       <!-- <a href="javascript:;" class="text-uppercase btn btn-outline-primary margin-top-5 gradient1 combo_offer" >Proceed</a>  -->
       <div class="inline-block margin-top-10 margin-bottom-10 custom-gradient">
@@ -120,7 +120,7 @@
             </div>
             </p>
             <p class="pull-left w-100 margin-top-15">
-              <a href="/plans/plans_summary?plans="+parr class="text-uppercase">no thanks</a>
+              <a href="/plans/m_plans_summary?plans="+parr class="text-uppercase">no thanks</a>
             </p>
           </div>
 
@@ -287,7 +287,7 @@
         var cat = localStorage.getItem("plan-category")
         if(parr.length == 2 || cat == "All Access Plans")
         {
-            window.location.href = "/plans/plans_summary?plans="+parr
+            window.location.href = "/plans/m_plans_summary?plans="+parr
         }
         else
         {
