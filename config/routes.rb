@@ -73,8 +73,8 @@ Rails.application.routes.draw do
   get '/plans/apply_promocode' => 'plans#apply_promocode'
   get '/plans/m_apply_promocode' => 'plans##mobile_apply_promocode'
 
-  get '/plans/my_plans' => 'plans#my_plans'
-  get '/plans/m_my_plans' => 'plans##mobile_my_plans'
+  get '/plans/view_plans' => 'plans#view_plans'
+  get '/plans/m_view_plans' => 'plans##mobile_view_plans'
 
    get '/plans/current_plans' => 'plans#current_plans'
   get '/plans/m_current_plans' => 'plans##mobile_current_plans'
