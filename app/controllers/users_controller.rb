@@ -143,6 +143,19 @@ end
 
  end
 
+ def edit_profile
+
+end
+
+def manage_profiles
+
+end
+
+def account_details
+  
+end
+
+
 
 
  private
