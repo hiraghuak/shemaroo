@@ -241,6 +241,19 @@ class PlansController < ApplicationController
 
   end
 
+  def view_plans
+
+    
+  end
+
+  def current_plans
+    
+  end
+
+  def modify_plans
+    
+  end
+
 
 
 
@@ -495,6 +508,19 @@ class PlansController < ApplicationController
     cpn_price = price_charged.to_f - response["data"]["payment"]["net_amount"].to_f
     render json: {:cpn_price => cpn_price, :net_amount => response["data"]["payment"]["net_amount"],:cpn_name => cpn_name, :cpn_id => cpn_id } , status: :ok
     render :layout => false
+  end
+
+  def mobile_view_plans
+    
+    
+  end
+
+  def mobile_current_plans
+    
+  end
+
+  def mobile_modify_plans
+    
   end
 
 
