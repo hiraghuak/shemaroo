@@ -48,7 +48,7 @@
     </div>
     <div class="profile-list">
       <div id="header_user_profiles">
-        <div id="profile-carousel1" class="owl-carousel owl-theme">
+        <div id="profile-carousel1" class="owl-carousel owl-theme">          
         </div>
       </div>           
     </div>
@@ -237,34 +237,5 @@
   })
 
 
-  $(document).ready(function(){
-      
- $('#profile-carousel1').owlCarousel({
-    margin:10,
-    nav:true,
-    dots: false,
-    responsive:{
-      0:{
-          items:1,          
-      },
-      576:{
-          items:2
-      },
-      768:{
-          items:3
-      },
-      992:{
-          items:4
-      },
-      1200:{
-          items:2
-      }
-    }
-  });
-  $( ".item.active" )
-  .closest( ".owl-item" )
-  .css( "max-width", "103px" );
-
-  })
 
 </script>
