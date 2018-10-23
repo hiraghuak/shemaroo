@@ -69,6 +69,9 @@ a, a:hover {
 .font-medium {
   font-family: 'condensed-medium'!important;
 }
+.font-extra-bold {
+  font-family: 'condensed-extra-bold';
+}
 .font-bold {
   font-family: 'condensed-bold';
 }
@@ -1738,6 +1741,45 @@ padding: 12px 10px 13px;
 }
 /* Login & Register page design ends */
 
+/* Account Details page desgin starts */
+.account_details .pull-left.w-100 {
+  position: relative;
+}
+.account_details a.pull-right {
+  font-size: 0.875em;
+}
+.account_details .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  position: absolute;
+  top: 8px;
+}
+.account_details label {
+  color: #999;
+  font-size: 0.875em;
+}
+.account_details span {
+  color: #666666;
+  font-size: 1em;
+}
+/* Account Details page desgin ends */
+
+/* Edit Profile page desgin ends */
+
+.profile_active p {
+  background: linear-gradient(to right,#D51F53, #F15A22);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.875em;
+  height: 80px;
+  padding-top: 20px;
+  width: 80px;
+}
+.edit_profile_page .custom-controls-stacked {
+  position: absolute;
+  right: 0;
+}
+/* Edit Profile page desgin ends */
 
 /* Payment page design starts */
 
@@ -1871,7 +1913,7 @@ padding: 12px 10px 13px;
   color: #a1a1a1;
   font-size: 1em; 
 }
-.payment-body .border-bottom {
+.payment-body .border-bottom, .account_details .border-bottom {
   border-color: #F2F2F2!important;
 }
 .payment-contianer h2 {
@@ -3038,6 +3080,9 @@ button:focus {
   }
   .details_episode_horizontal_title {
     min-height: calc((100vw - 35px)/ 2.35 * 0.925);
+  }
+  .onboarding-contianer {
+    width: 320px;
   }
 }
 

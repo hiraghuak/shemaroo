@@ -74,7 +74,9 @@
       content: '';
       display: block;
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
+      top: 1px; right: 0; bottom: 0; left: 1px;
+      width: calc(100% + -2px);
+      height: calc(100% + -1px);
       
       background: unquote($gradient);
       pointer-events: none;
@@ -227,7 +229,7 @@
   }
 
   &.material-switch{
-    --color: #26a69a;
+    --color: #D51F53;
     padding-left: 0;
 
     .material-switch-control-input{
@@ -481,6 +483,4 @@
   }
 }
 
-
-/* Page styling, ignore */
 

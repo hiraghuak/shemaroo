@@ -1,3 +1,5 @@
+<%=render "mobile_plans_styles"%>
+<body>
 <%all_pack = @all_plans.last["catalog_list_items"].last%>
 <section class="full-width-content light padding-top-85 padding-top-145">
   <div class="row"><!-- Continue Watching starts -->
@@ -130,6 +132,8 @@
     <%=render "layouts/page_height_setting"%>
   </div>
 </section>
+</body>
+</html>
 <script>
 
     $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
