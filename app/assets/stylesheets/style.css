@@ -1781,6 +1781,26 @@ padding: 12px 10px 13px;
 }
 /* Edit Profile page desgin ends */
 
+
+/* Manage Profile Page design starts */
+
+.profile_item_box { 
+  float: left;
+  margin-bottom: 30px;
+  width: 33%;
+}
+.kids_profile p {
+  background: linear-gradient(45deg, #77BE56 0%, #66B969 20%, #61B76C 36%, #189CC3 74%, #189CC3 100%);
+}
+.fa.fa-plus {
+  color: #999999;
+  font-size: 3em;
+  -webkit-text-stroke: 7px white;
+  border: 1px dotted #D5D5D5;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
 /* Payment page design starts */
 
 .payment-contianer {
