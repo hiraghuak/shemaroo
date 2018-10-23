@@ -1792,14 +1792,19 @@ padding: 12px 10px 13px;
 .kids_profile p {
   background: linear-gradient(45deg, #77BE56 0%, #66B969 20%, #61B76C 36%, #189CC3 74%, #189CC3 100%);
 }
-.fa.fa-plus {
+.profile_items .fa.fa-plus {
   color: #999999;
+  cursor: pointer;
   font-size: 3em;
   -webkit-text-stroke: 7px white;
-  border: 1px dotted #D5D5D5;
+  border: 2px dotted #EFEFEF;
   border-radius: 50%;
+  padding-top: 20px;
   width: 80px;
   height: 80px;
+}
+.profile_items #add_profile {
+  cursor: pointer;
 }
 /* Payment page design starts */
 
