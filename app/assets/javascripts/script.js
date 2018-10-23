@@ -37,11 +37,11 @@ $(document).ready(function(){
 	  $("#search_heading,#recent_search").hide();
 	  $(".cancel_search").show();
 	  $("#search_all_results,.search_count").html("");
-	  var search_val = $(this).val();
+	  var search_val = $(this).val().replace(/ /g,"%20");
 	  if(search_val.length != 0 && search_val != "%"){
 	  // $(".spinner").show();
 	  if(e.which == 13){
-       window.location = "/search?q="+$(this).val();
+       window.location = "/search?q="+$(this).val().replace(/ /g,"%20");
      }
      else{
 	  	$.ajax({ 
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	         	  else{
 	         	  	search_data = search_val
 	         	  }
-	         	$.cookie('recent_search_data',search_data, { expires: 14,path: '/'});
+	         	// $.cookie('recent_search_data',search_data, { expires: 14,path: '/'});
 	            $('#search_all_results').html(''); 
 	            for (var i = 0; i < search_results.length; i++) {
 	             var r = search_results[i].split("$");
@@ -131,17 +131,20 @@ $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
 	var user_profiles = getShemarooCookies().user_profiles.split(",");
 	console.log(user_profiles.length);
-	var user_data = ""
+	var user_data = ''
 	for(i=0;i< user_profiles.length;i++){
 		var user_name = user_profiles[i].split("$")
 		if(i == 1){
-       	  user_data+= '<li class="active text-ellipsis"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+			user_data+= '<div class="item active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
+       	 // user_data+= '<li class="active text-ellipsis"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
 		}
 		else{
-		  user_data+= '<li class="text-ellipsis"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+			user_data+= '<div class="item"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
+		  //user_data+= '<li class="text-ellipsis"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
 		}
 	}
-	$("#header_user_profiles").html(user_data);
+	user_data+= "</div></div>"
+	$("#profile-carousel1").html(user_data);
     $(".with_login_item").show();
     $(".with_out_login_item").hide();
    }
@@ -160,7 +163,9 @@ $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );
 /*$('#right-sidebar-menu').click(function(event) {
 	event.stopPropagation();  
 }) */
-	
+
+  
+
  
   $("#right-sidebar-menu .close-hambergmenu img").click(function() {
   	var window_height = window.outerHeight;

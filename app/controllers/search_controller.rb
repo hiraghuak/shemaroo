@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
  def index
-  begin
+  #begin
 	  @search_results = []
 	  if params[:search].present?
 	  	 search_response = Ott.get_search_results(params[:search])
@@ -9,8 +9,8 @@ class SearchController < ApplicationController
 	     search_response = Ott.get_search_results(params[:q])
 	     @search_results =  search_response["data"]["items"]
 	  end
-	 rescue
-	 	@search_results = []
-	 end
+	 # rescue
+	 # 	@search_results = []
+	 # end
   end
 end

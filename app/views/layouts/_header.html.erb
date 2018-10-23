@@ -47,23 +47,10 @@
       <img src="/assets/cancel_search.svg" alt="" title="">
     </div>
     <div class="profile-list">
-    <ul id="header_user_profiles">
-    </ul>
-     <!--  <ul>
-        <li>
-          <p>K</p>
-          <span class="text-uppercase">Kids</span>
-        </li>
-        <li class="active">
-          <img src="/assets/profile.svg" alt="" title="">
-          <p>ZD</p>
-          <span class="text-uppercase">zubin dubash</span>
-        </li>
-        <li>
-          <p>V</p>
-          <span class="text-uppercase">Vaibhav</span>
-        </li>
-      </ul>   -->              
+      <div id="header_user_profiles">
+        <div id="profile-carousel1" class="owl-carousel owl-theme">
+        </div>
+      </div>           
     </div>
     <p class="text-center text-uppercase manage-profile with_login_item" style="display:none;">
       <a href="javascript:;" class="coming_soon">Manage Profile</a>
@@ -247,6 +234,37 @@
 
     $(".gradient2.active").focus();  /* Focus respective main-menu after page load */
     
+  })
+
+
+  $(document).ready(function(){
+      
+ $('#profile-carousel1').owlCarousel({
+    margin:10,
+    nav:true,
+    dots: false,
+    responsive:{
+      0:{
+          items:1,          
+      },
+      576:{
+          items:2
+      },
+      768:{
+          items:3
+      },
+      992:{
+          items:4
+      },
+      1200:{
+          items:2
+      }
+    }
+  });
+  $( ".item.active" )
+  .closest( ".owl-item" )
+  .css( "max-width", "103px" );
+
   })
 
 </script>
