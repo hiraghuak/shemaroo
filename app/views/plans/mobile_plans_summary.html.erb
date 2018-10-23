@@ -298,7 +298,7 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
             var data = 'plans='+plans+'&promocode='+pcode
             }
               $.ajax({
-                url: "/plans/m_apply_promocode",
+                url: "/plans/apply_promocode",
                 type: 'GET',
                 data: data,
                 success: function(data){
