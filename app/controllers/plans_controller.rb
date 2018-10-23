@@ -370,12 +370,12 @@ class PlansController < ApplicationController
 # raise purchase_params.inspect
     response =  HTTP.post_https "users/#{cookies[:user_id]}/transactions", purchase_params
     if payment_gateway == "adyen"
-      render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok
+      render json: {:message => "adyen payment iniated",:init_data => response["data"] } , status: :ok and return
     else
 # byebug
 # raise payment_info.inspect
       payment_url = "#{response['data']['payment_url']}&encRequest=#{response['data']['msg']}&access_code=#{response['data']['access_code']}"
-      render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok
+      render json: {:message => "ccavenue payment iniated",:payment_url => payment_url} , status: :ok  and return
     end
     render :layout => false
   end
@@ -460,53 +460,6 @@ class PlansController < ApplicationController
     payment_params = {"encResp": enc_resp, "orderNo": order_id, "region":"IN", "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "payment_gateway":"ccavenue"}
     response =  HTTP.post_https "payment_complete/ccavenue/secure_payment", payment_params
     @resp = response["data"]
-    render :layout => false
-  end
-
-  def mobile_apply_promocode
-    if params["combo_plan_id"].blank?
-      plan_id = params["plans"].split(",").map{|a| a.split("|")[-2]}[0]
-      pack_id = params["plans"].split(",").map{|a| a.split("|")[0]}[0]
-    else
-      plan_id = params["combo_plan_id"]
-      pack_id = params["combo_pack_id"]
-    end
-    pd  =   HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{plan_id}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-    sp = pd["data"]["plans"].map{|e| e if e["id"] == pack_id}.compact.last
-    if params["combo_plan_id"].blank?
-      plan_categories = [ pd["data"]["category"]]
-    else
-      plan_categories = params["plans"].split(",").map{|a| a.split("|")[6] }
-    end
-
-    packs = [
-        {"plan_categories": plan_categories,
-    "category_type": pd["data"]["category_type"],
-    "subscription_catalog_id": pd["data"]["catalog_id"],
-    "category_pack_id": plan_id,
-    "plan_id": sp["id"]
-    }]
-
-    us = get_signature_key(packs)
-    coupon_params = {
-        "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
-        "us": us ,
-    "category_pack_id": plan_id ,
-    "plan_id": sp["id"],
-    "coupon_code": params["promocode"],
-    "region": @region
-    }
-    response = HTTP.post_https "users/#{cookies[:user_id]}/apply_coupon_code", coupon_params
-
-    if @region == "IN"
-      price_charged = sp["pg_price"]["cc_avenue"]
-    else
-      price_charged =  sp["pg_price"]["adyen"]
-    end
-    cpn_id = response["data"]["payment"]["coupon_id"]
-    cpn_name = response["data"]["payment"]["coupon_code"]
-    cpn_price = price_charged.to_f - response["data"]["payment"]["net_amount"].to_f
-    render json: {:cpn_price => cpn_price, :net_amount => response["data"]["payment"]["net_amount"],:cpn_name => cpn_name, :cpn_id => cpn_id } , status: :ok
     render :layout => false
   end
 

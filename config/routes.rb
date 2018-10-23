@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   match 'plans/m_payment_response' => 'plans##mobile_payment_response', via: [:get, :post]
  
   get '/plans/apply_promocode' => 'plans#apply_promocode'
-  get '/plans/m_apply_promocode' => 'plans##mobile_apply_promocode'
+  # get '/plans/m_apply_promocode' => 'plans##mobile_apply_promocode'
 
   get '/plans/view_plans' => 'plans#view_plans'
   get '/plans/m_view_plans' => 'plans##mobile_view_plans'
