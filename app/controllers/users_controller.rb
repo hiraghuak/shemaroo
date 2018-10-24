@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
  #skip_before_action  :verify_authenticity_token
+ before_action :check_valid_user,:only => ["edit_profile","manage_profiles","account_details"]
  def sign_up
 	 begin
 	  signup_params = {
@@ -81,7 +82,7 @@ class UsersController < ApplicationController
    	user_profiles = User.get_all_user_profiles(response["data"]["messages"][0]["session"])
    	all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
     first_profile = all_profiles.first.split("$")
-     user_login_profile =  User.get_user_profile(response["data"]["messages"][0]["session"])
+     user_login_profile =  User.get_user_account_details(response["data"]["messages"][0]["session"])
      if user_login_profile["data"]["login_type"] == "msisdn"
        login_id = user_login_profile["data"]["mobile_number"]
      else
@@ -144,19 +145,56 @@ end
  end
 
  def edit_profile
-
-end
+  user_profile = User.get_user_profile(params[:profile_id],cookies[:user_id])
+  @edit_profile = user_profile["data"]["profile"]
+ end
 
 def manage_profiles
+  profile_response = User.get_all_user_profiles(cookies[:user_id])
+  @user_profiles = profile_response["data"]["profiles"]
 
 end
 
 def account_details
-  
+  user_details_resp = User.get_user_account_details(cookies[:user_id])
+  @user_details = user_details_resp["data"]
+end
+
+def update_profile
+  begin
+    update_profile_params = {
+      :user_profile => {
+      :firstname => params[:name],
+      :child => params[:is_child]
+     }
+  }
+  update_profile_response = User.update_profile(cookies[:user_id],params[:profileid],update_profile_params)
+    render json: {:status => true}
+  rescue
+    render json: {:status => false,:error_message => "sorry something went wrong"}
+  end
+end
+
+def delete_profile
+  begin
+  delete_profile_response = User.delete_profile(cookies[:user_id],params[:profileid])
+    render json: {:status => true}
+  rescue
+    render json: {:status => false,:error_message => "sorry something went wrong"}
+  end
+end
+
+def update_personal_details
+  user_details_resp = User.get_user_account_details(cookies[:user_id])
+  @user_profile_details = user_details_resp["data"]
 end
 
 
-
+def check_valid_user
+  unless cookies[:user_id].present?
+    redirect_to "#{SITE}"
+  end
+end
 
  private
 

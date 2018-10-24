@@ -1,45 +1,28 @@
+
+<%
+meta title: "Manage Profiles",
+     description: "Manage Profiles",
+     keywords: %w(Manage Profiles)
+%>
 <section class="onboarding-bg min-height-div padding-top-85 padding-top-145">
   <div class="onboarding-payment-contianer margin-bottom-30">
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
         <h2 class="block margin-bottom-10">Manage Profiles</h2>
         <div class="w-100 pull-left tile-box-shadow padding-left-30 manage_profile_page padding-right-30 padding-bottom-30 padding-top-30 rounded">
-        	<div class="pull-left w-100 profile_items">
-        		<div class="profile_active profile_item_box text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">ZD</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Zubin dubash</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_active profile_item_box kids_profile text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">K</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Kids</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_active profile_item_box text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">V</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Vaibhav</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_active profile_item_box text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">V</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Vaibhav</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_active profile_item_box text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">V</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Vaibhav</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_active profile_item_box text-center">
-        			<p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5">V</p>
-        			<b class="text-uppercase font-bold inline-block w-100 text-ellipsis">Vaibhav</b>
-        			<a href="javascript:;" class="text-uppercase block">Edit</a>
-        		</div>
-        		<div class="profile_item_box text-center w-100">
-        			<a href="javascript"><i class="fa fa-plus margin-bottom-5" aria-hidden="true"></i></a>
-        			<b class="text-uppercase font-bold inline-block w-100"><a href="javascript:;" id="add_profile">New profile</a></b>
-        		</div>
-        	</div>
+            <div class="pull-left w-100 profile_items">
+            <%@user_profiles.each do |p|%>
+                <div class="profile_active profile_item_box text-center <%= p["child"] == true ? "kids_profile" : ""%>">
+                    <p class="text-uppercase font-extra-bold text-center inline-block margin-bottom-5"><%=p["firstname"].chr%></p>
+                    <b class="text-uppercase font-bold inline-block w-100 text-ellipsis"><%=p['firstname']%></b>
+                    <a href="/users/edit_profile/<%=p['profile_id']%>" class="text-uppercase block">Edit</a>
+                </div>
+            <%end%>
+            <div class="profile_item_box text-center w-100">
+              <a href="javascript"><i class="fa fa-plus margin-bottom-5" aria-hidden="true"></i></a>
+              <b class="text-uppercase font-bold inline-block w-100"><a href="javascript:;" id="add_profile">New profile</a></b>
+            </div> 
+            </div>
         </div>
       </div>
     </div>
