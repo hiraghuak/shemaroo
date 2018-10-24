@@ -12,9 +12,13 @@ class PlansController < ApplicationController
     @all_access_packs = @all_plans.last["catalog_list_items"].last
 
 
-# byebug
-#     user_session = cookies[:user_id].to_s
-#     @user_plans = Ott.user_plans(user_session)
+
+    user_session = cookies[:user_id].to_s
+    @user_plans = Ott.user_plans(user_session)
+if    @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
+    
+
+end
 
     # modify_params =  {"auth_token":"Ts4XpMvGsB2SW7NZsWc3",
     # "data" : {"add_plans": {"plan_id":"5b44845fc1df412ee6000000","subscription_category_id":"5b3c917fc1df417b9a00002d"},"modify_plans":{"current_plan_id":"5b729f89c1df4137ef000000","subscription_category_id":"5b729f89c1df4137ef000002"},"region":"IN"}}
