@@ -251,6 +251,8 @@ class PlansController < ApplicationController
   end
 
   def modify_plans
+    response = Ott.subscription_plans
+    @all_plans = response["data"]["catalog_list_items"]
     
   end
 
