@@ -401,5 +401,52 @@ $("input[type='text'], input[type='password']").keyup(function() {
 	  });
  	});
 
+ $("#update_personal_details").click(function(){
+ 	$("#user_name_error").hide();
+
+ 	var name = $("#user_profile_name").val();
+ 	var mobile_no = $("#user_mobile_number").val();
+ 	var user_email = $("#user_email_address").val();
+ 	var user_dob = $("#user_dob").val();
+ 	 if(name.length != 0){
+	 	 	$("#update_personal_details").text("DONE...");
+	    $.ajax({
+				url: "/users/update_personal_details",
+				type: "POST",
+				data: { 
+				 profile_name: name
+				},
+				success: function(response,status){
+	 	     $("#update_personal_details").text("DONE");
+				 }
+		  });
+ 	 }
+ 	 else if(name.length == 0){
+ 	 	$("#user_name_error").show()
+ 	 }
+ })
+ $("#user_profile_name").focusin(function(){
+   $("#user_name_error").hide();
+ });
+
+ $("#add_profile").click(function(){
+ 	 var profile_name = $("#profile_name").val();
+ })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })

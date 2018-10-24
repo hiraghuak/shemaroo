@@ -185,8 +185,23 @@ def delete_profile
 end
 
 def update_personal_details
+  if request.xhr?
+    user_params = {
+      :user => {
+        :firstname => params[:profile_name],
+        :mobile_number => cookies[:user_login_id]
+      }
+    }
+    update_user_resp = User.update_account_details(cookies[:user_id],user_params)
+    render json: {:status => true}
+  else
   user_details_resp = User.get_user_account_details(cookies[:user_id])
   @user_profile_details = user_details_resp["data"]
+ end
+end
+
+def add_profile
+
 end
 
 

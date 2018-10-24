@@ -29,7 +29,8 @@ Rails.application.routes.draw do
 	  get  'verify_otp'
     post 'update_profile'
     post 'delete_profile'
-    get  'update_personal_details'
+    match  'update_personal_details',via: [:get,:post]
+    get  'add_profile'
 	  post 'validate_otp'
 	  post 'resend_otp'
 	  post 'forgot_password'

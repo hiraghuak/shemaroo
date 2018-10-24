@@ -42,4 +42,8 @@ class User
     def self.delete_profile(session_id,profile_id)
      HTTP.delete "users/#{session_id}/profiles/#{profile_id}?region=#{$region}","user"
     end
+
+    def self.update_account_details(session_id,user_data)
+      HTTP.put "users/#{session_id}/account?region=#{$region}",user_data,"user"
+    end
 end
