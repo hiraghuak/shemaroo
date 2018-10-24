@@ -10,6 +10,18 @@ class PlansController < ApplicationController
     response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
     @all_access_packs = @all_plans.last["catalog_list_items"].last
+
+
+# byebug
+#     user_session = cookies[:user_id].to_s
+#     @user_plans = Ott.user_plans(user_session)
+
+    # modify_params =  {"auth_token":"Ts4XpMvGsB2SW7NZsWc3",
+    # "data" : {"add_plans": {"plan_id":"5b44845fc1df412ee6000000","subscription_category_id":"5b3c917fc1df417b9a00002d"},"modify_plans":{"current_plan_id":"5b729f89c1df4137ef000000","subscription_category_id":"5b729f89c1df4137ef000002"},"region":"IN"}}
+    #  'http://18.210.75.7:8080/users/ef57c49a33836849a295ad271e9308e5/get_modified_amount'
+
+
+
     if params["plans"].present? && params["plans"].split(",").count == 2
       plan_title = params["plans"].split(",").map{|a| a.split("|")[2] }.last
       items  =   Ott.get_catalog_details("5b3c917fc1df417b9a00002c")
@@ -253,6 +265,9 @@ class PlansController < ApplicationController
   def modify_plans
     response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
+
+
+
     
   end
 

@@ -19,8 +19,8 @@ end
   def get_region
     begin
         if Rails.env == "development"
-          @region = "IN"
-          # @region = "US"
+          # @region = "IN"
+          @region = "US"
           $region = @region
         else
           ip = get_user_ip
