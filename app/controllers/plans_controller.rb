@@ -242,8 +242,8 @@ class PlansController < ApplicationController
   end
 
   def view_plans
-
-    
+    user_session = cookies[:user_id].to_s
+    @user_plans = Ott.user_plans(user_session)
   end
 
   def current_plans

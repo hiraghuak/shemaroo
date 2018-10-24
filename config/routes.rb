@@ -67,8 +67,8 @@ Rails.application.routes.draw do
   # post '/payment/payment_response' => 'plans#payment_response'
   # post '/payment/m_payment_response' => 'plans#mobile_payment_response'
  
-  match 'plans/payment_response' => 'plans#payment_response', via: [:get, :post]
-  match 'plans/m_payment_response' => 'plans##mobile_payment_response', via: [:get, :post]
+  match 'payment/payment_response' => 'plans#payment_response', via: [:get, :post]
+  match 'payment/m_payment_response' => 'plans##mobile_payment_response', via: [:get, :post]
  
   get '/plans/apply_promocode' => 'plans#apply_promocode'
   # get '/plans/m_apply_promocode' => 'plans##mobile_apply_promocode'

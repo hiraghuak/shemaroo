@@ -69,4 +69,8 @@ class Ott
     HTTP.get "regions/ip/#{ip_addrs}","catalog"
   end
 
+  def self.user_plans(user_session)
+        HTTP.get "users/#{user_session}/user_plans?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{$region}","catalog"
+  end
+
 end
