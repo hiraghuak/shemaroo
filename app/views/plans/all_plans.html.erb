@@ -34,7 +34,7 @@
                   <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
                 </li>
                 <%all_pack["plans"].each do |aa|%>
-                    <li class="text-center choose_plan <%= aa["title"].downcase %>" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>">
+                    <li class="text-center choose_plan <%= aa["title"].downcase %>" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>" data-pack-det="<%= aa["title"].downcase %>">
                       <span class="text-uppercase block"><%=aa["title"]%></span>
                       <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
                       <span class="block"><%=aa["price"]%></span>
@@ -66,7 +66,7 @@
                     </li>
                     <%unless plan["plans"].blank?%>
                         <%plan["plans"].each do |p|%>
-                            <li class="text-center choose_plan <%= p["title"].downcase+" "+ plan["category"]+"_"+ p["title"].downcase %>" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>">
+                            <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>" data-pack-det="<%= plan["category"]+"_"+ p["title"].downcase %>">
                               <span class="text-uppercase block"><%=p["title"]%></span>
                               <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                               <span class="block"><%=p["price"]%></span>
@@ -172,11 +172,21 @@
     })
 
     $(document).ready(function(){
+       var selected_plans = [];
         var x = 0;
         var y = 0;
         var z = 0
         var a = 0;
         $(".choose_plan").click(function(){
+         
+          var selected_pack = $(this).data("pack-det");
+          selected_plans.push(selected_pack);
+          console.log(selected_plans);
+
+        });
+        console.log(selected_plans);
+
+        $(".choose_plan1").click(function(){
             var  keysToRemove = ["plan", "currency","plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
             keysToRemove.forEach(k => localStorage.removeItem(k))
             parr = []
