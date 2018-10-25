@@ -11,18 +11,21 @@ class PlansController < ApplicationController
     @all_plans = response["data"]["catalog_list_items"]
     @all_access_packs = @all_plans.last["catalog_list_items"].last
 
-
-
     user_session = cookies[:user_id].to_s
     @user_plans = Ott.user_plans(user_session)
-if    @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
-    
-
+if @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
+  current_plan =    @user_plans["data"].map{|s| s if s["subscription_id"] == params["plans"].split("|")[5] }.compact
+ # HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{current_plan["subscription_id"]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+     new_cat_id = params["plans"].split("|")[5]
+    new_plan_id =  params["plans"].split("|")[0]
+    cur_cat_id = current_plan[0]["subscription_id"]  
+    cur_plan_id = current_plan[0]["plan_id"]  
+     modify_params =  {"auth_token": "Ts4XpMvGsB2SW7NZsWc3","data": {"add_plans":  { "plan_id": new_plan_id,"subscription_category_id": new_cat_id},    "modify_plans":{"current_plan_id": cur_plan_id,"subscription_category_id": cur_cat_id},"region": @region}}
+   @response =  HTTP.post_https "users/#{cookies[:user_id]}/get_modified_amount", modify_params
+ 
+   #{"total_amount"=>51.56, "currency"=>"INR", "subscription_category_id"=>"5b67ec33c1df415e28000030", "plan_id"=>"5b67ec33c1df415e2800002f", "category"=>"kids", "remaining days"=>31}
+   render "modify_plans_summary"
 end
-
-    # modify_params =  {"auth_token":"Ts4XpMvGsB2SW7NZsWc3",
-    # "data" : {"add_plans": {"plan_id":"5b44845fc1df412ee6000000","subscription_category_id":"5b3c917fc1df417b9a00002d"},"modify_plans":{"current_plan_id":"5b729f89c1df4137ef000000","subscription_category_id":"5b729f89c1df4137ef000002"},"region":"IN"}}
-    #  'http://18.210.75.7:8080/users/ef57c49a33836849a295ad271e9308e5/get_modified_amount'
 
 
 
@@ -58,8 +61,11 @@ end
       all_price = sp["price"]
       currency = sp["currency"]
       price_charged = sp["discounted_price"]
-      all_price_charged = params["disc_amount"] == "null" ? price_charged : params["disc_amount"]
-
+      if params["modified_amount"].present? 
+        all_price_charged = params["modified_amount"]
+      else
+        all_price_charged = params["disc_amount"] == "null" ? price_charged : params["disc_amount"]
+      end
       sub_pack = {}
       sub_pack["plan_categories"] = [pd["data"]["category"]]
       sub_pack["category_type"] = pd["data"]["category_type"]
@@ -112,13 +118,36 @@ end
 
     us = get_signature_key(payment_info[:packs])
 
+
+if params["modified_amount"].present? 
+    user_session = cookies[:user_id].to_s
+    @user_plans = Ott.user_plans(user_session)
+ #if @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
+  current_plan =    @user_plans["data"].map{|s| s if s["subscription_id"] == params["plans"].split("|")[5] }.compact
+ # HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{current_plan["subscription_id"]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+    #  new_cat_id = params["plans"].split("|")[5]
+    # new_plan_id =  params["plans"].split("|")[0]
+    cur_cat_id = current_plan[0]["subscription_id"]  
+    cur_plan_id = current_plan[0]["plan_id"]  
+    modify_user_plans = {"current_plan_id": cur_plan_id,"current_subscription_category_id": cur_cat_id}
+
     purchase_params = {
         "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "us": us, "region": @region, "payment_gateway": payment_gateway,"platform": platform,
+    "payment_info": payment_info,
+    "transaction_info": transaction_info,
+    "modify_user_plans": modify_user_plans,
+    "user_info": user_info,
+    "miscellaneous": miscellaneous
+    }
+  else
+    purchase_params = {
+    "auth_token":"Ts4XpMvGsB2SW7NZsWc3", "us": us, "region": @region, "payment_gateway": payment_gateway,"platform": platform,
     "payment_info": payment_info,
     "transaction_info": transaction_info,
     "user_info": user_info,
     "miscellaneous": miscellaneous
     }
+  end
 # byebug
 # raise purchase_params.inspect
     response =  HTTP.post_https "users/#{cookies[:user_id]}/transactions", purchase_params
