@@ -355,4 +355,122 @@ $("input[type='text'], input[type='password']").keyup(function() {
     }
   }); 	
 
+ $("#update_profile").click(function(){
+ 	var profile_name = $("#edit_profile_name").val();
+ 	var profile_id = window.location.pathname.split("/users/edit_profile/")[1];
+ 	var ischild = $(".material-switch-control-input").is(':checked')
+ 	if(profile_name.length != 0){
+ 	 $("#update_profile").text("Done..");
+     $.ajax({
+		url: "/users/update_profile",
+		type: "POST",
+		data: { 
+			profileid: profile_id,
+			name: profile_name,
+			is_child: ischild
+		},
+		success: function(response,status){
+		 $("#update_profile").text("Done");
+		 $("#profile_sucess_up_msg").show().fadeOut(4500);
+		}
+	});
+ 	}
+ 	else if(profile_name.length == 0){
+     $("#edit_profile_name_error").show();
+ 	}
+ });
+
+ $("#edit_profile_name").focusin(function(){
+   $("#edit_profile_name_error").hide();
+ });
+
+ 
+  $("#delete_user_profile").click(function(){
+ 	 var profile_id = window.location.pathname.split("/users/edit_profile/")[1];
+ 	 $("#delete_user_profile").text("DELETE THIS PROFILE....");
+    $.ajax({
+			url: "/users/delete_profile",
+			type: "POST",
+			data: { 
+			profileid: profile_id
+			},
+			success: function(response,status){
+ 	     $("#delete_user_profile").text("DELETE THIS PROFILE....");
+ 	       window.location = "/users/manage_profiles"
+			 }
+	  });
+ 	});
+
+ $("#update_personal_details").click(function(){
+ 	$("#user_name_error").hide();
+ 	var name = $("#user_profile_name").val();
+ 	var mobile_no = $("#user_mobile_number").val();
+ 	var user_email = $("#user_email_address").val();
+ 	var user_dob = $("#user_dob").val();
+ 	 if(name.length != 0){
+	 	 	$("#update_personal_details").text("DONE...");
+	    $.ajax({
+				url: "/users/update_personal_details",
+				type: "POST",
+				data: { 
+				 profile_name: name
+				},
+				success: function(response,status){
+	 	     $("#update_personal_details").text("DONE");
+				 }
+		  });
+ 	 }
+ 	 else if(name.length == 0){
+ 	 	$("#user_name_error").show()
+ 	 }
+ })
+ $("#user_profile_name").focusin(function(){
+   $("#user_name_error").hide();
+ });
+
+ $("#add_profile").click(function(){
+ 	 $("#profile_name_error").hide();
+ 	 var profile_name = $("#profile_name").val();
+ 	 var is_kid_profile =  $("#add_profile_kids").is(':checked');
+ 	 if(profile_name.length != 0){
+ 	 	$("#add_profile").text("Adding...");
+    $.ajax({
+				url: "/users/add_profile",
+				type: "POST",
+				data: { 
+				 profile_name: profile_name,
+				 kids_profile: is_kid_profile
+				},
+				success: function(response,status){
+         $("#add_profile").text("Add");
+         $("#profile_name").val("");
+          window.location = "/users/manage_profiles"
+				}
+		  });
+ 	 }
+ 	 else if(profile_name.length == 0){
+ 	   $("#profile_name_error").show();
+ 	 }
+ })
+
+ $("#profile_name").focusin(function(){
+   $("#profile_name_error").hide();
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })

@@ -1,0 +1,50 @@
+<%
+meta title: "Update Personal  Details",
+     description: "Update Personal  Details",
+     keywords: %w(Update Personal  Details)
+%>
+<section class="onboarding-bg padding-top-80 padding-top-145 min-height-div">
+  <div class="onboarding-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+        <h2 class="block margin-bottom-10">Update Personal Details</h2>
+        <div class="pull-left w-100 tile-box-shadow padding-bottom-30 edit_profile_page padding-top-25 rounded">
+          <div class="w-100 all_error padding-left-10 padding-right-10" >
+              <label class="error rounded text-center" id="profile_sucess_up_msg">Profile updated sucessfully</label>
+            </div>
+        	<div class="padding-left-30 padding-right-30 margin-top-25">
+	        	<div class="input-group name">
+	        		<i class="fa fa-circle" aria-hidden="true"></i>
+		          <input type="text" id="user_profile_name" name="profile name" class="form-control" value="<%=@user_profile_details['firstname']%>"> 
+		          <span class="input-label">Name</span>
+              <label class="error" id="user_name_error">Please enter the name</label>
+	        </div>
+            <div class="input-group name">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <input type="text" id="user_mobile_number" name="profile name" class="form-control" value="<%=@user_profile_details['mobile_number']%>" readonly="true"> 
+              <span class="input-label">Mobile Number</span>
+              <label class="error" id="user_mobile_error">Please enter the name</label>
+          </div>
+            <div class="input-group name">
+              <input type="text" id="user_email_address" name="profile name" class="form-control" value="<%=@user_profile_details['email_id']%>"> 
+              <span class="input-label">Email</span>
+              <label class="error" id="user_email_error">Please enter the email</label>
+          </div>
+            <div class="input-group name">
+              <input type="text" id="user_dob" name="profile name" class="form-control" value="<%#=@edit_profile['firstname']%>"> 
+              <span class="input-label">Birth Date</span>
+              <label class="error" id="user_dob_error">Please enter the date of birth</label>
+          </div>
+
+	        <div class="text-center margin-bottom-10 margin-top-25 light">
+              <div class="inline-block margin-top-25 margin-bottom-15 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="update_personal_details">Done</a>
+                </p>
+              </div>
+            </div>
+	      </div>
+      </div>
+    </div>
+  </div>
+</section>

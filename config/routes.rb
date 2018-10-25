@@ -23,16 +23,21 @@ Rails.application.routes.draw do
 	  post 'sign_in'
 	  post 'sign_up'
 	  get 'welcome'
-    get 'edit_profile'
     get 'manage_profiles'
     get 'account_details'
 	  post 'sign_out'
 	  get  'verify_otp'
+    post 'update_profile'
+    post 'delete_profile'
+    match  'update_personal_details',via: [:get,:post]
+    match  'add_profile',via: [:get,:post]
 	  post 'validate_otp'
 	  post 'resend_otp'
 	  post 'forgot_password'
 	  post 'subscriptions'
 	end
+  get "/users/edit_profile/:profile_id" => "users#edit_profile"
+  get "/users/remote_profile/:profile_id" => "users#remote_profile"
 
  ##USERS PAGES ROUTES STARTS HERE####
 

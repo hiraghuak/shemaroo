@@ -66,7 +66,7 @@
                     </li>
                     <%unless plan["plans"].blank?%>
                         <%plan["plans"].each do |p|%>
-                            <li class="text-center choose_plan" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>" data-pack-det="<%= plan["category"]+"_"+ p["title"].downcase %>">
+                            <li class="text-center choose_plan <%= plan["category"]+"-"+ p["title"].downcase %>" id="<%=p["id"]+"|"+ plan["title"]+"|"+ p["title"]+ "|"+p["discounted_price"]+"|"+p["currency_symbol"]+"|"+plan["content_id"]+"|"+ plan["category"]%>" data-pack-det="<%= plan["category"]+"-"+ p["title"].downcase %>$<%=p['discounted_price']%>">
                               <span class="text-uppercase block"><%=p["title"]%></span>
                               <span class="block price"></i><%=p["currency_symbol"]%>&nbsp;<%=p["discounted_price"]%></span>
                               <span class="block"><%=p["price"]%></span>
@@ -180,6 +180,9 @@
         $(".choose_plan").click(function(){
          
           var selected_pack = $(this).data("pack-det");
+          var pack_active = selected_pack.split("$")[0];
+          console.log(pack_active);
+           console.log(selected_pack)
           selected_plans.push(selected_pack);
           console.log(selected_plans);
 
@@ -309,4 +312,7 @@
     $("#add-category").click(function(){
         $("#combo_offer").modal("hide");
     });
+
+
+
 </script>  
