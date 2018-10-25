@@ -153,6 +153,7 @@ $('.user_menu').click(function(event) {
     $(".with_out_login_item").hide();
    }
   $('.user_menu').css("z-index", "1");
+  $('.head-right ul li').css("z-index", "1");
 var window_height = window.outerHeight;
 $("body").addClass("noscroll");
 $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
@@ -196,8 +197,6 @@ function load_profiles() {
 
 }
  
-
- 
   $("#right-sidebar-menu .close-hambergmenu img").click(function() {
   	var window_height = window.outerHeight;
     $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
@@ -208,6 +207,7 @@ function load_profiles() {
           width: '250px'          
       });
       $('.user_menu').css("z-index", "1111");
+      $('.head-right ul li').css("z-index", "1111");
       $(".profile_menu1").html('');
   });   
 
