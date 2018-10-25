@@ -403,7 +403,6 @@ $("input[type='text'], input[type='password']").keyup(function() {
 
  $("#update_personal_details").click(function(){
  	$("#user_name_error").hide();
-
  	var name = $("#user_profile_name").val();
  	var mobile_no = $("#user_mobile_number").val();
  	var user_email = $("#user_email_address").val();
@@ -430,8 +429,33 @@ $("input[type='text'], input[type='password']").keyup(function() {
  });
 
  $("#add_profile").click(function(){
+ 	 $("#profile_name_error").hide();
  	 var profile_name = $("#profile_name").val();
+ 	 var is_kid_profile =  $("#add_profile_kids").is(':checked');
+ 	 if(profile_name.length != 0){
+ 	 	$("#add_profile").text("Adding...");
+    $.ajax({
+				url: "/users/add_profile",
+				type: "POST",
+				data: { 
+				 profile_name: profile_name,
+				 kids_profile: is_kid_profile
+				},
+				success: function(response,status){
+         $("#add_profile").text("Add");
+         $("#profile_name").val("");
+          window.location = "/users/manage_profiles"
+				}
+		  });
+ 	 }
+ 	 else if(profile_name.length == 0){
+ 	   $("#profile_name_error").show();
+ 	 }
  })
+
+ $("#profile_name").focusin(function(){
+   $("#profile_name_error").hide();
+ });
 
 
 

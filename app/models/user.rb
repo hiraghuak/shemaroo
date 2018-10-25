@@ -46,4 +46,9 @@ class User
     def self.update_account_details(session_id,user_data)
       HTTP.put "users/#{session_id}/account?region=#{$region}",user_data,"user"
     end
+
+    def self.add_profile(session_id,profile_data)
+      HTTP.post "users/#{session_id}/profiles?region=#{$region}",profile_data,"user"
+    end
+
 end

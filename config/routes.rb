@@ -30,13 +30,15 @@ Rails.application.routes.draw do
     post 'update_profile'
     post 'delete_profile'
     match  'update_personal_details',via: [:get,:post]
-    get  'add_profile'
+    match  'add_profile',via: [:get,:post]
 	  post 'validate_otp'
 	  post 'resend_otp'
 	  post 'forgot_password'
 	  post 'subscriptions'
 	end
   get "/users/edit_profile/:profile_id" => "users#edit_profile"
+  get "/users/remote_profile/:profile_id" => "users#remote_profile"
+
  ##USERS PAGES ROUTES STARTS HERE####
 
  ##PLANS PAGES ROUTES STARTS HERE####
