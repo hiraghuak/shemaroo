@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="http://sachinchoolur.github.io/lightslider/dist/css/lightslider.min.css">
+<script type="text/javascript" src="http://sachinchoolur.github.io/lightslider/src/js/lightslider.js"></script>
 <section class="header-section" id="with_header_tabs">
 <div class="header-border col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-none d-xl-block">
 </div>
@@ -42,17 +44,37 @@
 
   </div>  
 </div>
-<div class="" id="right-sidebar-menu">
+<div class="" id="right-sidebar-menu" style="width: 250px;">
   <div class="pull-right close-hambergmenu">
       <img src="/assets/cancel_search.svg" alt="" title="">
     </div>
-    <div class="profile-list">
+  
+      <div class="profile-list">
       <div id="header_user_profiles">
-        <div id="profile-carousel1" class="owl-carousel owl-theme">          
-        </div>
-      </div>           
-    </div>
-    <p class="text-center text-uppercase manage-profile with_login_item" style="display:none;">
+              <div class="profile_menu1 owl-carousel owl-theme">
+                <!-- <div class="item">
+                  <p>Kannan</p>
+                </div>
+                <div class="item">
+                  <p>Kannan</p>
+                </div>
+                <div class="item">
+                  <p>Kannan</p>
+                </div>
+                <div class="item">
+                  <p>Kannan</p>
+                </div>
+                <div class="item">
+                  <p>Kannan</p>
+                </div>
+                <div class="item">
+                  <p>Kannan</p>
+                </div>                 -->
+              </div>
+           
+  </div>
+</div>
+    <p class="text-center text-uppercase manage-profile with_login_item margin-top-10" style="display:none;">
       <a href="/users/manage_profiles">Manage Profile</a>
     </p>
     <ul class="navbar-nav mr-auto">
@@ -120,21 +142,10 @@
       <img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search">
     </div>
     <div class="profile-list">
-      <ul id="mobile_user_profiles">
-        <!-- <li>
-          <p>K</p>
-          <span class="text-uppercase">Kids</span>
-        </li>
-        <li class="active">
-          <img src="/assets/profile.svg" alt="" title="">
-          <p>ZD</p>
-          <span class="text-uppercase">zubin dubash</span>
-        </li>
-        <li>
-          <p>V</p>
-          <span class="text-uppercase">Vaibhav</span>
-        </li> -->
-      </ul>                
+      <div id="mobile_user_profiles">
+        <div id="profile_menu2" class="owl-carousel owl-theme">
+        </div>
+      </div>                
     </div>
     <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;" class="coming_soon">Manage</a></p>
     <ul class="navbar-nav mr-auto">
@@ -233,8 +244,33 @@
     $("#right-sidebar-menu .navbar-nav li:last-child").css('top', window_height); /* Place Logout link in bottom of screen */
 
     $(".gradient2.active").focus();  /* Focus respective main-menu after page load */
-    
-  })
+
+
+    /*$('#bollywood-classic-carousel3').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    dots: false,
+    responsive:{
+      0:{
+          items:2
+      },
+      576:{
+          items:3
+      },
+      768:{
+          items:4
+      },
+      992:{
+          items:5
+      },
+      1200:{
+          items:2
+      }
+    }
+  });*/
+
+ });
 
 
 

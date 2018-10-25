@@ -130,22 +130,24 @@ $(document).ready(function(){
 
 $('.user_menu').click(function(event) {
 	if(getShemarooCookies().user_id){
+		$(".profile_menu1").html('');
 	var user_profiles = getShemarooCookies().user_profiles.split(",");
 	console.log(user_profiles.length);
 	var user_data = ''
 	for(i=0;i< user_profiles.length;i++){
 		var user_name = user_profiles[i].split("$")
 		if(i == 1){
-			user_data+= '<div class="item active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
-       	 // user_data+= '<li class="active text-ellipsis"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+			//user_data+= '<li class="item active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+       	  user_data+= '<div class="item active text-ellipsis"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
 		}
 		else{
-			user_data+= '<div class="item"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
+			user_data+= '<div class="item text-ellipsis"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
 		  //user_data+= '<li class="text-ellipsis"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
 		}
 	}
 	
-	$("#profile-carousel1").html(user_data);
+	$(".profile_menu1").html(user_data);
+	//$(".profile-slider").html(user_data);
 	load_profiles();
     $(".with_login_item").show();
     $(".with_out_login_item").hide();
@@ -154,43 +156,43 @@ $('.user_menu').click(function(event) {
 var window_height = window.outerHeight;
 $("body").addClass("noscroll");
 $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
-
+$("#right-sidebar-menu .item.active").closest(".owl-item").css({"width" : "70px"});
     value = $('#right-sidebar-menu').css('width') === '0px' ? '250px' : '0px';
     var show = $('#right-sidebar-menu').css('opacity') === 0 ? 1 : 0;
+      
       $('#right-sidebar-menu').animate({
           width: "250px"          
       }, 250);
-    //event.stopPropagation();  
+    //event.stopPropagation(); 
+
+
 });
 /*$('#right-sidebar-menu').click(function(event) {
 	event.stopPropagation();  
 }) */
 
 function load_profiles() {
+	console.log("aaa");
 	var navigation = [
       '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
       '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
     ];
-	$('#profile-carousel1').owlCarousel({
+	$('.profile_menu1').owlCarousel({
+    loop:false,
     margin:10,
     nav:true,
     dots: false,
-    navText: navigation,
     responsive:{
       0:{
-          items:5,          
-      },
-      768:{
-          items:3
+          items:5
       },
       1200:{
-          items:2
+          items:3
       }
     }
   });
-$("#right-sidebar-menu .owl-item" ).css({"max-width": "50px", "width": "50px" });
-  $("#right-sidebar-menu .item.active").closest(".owl-item").css({"max-width": "103px!important", "width": "103px!important" });
   
+
 }
  
 
@@ -199,13 +201,13 @@ $("#right-sidebar-menu .owl-item" ).css({"max-width": "50px", "width": "50px" })
   	var window_height = window.outerHeight;
     $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
     $("body").removeClass("noscroll");
-    value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
+    var value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
     var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
       $('#right-sidebar-menu').animate({
-          width: value          
-      }, 'fast');
-
+          width: '250px'          
+      });
       $('.user_menu').css("z-index", "1111");
+      $(".profile_menu1").html('');
   });   
 
 
@@ -218,17 +220,58 @@ $(".navbar-toggler-icon").click(function(){
 	for(i=0;i< user_profiles.length;i++){
 		var user_name = user_profiles[i].split("$")
 		if(i == 1){
-       	  user_data+= '<li class="active"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+       	  user_data+= '<div class="item active text-ellipsis"><img src="/assets/profile.svg" alt="profile" title="profile"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
 		}
 		else{
-		  user_data+= '<li><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></li>'
+		  user_data+= '<div class="item text-ellipsis"><p>'+user_name[1].substr(0,1).toUpperCase()+'</p><span class="text-uppercase">'+user_name[1]+'</span></div>'
 		}
 	}
-	$("#mobile_user_profiles").html(user_data);
+	//$("#mobile_user_profiles").html(user_data);
+	$("#profile_menu2").html(user_data);
+	load_profiles_mobile();
+
     $(".mobile_with_login").show();
     $(".mobile_with_out_login_item").hide();
+
    }
 })
+
+
+function load_profiles_mobile() {
+
+	var navigation = [
+      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
+      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+    ];
+	$('#profile_menu2').owlCarousel({
+    loop:false,
+    margin:10,
+    nav:true,
+    dots: false,
+    responsive:{
+      0:{
+          items:5
+      },
+      470:{
+          items:5
+      },
+      768:{
+          items:5
+      },
+      992:{
+          items:5
+      },
+      1200:{
+          items:3
+      }
+    }
+  });
+  
+  $("#mobile_user_profiles .item.active").closest(".owl-item").css({"width" : "110px"});
+
+}
+
+
 /*$(document).click(function(e) {
 	$('.share_feature').hide();	
 });*/
