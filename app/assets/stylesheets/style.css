@@ -470,13 +470,13 @@ section.header-section {
 }
 #right-sidebar-menu .owl-nav {
   position: absolute;
-  top: 15px;
+  top: 20px;
   width: 100%;
 }
 #right-sidebar-menu .owl-carousel .owl-nav button.owl-prev, #right-sidebar-menu .owl-carousel .owl-nav button.owl-next {
   color: #000;
   height: 30px;
-  font-size: 26px;
+  font-size: 22px;
   margin: 5px;
   position: absolute;
   border: none;

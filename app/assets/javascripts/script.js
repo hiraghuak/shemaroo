@@ -174,14 +174,15 @@ $("#right-sidebar-menu .item.active").closest(".owl-item").css({"width" : "70px"
 function load_profiles() {
 	console.log("aaa");
 	var navigation = [
-      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
-      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+      '<span aria-label="' + 'Previous' + '"><i class="fa fa-angle-left" aria-hidden="true"></i></span>',
+      '<span aria-label="' + 'Next' + '"><i class="fa fa-angle-right" aria-hidden="true"></i></span>'
     ];
 	$('.profile_menu1').owlCarousel({
     loop:false,
     margin:10,
     nav:true,
     dots: false,
+    navText: navigation,
     responsive:{
       0:{
           items:5
@@ -240,14 +241,15 @@ $(".navbar-toggler-icon").click(function(){
 function load_profiles_mobile() {
 
 	var navigation = [
-      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
-      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+      '<span aria-label="' + 'Previous' + '"><i class="fa fa-angle-left" aria-hidden="true"></i></span>',
+      '<span aria-label="' + 'Next' + '"><i class="fa fa-angle-right" aria-hidden="true"></i></span>'
     ];
 	$('#profile_menu2').owlCarousel({
     loop:false,
     margin:10,
     nav:true,
     dots: false,
+    navText: navigation,
     responsive:{
       0:{
           items:5
