@@ -195,13 +195,22 @@ def update_personal_details
     update_user_resp = User.update_account_details(cookies[:user_id],user_params)
     render json: {:status => true}
   else
-  user_details_resp = User.get_user_account_details(cookies[:user_id])
-  @user_profile_details = user_details_resp["data"]
+    user_details_resp = User.get_user_account_details(cookies[:user_id])
+    @user_profile_details = user_details_resp["data"]
  end
 end
 
 def add_profile
-
+  if request.xhr?
+    profile_params = {
+      :user_profile => {
+        :firstname => params[:profile_name],
+        :child => params[:kids_profile]
+      }
+    }
+    profile_resp = User.add_profile(cookies[:user_id],profile_params)
+    render json: {:status => true}
+  end
 end
 
 
