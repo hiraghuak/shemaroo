@@ -363,7 +363,7 @@ $(document).ready(function(){
         $(".all_access_pack-monthly").addClass("gradientbg1 active");
         selected_plans.push(month_all_acces_pack)
         total_amt = selected_plans[0].split("$")[1]
-        $('html,body').animate({ scrollTop: 9999 }, 'slow');
+        $('html,body').animate({ scrollTop: 150 }, 'slow');
       }
       else if(year_selected == 3){
         selected_plans = [];
@@ -371,7 +371,7 @@ $(document).ready(function(){
         $(".all_access_pack-yearly").addClass("gradientbg1 active");
         selected_plans.push(yearly_all_acces_pack)
         total_amt = selected_plans[0].split("$")[1]
-        $('html,body').animate({ scrollTop: 9999 }, 'slow');
+        $('html,body').animate({ scrollTop: 150 }, 'slow');
       }
        $("#plans_count").text(selected_plans.length);
        $("#amount").text(currency_symbol+" "+total_amt);
