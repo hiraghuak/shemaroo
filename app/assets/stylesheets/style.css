@@ -2351,11 +2351,15 @@ padding: 12px 10px 13px;
 }
 /* Payment page design ends */
 /* View Plans page design starts */
-.current_plans span, .current_plans small, .view_plans span, .view_plans small {
+.current_plans span, .current_plans small, .prev_plans span, .prev_plans small {
   color: #666666;
 }
-.current_plans b, .view_plans b {
+.current_plans b, .prev_plans b {
   color: #000;
+}
+.current_plans span.date, .prev_plans span.date {
+  color: #000;
+  font-size: 14px;
 }
 /* Static page container design starts */
 
