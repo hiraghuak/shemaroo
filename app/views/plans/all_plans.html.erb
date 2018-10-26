@@ -322,6 +322,7 @@
 
 $(document).ready(function(){
   localStorage.removeItem("amount");
+  localStorage.removeItem("currency");
    var selected_plans = [];
    var currency_symbol = $(".user_currency_symbol").val();
     $(".choose_plan").click(function(){
@@ -376,6 +377,7 @@ $(document).ready(function(){
        $("#amount").text(currency_symbol+" "+total_amt);
        $(".plans_footer").show();
        localStorage.setItem("amount",total_amt);
+       localStorage.setItem("currency",currency_symbol);
     });
 })
 
