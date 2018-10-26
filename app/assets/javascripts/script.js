@@ -159,10 +159,11 @@ $("body").addClass("noscroll");
 $("#right-sidebar-menu").css({"height": window_height, "opacity": "1"} );  
 $("#right-sidebar-menu .item.active").closest(".owl-item").css({"width" : "70px"});
     value = $('#right-sidebar-menu').css('width') === '0px' ? '250px' : '0px';
+    //alert(value);
     var show = $('#right-sidebar-menu').css('opacity') === 0 ? 1 : 0;
       
       $('#right-sidebar-menu').animate({
-          width: "250px"          
+          width: '250px'          
       }, 250);
     //event.stopPropagation(); 
 
@@ -173,7 +174,6 @@ $("#right-sidebar-menu .item.active").closest(".owl-item").css({"width" : "70px"
 }) */
 
 function load_profiles() {
-	console.log("aaa");
 	var navigation = [
       '<span aria-label="' + 'Previous' + '"><i class="fa fa-angle-left" aria-hidden="true"></i></span>',
       '<span aria-label="' + 'Next' + '"><i class="fa fa-angle-right" aria-hidden="true"></i></span>'
@@ -199,13 +199,15 @@ function load_profiles() {
  
   $("#right-sidebar-menu .close-hambergmenu img").click(function() {
   	var window_height = window.outerHeight;
-    $("#right-sidebar-menu").css({"height": window_height, "opacity": "0"} );  
+  	
+    $("#right-sidebar-menu").css({"height": "0px", "opacity": "0", "width": "0px"} );  
     $("body").removeClass("noscroll");
     var value = $('#right-sidebar-menu').css('width') === '250px' ? '0px' : '250px';
-    var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
+
+    /*var hide = $('#right-sidebar-menu').css('opacity') === 1 ? 0 : 1;
       $('#right-sidebar-menu').animate({
-          width: '250px'          
-      });
+          width: '0px'          
+      }, fast);*/
       $('.user_menu').css("z-index", "1111");
       $('.head-right ul li').css("z-index", "1111");
       $(".profile_menu1").html('');

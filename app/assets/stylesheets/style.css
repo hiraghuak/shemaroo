@@ -2018,6 +2018,11 @@ padding: 12px 10px 13px;
   color: #666666;
   font-size: 1em;
 }
+.account_details .label_pwd {
+  letter-spacing: 1px;
+  font-size: 1.75em;
+  line-height: 0.25em;
+}
 /* Account Details page desgin ends */
 
 /* Edit Profile page desgin ends */
@@ -2341,8 +2346,17 @@ padding: 12px 10px 13px;
   font-family: 'condensed-semibold';
   font-size: 0.753em;
 }
+.current_plans .plans_box, .prev_plans .plans_box {
+  width: 100%;
+}
 /* Payment page design ends */
-
+/* View Plans page design starts */
+.current_plans span, .current_plans small, .view_plans span, .view_plans small {
+  color: #666666;
+}
+.current_plans b, .view_plans b {
+  color: #000;
+}
 /* Static page container design starts */
 
 .static-container {
