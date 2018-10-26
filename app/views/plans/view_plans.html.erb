@@ -8,90 +8,47 @@
   	</div>
 		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- current_plans">
+			<%@current_plans.each do |plan|%>
 				<div class="pull-left w-100 margin-bottom-25">
             <div class="card">
               <div class="card-body">
-                <h5 class="gradient1 pull-left">Bollywood Classic</h5>
+               <h5 class="gradient1 pull-left"><%=plan["subscription_title"]%></h5>
 								<span class="pull-right text-uppercase">
-									<small>monthly</small> 
-									<br><b>49</b>
+									<small><%=plan["plan_title"]%></small> 
+									<br><b><%=plan["price_charged"]%></b>
 								</span>          
 								<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
 									<span><small>next billing</small></span><br>
-									<span class="date">20 Aug 2018</span>
+									<span class="date"><%=Time.parse(plan["billing_date"]).strftime("%d %b %Y") if plan["billing_date"].present?%></span>
 								</p>      
               </div>
             </div>
           </div>
+          <%end%>
 			</div>
 		</div>
 
 		<div class="row">
   		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- prev_plans">
   			<h2 class="block">Previous Plans</h2>
-  			<div class="pull-left w-100 margin-bottom-25">
+			<%@expired_plans.each do |plan|%>
+  		<div class="pull-left w-100 margin-bottom-25">
           <div class="card">
             <div class="card-body">
-              <h5 class="gradient1 pull-left">Bollywood Plus</h5>
+              <h5 class="gradient1 pull-left"><%=plan["subscription_title"]%></h5>
 							<span class="pull-right text-uppercase">
-								<small>monthly</small> 
-								<br><b>499</b>
+								<small><%=plan["plan_title"]%></small> 
+								<br><b><%=plan["price_charged"]%></b>
 							</span>          
 							<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
 								<span><small>exprired on</small></span><br>
-								<span class="date">20 Aug 2018</span>
+								<span class="date"><%=Time.parse(plan["valid_till"]).strftime("%d %b %Y") if plan["valid_till"].present?%></span>
 							</p>      
             </div>
           </div>
         </div>
 
-        <div class="pull-left w-100 margin-bottom-25">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="gradient1 pull-left">Bollywood Plus</h5>
-							<span class="pull-right text-uppercase">
-								<small>monthly</small> 
-								<br><b>499</b>
-							</span>          
-							<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
-								<span><small>exprired on</small></span><br>
-								<span class="date">20 Aug 2018</span>
-							</p>      
-            </div>
-          </div>
-        </div>
-
-        <div class="pull-left w-100 margin-bottom-25">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="gradient1 pull-left">Bollywood Plus</h5>
-							<span class="pull-right text-uppercase">
-								<small>monthly</small> 
-								<br><b>499</b>
-							</span>          
-							<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
-								<span><small>exprired on</small></span><br>
-								<span class="date">20 Aug 2018</span>
-							</p>      
-            </div>
-          </div>
-        </div>
-
-        <div class="pull-left w-100 margin-bottom-25">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="gradient1 pull-left">Bollywood Plus</h5>
-							<span class="pull-right text-uppercase">
-								<small>monthly</small> 
-								<br><b>499</b>
-							</span>          
-							<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
-								<span><small>exprired on</small></span><br>
-								<span class="date">20 Aug 2018</span>
-							</p>      
-            </div>
-          </div>
-        </div>
+<%end%>
   		</div>
   	</div>
 

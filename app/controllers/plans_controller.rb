@@ -288,7 +288,19 @@ if params["modified_amount"].present?
 
   def view_plans
     user_session = cookies[:user_id].to_s
-    @user_plans = Ott.user_plans(user_session)
+    user_plans = Ott.user_plans(user_session)
+    @current_plans =[]
+    @expired_plans =[]
+    user_plans["data"].each do |plan|
+      if Time.now > Time.parse(plan["valid_till"])
+        @expired_plans << plan
+      else
+        @current_plans << plan
+      end
+
+    end
+
+
   end
 
   def current_plans
