@@ -132,9 +132,8 @@
 </section>
 <script>
 
-    $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
-        //$(".plans_list_section ul li").removeClass("active");
-        /*$(this).addClass("active");
+    /*$(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
+        $(this).addClass("active");
         var gradient = $(this).siblings("li").find("h5").attr("class");
         if(gradient == "gradient1") {
             //$(this).css("background", "linear-gradient(to right,#D51E54, #F15A23)")
@@ -163,9 +162,9 @@
         }
         else {
             $(this).addClass("gradient");
-        }*/
+        
         // $(".plans_footer").show();
-    });
+    });}*/
 
     $(".fa-chevron-down").click(function() {
         $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
@@ -359,6 +358,7 @@
             $(".all_access_pack-monthly").addClass("gradientbg1 active");
             selected_plans.push(month_all_acces_pack)
             total_amt = selected_plans[0].split("$")[1]
+            
           }
           else if(year_selected == 3){
             console.log("yearly pack exceeds");
