@@ -320,68 +320,62 @@
   return [month_cnt,year_cnt,total_amount]
  }
 
-  $(document).ready(function(){
-       var selected_plans = [];
-        $(".choose_plan").click(function(){
-          if($(this).hasClass('active')){
-           selected_plans = []
-           $(this).removeClass("active");
-           $(".plans_footer").hide();
-          }
-          else{
-           $(this).addClass("active");
-           var _this = $(this)
-           get_item_color(_this)
-          var selected_pack = $(this).data("pack-det");
-          var pack_active = selected_pack.split("$")[0].split("-");
-          if(pack_active[1] == "monthly"){
-           $("."+pack_active[0]+"-yearly").removeClass("active")
-          }
-          else{
-           $("."+pack_active[0]+"-monthly").removeClass("active")
-          }
-          selected_plans.push(selected_pack);
-          var all_selected_packs = check_packs_limit(selected_plans);
-          var month_selected = all_selected_packs[0];
-          var year_selected  = all_selected_packs[1];
-          var total_amt = all_selected_packs[2];
-          if(month_selected == 3 || year_selected == 3){
-            for(p=0;p<selected_plans.length;p++){
-              $("."+selected_plans[p].split("$")).removeClass("active");
-            }
-          }
-          if(month_selected == 3){
-            console.log("Months pack exceeds");
-            var selected_month_packs = []
-            selected_plans = [];
-            var month_all_acces_pack = $(".all_access_pack-monthly").data("pack-det")
-            $(".all_access_pack-monthly").addClass("gradientbg1 active");
-            selected_plans.push(month_all_acces_pack)
-            total_amt = selected_plans[0].split("$")[1]
-            
-          }
-          else if(year_selected == 3){
-            console.log("yearly pack exceeds");
-            selected_plans = [];
-            var yearly_all_acces_pack = $(".all_access_pack-yearly").data("pack-det")
-            $(".all_access_pack-yearly").addClass("gradientbg1 active");
-            selected_plans.push(yearly_all_acces_pack)
-            total_amt = selected_plans[0].split("$")[1]
-
-          }
-           console.log(selected_plans);
-           console.log(total_amt);
-           $("#plans_count").text(selected_plans.length);
-           $("#amount").text(total_amt);
-           $(".plans_footer").show();
-          }
+$(document).ready(function(){
+  localStorage.removeItem("amount");
+   var selected_plans = [];
+    $(".choose_plan").click(function(){
+      if($(this).hasClass('active')){
+        $(this).removeClass("active");
+        var removeItem = $(this).data("pack-det");
+        selected_plans = jQuery.grep(selected_plans, function(value) {
+         return value != removeItem;
         });
-
+      }
+      else{
+        $(this).addClass("active");
+        var _this = $(this)
+        get_item_color(_this)
+        var selected_pack = $(this).data("pack-det");
+        var pack_active = selected_pack.split("$")[0].split("-");
+        if(pack_active[1] == "monthly"){
+          $("."+pack_active[0]+"-yearly").removeClass("active")
+        }
+        else{
+          $("."+pack_active[0]+"-monthly").removeClass("active")
+        }
+        selected_plans.push(selected_pack);
+     }
+      var all_selected_packs = check_packs_limit(selected_plans);
+      var month_selected = all_selected_packs[0];
+      var year_selected  = all_selected_packs[1];
+      var total_amt = all_selected_packs[2];
+      if(month_selected == 3 || year_selected == 3){
+        for(p=0;p<selected_plans.length;p++){
+          $("."+selected_plans[p].split("$")).removeClass("active");
+        }
+      }
+      if(month_selected == 3){
+        var selected_month_packs = []
+        selected_plans = [];
+        var month_all_acces_pack = $(".all_access_pack-monthly").data("pack-det")
+        $(".all_access_pack-monthly").addClass("gradientbg1 active");
+        selected_plans.push(month_all_acces_pack)
+        total_amt = selected_plans[0].split("$")[1]
+        $('html,body').animate({ scrollTop: 9999 }, 'slow');
+      }
+      else if(year_selected == 3){
+        selected_plans = [];
+        var yearly_all_acces_pack = $(".all_access_pack-yearly").data("pack-det")
+        $(".all_access_pack-yearly").addClass("gradientbg1 active");
+        selected_plans.push(yearly_all_acces_pack)
+        total_amt = selected_plans[0].split("$")[1]
+        $('html,body').animate({ scrollTop: 9999 }, 'slow');
+      }
+       $("#plans_count").text(selected_plans.length);
+       $("#amount").text("₹"+total_amt);
+       $(".plans_footer").show();
+       localStorage.setItem("amount",total_amt);
+    });
 })
-
-
-
-
-
 
 </script>  
