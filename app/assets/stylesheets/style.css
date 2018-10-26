@@ -2558,6 +2558,46 @@ button:focus {
 }
 /* Coming soon popup design ends */
 
+/* Toster message design starts */
+.toster-message-wrap {
+  display: none;
+}
+.toster-message {
+  background: linear-gradient(45deg, #D72554 5%, #D82554 15%, #D92556 30%, #DE2E4D 50%, #F35B34 70%, #F55E33 95%, #F55E32 100%);
+  color: #fff;
+  display: table;
+  margin-left: -60px;
+  padding-bottom: 13px;
+  padding-left: 85px;
+  padding-top: 11px;
+  width: 500px;    
+}
+.toster-message .fa {
+  display: table-cell;
+  font-size: 3em;
+  vertical-align: middle;
+}
+.toster-message img {
+  display: table-cell;
+  margin-right: 7px;
+  margin-top: 7px;  
+  vertical-align: middle;
+  width: 40px;
+}
+.toster-message p {
+  display: table-cell;
+  font-size: 1.15em;
+  margin-bottom: 0px; 
+  vertical-align: middle; 
+}
+.toster-message p span {
+  color: #fff;
+  float: left;
+  font-size: 100%;
+  margin-top: -5px;
+}
+/* Toster message design ends */
+
 /* thumbnail height style starts */
 
 .details_episode_horizontal_title span.list-tile-title {  

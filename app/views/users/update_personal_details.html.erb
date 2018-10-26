@@ -18,25 +18,25 @@ meta title: "Update Personal  Details",
 		          <input type="text" id="user_profile_name" name="profile name" class="form-control" value="<%=@user_profile_details['firstname']%>"> 
 		          <span class="input-label">Name</span>
               <label class="error" id="user_name_error">Please enter the name</label>
-	        </div>
+           </div>
             <div class="input-group name edit_profile_name">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="user_mobile_number" name="profile name" class="form-control" value="<%=@user_profile_details['mobile_number']%>" readonly="true"> 
               <span class="input-label">Mobile Number</span>
               <label class="error" id="user_mobile_error">Please enter the name</label>
-          </div>
+            </div>
             <div class="input-group name">
               <input type="text" id="user_email_address" name="profile name" class="form-control" value="<%=@user_profile_details['email_id']%>"> 
               <span class="input-label">Email</span>
               <label class="error" id="user_email_error">Please enter the email</label>
-          </div>
+            </div>
             <div class="input-group name">
               <input type="text" id="user_dob" name="profile name" class="form-control" value="<%#=@edit_profile['firstname']%>"> 
               <span class="input-label">Birth Date</span>
               <label class="error" id="user_dob_error">Please enter the date of birth</label>
-          </div>
+            </div>
 
-	        <div class="text-center margin-bottom-10 margin-top-25 light">
+  	        <div class="text-center margin-bottom-10 margin-top-25 light">
               <div class="inline-block margin-top-25 margin-bottom-15 custom-gradient">
                 <p class="inline radius-button">
                   <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="update_personal_details">Done</a>
@@ -46,5 +46,17 @@ meta title: "Update Personal  Details",
 	      </div>
       </div>
     </div>
+
+  <div class="toster-message-wrap">
+    <div class="toster-message">
+      <!-- <i class="fa fa-check-circle-o" aria-hidden="true"></i> -->
+      <img src="/assets/password_updated.svg" alt="" title="">
+      <p>
+        Password updated successfully,
+        <span>Please Login with your new password.</span>        
+      </p>
+    </div>
+  </div>
+    
   </div>
 </section>
