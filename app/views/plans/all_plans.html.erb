@@ -15,7 +15,7 @@
             </li>
         <%end%>
       </ul>
-
+     <input type="hidden" class="user_currency_symbol" value="<%=all_pack["plans"].first["currency_symbol"]%>"> 
     </div>
   </div>
 </section>
@@ -323,6 +323,7 @@
 $(document).ready(function(){
   localStorage.removeItem("amount");
    var selected_plans = [];
+   var currency_symbol = $(".user_currency_symbol").val();
     $(".choose_plan").click(function(){
       if($(this).hasClass('active')){
         $(this).removeClass("active");
@@ -372,7 +373,7 @@ $(document).ready(function(){
         $('html,body').animate({ scrollTop: 9999 }, 'slow');
       }
        $("#plans_count").text(selected_plans.length);
-       $("#amount").text("₹"+total_amt);
+       $("#amount").text(currency_symbol+" "+total_amt);
        $(".plans_footer").show();
        localStorage.setItem("amount",total_amt);
     });
