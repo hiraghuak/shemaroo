@@ -343,12 +343,12 @@ function disable_packs(type){
 
 $(document).ready(function(){
   var all_plans = $(".all_plans_titles").val();
-  localStorage.removeItem("amount");
-  localStorage.removeItem("currency");
-  localStorage.removeItem("plan-category");
-  localStorage.removeItem("plan");
-  localStorage.removeItem("all_plan_category");
-      var  keysToRemove = ["plan", "currency","plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
+  // localStorage.removeItem("amount");
+  // localStorage.removeItem("currency");
+  // localStorage.removeItem("plan-category");
+  // localStorage.removeItem("plan");
+  // localStorage.removeItem("all_plan_category");
+      var  keysToRemove = ["plan", "currency","plan-category","all-plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
             keysToRemove.forEach(k => localStorage.removeItem(k))
 
   var selected_plans = [];
@@ -375,7 +375,7 @@ $(document).ready(function(){
         }
         if(pack_active[0] == "all_access_pack"){
           disable_packs(pack_active[1]);
-          localStorage.setItem("plan-category","all_access_pack")
+          localStorage.setItem("all-plan-category","all_access_pack")
         }
         selected_plans.push(selected_pack);
      }
@@ -421,7 +421,7 @@ $(document).ready(function(){
        localStorage.setItem("plan",user_selected_plan_ids);
     });
      $(".combo_offer").click(function(){
-        var plan_category = localStorage.getItem("plan-category")
+        var plan_category = localStorage.getItem("all-plan-category")
         var plans = localStorage.getItem("plan")
         var plans_count = $("#plans_count").text()
         if(parseInt(plans_count) == 2 || plan_category == "all_access_pack"){

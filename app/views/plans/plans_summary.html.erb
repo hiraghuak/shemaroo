@@ -191,7 +191,7 @@
         $("#all_currency").text(localStorage.getItem("currency"));
         $("#total_amount").text(localStorage.getItem("amount"));
         $("#all_amount").text(localStorage.getItem("amount"));
-        $("#plan-category").text(localStorage.getItem("plan-category"));
+        $("#plan-category").text(localStorage.getItem("plan").split("|")[1]);
 
         var total_amount = $("#total_amount").text();
 
