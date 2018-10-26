@@ -17,7 +17,7 @@
                <h5 class="gradient1 pull-left"><%=plan["subscription_title"]%></h5>
 								<span class="pull-right text-uppercase">
 									<small><%=plan["plan_title"]%></small> 
-									<br><b><%=plan["price_charged"]%></b>
+									<br><b><span><%=plan["currency"]%>&nbsp;</span><%=plan["price_charged"]%></b>
 								</span>          
 								<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
 									<span><small>next billing</small></span><br>
@@ -41,7 +41,7 @@
               <h5 class="gradient1 pull-left"><%=plan["subscription_title"]%></h5>
 							<span class="pull-right text-uppercase">
 								<small><%=plan["plan_title"]%></small> 
-								<br><b><%=plan["price_charged"]%></b>
+								<br><b><span><%=plan["currency"]%>&nbsp;</span><%=plan["price_charged"]%></b>
 							</span>          
 							<p class="pull-left w-100 text-uppercase margin-top-20 margin-bottom-0">
 								<span><small>exprired on</small></span><br>
