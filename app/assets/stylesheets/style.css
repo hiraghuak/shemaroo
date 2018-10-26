@@ -214,6 +214,7 @@ section.header-section {
   float: left;
   border-right: 1px solid #E3E3E3;
   padding: 0px 25px;
+  z-index: 1111;
 }
 .head-right ul li:first-child {
   padding: 10px 25px;
@@ -1878,6 +1879,10 @@ padding: 12px 10px 13px;
   -moz-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
+}
+.input-group.edit_profile_name .input-label {
+  left: 0px;
+  top: -16px;
 }
 .input-group .form-control:focus~.input-label {
   left: 0px;

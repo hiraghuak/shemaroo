@@ -5,7 +5,7 @@
       <h2>Modify Plans</h2>
       <p>you can <span class="text-uppercase">UPGRADE, MODIFY</span> or <span class="text-uppercase">CANCEL</span> your existing plan(s) here. You will still continue to have access to the plan till the expiry date.</p>
       <ul class="list-none margin-right-0 packs_lists">
-        <li class="text-uppercase gradient1">all</li>
+        <li class="text-uppercase gradient">all</li>
         <li class="text-uppercase">includes all<br>the categories</li>
         <%all_pack["plans"].each do |aa|%>
             <li class="text-uppercase choose_plan" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>"></i>
@@ -34,7 +34,7 @@
                   <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
                 </li>
                 <%all_pack["plans"].each do |aa|%>
-                    <li class="text-center choose_plan <%= aa["title"].downcase %>" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>" data-pack-det="<%= aa["title"].downcase %>">
+                    <li class="text-center choose_plan <%= all_pack["category"]+"-"+ aa["title"].downcase %>" id="<%=aa["id"]+"|"+ all_pack["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+all_pack["content_id"]+"|"+ all_pack["category"]%>" data-pack-det="<%= all_pack["category"]+"-"+ aa["title"].downcase %>$<%=aa["discounted_price"]%>">
                       <span class="text-uppercase block"><%=aa["title"]%></span>
                       <span class="block price"></i><%=aa["currency_symbol"]%>&nbsp;<%=aa["discounted_price"]%></span>
                       <span class="block"><%=aa["price"]%></span>
@@ -134,7 +134,7 @@
 
     $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
         //$(".plans_list_section ul li").removeClass("active");
-        $(this).addClass("active");
+        /*$(this).addClass("active");
         var gradient = $(this).siblings("li").find("h5").attr("class");
         if(gradient == "gradient1") {
             //$(this).css("background", "linear-gradient(to right,#D51E54, #F15A23)")
@@ -163,7 +163,7 @@
         }
         else {
             $(this).addClass("gradient");
-        }
+        }*/
         $(".plans_footer").show();
     });
 
@@ -171,23 +171,9 @@
         $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
     })
 
-    $(document).ready(function(){
-       var selected_plans = [];
-        var x = 0;
-        var y = 0;
-        var z = 0
-        var a = 0;
-        $(".choose_plan").click(function(){
-         
-          var selected_pack = $(this).data("pack-det");
-          var pack_active = selected_pack.split("$")[0];
-          console.log(pack_active);
-           console.log(selected_pack)
-          selected_plans.push(selected_pack);
-          console.log(selected_plans);
 
-        });
-        console.log(selected_plans);
+    /*$(document).ready(function(){
+  
 
         $(".choose_plan").click(function(){
             var  keysToRemove = ["plan", "currency","plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
@@ -202,17 +188,6 @@
                 a++
                 console.log("second"+a)
                 $(this).attr("selected", a);
-                /*if(a == 2) {
-                 $(this).removeClass('active');
-                 a = 0;
-                 x = 0;
-                 }
-                 else {
-                 y = 0;
-                 z = 0;
-                 x++;
-                 $(this).Class('active');
-                 }*/
                 console.log(x);
                 if(x == 3) {
                     x = 0;
@@ -226,7 +201,6 @@
                 }
             }
             if($(this).hasClass("yearly")) {
-                //$(this).siblings('li.monthly').removeClass('active');
                 x = 0;
                 z = 0;
                 y++;
@@ -250,28 +224,7 @@
             }
             $('li').each(function(i){
 
-                /*if($(this).hasClass("monthly")) {
-                 $('.choose_plan.yearly').css('pointer-events', 'none');
-                 $('.choose_plan.quarterly').css('pointer-events', 'none');
-                 }
-                 if($(this).hasClass("yearly")) {
-                 $('.choose_plan.yearly').css('pointer-events', 'none');
-                 $('.choose_plan.quarterly').css('pointer-events', 'none');
-                 }
-                 if($(this).hasClass("quarterly")) {
-                 alert("1");
-                 $('.choose_plan.monthly').css('pointer-events', 'none');
-                 $('.choose_plan.yearly').css('pointer-events', 'none');
-                 $('.choose_plan.quarterly').css('pointer-events', 'auto');
-                 }*/
-                /*if(current_pack == 'monthly') {
-                 alert("1");
-                 $('.choose_plan.yearly').css('pointer-events', 'none');
-                 }
-                 else if(current_pack == 'yearly') {
-                 alert("2");
-                 $('.choose_plan.monthly').css('pointer-events', 'none');
-                 }*/
+             
 
                 if($(this).is('.packs_lists li.active')) {
                     var pid = $(this).attr("id")
@@ -295,6 +248,8 @@
             console.log(localStorage.getItem("plan"))
         })
     });
+    
+    });*/
 
     $(".combo_offer").click(function(){
         var cat = localStorage.getItem("plan-category")
@@ -312,6 +267,109 @@
     $("#add-category").click(function(){
         $("#combo_offer").modal("hide");
     });
+
+
+
+
+
+
+// New Plans related code here //
+
+   function get_item_color(_this){
+    var gradient = _this.siblings("li").find("h5").attr("class");
+        if(gradient == "gradient1") {
+            _this.addClass("gradientbg1");
+        }
+        else if(gradient == "gradient2") {
+            _this.addClass("gradientbg2");
+        }
+        else if(gradient == "gradient3") {
+            _this.addClass("gradientbg3");
+        }
+        else if(gradient == "gradient4") {
+            _this.addClass("gradientbg4");
+        }
+        else if(gradient == "gradient5") {
+            _this.addClass("gradientbg5");
+        }
+        else if(gradient == "gradient6") {
+            _this.addClass("gradientbg6");
+        }
+        else if(gradient == "gradient7") {
+            _this.addClass("gradientbg7");
+        }
+        else if(gradient == "gradient8") {
+            _this.addClass("gradientbg8");
+        }
+        else {
+            _this.addClass("gradient");
+        }
+   }
+
+ function check_packs_limit(packs){
+   //console.log(packs);
+    var year_cnt = 0
+    var month_cnt = 0
+   for (i = 0; i <= packs.length-1; i++) {
+    //console.log(packs[i])
+    //console.log("@@@@@@@@@@@@@@@@@@@")
+    if(packs[i].split("$")[0].split("-")[1] == "monthly"){
+      //console.log("Month increment")
+       month_cnt++
+    }
+    else{
+      //console.log("Year increment")
+      year_cnt++
+    }
+   }
+  return [month_cnt,year_cnt]
+ }
+
+  $(document).ready(function(){
+       var selected_plans = [];
+        $(".choose_plan").click(function(){
+          var new_plans = []
+         $(this).addClass("active");
+           var _this = $(this)
+           get_item_color(_this)
+          var selected_pack = $(this).data("pack-det");
+          var pack_active = selected_pack.split("$")[0].split("-");
+          if(pack_active[1] == "monthly"){
+           $("."+pack_active[0]+"-yearly").removeClass("active")
+          }
+          else{
+           $("."+pack_active[0]+"-monthly").removeClass("active")
+          }
+          selected_plans.push(selected_pack);
+          var all_selected_packs = check_packs_limit(selected_plans);
+          var month_selected = all_selected_packs[0];
+          var year_selected  = all_selected_packs[1];
+          if(month_selected == 3 || year_selected == 3){
+            for(p=0;p<selected_plans.length;p++){
+              $("."+selected_plans[p].split("$")).removeClass("active");
+            }
+          }
+          if(month_selected == 3){
+            console.log("Months pack exceeds");
+            var selected_month_packs = []
+            selected_plans = [];
+            var month_all_acces_pack = $(".all_access_pack-monthly").data("pack-det")
+            $(".all_access_pack-monthly").addClass("gradientbg1 active");
+            selected_plans.push(month_all_acces_pack)
+          }
+          else if(year_selected == 3){
+            console.log("yearly pack exceeds");
+            selected_plans = [];
+            var yearly_all_acces_pack = $(".all_access_pack-yearly").data("pack-det")
+            $(".all_access_pack-yearly").addClass("gradientbg1 active");
+            selected_plans.push(yearly_all_acces_pack)
+          }
+         console.log(selected_plans);
+        });
+})
+
+
+
 
 
 
