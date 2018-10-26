@@ -81,8 +81,8 @@ Rails.application.routes.draw do
   get '/plans/view_plans' => 'plans#view_plans'
   get '/plans/m_view_plans' => 'plans##mobile_view_plans'
 
-   get '/plans/current_plans' => 'plans#current_plans'
-  get '/plans/m_current_plans' => 'plans##mobile_current_plans'
+  get '/plans/plan_details/:id', to: 'plans#plan_details', as: 'plan'
+  get '/plans/m_plan_details/:plan_id' => 'plans##mobile_plan_details'
 
    get '/plans/modify_plans' => 'plans#modify_plans'
   get '/plans/m_modify_plans' => 'plans##mobile_modify_plans'

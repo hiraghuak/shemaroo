@@ -9,6 +9,8 @@
 		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- current_plans">
 			<%@current_plans.each do |plan|%>
+			<%= link_to plan_path(plan["id"]) do %>
+
 				<div class="pull-left w-100 margin-bottom-25">
             <div class="card">
               <div class="card-body">
@@ -24,6 +26,7 @@
               </div>
             </div>
           </div>
+          <%end%>
           <%end%>
 			</div>
 		</div>

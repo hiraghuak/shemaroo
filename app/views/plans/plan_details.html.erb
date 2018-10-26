@@ -10,33 +10,40 @@
 				<div class="pull-left w-100 margin-bottom-25">
             <div class="card">
               <div class="card-body">
-                <h5 class="gradient1 pull-left">Bollywood Classic<br><span class="text-uppercase active_plan font-semibold">active plan</span></h5>
+                <h5 class="gradient1 pull-left"><%=@plan["subscription_title"]%><br>
+                <% if Time.now > Time.parse(@plan["valid_till"])%>
+                <span class="text-uppercase expired_plan font-semibold">EXPIRED PLAN</span>
+                <%else%>
+                <span class="text-uppercase active_plan font-semibold">ACTIVE PLAN</span>
+                <%end%>
+                </h5>
 								<span class="pull-right text-uppercase text-right">
-									<small>monthly</small> 
-									<br><b>49</b>
+									<small><%=@plan["plan_title"]%></small> 
+									<br><b><%=@plan["price_charged"]%></b>
 								</span> 
 								<div class="pull-left w-100">
 									<p class="pull-left margin-top-10 margin-bottom-0 margin-right-25">
 										<span class="text-uppercase"><small>transaction id</small></span><br>
-										<span class="date">1234567890</span>
+										<span class="date"><%=@plan["transaction_id"]%></span>
 									</p>
 									<p class="pull-left margin-top-10 margin-bottom-0 margin-right-25">
 										<span class="text-uppercase"><small>plan duration</small></span><br>
-										<span class="date">21 Jul 2018 - 20 Aug 2018</span>
+										<span class="date"><%=Time.parse(@plan["start_date"]).strftime("%d %b %Y") if @plan["start_date"].present?%> - <%=Time.parse(@plan["valid_till"]).strftime("%d %b %Y") if @plan["valid_till"].present?%></span>
 									</p>       
 								</div>	
 								<div class="pull-left w-100">
 								<div class="pull-left margin-top-10 margin-bottom-0">
 									<p class="margin-bottom-0"><span class="text-uppercase"><small>payment method</small></span><br></p>
 									<p class="margin-bottom-0 current_plan_payment_method">
-										<img src="/assets/master-card.png" alt="" title="">
-										<span class="label_pwd">.... .... ....</span><span>9012</span>
+										<!-- <img src="/assets/master-card.png" alt="" title=""> -->
+										<!-- <span class="label_pwd">.... .... ....</span><span>9012</span> -->
+										<span><%=@plan["payment_gateway"]%></span>
 									</p>	
 								
               </div>
-              <div class="pull-right margin-top-10">
+             <!--  <div class="pull-right margin-top-10">
               	<small><a href="javascript:;" class="text-uppercase font-medium">edit</a></small>
-              </div>
+              </div> -->
             </div>
           </div>
 			</div>

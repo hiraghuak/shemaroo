@@ -2368,6 +2368,12 @@ h5 .active_plan {
   float: left;
   margin-top: 3px;
 }
+h5 .expired_plan {
+  color: red!important;
+  font-size: 0.65em!important;
+  float: left;
+  margin-top: 3px;
+}
 .current_plan_payment_method img {
   width: 32px;
 }

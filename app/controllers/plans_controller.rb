@@ -313,8 +313,10 @@ if params["modified_amount"].present?
 
   end
 
-  def current_plans
-    
+  def plan_details
+    user_session = cookies[:user_id].to_s
+    user_plans = Ott.user_plans(user_session)
+    @plan = user_plans["data"].map{|a| a if a["id"]==params["id"].to_i}.compact.first
   end
 
   def modify_plans
@@ -540,7 +542,7 @@ if params["modified_amount"].present?
     
   end
 
-  def mobile_current_plans
+  def mobile_plan_details
     
   end
 
