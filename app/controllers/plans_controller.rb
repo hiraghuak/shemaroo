@@ -13,7 +13,6 @@ class PlansController < ApplicationController
      end
      end
     end
-    p @cat_titles
   end
 
   def plans_summary
