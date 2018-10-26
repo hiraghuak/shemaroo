@@ -2562,7 +2562,7 @@ button:focus {
   display: table;
   margin-left: -60px;
   padding-bottom: 13px;
-  padding-left: 100px;
+  padding-left: 85px;
   padding-top: 11px;
   width: 500px;    
 }
@@ -2571,9 +2571,24 @@ button:focus {
   font-size: 3em;
   vertical-align: middle;
 }
+.toster-message img {
+  display: table-cell;
+  margin-right: 7px;
+  margin-top: 7px;  
+  vertical-align: middle;
+  width: 40px;
+}
 .toster-message p {
+  display: table-cell;
   font-size: 1.15em;
-  margin-bottom: 0px;  
+  margin-bottom: 0px; 
+  vertical-align: middle; 
+}
+.toster-message p span {
+  color: #fff;
+  float: left;
+  font-size: 100%;
+  margin-top: -5px;
 }
 /* Toster message design ends */
 
