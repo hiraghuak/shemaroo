@@ -405,6 +405,9 @@ a.see-more:hover {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.no-events {
+    pointer-events: none;
+}
 @media(max-width: 1199px) {
     a.see-more {
         margin-right: 100px;
