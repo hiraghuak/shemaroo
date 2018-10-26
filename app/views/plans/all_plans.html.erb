@@ -308,14 +308,13 @@
 function disable_packs(type){
    var all_plans = JSON.parse($(".all_plans_titles").val());
    for(i=0;i<all_plans.length;i++){
-    console.log();
+    console.log(all_plans[i].split("$")[0]);
     if(type == "monthly"){
      $("."+all_plans[i].split("$")[0].split("-")[0]+"-"+"monthly").addClass("no-events")
      $("."+all_plans[i].split("$")[0].split("-")[0]+"-"+"yearly").removeClass("no-events")
    }
    else if(type == "yearly"){
-     $("."+all_plans[i].split("$")[0].split("-")[0]+"-"+"monthly").removeClass("no-events")
-     $("."+all_plans[i].split("$")[0].split("-")[0]+"-"+"yearly").addClass("no-events")
+     $("."+all_plans[i].split("$")[0]).addClass("no-events")
    }
   }
 }

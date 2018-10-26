@@ -341,6 +341,12 @@ $("input[type='text'], input[type='password']").keyup(function() {
       }
     }
   });
+$('input#datepicker').blur(function(){
+	var inputlenth = $(this).val().length;
+	if(inputlenth > 0) { 
+		
+	}
+})
 	
 	$('textarea').keyup(function() {
     var inputlenth = $(this).val().length;
