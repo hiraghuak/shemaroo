@@ -331,7 +331,11 @@ $(document).ready(function(){
   localStorage.removeItem("currency");
   localStorage.removeItem("plan-category");
   localStorage.removeItem("plan");
-   var selected_plans = [];
+  localStorage.removeItem("all_plan_category");
+      var  keysToRemove = ["plan", "currency","plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
+            keysToRemove.forEach(k => localStorage.removeItem(k))
+
+  var selected_plans = [];
    var currency_symbol = $(".user_currency_symbol").val();
     $(".choose_plan").click(function(){
       if($(this).hasClass('active')){
@@ -401,9 +405,10 @@ $(document).ready(function(){
     });
      $(".combo_offer").click(function(){
         var plan_category = localStorage.getItem("plan-category")
+        var plans = localStorage.getItem("plan")
         var plans_count = $("#plans_count").text()
         if(parseInt(plans_count) == 2 || plan_category == "all_access_pack"){
-            window.location.href = "/plans/plans_summary?plans="+parr
+            window.location.href = "/plans/plans_summary?plans="+plans
         }
         else{
           $("#combo_offer").modal("show")
