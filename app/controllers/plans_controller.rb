@@ -2,6 +2,12 @@ class PlansController < ApplicationController
   include PlansHelper
 
   def all_plans
+
+    user_session = cookies[:user_id].to_s
+    user_plans = Ott.user_plans(user_session)
+     if user_plans["data"].count >0
+       redirect_to plans_view_plans_path
+     else
     response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
     @cat_titles = []
@@ -13,6 +19,7 @@ class PlansController < ApplicationController
      end
      end
     end
+    end
   end
 
   def plans_summary
@@ -22,21 +29,19 @@ class PlansController < ApplicationController
 
     user_session = cookies[:user_id].to_s
     @user_plans = Ott.user_plans(user_session)
-# if @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
-#   current_plan =    @user_plans["data"].map{|s| s if s["subscription_id"] == params["plans"].split("|")[5] }.compact
-#  # HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{current_plan["subscription_id"]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
-#      new_cat_id = params["plans"].split("|")[5]
-#     new_plan_id =  params["plans"].split("|")[0]
-#     cur_cat_id = current_plan[0]["subscription_id"]  
-#     cur_plan_id = current_plan[0]["plan_id"]  
-#      modify_params =  {"auth_token": "Ts4XpMvGsB2SW7NZsWc3","data": {"add_plans":  { "plan_id": new_plan_id,"subscription_category_id": new_cat_id},    "modify_plans":{"current_plan_id": cur_plan_id,"subscription_category_id": cur_cat_id},"region": @region}}
-#    @response =  HTTP.post_https "users/#{cookies[:user_id]}/get_modified_amount", modify_params
- 
-#    #{"total_amount"=>51.56, "currency"=>"INR", "subscription_category_id"=>"5b67ec33c1df415e28000030", "plan_id"=>"5b67ec33c1df415e2800002f", "category"=>"kids", "remaining days"=>31}
-#    render "modify_plans_summary"
-# end
-
-
+    if @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
+      current_plan =    @user_plans["data"].map{|s| s if s["subscription_id"] == params["plans"].split("|")[5] }.compact
+     # HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{current_plan["subscription_id"]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+         new_cat_id = params["plans"].split("|")[5]
+        new_plan_id =  params["plans"].split("|")[0]
+        cur_cat_id = current_plan[0]["subscription_id"]  
+        cur_plan_id = current_plan[0]["plan_id"]  
+         modify_params =  {"auth_token": "Ts4XpMvGsB2SW7NZsWc3","data": {"add_plans":  { "plan_id": new_plan_id,"subscription_category_id": new_cat_id},    "modify_plans":{"current_plan_id": cur_plan_id,"subscription_category_id": cur_cat_id},"region": @region}}
+       @response =  HTTP.post_https "users/#{cookies[:user_id]}/get_modified_amount", modify_params
+     
+       #{"total_amount"=>51.56, "currency"=>"INR", "subscription_category_id"=>"5b67ec33c1df415e28000030", "plan_id"=>"5b67ec33c1df415e2800002f", "category"=>"kids", "remaining days"=>31}
+       render "modify_plans_summary"
+    end
 
     if params["plans"].present? && params["plans"].split(",").count == 2
       plan_title = params["plans"].split(",").map{|a| a.split("|")[2] }.last
