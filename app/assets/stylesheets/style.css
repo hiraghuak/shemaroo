@@ -2018,7 +2018,7 @@ padding: 12px 10px 13px;
   color: #666666;
   font-size: 1em;
 }
-.account_details .label_pwd {
+.account_details .label_pwd, .label_pwd {
   letter-spacing: 1px;
   font-size: 1.75em;
   line-height: 0.25em;
@@ -2352,7 +2352,8 @@ padding: 12px 10px 13px;
 /* Payment page design ends */
 /* View Plans page design starts */
 .current_plans span, .current_plans small, .prev_plans span, .prev_plans small {
-  color: #666666;
+  color: #666666;  
+  font-size: 85%;
 }
 .current_plans b, .prev_plans b {
   color: #000;
@@ -2360,6 +2361,25 @@ padding: 12px 10px 13px;
 .current_plans span.date, .prev_plans span.date {
   color: #000;
   font-size: 14px;
+}
+h5 .active_plan {
+  color: #8FC646!important;
+  font-size: 0.65em!important;
+  float: left;
+  margin-top: 3px;
+}
+.current_plan_payment_method img {
+  width: 32px;
+}
+.current_plan_payment_method span.label_pwd {
+  color: #000;
+  font-size: 1.5em;
+  letter-spacing: 0px;
+  margin-right: 5px;
+  margin-left: 2px;
+}  
+.current_plan_payment_method span {
+  color: #000!important;
 }
 /* Static page container design starts */
 
@@ -3280,6 +3300,10 @@ button:focus {
   .custom-gradient .gradient1, .custom-gradient .gradient2 {
     line-height: 26px;
     padding: 8px 9px;
+  }
+  .plans_details_page p.margin-right-25 {
+    margin-right: 0px !important;
+    width: 100%;
   }
   .owl-carousel .owl-item .item.vertical {
     min-height: calc((100vw - 0px)/ 2 * 1.19);
