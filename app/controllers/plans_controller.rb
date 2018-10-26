@@ -4,6 +4,16 @@ class PlansController < ApplicationController
   def all_plans
     response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
+    @cat_titles = []
+    @all_plans.each do |plan|
+      if plan["plans"].present?
+     plan["plans"].each do |pl|
+        title = "#{plan['category']}-#{pl['title']}"
+        @cat_titles <<  title.downcase
+     end
+     end
+    end
+    p @cat_titles
   end
 
   def plans_summary

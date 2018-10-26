@@ -81,6 +81,7 @@
               </div>
             </div>
         <%end%>
+        <input type="hidden" name="all_plans_titles" class="all_plans_titles" value="<%#=%>"> 
       </div>
     </div>
   </div>
@@ -248,7 +249,7 @@
         })
     });
     
-    });*/
+    });/
 
     $(".combo_offer").click(function(){
         var cat = localStorage.getItem("plan-category")
@@ -260,18 +261,17 @@
         {
             $("#combo_offer").modal("show")
         }
-    });
+    });*/
 
-    $("#add-category").click(function(){
-        $("#combo_offer").modal("hide");
-    });
 
+     
 
 
 
 
 
-// New Plans related code here //
+
+// New Plans related selection code  starts here //
 
    function get_item_color(_this){
     var gradient = _this.siblings("li").find("h5").attr("class");
@@ -308,7 +308,12 @@
     var year_cnt = 0
     var month_cnt = 0
     var total_amount = 0
+    var plan_ids = [];
    for (i = 0; i <= packs.length-1; i++) {
+    var selected_plan_id = packs[i].split("$")[0];
+    var plan_id = $("."+selected_plan_id).attr("id");
+    console.log(plan_id);
+    plan_ids.push(plan_id)
     if(packs[i].split("$")[0].split("-")[1] == "monthly"){
        month_cnt++
     }
@@ -317,20 +322,22 @@
     }
     total_amount = (parseFloat(total_amount)+parseFloat(packs[i].split("$")[1])).toFixed(2)
    }
-  return [month_cnt,year_cnt,total_amount]
+  return [month_cnt,year_cnt,total_amount,plan_ids]
  }
 
 $(document).ready(function(){
   localStorage.removeItem("amount");
   localStorage.removeItem("currency");
+  localStorage.removeItem("plan-category");
+  localStorage.removeItem("plan");
    var selected_plans = [];
    var currency_symbol = $(".user_currency_symbol").val();
     $(".choose_plan").click(function(){
       if($(this).hasClass('active')){
         $(this).removeClass("active");
-        var removeItem = $(this).data("pack-det");
-        selected_plans = jQuery.grep(selected_plans, function(value) {
-         return value != removeItem;
+         var removePlanItem = $(this).data("pack-det");
+         selected_plans = jQuery.grep(selected_plans, function(value) {
+         return value != removePlanItem;
         });
       }
       else{
@@ -345,12 +352,16 @@ $(document).ready(function(){
         else{
           $("."+pack_active[0]+"-monthly").removeClass("active")
         }
+        if(pack_active[0] == "all_access_pack"){
+          localStorage.setItem("all_access_pack")
+        }
         selected_plans.push(selected_pack);
      }
       var all_selected_packs = check_packs_limit(selected_plans);
       var month_selected = all_selected_packs[0];
       var year_selected  = all_selected_packs[1];
       var total_amt = all_selected_packs[2];
+      var user_selected_plan_ids = all_selected_packs[3];
       if(month_selected == 3 || year_selected == 3){
         for(p=0;p<selected_plans.length;p++){
           $("."+selected_plans[p].split("$")).removeClass("active");
@@ -359,26 +370,48 @@ $(document).ready(function(){
       if(month_selected == 3){
         var selected_month_packs = []
         selected_plans = [];
-        var month_all_acces_pack = $(".all_access_pack-monthly").data("pack-det")
+        var month_all_acces_pack = $(".all_access_pack-monthly").data("pack-det");
         $(".all_access_pack-monthly").addClass("gradientbg1 active");
-        selected_plans.push(month_all_acces_pack)
-        total_amt = selected_plans[0].split("$")[1]
+        selected_plans.push(month_all_acces_pack);
+        total_amt = selected_plans[0].split("$")[1];
         $('html,body').animate({ scrollTop: 150 }, 'slow');
       }
       else if(year_selected == 3){
         selected_plans = [];
         var yearly_all_acces_pack = $(".all_access_pack-yearly").data("pack-det")
         $(".all_access_pack-yearly").addClass("gradientbg1 active");
-        selected_plans.push(yearly_all_acces_pack)
-        total_amt = selected_plans[0].split("$")[1]
+        selected_plans.push(yearly_all_acces_pack);
+        total_amt = selected_plans[0].split("$")[1];
         $('html,body').animate({ scrollTop: 150 }, 'slow');
       }
        $("#plans_count").text(selected_plans.length);
        $("#amount").text(currency_symbol+" "+total_amt);
-       $(".plans_footer").show();
+       if(total_amt != 0){
+         $(".plans_footer").show();
+       }
+       else{
+        $(".plans_footer").hide();
+       }
+       console.log(selected_plans);
+       console.log(user_selected_plan_ids);
        localStorage.setItem("amount",total_amt);
        localStorage.setItem("currency",currency_symbol);
+       localStorage.setItem("plan",user_selected_plan_ids);
+    });
+     $(".combo_offer").click(function(){
+        var plan_category = localStorage.getItem("plan-category")
+        var plans_count = $("#plans_count").text()
+        if(parseInt(plans_count) == 2 || plan_category == "all_access_pack"){
+            window.location.href = "/plans/plans_summary?plans="+parr
+        }
+        else{
+          $("#combo_offer").modal("show")
+        }
+    });
+    $("#add-category").click(function(){
+        $("#combo_offer").modal("hide");
     });
 })
 
+// New Plans related selection code  Ends  here //
 </script>  
