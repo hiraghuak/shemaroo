@@ -2,7 +2,6 @@ class PlansController < ApplicationController
   include PlansHelper
 
   def all_plans
-
     user_session = cookies[:user_id].to_s
     user_plans = Ott.user_plans(user_session)
      if false #user_plans["data"].count >0
