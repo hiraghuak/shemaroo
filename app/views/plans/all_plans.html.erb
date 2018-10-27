@@ -121,7 +121,7 @@
             </div>
             </p>
             <p class="pull-left w-100 margin-top-15">
-              <a href="/plans/plans_summary?plans="+parr class="text-uppercase">no thanks</a>
+              <a href="javascript:void(0);" class="text-uppercase single_pack">no thanks</a>
             </p>
           </div>
 
@@ -430,6 +430,11 @@ $(document).ready(function(){
           $("#combo_offer").modal("show")
         }
     });
+
+          $(".single_pack").click(function(){
+            var plans = localStorage.getItem("plan")
+            window.location.href = "/plans/plans_summary?plans="+plans
+            });
     $("#add-category").click(function(){
         $("#combo_offer").modal("hide");
     });
