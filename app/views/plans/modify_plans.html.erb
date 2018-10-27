@@ -225,12 +225,20 @@ $(document).ready(function(){
         get_item_color(_this)
         var selected_pack = $(this).data("pack-det");
         var pack_active = selected_pack.split("$")[0].split("-");
+        var removePlanItem = "";
         if(pack_active[1] == "monthly"){
-          $("."+pack_active[0]+"-yearly").removeClass("active")
+          $("."+pack_active[0]+"-yearly").removeClass("active");
+          removePlanItem = selected_pack.split("$")[0].split("-")[0]+"-"+"yearly";
+
         }
         else{
-          $("."+pack_active[0]+"-monthly").removeClass("active")
+          $("."+pack_active[0]+"-monthly").removeClass("active");
+          removePlanItem = selected_pack.split("$")[0].split("-")[0]+"-"+"monthly";
+
         }
+        selected_plans = jQuery.grep(selected_plans, function(value) {
+         return value.split("$")[0] != removePlanItem;
+        });
         if(pack_active[0] == "all_access_pack"){
           disable_packs(pack_active[1]);
           localStorage.setItem("all-plan-category","all_access_pack")
