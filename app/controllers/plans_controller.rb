@@ -213,6 +213,7 @@ if params["modified_amount"].present?
     user_info = {"email": cookies[:user_login_id], "mobile_number": cookies[:user_login_id]}
     plans_purchase_params = {
         "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
+        "region" => @region,
         "payment_info": payment_info,
     "transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
         "user_info": user_info
@@ -495,6 +496,7 @@ if params["modified_amount"].present?
     user_info = {"email": cookies[:user_login_id], "mobile_number": cookies[:user_login_id]}
     plans_purchase_params = {
         "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
+        "region" => @region,
         "payment_info": payment_info,
     "transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
         "user_info": user_info
