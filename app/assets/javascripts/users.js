@@ -343,9 +343,13 @@ $("input[type='text'], input[type='password']").keyup(function() {
   });
 $('input#datepicker').blur(function(){
 	var inputlenth = $(this).val().length;
+	console.log(inputlenth);
 	if(inputlenth > 0) { 
-		
+		$(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
 	}
+	else {
+        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});      
+      }
 })
 	
 	$('textarea').keyup(function() {
