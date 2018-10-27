@@ -168,15 +168,22 @@
         if(tax == "") {
             tax = 0;
         }
-        var promocode = parseFloat($("#promocode").text());
+        var promocode = parseFloat($("#promocode").text());        
+        $("#promocode").text("");
         if(promocode == "") {
-            promocode = 0;
+            promocode = 0.0;
         }
-        var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+        var all_amount = parseFloat(total_amount)+parseFloat(tax);
         var all_amount = parseFloat(all_amount).toFixed(2)
         $("#all_amount").text(all_amount)
     });
     $("#revert_plan").click(function() {
+        var selected_plans_titles = localStorage.getItem('plan').split(",");
+        var plan_names = []
+        for(i=0;i<selected_plans_titles.length;i++){
+         plan_names.push(selected_plans_titles[i].split("|")[1])
+        }
+
         $('input[type="radio"]').prop('checked', false);
         $("#revert_plan").hide();
         $("#currency").text(localStorage.getItem("currency"));
@@ -199,7 +206,7 @@
 
         $("#currency").text(localStorage.getItem("currency"));
         $("#all_currency").text(localStorage.getItem("currency"));
-        $("#total_amount").text(localStorage.getItem("amount"));
+        //$("#total_amount").text(localStorage.getItem("amount"));
         $("#all_amount").text(localStorage.getItem("amount"));
         $("#plan-category").text(plan_names.join(" + "));
 
@@ -228,7 +235,7 @@
         //var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
         var net_amount = (total_amount+$("#tax").text()-$("#promocode").text()).toFixed(2)
         //var net_amount = net_amount.toFixed(2);
-        //$("#all_amount").text(net_amount);
+        $("#all_amount").text(net_amount);
 
         $("#plans").val(localStorage.getItem("plan"));
         if(localStorage.getItem("all_plan_category")=="All Access Plans"){
