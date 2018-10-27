@@ -197,6 +197,8 @@
 
 <script>
     $(document).ready(function() {
+        var combo_price = <%= @combo_pack["discounted_price"]%>
+        localStorage.setItem("combo_pack_price",combo_price);
         var selected_plans_titles = localStorage.getItem('plan').split(",");
         var plan_names = []
         for(i=0;i<selected_plans_titles.length;i++){

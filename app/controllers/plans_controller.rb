@@ -5,7 +5,7 @@ class PlansController < ApplicationController
 
     user_session = cookies[:user_id].to_s
     user_plans = Ott.user_plans(user_session)
-     if user_plans["data"].count >0
+     if false #user_plans["data"].count >0
        redirect_to plans_view_plans_path
      else
     response = Ott.subscription_plans
