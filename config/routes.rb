@@ -33,6 +33,11 @@ Rails.application.routes.draw do
 	  get  'verify_otp'
     post 'update_profile'
     post 'delete_profile'
+    get 'settings'
+    get 'registered_devices'
+    get 'streaming'
+    get 'parent_control'
+    get 'create_pin'
     match  'update_personal_details',via: [:get,:post]
     match  'add_profile',via: [:get,:post]
 	  post 'validate_otp'
@@ -101,6 +106,7 @@ Rails.application.routes.draw do
 
 
  ##CATALOGS PAGES ROUTES STARTS HERE####
+ get "/all_channels" => "catalogs#all_channels"
  get "/:catalog_name" => "catalogs#show_catalog_item"
  get "/:catalog_name/all" => "catalogs#all_items_list"
  get "/:catalog_name/:show_name" => "catalogs#item_details"
