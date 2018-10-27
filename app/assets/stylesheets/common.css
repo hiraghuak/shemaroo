@@ -408,6 +408,11 @@ a.see-more:hover {
 .no-events {
     pointer-events: none;
 }
+.normal_txt {
+    color: #666;
+    font-family: 'condensed-light';
+    font-size: 0.875em;
+}
 @media(max-width: 1199px) {
     a.see-more {
         margin-right: 100px;
