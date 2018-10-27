@@ -326,10 +326,9 @@ if params["modified_amount"].present?
   def modify_plans
     response = Ott.subscription_plans
     @all_plans = response["data"]["catalog_list_items"]
-
-
-
-    
+    user_session = cookies[:user_id].to_s
+    user_plans = Ott.user_plans(user_session)
+    @plan_ids = user_plans["data"].map{|up| up["plan_id"]}.uniq    
   end
 
 
