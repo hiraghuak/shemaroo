@@ -169,13 +169,12 @@
             tax = 0;
         }
         var promocode = parseFloat($("#promocode").text());
+        $("#promocode").text("");
         if(promocode == "") {
-            promocode = 0;
+            promocode = 0.0;
         }
-        var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
-        //total_amount)+parseFloat(tax)-parseFloat(promocode)
+        var all_amount = parseFloat(total_amount)+parseFloat(tax);        
         var all_amount = parseFloat(all_amount).toFixed(2)
-
         $("#all_amount").text(all_amount)
     });
     $("#revert_plan").click(function() {
