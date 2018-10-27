@@ -10,17 +10,21 @@
 				<div class="pull-left w-100 margin-bottom-25">
             <div class="card">
               <div class="card-body">
-                <h5 class="gradient1 pull-left" style="<%=get_title_item_color(@plan["plan_categories"].first)%>" id="heading_title_color"><%=@plan["subscription_title"]%><br>
-                </h5>
-	                <% if Time.now > Time.parse(@plan["valid_till"])%>
-	                <span class="text-uppercase expired_plan font-semibold">EXPIRED PLAN</span>
-	                <%else%>
-	                <span class="text-uppercase active_plan font-semibold">ACTIVE PLAN</span>
-	                <%end%>
-								<span class="pull-right text-uppercase text-right">
-									<small><%=@plan["plan_title"]%></small> 
-									<br><b><%=@plan["currency"]%>&nbsp;<%=@plan["price_charged"]%></b>
-								</span> 
+              	<div class="pull-left">
+	                <h5 class="gradient1 pull-left margin-bottom-0" style="<%=get_title_item_color(@plan["plan_categories"].first)%>" id="heading_title_color"><%=@plan["subscription_title"]%><br>
+	                </h5>
+		                <% if Time.now > Time.parse(@plan["valid_till"])%>
+		                <span class="text-uppercase expired_plan font-semibold">EXPIRED PLAN</span>
+		                <%else%>
+		                <span class="text-uppercase active_plan font-semibold">ACTIVE PLAN</span>
+		                <%end%>
+		              </div>
+		              <div class="pull-right">
+		              	<span class="pull-left text-uppercase text-right">
+											<small><%=@plan["plan_title"]%></small> 
+											<br><b><%=@plan["currency"]%>&nbsp;<%=@plan["price_charged"]%></b>
+										</span> 
+		              </div>								
 								<div class="pull-left w-100">
 									<p class="pull-left margin-top-10 margin-bottom-0 margin-right-25">
 										<span class="text-uppercase"><small>transaction id</small></span><br>
