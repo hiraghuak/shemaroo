@@ -395,7 +395,7 @@ a.see-more:hover {
     color: #D31F52;
     text-decoration: none;
 }
-.heading_title_color{
+.heading_title_color,#heading_title_color{
     display: inline-block;
     -webkit-background-clip: text!important;
     -webkit-text-fill-color: transparent;

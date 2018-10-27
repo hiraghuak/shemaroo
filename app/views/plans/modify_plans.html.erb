@@ -30,7 +30,7 @@
             <div class="card-body">
               <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
                 <li>
-                  <h5 class="gradient1">All Categories</h5>
+                  <h5 class="all_color" style="<%=get_title_item_color("all")%>" id="heading_title_color">All Categories</h5>
                   <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
                 </li>
                 <%all_pack["plans"].each do |aa|%>
@@ -56,7 +56,7 @@
                 <div class="card-body">
                   <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
                     <li>
-                      <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
+                      <h5 class="<%=get_gradient(plan['title'])%>" style="<%=get_title_item_color(plan["category"])%>" id="heading_title_color"><%=plan["title"]%></h5>
                       <p><%=plan['category']%></p>
                       <div class="plan_list_show">
                         <% plan["pack_details"].each do |d|%>

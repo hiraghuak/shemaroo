@@ -30,7 +30,7 @@
             <div class="card-body">
               <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
                 <li>
-                  <h5 class="gradient1">All Categories</h5>
+                  <h5 class="all_color" style="<%=get_title_item_color("all")%>" id="heading_title_color">All Categories</h5>
                   <p class="margin-bottom-5">You can enjoy all the content across all categories.</p>
                 </li>
                 <%all_pack["plans"].each do |aa|%>
@@ -56,7 +56,8 @@
                 <div class="card-body">
                   <ul class="list-none padding-left-0 margin-bottom-0 packs_lists">
                     <li>
-                      <h5 class="<%=get_gradient(plan['title'])%>"><%=plan["title"]%></h5>
+                    <!--<%#=get_gradient(plan['title'])%>-->
+                      <h5 class="<%=plan["category"]%>_color" style="<%=get_title_item_color(plan["category"])%>" id="heading_title_color"><%=plan["title"]%></h5>
                       <p><%=plan['category']%></p>
                       <div class="plan_list_show">
                         <% plan["pack_details"].each do |d|%>
@@ -264,19 +265,13 @@
         }
     });*/
 
-
-     
-
-
-
-
-
-
-// New Plans related selection code  starts here //
-
-   function get_item_color(_this){
+   /*function get_item_color-old(_this){
     var gradient = _this.siblings("li").find("h5").attr("class");
-        if(gradient == "gradient1") {
+    var selected_style = $("."+gradient).attr("style").split("background: ")[1];
+    console.log(selected_style);
+    console.log(_this);
+     _this.css("background",selected_style);
+        /*if(gradient == "gradient1") {
             _this.addClass("gradientbg1");
         }
         else if(gradient == "gradient2") {
@@ -304,6 +299,22 @@
             _this.addClass("gradient");
         }
    }
+   */
+
+     
+
+
+
+
+
+
+// New Plans related selection code  starts here //
+
+   function get_item_color(_this){
+    var gradient = _this.siblings("li").find("h5").attr("class");
+    var selected_style = $("."+gradient).attr("style").split("background: ")[1];
+     _this.css("background",selected_style);
+   }
 
 function disable_packs(type){
    var all_plans = JSON.parse($(".all_plans_titles").val());
@@ -324,37 +335,31 @@ function disable_packs(type){
     var month_cnt = 0
     var total_amount = 0
     var plan_ids = [];
-   for (i = 0; i <= packs.length-1; i++) {
-    var selected_plan_id = packs[i].split("$")[0];
-    var plan_id = $("."+selected_plan_id).attr("id");
-    console.log(plan_id);
-    plan_ids.push(plan_id)
-    if(packs[i].split("$")[0].split("-")[1] == "monthly"){
-       month_cnt++
-    }
-    else{
-      year_cnt++
-    }
-    total_amount = (parseFloat(total_amount)+parseFloat(packs[i].split("$")[1])).toFixed(2)
+    for (i = 0; i <= packs.length-1; i++){
+      var selected_plan_id = packs[i].split("$")[0];
+      var plan_id = $("."+selected_plan_id).attr("id");
+      plan_ids.push(plan_id)
+      if(packs[i].split("$")[0].split("-")[1] == "monthly"){
+         month_cnt++
+      }
+      else{
+        year_cnt++
+      }
+      total_amount = (parseFloat(total_amount)+parseFloat(packs[i].split("$")[1])).toFixed(2)
    }
   return [month_cnt,year_cnt,total_amount,plan_ids]
  }
 
 $(document).ready(function(){
   var all_plans = $(".all_plans_titles").val();
-  // localStorage.removeItem("amount");
-  // localStorage.removeItem("currency");
-  // localStorage.removeItem("plan-category");
-  // localStorage.removeItem("plan");
-  // localStorage.removeItem("all_plan_category");
       var  keysToRemove = ["plan", "currency","plan-category","all-plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category","combo_pack_price"];
             keysToRemove.forEach(k => localStorage.removeItem(k))
-
   var selected_plans = [];
    var currency_symbol = $(".user_currency_symbol").val();
     $(".choose_plan").click(function(){
       if($(this).hasClass('active')){
         $(this).removeClass("active");
+        $(this).css("background","");
          var removePlanItem = $(this).data("pack-det");
          selected_plans = jQuery.grep(selected_plans, function(value) {
          return value != removePlanItem;
@@ -367,10 +372,13 @@ $(document).ready(function(){
         var selected_pack = $(this).data("pack-det");
         var pack_active = selected_pack.split("$")[0].split("-");
         if(pack_active[1] == "monthly"){
-          $("."+pack_active[0]+"-yearly").removeClass("active")
+          $("."+pack_active[0]+"-yearly").removeClass("active");
+          $("."+pack_active[0]+"-yearly").css("background","");
         }
         else{
           $("."+pack_active[0]+"-monthly").removeClass("active")
+          $("."+pack_active[0]+"-monthly").css("background","");
+
         }
         if(pack_active[0] == "all_access_pack"){
           disable_packs(pack_active[1]);
@@ -386,6 +394,7 @@ $(document).ready(function(){
       if(month_selected == 3 || year_selected == 3){
         for(p=0;p<selected_plans.length;p++){
           $("."+selected_plans[p].split("$")).removeClass("active");
+          $("."+selected_plans[p].split("$")).css("background","");
         }
       }
       if(month_selected == 3){
@@ -413,8 +422,6 @@ $(document).ready(function(){
        else{
         $(".plans_footer").hide();
        }
-       console.log(selected_plans);
-       console.log(user_selected_plan_ids);
        localStorage.setItem("amount",total_amt);
        localStorage.setItem("currency",currency_symbol);
        localStorage.setItem("plan",user_selected_plan_ids);
