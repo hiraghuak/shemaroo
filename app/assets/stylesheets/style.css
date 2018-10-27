@@ -1113,7 +1113,7 @@ span.premium-txt {
   color: #000;
   font-size: 1em;
   float: left;
-  margin: 5px 0px 5px 12px;
+  margin: 5px 0px 5px 0px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1599,7 +1599,7 @@ padding: 12px 10px 13px;
 .row-show-list .item {
   position: relative;
 }
-.row-show-list.detail_page .item .list-tile-title {
+.row-show-list.detail_page .item span.list-tile-title {
   color: #2a2a2a;
   font-size: 0.875em;
   margin-top: 5px;
