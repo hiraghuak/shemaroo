@@ -23,7 +23,7 @@
                 <span class="font-light" id="plan-category"><%=@combo_plan["display_title"]%></span>
               </li>
               <li class="pull-right font-semibold">
-                <span class="pull-right" class="total_amount"><%= @combo_pack["discounted_price"]%></span>
+                <span class="pull-right" id="total_amount"><%= @combo_pack["discounted_price"]%></span>
                 <span class="pull-right" id="currency"></span>
               </li>
             </ul>
@@ -149,6 +149,7 @@
 
 
     $('input[type=radio][name=radio-group]').change(function() {
+
         var plan = $(this).attr("plan")
         currency = plan.split("|")[4]
         category = plan.split("|")[1]
@@ -172,24 +173,35 @@
             promocode = 0;
         }
         var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
-        //total_amount)+parseFloat(tax)-parseFloat(promocode)
         var all_amount = parseFloat(all_amount).toFixed(2)
         $("#all_amount").text(all_amount)
     });
     $("#revert_plan").click(function() {
-        // $('input[type="radio"]').prop('checked', false);
-        // $("#revert_plan").hide();
-        window.location.href = "/plans/plans_summary"
+        $('input[type="radio"]').prop('checked', false);
+        $("#revert_plan").hide();
+        $("#currency").text(localStorage.getItem("currency"));
+        $("#all_currency").text(localStorage.getItem("currency"));
+        $("#total_amount").text(localStorage.getItem("amount"));
+        $("#all_amount").text(localStorage.getItem("amount"));
+        $("#plan-category").text(plan_names.join(" + "));
+        //window.location.href = "/plans/plans_summary"
     });
 </script>
 
 <script>
     $(document).ready(function() {
+        var selected_plans_titles = localStorage.getItem('plan').split(",");
+        var plan_names = []
+        for(i=0;i<selected_plans_titles.length;i++){
+         plan_names.push(selected_plans_titles[i].split("|")[1])
+        }
+        console.log(plan_names.join("+"));
+
         $("#currency").text(localStorage.getItem("currency"));
         $("#all_currency").text(localStorage.getItem("currency"));
         $("#total_amount").text(localStorage.getItem("amount"));
         $("#all_amount").text(localStorage.getItem("amount"));
-        $("#plan-category").text(localStorage.getItem("plan-category"));
+        $("#plan-category").text(plan_names.join(" + "));
 
         var total_amount = $("#total_amount").text();
         var tax = $("#tax").text();
@@ -216,7 +228,7 @@
         //var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
         var net_amount = (total_amount+$("#tax").text()-$("#promocode").text()).toFixed(2)
         //var net_amount = net_amount.toFixed(2);
-        $("#all_amount").text(net_amount);
+        //$("#all_amount").text(net_amount);
 
         $("#plans").val(localStorage.getItem("plan"));
         if(localStorage.getItem("all_plan_category")=="All Access Plans"){

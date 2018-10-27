@@ -179,9 +179,15 @@
         $("#all_amount").text(all_amount)
     });
     $("#revert_plan").click(function() {
-        // $('input[type="radio"]').prop('checked', false);
-        // $("#revert_plan").hide();
-        window.location.href = "/plans/plans_summary"
+        $('input[type="radio"]').prop('checked', false);
+        $("#revert_plan").hide();
+        $("#currency").text(localStorage.getItem("currency"));
+        $("#all_currency").text(localStorage.getItem("currency"));
+        $("#total_amount").text(localStorage.getItem("amount"));
+        $("#all_amount").text(localStorage.getItem("amount"));
+        $("#plan-category").text(localStorage.getItem("plan").split("|")[1]);
+        //window.location.href = "/plans/plans_summary"
+
     });
 </script>
 
@@ -238,7 +244,7 @@
 <script type="text/javascript">
     function summary_plans(){
         var disc_amount = localStorage.getItem("net_amount");
-        $('#all_amount').text(all_amount)
+        //$('#all_amount').text(all_amount)
         var cname = localStorage.getItem("cpn_name");
         var cid = localStorage.getItem("cpn_id");
         var ap_cat = localStorage.getItem("all_plan_category")
