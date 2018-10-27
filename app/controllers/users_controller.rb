@@ -189,7 +189,9 @@ def update_personal_details
     user_params = {
       :user => {
         :firstname => params[:profile_name],
-        :mobile_number => cookies[:user_login_id]
+        :mobile_number => cookies[:user_login_id],
+        :birthdate => params[:date_of_birth],
+        :user_email_id => params[:email_id]
       }
     }
     update_user_resp = User.update_account_details(cookies[:user_id],user_params)

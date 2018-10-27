@@ -27,13 +27,12 @@ meta title: "Update Personal  Details",
               <label class="error" id="user_mobile_error">Please enter the name</label>
             </div>
             <div class="input-group name">
-              <input type="text" id="user_email_address" name="profile name" class="form-control" value="<%=@user_profile_details['email_id']%>"> 
+              <input type="text" id="user_email_address" name="profile name" class="form-control" value="<%=@user_profile_details['user_email_id']%>"> 
               <span class="input-label">Email</span>
               <label class="error" id="user_email_error">Please enter the email</label>
             </div>
             <div class="input-group name">
-              <!-- <input type="text" id="user_dob" name="profile name" class="form-control" value="<%#=@edit_profile['firstname']%>"> -->
-              <input type="text" id="datepicker" class="form-control" value="<%#=@edit_profile['firstname']%>">
+              <input type="text" id="datepicker" class="form-control" value="<%=@user_profile_details['birthdate']%>">
               <span class="input-label">Birth Date</span>
               <label class="error" id="user_dob_error">Please enter the date of birth</label>
             </div>
@@ -51,19 +50,22 @@ meta title: "Update Personal  Details",
 
   <div class="toster-message-wrap">
     <div class="toster-message">
-      <!-- <i class="fa fa-check-circle-o" aria-hidden="true"></i> -->
-      <img src="/assets/password_updated.svg" alt="" title="">
+      <img src="/assets/password_updated.svg" alt="user account update" title="user account update">
       <p>
-        Password updated successfully,
-        <span>Please Login with your new password.</span>        
+        Personal details updated successfully
+        <!-- <span>Please Login with your new password.</span> -->        
       </p>
     </div>
   </div>
     <script>
-  $( function() {
+  $(function() {
+    var user_selected_date = "";
+    user_selected_date = "<%=DateTime.parse(@user_profile_details['birthdate']).strftime("%d/%m/%Y") unless @user_profile_details["birthdate"].blank?%>";
+    if(user_selected_date.length != 0){
+      $("#datepicker").nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"});
+    }
     $("#datepicker").datepicker(
       { 
-        // minDate: "-50Y", 
         maxDate: "now",
         yearRange: "-80:+0",
         changeMonth: true,
@@ -71,6 +73,8 @@ meta title: "Update Personal  Details",
         dateFormat: "dd/mm/yy"
       }
     );
+    $('#datepicker').datepicker("setDate", user_selected_date);
+
   });
   </script>
   </div>

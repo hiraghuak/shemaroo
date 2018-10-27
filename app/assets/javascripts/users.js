@@ -412,17 +412,21 @@ $('input#datepicker').blur(function(){
  	var name = $("#user_profile_name").val();
  	var mobile_no = $("#user_mobile_number").val();
  	var user_email = $("#user_email_address").val();
- 	var user_dob = $("#user_dob").val();
+ 	var user_dob = $("#datepicker").val();
  	 if(name.length != 0){
-	 	 	$("#update_personal_details").text("DONE...");
+	 	$("#update_personal_details").text("DONE...");
 	    $.ajax({
 				url: "/users/update_personal_details",
 				type: "POST",
 				data: { 
-				 profile_name: name
+				 profile_name: name,
+				 date_of_birth: user_dob,
+				 email_id: user_email,
+				 mobile_no: mobile_no  
 				},
 				success: function(response,status){
 	 	     $("#update_personal_details").text("DONE");
+	 	     $(".toster-message-wrap").show().fadeOut(4500);
 				 }
 		  });
  	 }
