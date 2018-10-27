@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 	  get 'welcome'
     get 'manage_profiles'
     get 'account_details'
+    get 'forgot_password'
+    get 'watch_list'
+    get 'change_password'
+    get 'change_profile'
 	  post 'sign_out'
 	  get  'verify_otp'
     post 'update_profile'
@@ -33,7 +37,6 @@ Rails.application.routes.draw do
     match  'add_profile',via: [:get,:post]
 	  post 'validate_otp'
 	  post 'resend_otp'
-	  post 'forgot_password'
 	  post 'subscriptions'
 	end
   get "/users/edit_profile/:profile_id" => "users#edit_profile"
