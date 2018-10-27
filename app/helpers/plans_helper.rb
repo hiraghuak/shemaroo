@@ -20,6 +20,29 @@ module PlansHelper
     end
 	end
 
+  def get_gradient_color title
+    case title
+    when "Bollywood classic packs"
+      return "gradientbg2"
+    when "Bollywood packs"
+      return "gradientbg3"
+     when "Kids pack"
+      return "gradientbg5"
+    when "Punjabi packs"
+      return "gradientbg8"
+    when "Gujarathi packs"
+      return "gradientbg4"
+    when "Bhakti packs"
+      return "gradientbg6"
+    when "Ibadaat packs"
+      return "gradientbg7"
+    when "Combo packs"
+      return "gradientbg4"
+    when "All access pack"
+      return "gradientbg1"
+    end
+  end
+
   def get_signature_key(packs)
    secret_key = "7c32c524a67f405812ca"
     all_plan_id = "" 
