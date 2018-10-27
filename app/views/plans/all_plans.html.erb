@@ -134,179 +134,11 @@
 </section>
 <script>
 
-    /*$(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
-        $(this).addClass("active");
-        var gradient = $(this).siblings("li").find("h5").attr("class");
-        if(gradient == "gradient1") {
-            //$(this).css("background", "linear-gradient(to right,#D51E54, #F15A23)")
-            $(this).addClass("gradientbg1");
-        }
-        else if(gradient == "gradient2") {
-            $(this).addClass("gradientbg2");
-        }
-        else if(gradient == "gradient3") {
-            $(this).addClass("gradientbg3");
-        }
-        else if(gradient == "gradient4") {
-            $(this).addClass("gradientbg4");
-        }
-        else if(gradient == "gradient5") {
-            $(this).addClass("gradientbg5");
-        }
-        else if(gradient == "gradient6") {
-            $(this).addClass("gradientbg6");
-        }
-        else if(gradient == "gradient7") {
-            $(this).addClass("gradientbg7");
-        }
-        else if(gradient == "gradient8") {
-            $(this).addClass("gradientbg8");
-        }
-        else {
-            $(this).addClass("gradient");
-        
-        // $(".plans_footer").show();
-    });}*/
+
 
     $(".fa-chevron-down").click(function() {
         $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
     })
-
-
-    /*$(document).ready(function(){
-  
-
-        $(".choose_plan").click(function(){
-            var  keysToRemove = ["plan", "currency","plan-category","amount","tl_amount" ,"combo_pack_id" ,"combo_plan_id" ,"order_id","cpn_price","net_amount","cpn_name","cpn_id","all_plan_category"];
-            keysToRemove.forEach(k => localStorage.removeItem(k))
-            parr = []
-            var amount = 0
-            var category = ""
-
-
-            if($(this).hasClass("monthly")) {
-                console.log("first"+a);
-                a++
-                console.log("second"+a)
-                $(this).attr("selected", a);
-                console.log(x);
-                if(x == 3) {
-                    x = 0;
-                    $('.all_categories .monthly').addClass('active gradientbg1')
-                    $('.individual_category .choose_plan.monthly').removeClass('active');
-                }
-                else {
-                    $('.all_categories .monthly').removeClass('active gradientbg1');
-                    $('.choose_plan.yearly').removeClass('active');
-                    $('.choose_plan.quarterly').removeClass('active');
-                }
-            }
-            if($(this).hasClass("yearly")) {
-                x = 0;
-                z = 0;
-                y++;
-                if(y == 3) {
-                    y = 0;
-                    $('.all_categories .yearly').addClass('active gradientbg1')
-                    $('.individual_category .choose_plan.yearly').removeClass('active');
-                }
-                else {
-                    $('.all_categories .yearly').removeClass('active gradientbg1');
-                    $('.choose_plan.monthly').removeClass('active');
-                    $('.choose_plan.quarterly').removeClass('active');
-                }
-            }
-            if($(this).hasClass("quarterly")) {
-                x = 0;
-                y = 0;
-                z++;
-                $('.choose_plan.monthly').removeClass('active');
-                $('.choose_plan.yearly').removeClass('active');
-            }
-            $('li').each(function(i){
-
-             
-
-                if($(this).is('.packs_lists li.active')) {
-                    var pid = $(this).attr("id")
-                    parr.push(pid);
-                    amount = amount+parseFloat(pid.split("|")[3])
-                    currency = pid.split("|")[4]
-                    category = category + pid.split("|")[1]
-                    console.log($(this).attr("id"));
-                }
-            });
-            var all_categories = category
-            $("#plans_count").text(parr.length);
-            $("#currency").text(currency);
-            $("#amount").text(amount.toFixed(2));
-            localStorage.setItem("plan",parr);
-            localStorage.setItem("currency",currency);
-            localStorage.setItem("amount",amount.toFixed(2));
-            localStorage.setItem("plan-category",category);
-
-            console.log("plans details");
-            console.log(localStorage.getItem("plan"))
-        })
-    });
-    
-    });/
-
-    $(".combo_offer").click(function(){
-        var cat = localStorage.getItem("plan-category")
-        // if(true)
-        if(parr.length == 2 || cat == "All Access Plans")
-        {
-            window.location.href = "/plans/plans_summary?plans="+parr
-        }
-        else
-        {
-            $("#combo_offer").modal("show")
-        }
-    });*/
-
-   /*function get_item_color-old(_this){
-    var gradient = _this.siblings("li").find("h5").attr("class");
-    var selected_style = $("."+gradient).attr("style").split("background: ")[1];
-    console.log(selected_style);
-    console.log(_this);
-     _this.css("background",selected_style);
-        /*if(gradient == "gradient1") {
-            _this.addClass("gradientbg1");
-        }
-        else if(gradient == "gradient2") {
-            _this.addClass("gradientbg2");
-        }
-        else if(gradient == "gradient3") {
-            _this.addClass("gradientbg3");
-        }
-        else if(gradient == "gradient4") {
-            _this.addClass("gradientbg4");
-        }
-        else if(gradient == "gradient5") {
-            _this.addClass("gradientbg5");
-        }
-        else if(gradient == "gradient6") {
-            _this.addClass("gradientbg6");
-        }
-        else if(gradient == "gradient7") {
-            _this.addClass("gradientbg7");
-        }
-        else if(gradient == "gradient8") {
-            _this.addClass("gradientbg8");
-        }
-        else {
-            _this.addClass("gradient");
-        }
-   }
-   */
-
-     
-
-
-
-
-
 
 // New Plans related selection code  starts here //
 
@@ -444,11 +276,10 @@ $(document).ready(function(){
           $("#combo_offer").modal("show")
         }
     });
-
-          $(".single_pack").click(function(){
-            var plans = localStorage.getItem("plan")
-            window.location.href = "/plans/plans_summary?plans="+plans
-            });
+    $(".single_pack").click(function(){
+        var plans = localStorage.getItem("plan")
+        window.location.href = "/plans/plans_summary?plans="+plans
+    });
     $("#add-category").click(function(){
         $("#combo_offer").modal("hide");
     });
