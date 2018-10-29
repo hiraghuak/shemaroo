@@ -65,7 +65,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #API_SERVER = "http://18.210.75.7"
-  API_SERVER = "http://18.210.75.7"
+  API_SERVER = "http://18.210.75.7:8080"
   AUTH_TOKEN = "3zZmzoHg8z6SM3wpDoyw"
   CACHE_EXPIRY_TIME = 1.seconds
   PLAY_URL_TOKEN = "ywVXaTzycwZ8agEs3ujx"
