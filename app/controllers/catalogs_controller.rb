@@ -190,7 +190,7 @@ class CatalogsController < ApplicationController
     channels_response = Rails.cache.fetch("all_channels", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_all_channels
        }
-     @all_channels = channels_response["data"]["items"]
+     @all_channels = channels_response["data"]["catalog_list_items"]
     rescue
       Rails.cache.delete("all_channels")
       @all_channels = []

@@ -74,7 +74,7 @@ class Ott
   end
 
   def self.get_all_channels
-    HTTP.get "catalogs/sample-test-channel/items?region=#{$region}&status=any","catalogs"
+    HTTP.get "catalog_lists/all-channels?page_size=150&region=#{$region}","catalogs"
   end
 
   def self.get_channel_programs(catalog_id,channel_id)
