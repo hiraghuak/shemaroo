@@ -4,17 +4,6 @@
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20">
         <h2 class="block margin-bottom-10"><!-- <a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> --> Summary</h2>
         <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-          <div class="pull-left payment-header w-100 rounded" id="all-pack-div">
-            <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
-              <li class="text-uppercase gradient1">all categories</li>
-              <%@all_access_packs["plans"].each do |aa|%>
-                  <li>
-                    <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan="<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]+"|"+ @all_access_packs["category"]%>">
-                    <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
-                  </li>
-              <%end%>
-            </ul>
-          </div>
           <p class="pull-left w-100 margin-bottom-0"><a href="javascript:;" class="font-light" id="revert_plan">Revert to original plan section</a></p>
           <div class="pull-left w-100 payment-body margin-top-25">
             <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
