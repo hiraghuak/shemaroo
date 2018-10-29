@@ -51,4 +51,8 @@ class User
       HTTP.post "users/#{session_id}/profiles?region=#{$region}",profile_data,"user"
     end
 
+    def self.assign_profile(session_id,user_profile_data)
+      HTTP.post "users/#{session_id}/assign_profile?region=#{$region}",user_profile_data,"user"	
+    end
+
 end

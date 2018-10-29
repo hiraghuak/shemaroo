@@ -54,7 +54,16 @@ class UsersController < ApplicationController
     user_profiles = User.get_all_user_profiles(sign_in_response["data"]["session"])
     all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
     first_profile = all_profiles.flatten.first.split("$")
-    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0],login_id: user_login_id}
+    default_profile = user_profiles['data']['profiles'].collect{|x|x if x['default_profile'] == "true"}.compact.first
+    user_profile_data  = {
+      :user_profile => {
+        :profile_id => default_profile['profile_id']
+      }
+    }
+    profile_assign  = User.assign_profile(sign_in_response["data"]["session"],user_profile_data)
+    p profile_assign.inspect
+    p "2222222222"
+    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: default_profile['firstname'],user_profiles: all_profiles,profile_id: default_profile["profile_id"],login_id: user_login_id}
    else
     set_response(sign_in_response)
    end
