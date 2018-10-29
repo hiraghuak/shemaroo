@@ -413,6 +413,9 @@ a.see-more:hover {
     font-family: 'condensed-light';
     font-size: 0.875em;
 }
+.custom-control.material-switch {
+    cursor: pointer;
+}
 @media(max-width: 1199px) {
     a.see-more {
         margin-right: 100px;
