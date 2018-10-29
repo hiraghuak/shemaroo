@@ -13,7 +13,7 @@
 				<div class="pull-left w-100 margin-bottom-25">
             <div class="card">
               <div class="card-body">
-               <h5 class="gradient1 pull-left" style="<%=get_title_item_color(plan["plan_categories"].first)%>" id="heading_title_color"><%=plan["title"]%><%=plan["subscription_title"]%></h5>
+               <h5 class="gradient1 pull-left" style="<%=get_title_item_color(plan["plan_categories"].first) if plan["plan_categories"].present?%>" id="heading_title_color"><%=plan["title"]%><%=plan["subscription_title"]%></h5>
 								<span class="pull-right text-uppercase">
 									<small><%=plan["plan_title"]%></small> 
 									<br><b><%=plan["currency"]%>&nbsp;<%=plan["price_charged"]%></b>
