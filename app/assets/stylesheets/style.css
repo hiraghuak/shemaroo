@@ -2617,6 +2617,20 @@ button:focus {
 }
 /* Settings page design ends */
 
+/* OTP Roku design starts */
+
+.otp-roku-container {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.otp-roku-container .otp-verification-page input[type="text"]:nth-child(4) {
+  margin-right: 10px;
+}
+.otp-roku-container .otp-verification-page input[type="text"]:nth-child(6) {
+  margin-right: 0px;
+}
+/* OTP Roku design ends */
+
 /* thumbnail height style starts */
 
 .details_episode_horizontal_title span.list-tile-title {  
