@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get 'streaming'
     get 'parent_control'
     get 'create_pin'
+    match 'activate_code',via: [:get,:post]
     match  'update_personal_details',via: [:get,:post]
     match  'add_profile',via: [:get,:post]
 	  post 'validate_otp'
