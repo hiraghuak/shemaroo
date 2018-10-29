@@ -89,6 +89,13 @@ class CatalogsController < ApplicationController
         render "episode_details"
       else
         @item_details = item_response["data"]
+        @theme = item_response["data"]["theme"]
+        if @theme == "linear"
+          programs_response = Ott.get_channel_programs(params[:catalog_name],params[:show_name])
+          @channel_all_programs = programs_response["data"]["items"]
+          channels_response = Ott.get_all_channels
+          @all_channels = channels_response["data"]["items"]
+        end
         @new_play_url,@key =  get_play_url_key(item_response['data'])
         more_item_response = Rails.cache.fetch("more_items_#{params[:catalog_name]}_#{@item_details['genres'][0]}", expires_in: CACHE_EXPIRY_TIME){
          Ott.get_items_genre(params[:catalog_name],@item_details['genres'][0])
@@ -178,6 +185,18 @@ class CatalogsController < ApplicationController
     render :json => {:status => true,:episodes => items,:next_page => next_page,:pageno => page_number+1}
   end
 
+  def all_channels
+   begin 
+    channels_response = Rails.cache.fetch("all_channels", expires_in: CACHE_EXPIRY_TIME){
+         Ott.get_all_channels
+       }
+     @all_channels = channels_response["data"]["items"]
+    rescue
+      Rails.cache.delete("all_channels")
+      @all_channels = []
+    end
+  end
+
 
 
 
@@ -198,8 +217,12 @@ private
 
   def get_play_url_key(response)
     url = sign_smarturl response['play_url']['saranyu']['url']
-    play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_#{$region.downcase}_logo"}.compact.first
-    play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first if play_url.nil?
+    if response["theme"] == "live"
+       play_url = url["adaptive_urls"][0]['playback_url']
+    else
+      play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_#{$region.downcase}_logo"}.compact.first
+      play_url = url["adaptive_urls"].collect{|x|x["playback_url"] if x["label"] == "laptop_free_in"}.compact.first if play_url.nil?
+    end
     if play_url.nil?
       new_play_url = ""
     else
