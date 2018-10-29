@@ -1,0 +1,41 @@
+ <section class="onboarding-bg padding-top-80 padding-top-145 min-height-div">
+  <div class="onboarding-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+       <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
+        <h2 class="block margin-bottom-10">Parental Control</h2>
+        <div class="pull-left w-100 tile-box-shadow padding-bottom-25 padding-top-45 rounded">
+          <div class="w-100 all_error padding-left-10 padding-right-10" >
+            <label class="error rounded text-center" id="bakend_user_errors">Invalid Credentials</label>
+          </div>
+          <div class="pull-left w-100 padding-left-30 padding-right-30 margin-top-0">
+            <p class="margin-top-0 margin-bottom-30 normal_txt">Enter your ShemarooMe Password to continue</p>
+            <div class="input-group hide_password">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <input type="password" id="login_password" name="" class="form-control"> 
+              <img src="/assets/show_password.svg" class="show_password" alt="" title="">
+              <span class="input-label">Password</span>
+              <label class="error" id="login_pwd_error">Please enter the password</label>
+            </div>
+            <div class="text-center margin-bottom-0 margin-top-5 light">         
+              <div class="inline-block margin-top-0 margin-bottom-5 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="">continue</a>
+                </p>
+              </div>              
+            </div>
+            <div class="pull-left w-100 text-center margin-top-25">     
+              <a href="javascript:;" class="text-uppercase">forgot password</a> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <%=render "validate_mobile_number"%>
+</section>
+<script>
+   var window_height = window.outerHeight;
+  var window_height = window_height - 153;
+  $('.min-height-div').css('min-height',window_height+'px');
+</script>

@@ -1629,6 +1629,9 @@ padding: 12px 10px 13px;
   font-size: 0.875em;
   padding: 13px 18px;  
 }
+.border-radius-40 {
+  border-radius: 40px;
+}
 .black-button {
   color: #000000;
 }
@@ -2616,6 +2619,78 @@ button:focus {
   font-weight: 600;
 }
 /* Settings page design ends */
+
+/* OTP Roku design starts */
+
+.otp-roku-container {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.otp-roku-container .otp-verification-page input[type="text"]:nth-child(4) {
+  margin-right: 10px;
+}
+.otp-roku-container .otp-verification-page input[type="text"]:nth-child(6) {
+  margin-right: 0px;
+}
+/* OTP Roku design ends */
+
+/* Registered Device page design starts */
+
+.registered_devices_page {
+  min-height: 242px;
+}
+.registered_devices_page ul li img {
+  margin: 2px 13px 0px 5px;
+  width: 10px;
+}
+.registered_devices_page ul li.tv_device img {
+  margin: 2px 8px 0px 0px;
+  width: 20px;
+}
+/* Registered Device page design ends */
+
+/* Create PIN page design starts */
+
+.create-pin-page span {
+  font-size: 0.875em;
+}
+
+/* Create PIN page design ends */
+
+/* Clear History popup design starts */
+
+#clear-watch-history-pop .modal-dialog {
+  max-width: 340px;
+}
+#clear-watch-history-pop .normal_txt {  
+  font-size: 0.875em;
+}
+
+/* Clear History popup design ends */
+
+/* Streaming Quality popup design starts */
+
+#streaming-quality-pop ul li {
+  padding: 13px 0px 5px 0px;
+}
+#streaming-quality-pop [type="radio"]:checked + label:before, #streaming-quality-pop [type="radio"]:not(:checked) + label:before {
+  height: 18px;
+  width: 18px;
+}
+#streaming-quality-pop [type="radio"]:checked + label:before {
+  border: 1px solid #E54137;
+}
+#streaming-quality-pop [type="radio"]:checked + label:after, #streaming-quality-pop [type="radio"]:not(:checked) + label:after {
+  background: #E54137;
+  height: 10px;
+  left: 4px;
+  position: absolute;
+  top: 4px;  
+  width: 10px;
+}
+
+/* Streaming Quality popup design ends */
+
 
 /* thumbnail height style starts */
 
