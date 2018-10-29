@@ -225,6 +225,20 @@ def add_profile
 end
 
 def activate_code
+  if request.xhr?
+    p params[:code].inspect
+    response = User.activate_tv_code(params[:code])
+    p response.inspect
+    if response.has_key?("message")
+      render :json => {:status => false,:message => response["message"]}
+    else
+      render :json => {:status => true}
+   end
+  else
+    if !cookies[:user_id].present?
+      redirect_to "#{SITE}/users/login?q=tv"
+    end
+  end
 
 end
 

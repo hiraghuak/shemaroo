@@ -1,0 +1,41 @@
+<%
+meta title: "All tv channels",
+     description: "All tv channels",
+     keywords: "All tv channels"
+%>
+<%if @all_channels.count > 0%>
+<section class="full-width-content inside-container top-bg-gradient padding-top-80 padding-top-145 light min-height-div padding-bottom-20">
+  <div class="row h-100">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+      <div class="row">
+       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+      <h2 class="margin-top-25 margin-bottom-20 text-capitalize">All Channels</h2>
+    </div>
+    </div>
+    <div class="row row-show-list all_show_horizontal_title">
+     <%@all_channels.each do |i|%>
+        <div class="item rounded">                                             
+          <a href="<%=get_item_url(i)%>">
+          <%if i['access_control']['is_free'] == false%>
+            <span class="text-uppercase premium-txt">Premium</span>
+          <%end%>
+          <img src="<%=i["thumbnails"]["l_medium"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+            <span class="list-tile-title"><%=i['title']%></span>
+          </a>
+        </div>
+      <%end%>
+    </div>  
+    </div>  
+  </div>
+<%=render "layouts/page_height_setting"%>
+</section>
+<%else%>
+<div class="light no-items-found">
+    <img src="/assets/no_content.svg" class="margin-bottom-10 welcome_page_image"  alt="" title="">
+    <p class="font-medium margin-top-25 margin-bottom-0"><strong>Sorry!</strong></p>
+    <p class="font-light margin-top-0 margin-bottom-5">There is no channels to show</p>
+    <p class="pull-left w-100 margin-top-20 margin-bottom-15 text-center">
+      <a href="/" class="text-uppercase btn btn-outline-primary gradient1 radius-button">go back</a>
+    </p>
+  </div>
+<%end%>

@@ -70,7 +70,15 @@ class Ott
   end
 
   def self.user_plans(user_session)
-        HTTP.get "users/#{user_session}/user_plans?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{$region}","catalog"
+    HTTP.get "users/#{user_session}/user_plans?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{$region}","catalog"
+  end
+
+  def self.get_all_channels
+    HTTP.get "catalogs/sample-test-channel/items?region=#{$region}&status=any","catalogs"
+  end
+
+  def self.get_channel_programs(catalog_id,channel_id)
+    HTTP.get "catalogs/#{catalog_id}/items/#{channel_id}/programs?region=#{$region}&status=any","catalogs"
   end
 
 end
