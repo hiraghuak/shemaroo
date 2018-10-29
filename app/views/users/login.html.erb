@@ -74,24 +74,24 @@ $(document).ready(function(){
 
   /* placholder design for auto-fill values in initial time page load */
 
-  var input1 =  $("input#login_mobile_number").val().length;
-  var input2 =  $("input#login_password").val().length;
-  console.log(input1);
-  console.log(input2);
-  /*var input3 =  $("input#user_name").val().length
-  var input4 =  $("input#mobile_number").val().length
-  var input5 =  $("input#password").val().length
-  var input6 =  $("input#confirm_password").val().length*/
-  if(input1 > 0) {
-    console.log("1")
-    $(this).parents(".input-group").children('.fa-circle').hide();
-    $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
-  }
-  if(input2 > 0) {
-    console.log("2")
-    $(this).parents(".input-group").children('.fa-circle').hide();
-    $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
-  }
+  // var input1 =  $("input#login_mobile_number").val().length;
+  // var input2 =  $("input#login_password").val().length;
+  // console.log(input1);
+  // console.log(input2);
+  // /*var input3 =  $("input#user_name").val().length
+  // var input4 =  $("input#mobile_number").val().length
+  // var input5 =  $("input#password").val().length
+  // var input6 =  $("input#confirm_password").val().length*/
+  // if(input1 > 0) {
+  //   console.log("1")
+  //   $(this).parents(".input-group").children('.fa-circle').hide();
+  //   $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  // }
+  // if(input2 > 0) {
+  //   console.log("2")
+  //   $(this).parents(".input-group").children('.fa-circle').hide();
+  //   $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  // }
   var path_name = window.location.href.split("?q=");
   if(path_name[1] == "tv"){
       var url = window.location.href.split("?q=")[0]

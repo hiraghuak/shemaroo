@@ -227,7 +227,13 @@ end
 def activate_code
   if request.xhr?
     p params[:code].inspect
-    response = User.activate_tv_code(params[:code])
+    code_params = {
+      :user => {
+        :token => params[:code],
+        :session_id => cookies[:user_id]
+      }
+    }
+    response = User.activate_tv_code(code_params)
     p response.inspect
     if response.has_key?("message")
       render :json => {:status => false,:message => response["message"]}
