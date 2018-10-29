@@ -2606,6 +2606,16 @@ button:focus {
 
 /* Watchlist page design ends */
 
+/* Settings page design starts */
+
+.settings_page ul li {
+  padding: 12px 0px;
+}
+.settings_page li .fa {
+  color: #999999;
+  font-weight: 600;
+}
+/* Settings page design ends */
 
 /* thumbnail height style starts */
 

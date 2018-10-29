@@ -224,6 +224,10 @@ def add_profile
   end
 end
 
+def activate_code
+
+end
+
 
 def check_valid_user
   unless cookies[:user_id].present?

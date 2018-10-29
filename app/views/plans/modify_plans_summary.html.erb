@@ -23,7 +23,7 @@
                 <span class="font-light" id="plan-category"></span>
               </li>
               <li class="pull-right font-semibold">
-                <span class="pull-right" class="total_amount"><%=@response["total_amount"].to_s%></span>
+                <span class="pull-right total_amount"><%=@response["total_amount"].to_s%></span>
                 <span class="pull-right" id="currency"></span>
               </li>
             </ul>
@@ -47,7 +47,7 @@
           <div class="pull-left w-100 payment-footer">
             <ul class="pull-left w-100 padding-left-0 list-none">
               <li class="font-semibold pull-left">Grand Amount</li>
-              <li class="pull-right font-semibold" class="all_amount"  input type="text" id="new_amount" value="<%=@response["total_amount"].to_s%>"><%=@response["total_amount"].to_s%></li>
+              <li class="pull-right font-semibold all_amount" input type="text" id="new_amount" value="<%=@response["total_amount"].to_s%>"><%=@response["total_amount"].to_s%></li>
            
               <span class="pull-right" id="all_currency"></span>
             </ul>
@@ -170,19 +170,23 @@
             tax = 0;
         }
         var promocode = parseFloat($("#promocode").text());
+        $("#promocode").text("");
         if(promocode == "") {
             promocode = 0;
         }
-        var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
-        //total_amount)+parseFloat(tax)-parseFloat(promocode)
+        var all_amount = parseFloat(total_amount)+parseFloat(tax);
         var all_amount = parseFloat(all_amount).toFixed(2)
-
         $(".all_amount").text(all_amount)
     });
     $("#revert_plan").click(function() {
-        // $('input[type="radio"]').prop('checked', false);
-        // $("#revert_plan").hide();
-        window.location.href = "/plans/plans_summary"
+         $('input[type="radio"]').prop('checked', false);
+        $("#revert_plan").hide();
+        $("#currency").text(localStorage.getItem("currency"));
+        $("#all_currency").text(localStorage.getItem("currency"));
+        $(".total_amount").text(localStorage.getItem("amount"));
+        $(".all_amount").text(localStorage.getItem("amount"));
+        $("#plan-category").text(localStorage.getItem("plan").split("|")[1]);
+        //window.location.href = "/plans/plans_summary"
     });
 </script>
 
@@ -192,7 +196,7 @@
         $("#all_currency").text(localStorage.getItem("currency"));
         $(".total_amount").text(localStorage.getItem("amount"));
         $(".all_amount").text(localStorage.getItem("amount"));
-        $("#plan-category").text(localStorage.getItem("plan-category"));
+        $("#plan-category").text(localStorage.getItem("plan").split("|")[1]);
 
         var total_amount = $(".total_amount").text();
 
@@ -253,7 +257,7 @@
         else{
             var plans = localStorage.getItem("plan")
             var currency = localStorage.getItem("currency")
-            var amount =  parseFloat($("#new_amount").val(), 10);
+            var amount =  parseFloat($("#new_amount").text(), 10);
             alert(amount);
 // if(myCookies.session_id){                 
             var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid+'&modified_amount='+amount
