@@ -7,8 +7,15 @@
       <p class="font-light margin-bottom-15">Reason: <%=@resp["error"]["message"]["message"]%>&nbsp;&nbsp;(Error: <%=@resp["error"]["code"]%>)</p>
       <!-- <p class="font-light margin-bottom-0">Transation ID</p>  -->
       <!-- <p class="margin-bottom-0 font-medium margin-bottom-15"><strong>999999</strong></p> -->
-      <a href="/plans" class="radius-button margin-bottom-25" id="">Try again</a>
+      <a href="javascript:;" class="radius-button margin-bottom-25" id="" onclick="tellAndroidFailed('<%=@resp["error"]["message"]["message"]%>')">Try again</a>
     </div>
   </div>
   <%=render "layouts/page_height_setting"%>
 </section>
+<script type="text/javascript">
+    function tellAndroidFailed(message) {
+      console.log(message);
+      Android.failed(message);
+      window.location.href = "/plans"
+    }
+</script>

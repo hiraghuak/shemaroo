@@ -7,8 +7,16 @@
       <p class="font-light margin-bottom-15"><%=@resp["data"]["message"]%></p>
       <!--    <p class="font-light margin-bottom-0">Transation ID</p>
          <p class="margin-bottom-0 font-medium margin-bottom-15"><strong>999999</strong></p> -->
-      <a href="/" class="radius-button text-uppercase margin-bottom-25" id="">continue browsing</a>
+      <a href="javascript:;" class="radius-button text-uppercase margin-bottom-25"  id="" onclick="tellAndroidSuccess('<%=@resp["data"]["message"]%>')">continue browsing</a>
     </div>
   </div>
   <%=render "layouts/page_height_setting"%>
 </section>
+
+<script type="text/javascript">
+    function tellAndroidSuccess(message) {
+      console.log(message);
+        Android.success(message);
+        window.location.href = "/"
+    }
+</script>
