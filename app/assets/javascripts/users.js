@@ -234,7 +234,14 @@ function user_sign_in(){
 		 $("#user_login").text("Login")
 		 if(response.status == true){
 		   set_user_cookies(response)
-		   window.location = "/"
+		   if(localStorage.getItem("activate_tv_path") != undefined){
+		   	localStorage.removeItem("activate_tv_path")
+        window.location = "/users/activate_code"
+		   }
+		   else{
+		   	   window.location = "/"
+		   }
+		
 		 }
 		else{
 		 //$("#login_mobile_number,#login_password,#login_email").val("");
@@ -448,7 +455,7 @@ $('input#datepicker').blur(function(){
  	 var is_kid_profile =  $("#add_profile_kids").is(':checked');
  	 if(profile_name.length != 0){
  	 	$("#add_profile").text("Adding...");
-    $.ajax({
+      $.ajax({
 				url: "/users/add_profile",
 				type: "POST",
 				data: { 
@@ -473,9 +480,35 @@ $('input#datepicker').blur(function(){
 
 
 
-
-
-
+$("#verify_tv_code").click(function(){
+	var first_no = $("#first_char").val();
+  var second_no = $("#second_char").val();
+	var third_no = $("#third_char").val();
+	var fourth_no = $("#fourth_char").val();
+	var fifth_no = $("#fifth_char").val();
+	var sixth_no = $("#sixth_char").val();
+	if(first_no.length != 0 && second_no.length != 0 && third_no.length != 0 && fourth_no.length !=0 && fifth_no.length != 0 && sixth_no.length != 0){
+     $("#verify_tv_code").text("Verifying...");
+     $.ajax({
+			url: "/users/activate_code",
+			type: "POST",
+			data: { code: first_no+second_no+third_no+fourth_no+fifth_no+sixth_no },
+			success: function(response,status){
+				console.log(response.status);
+			 if(response.status == true){
+ 	       window.location = "/"
+			 }
+			 else{
+			 	$("#verify_code_error").text(response.message).show().fadeOut(4500);
+			 }
+ 	     $("#verify_tv_code").text("Verify");
+			 }
+	  });
+	}
+	else if(first_no.length == 0 || second_no.length == 0 || third_no.length == 0 || fourth_no.length == 0 || fifth_no.length == 0 || sixth_no.length == 0){
+     $("#verify_code_error").show().fadeOut(4500);
+	}
+})
 
 
 

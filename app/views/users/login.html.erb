@@ -92,6 +92,11 @@ $(document).ready(function(){
     $(this).parents(".input-group").children('.fa-circle').hide();
     $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
   }
-
+  var path_name = window.location.href.split("?q=");
+  if(path_name[1] == "tv"){
+      var url = window.location.href.split("?q=")[0]
+      window.history.pushState("", "", url)
+     localStorage.setItem("activate_tv_path",true)
+  }
 });  
 </script>

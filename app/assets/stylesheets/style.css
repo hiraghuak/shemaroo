@@ -3613,5 +3613,8 @@ button:focus {
     max-height: 62%;
   }  
 }
+#verify_code_error{
+  bottom: -26px;
+}
 
 /* Responsive design ends */

@@ -55,4 +55,8 @@ class User
       HTTP.post "users/#{session_id}/assign_profile?region=#{$region}",user_profile_data,"user"	
     end
 
+    def self.activate_tv_code(code)
+      HTTP.get "verify_tv_token?token=#{code}&region=#{$region}","catalog"
+    end
+
 end
