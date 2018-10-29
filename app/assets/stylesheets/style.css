@@ -3615,8 +3615,25 @@ button:focus {
     max-height: 62%;
   }  
 }
+
+/* Responsive design ends */
+
+
 #verify_code_error{
   bottom: -26px;
 }
+#right-sidebar-menu .profile-list {
 
-/* Responsive design ends */
+}
+#right-sidebar-menu .navigation {
+      position: absolute;
+    float: left;
+    width: 100%;
+        top: 140px;
+}
+#right-sidebar-menu .navigation .carousel_prev {
+  left: 0px;
+}
+#right-sidebar-menu .navigation .carousel_prev {
+  right: 0px;
+}
