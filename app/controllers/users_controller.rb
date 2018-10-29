@@ -229,10 +229,11 @@ def activate_code
     p params[:code].inspect
     code_params = {
       :user => {
-        :token => params[:code],
+        :token => params[:code].downcase,
         :session_id => cookies[:user_id]
       }
     }
+    p code_params.inspect
     response = User.activate_tv_code(code_params)
     p response.inspect
     if response.has_key?("message")
