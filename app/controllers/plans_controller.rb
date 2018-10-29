@@ -4,7 +4,7 @@ class PlansController < ApplicationController
   def all_plans
     user_session = cookies[:user_id].to_s
     user_plans = Ott.user_plans(user_session)
-     if false #user_plans["data"].count >0
+     if user_plans["data"].count >0
        redirect_to plans_view_plans_path
      else
     response = Ott.subscription_plans
@@ -211,6 +211,27 @@ if params["modified_amount"].present?
     }]}
     adyen_encrypted_data = params["adyen-encrypted-data"]
     user_info = {"email": cookies[:user_login_id], "mobile_number": cookies[:user_login_id]}
+if params["modified_amount"].present? 
+    user_session = cookies[:user_id].to_s
+    @user_plans = Ott.user_plans(user_session)
+ #if @user_plans["data"].map{|s| s["subscription_id"]}.uniq.include?(params["plans"].split("|")[5])
+  current_plan =    @user_plans["data"].map{|s| s if s["subscription_id"] == params["plans"].split("|")[5] }.compact
+ # HTTP.get "catalogs/5b3c917fc1df417b9a00002c/items/#{current_plan["subscription_id"]}?auth_token=Ts4XpMvGsB2SW7NZsWc3&region=#{@region}" ,"catalog"
+    #  new_cat_id = params["plans"].split("|")[5]
+    # new_plan_id =  params["plans"].split("|")[0]
+    cur_cat_id = current_plan[0]["subscription_id"]  
+    cur_plan_id = current_plan[0]["plan_id"]  
+    modify_user_plans = {"current_plan_id": cur_plan_id,"current_subscription_category_id": cur_cat_id}
+
+    plans_purchase_params = {
+        "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
+        "region" => @region,
+        "payment_info": payment_info,
+        "modify_user_plans": modify_user_plans,
+    "transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
+        "user_info": user_info
+    }
+else
     plans_purchase_params = {
         "auth_token": "Ts4XpMvGsB2SW7NZsWc3",
         "region" => @region,
@@ -218,8 +239,9 @@ if params["modified_amount"].present?
     "transaction_info": {"order_id": params["order_id"], "adyen_encrypted_data": adyen_encrypted_data},
         "user_info": user_info
     }
+end
     response =  HTTP.post_https "users/#{cookies[:user_id]}/transactions/cse_payment", plans_purchase_params
-    if !response["data"].blank? && response["data"]["message"] == "pack activated successfully"
+    if !response["data"].blank? && (response["data"]["message"] == "pack activated successfully" || response["data"]["message"] == "Plans modified Successfully")
       redirect_to  action: 'payment_success',  resp_data: response
     else
       redirect_to  action: 'payment_failed',  resp_data: response

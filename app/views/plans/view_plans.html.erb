@@ -30,6 +30,7 @@
 			</div>
 		</div>
 
+<%if @expired_plans.present?%>
 		<div class="row">
   		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- prev_plans">
   			<h2 class="block">Previous Plans</h2>
@@ -52,7 +53,7 @@
 <%end%>
   		</div>
   	</div>
-
+<%end%>
   </div>
   <%=render "layouts/page_height_setting"%>
 </section>

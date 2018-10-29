@@ -31,6 +31,7 @@
                       <input type="hidden" id="combo_pack_id" name="combo_pack_id" value="">
                       <input type="hidden" id="price_charged" name="price_charged" value="">
                       <input type="hidden" id="order_id" name="order_id" value="">
+                      <input type="hidden" id="modified_amount" name="modified_amount" value="">
 
                       <div class="input-group cardno">
                         <i class="fa fa-circle" aria-hidden="true"></i>
@@ -104,6 +105,7 @@
         $("#combo_pack_id").val(localStorage.getItem("combo_pack_id"));
         $("#price_charged").val(localStorage.getItem("tl_amount"));
         $("#order_id").val(localStorage.getItem("order_id"));
+        $("#modified_amount").val(localStorage.getItem("modified_amount"));
         $("#adyen-encrypted-form-expiry-generationtime").val(new Date().toISOString());
 
 
