@@ -56,7 +56,7 @@ class User
     end
 
     def self.activate_tv_code(code_params)
-      HTTP.post "generate_session_tv?token=#{code}&region=#{$region}",code_params,"user"
+      HTTP.post "generate_session_tv?region=#{$region}",code_params,"user"
     end
 
 end
