@@ -1,353 +1,444 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Saranyu HTML5 HLS Player</title>
-<link rel="stylesheet" type="text/css" href="../skins/sphls.css">
-<script src="../external/jquery-3.1.1.min.js"></script>
-<script src="../external/player_crypt.js"></script>
-<script src="../plugin/saranyuplayer.js" type="text/javascript" charset="utf-8"></script>
-<script src="../plugin/cookies_plugin.js" type="text/javascript" charset="utf-8"></script>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Saranyu HTML5 HLS Player</title>
+    <link rel="stylesheet" type="text/css" href="../skins/sphls.css">
+    <script src="../external/jquery-3.1.1.min.js"></script>
+    <script src="../external/player_crypt.js"></script>
+    <script src="../plugin/saranyuplayer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../plugin/cookies_plugin.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        body {
+            background: black;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
 
-<style type="text/css">
-body {
-	background: black;
-	margin:0px;
-	padding: 0px;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	position: absolute;
-}
-#video_player{
-	height: 100%;
-	width: 100%;
-}
-#login_overlay,#subscrip_pop_overlay{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background: gray;
-    z-index: 10000;
-    opacity: 0.9;
-    display: none;
-    text-align: center;
-}
-#login_overlay .login-popup-request,#subscrip_pop_overlay .subscribe-popup-request{
-    background-color: #b40701  !important;
-    cursor: pointer;
-    height: 2em;
-    width: auto;
-    color: white;
-    padding: 1em;
-    line-height: 2em;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-    top: 40%;
-}
-#play_icon{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background: transparent;
-    z-index: 10000;
-    opacity: 0.9;
-    display: none;
-    text-align: center;
-}
-#play_icon .play-icon-request{
-    background-color: transparent !important;
-    cursor: pointer;
-    height: 2em;
-    width: auto;
-    color: white;
-    padding: 1em;
-    line-height: 2em;
-    border-radius: 12px;
-    text-align: center;
-    position: relative;
-    top: 40%;
-}
-</style>
-</style>
+        #video_player {
+            height: 100%;
+            width: 100%;
+        }
+
+        #login_overlay,
+        #subscrip_pop_overlay {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: gray;
+            z-index: 10000;
+            opacity: 0.9;
+            display: none;
+            text-align: center;
+        }
+
+        #login_overlay .login-popup-request,
+        #subscrip_pop_overlay .subscribe-popup-request {
+            background-color: #b40701 !important;
+            cursor: pointer;
+            height: 2em;
+            width: auto;
+            color: white;
+            padding: 1em;
+            line-height: 2em;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            top: 40%;
+        }
+
+        #play_icon {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: transparent;
+            z-index: 10000;
+            opacity: 0.9;
+            display: none;
+            text-align: center;
+        }
+
+        #play_icon .play-icon-request {
+            background-color: transparent !important;
+            cursor: pointer;
+            height: 2em;
+            width: auto;
+            color: white;
+            padding: 1em;
+            line-height: 2em;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            top: 40%;
+        }
+
+    </style>
 </head>
-<body style="background-color: rgb(38,38,38); height: 100%; width: 100%; overflow: hidden;">	
-	<div id="login_overlay"><span class="login-popup-request"> Please Login To Watch Video </span></div>
-	<div id="subscrip_pop_overlay"><span class="subscribe-popup-request"> Please Subscribe To Watch Video </span></div>
-	<div id="video_player">
-	</div>
-	
-	
-	
+
+<body style="background-color: rgb(38,38,38); height: 100%; width: 100%; overflow: hidden;">
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+        _paq.push(["setCookieDomain", "*.52.220.137.44"]);
+        _paq.push(["setDomains", ["*.52.220.137.44"]]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+
+        // store value in localstorage to use here start
+        var subscribe_localstorage = localStorage.getItem("subscribe_value");
+        // store value in localstorage to use here end
+
+        // push stored value to Dashbord start
+        //_paq.push(['setCustomVariable', 1, "Subscribe", subscribe_localstorage, "visit"]);
+        //_paq.push(['setCustomVariable', 2, "Saranyu", "2ndtest", "visit"]);
+        //_paq.push(['setCustomVariable', 3, 'Cdn', 'CDN1', 'page']);
+        //_paq.push(['setCustomVariable', 4, 'Cdn', 'CDN2', 'page']);
+
+
+        _paq.push(['setCustomDimension', customDimensionId = 1, testCdn = 'cdn1']);
+        _paq.push(['trackPageView']);
+        // push stored value to Dashbord end
+        
+
+        (function () {
+            var u = "https://shemaroo-web.innocraft.cloud/";
+            _paq.push(['setTrackerUrl', u + 'piwik.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'piwik.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+
+    </script>
+    <!-- End Matomo Code -->
+
+
+
+    <div id="login_overlay"><span class="login-popup-request"> Please Login To Watch Video </span></div>
+    <div id="subscrip_pop_overlay"><span class="subscribe-popup-request"> Please Subscribe To Watch Video </span></div>
+    <div id="video_player">
+    </div>
 </body>
-
 <script type="text/javascript">
-  var isiPad = navigator.userAgent.indexOf('iPad') != -1;
+    var isiPad = navigator.userAgent.indexOf('iPad') != -1;
 
-  var isiPhone = navigator.userAgent.indexOf('iPhone') != -1;
+    var isiPhone = navigator.userAgent.indexOf('iPhone') != -1;
 
- var getUserCookies = function(){
-    var pairs = document.cookie.split("; ");
-    var cookies = {};
-    for (var i=0; i<pairs.length; i++){
-        var pair = pairs[i].split("=");
-        cookies[pair[0]] = unescape(pair[1]);
+    var getUserCookies = function () {
+        var pairs = document.cookie.split("; ");
+        var cookies = {};
+        for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split("=");
+            cookies[pair[0]] = unescape(pair[1]);
+        }
+        return cookies;
     }
-    return cookies;
-}
-  function convert_hr_mm_ss_to_second(val){
- 	var sec = 0
-    tt = val.split(":");
-    sec = tt[0]*3600+tt[1]*60+tt[2]*1;
-    return sec;
- }
+
+    function convert_hr_mm_ss_to_second(val) {
+        var sec = 0
+        tt = val.split(":");
+        sec = tt[0] * 3600 + tt[1] * 60 + tt[2] * 1;
+        return sec;
+    }
     var player_status = false;
-    var currentURLType="hls";
+    var currentURLType = "hls";
     var user_status = "false"
-		var to_mute = "false";
-		var auto_playz = "true";
-		var featureszz = ['playpause','rewind','forward','time','progressbar','fullscreen','volume','videotitle','qualityswitch','bigicons','hotkeys','eventcallbacks','advertisement'];
+    var to_mute = "false";
+    var auto_playz = "true";
+    var featureszz = ['playpause', 'rewind', 'forward', 'time', 'progressbar', 'fullscreen', 'volume', 'videotitle',
+        'qualityswitch', 'bigicons', 'hotkeys', 'eventcallbacks', 'advertisement'
+    ];
 
-         if(isiPad){
-            featureszz = ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];       
-         }
+    if (isiPad) {
+        featureszz = ['playpause', 'time', 'progressbar', 'fullscreen', 'videotitle', 'bigicons', 'advertisement'];
+    }
 
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (/android/i.test(userAgent)) {
-            if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || iOS){
-               //to_mute = "true";
-               auto_playz = "false"
-               featureszz =  ['playpause','time','progressbar','fullscreen','videotitle','bigicons','advertisement'];
-             }
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (/android/i.test(userAgent)) {
+        if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) ||
+            iOS) {
+            //to_mute = "true";
+            auto_playz = "false"
+            featureszz = ['playpause', 'time', 'progressbar', 'fullscreen', 'videotitle', 'bigicons', 'advertisement'];
+        }
+    }
+
+    if (iOS) {
+        auto_playz = "false";
+    }
+
+    ww = window.innerWidth - 0.1;
+    wh = window.innerHeight - 0.1;
+    setInterval(function () {
+
+        var isiPad = navigator.userAgent.indexOf('iPad') != -1;
+        var isiPhone = navigator.userAgent.indexOf('iPhone') != -1;
+
+        if (isiPad || isiPhone) {} else {
+            ww = window.innerWidth - 0.1;
+            wh = window.innerHeight - 0.1;
+            $("#video_player").parent().css("width", ww);
+            $("#video_player").parent().css("height", wh);
         }
 
-        if(iOS){
-        	auto_playz = "false";
-        }
+    }, 700);
 
+    if (isiPad || isiPhone) {
 
+    } else {
+        $("#video_player").parent().css("width", ww);
+        $("#video_player").parent().css("height", wh);
+    }
 
-		ww = window.innerWidth-0.1;
-		wh = window.innerHeight-0.1;
-		setInterval(function(){
-
-            var isiPad = navigator.userAgent.indexOf('iPad') != -1;
-            var isiPhone = navigator.userAgent.indexOf('iPhone') != -1;
-
-            if(isiPad || isiPhone){
-
-
-            }else{    
-                 ww = window.innerWidth-0.1;
-                 wh = window.innerHeight-0.1;
-                $("#video_player").parent().css( "width", ww);
-                $("#video_player").parent().css( "height", wh);                 
-            }
-	
-		 }, 700);
-
-        if(isiPad || isiPhone){
-
-        }else{
-                $("#video_player").parent().css( "width", ww);
-                $("#video_player").parent().css( "height", wh);  
-        }
-
-		var contenturl = location.href;    
-		var res = contenturl.split("contenturl=");
-		var contenturlobtained = res;
+    var contenturl = location.href;
+    var res = contenturl.split("contenturl=");
+    var contenturlobtained = res;
     var video_img = ""
-    var  user_played_time = "0"
+    var user_played_time = "0"
     //contenturlobtained[1].split("video_img=")[1].split("|")[0];
     // console.log(video_img);
     // alert(video_img)
     //var image_url = "https://epicon.epicchannel.com/assets/transparent.png"
-    var image_url= "http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/large_16_9.jpg"
+    var image_url =
+        "http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/large_16_9.jpg"
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (/android/i.test(userAgent)) {
-            if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || iOS){
-              image_url = video_img;
-             }
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (/android/i.test(userAgent)) {
+        if ((navigator.userAgent.indexOf("Chrome") != -1) || (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) ||
+            iOS) {
+            image_url = video_img;
         }
+    }
 
-        if(iOS){
-          image_url = video_img;
-        }
-		var video_url = contenturlobtained[1].split("|")[0];
-		var key = contenturlobtained[1].split("key=")[1].split("|")[0]
+    if (iOS) {
+        image_url = video_img;
+    }
+
+    var video_url = contenturlobtained[1].split("|")[0];
+    var key = contenturlobtained[1].split("key=")[1].split("|")[0]
     var video_image_url = contenturlobtained[1].split("image=")[1].split("|")[0]
 
-		var decrypted = CryptoJS.AES.decrypt({
-		ciphertext: CryptoJS.enc.Base64.parse(video_url)
-		}, CryptoJS.enc.Base64.parse(key),
-		{ iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000') });
-		video_url  = decrypted.toString(CryptoJS.enc.Utf8);
 
-		if(contenturlobtained[1].indexOf("is_free") > -1){ free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0];}
-		// var free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0]
-	    var time = parseInt(user_played_time);
-         if(isiPad || isiPhone){
-            $( "#video_player" ).replaceWith( "<video id='video_player' controls src='"+video_url+"' height='100%' width='100%'></video>" );
-         }else{   
-            playerObject = new saranyuplayer(currentURLType,'#video_player',{
-              'licence':'6BdgYyHxsYkXNCViMFM1+RZy9RNs2YO9Xe7ATbcHakqLzZzSAqxou+Iz51R1%0AbjMo655ZwM58\/oaZcSQ5fHkgqeqHW1C+pLEUFFN+qlI3ZgM=%0A',
-                'type' : 'video',
-                'content' : 'vod',
-                'file' :  [
-                            {
-                                'content_url' : video_url,
-                                'label' : 'Auto',
-                                'mediaid' : '123',
-                                // 'poster' : 'https://epicon.epicchannel.com/assets/transparent.png',
-                                'poster': video_image_url,
-                                'videotitle' : '',
-                            },                  
-                          ],
-                         
-                'autoplay': false,
-                'seekonload': time,
-                'mute' : to_mute,
-                'poster' : 'http://localhost:3000/assets/transparent.png',
-                'advertisement' : {
-                                            'cues' : 'true',
-                                            'adsets' : [
-                                                      
-                                                       
-                                                        {
-                                                            'adurl' : '',
-                                                            'schedule' : 'postroll' //in seconds
-                                                        }]
-                                          },
-                                'hideControlsWhenInactive':'true',  
+    //===================== custom variables =====================
+    var videoTile1 = contenturlobtained[1].split("data-matomo-title=")[1].split("|")[0]
+    //console.log(videoTile1);
+    //alert(videoTile1);
 
-        'qualityswitch' : {'label' : 'Auto', 'metric' : 'bitrate'}, // metric can be resolution or bitrate.
-        'features' : featureszz
+    var subscribe = contenturlobtained[1].split("subscribe=")[1].split("&")[0]
+    //alert(subscribe);
 
-            });    
-         }
+    //adding tile
+    localStorage.setItem("subscribe_value", subscribe);
 
+    $(document).on('DOMNodeInserted', function (e) {
+        $('video').attr("data-matomo-title", videoTile1);
+        //alert(videoTile1);
+    });
 
+    //   adding tile
+    //===================== custom variables end =====================
 
+    var decrypted = CryptoJS.AES.decrypt({
+        ciphertext: CryptoJS.enc.Base64.parse(video_url)
+    }, CryptoJS.enc.Base64.parse(key), {
+        iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000')
+    });
+    video_url = decrypted.toString(CryptoJS.enc.Utf8);
 
-   	function stopPlayer(){
-		hlsPlayer._videoPlayerControls("stop");	
-	}
-	
-	function pausePlayer(){
-		hlsPlayer._videoPlayerControls("pause");	
-	}
-	
-	function playPlayer(){
-		hlsPlayer._videoPlayerControls("play");	
-	}
-	
-	function seekPlayer(val){
-		hlsPlayer._videoPlayerControls("seek",val);	
-	}
-	
-	function getcurrentTime(){
-		return hlsPlayer._getCurrentTime();
-	}
-	
-	function getTotalDuration(){  
-		return hlsPlayer._getTotalDuration();
-	}
+    if (contenturlobtained[1].indexOf("is_free") > -1) {
+        free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0];
+    }
+    // var free_content = contenturlobtained[1].split("is_free=")[1].split("|")[0]
+    var time = parseInt(user_played_time);
+    if (isiPad || isiPhone) {
+        $("#video_player").replaceWith("<video id='video_player' controls src='" + video_url +
+            "' height='100%' width='100%'></video>");
+    } else {
+        playerObject = new saranyuplayer(currentURLType, '#video_player', {
+            'licence': '6BdgYyHxsYkXNCViMFM1+RZy9RNs2YO9Xe7ATbcHakqLzZzSAqxou+Iz51R1%0AbjMo655ZwM58\/oaZcSQ5fHkgqeqHW1C+pLEUFFN+qlI3ZgM=%0A',
+            'type': 'video',
+            'content': 'vod',
+            'file': [{
+                'content_url': video_url,
+                'label': 'Auto',
+                'mediaid': '123',
+                // 'poster' : 'https://epicon.epicchannel.com/assets/transparent.png',
+                'poster': video_image_url,
+                'videotitle': '',
+            }, ],
 
-var current_url = window.location.protocol + "//" + window.location.host;
-var url = "";
- if (current_url == "https://epicon.epicchannel.com"){
-    url = "https://epicon.epicchannel.com";
-  }
-	else if (current_url == "http://localhost:3000"){
-		url = "http://localhost:3000";
-	}
-	else if (current_url == "http://23.22.199.3"){
-		url = "http://23.22.199.3";
-	}
-	else if (current_url == "http://23.22.199.3:3000"){
-		url = "http://23.22.199.3:3000";
-	}
-	else if (current_url == "http://localhost:3006"){
-		url = "http://localhost:3006";
-	}
-	else if (current_url == "http://23.22.199.3:4000"){
-		url = "http://23.22.199.3:4000";
-	}
-	else if (current_url == "http://preprod.epicon.in"){
-		url = "http://preprod.epicon.in";
-	}
-	else if (current_url == "http://origin.preprod.epicon.in/"){
-		url = "http://origin.preprod.epicon.in";
-	}
-	 else if (current_url == "http://prod.epicon.in"){
-    url = "http://prod.epicon.in";
-  }
-  else if (current_url == "http://origin.prod.epicon.in"){
-    url = "http://origin.prod.epicon.in";
-  }
-  else if (current_url == "https://prod.epicon.in"){
-    url = "https://prod.epicon.in";
-  }
-  else if (current_url == "https://preprod.epicon.in"){
-    url = "https://preprod.epicon.in";
-  }
-
-	
-function createEventCallBacks(){
-
-	hlsPlayer.eventcallbacks.onPlay = function(presentTime,duration,mediaId){
-       // alert("player is started");
-		player_status = true;
-		top.postMessage({ga_event: 'playstart'}, url);
-	};
-
-	hlsPlayer.eventcallbacks.onPause = function(presentTime,duration,mediaId){
-		player_status = false;
-		top.postMessage({ga_event: 'paused'}, url);
-	};
-
-	hlsPlayer.eventcallbacks.onResume = function(presentTime,duration,mediaId){
-		player_status = true;
-		top.postMessage({ga_event: 'resume'}, url);
-	};
-
-	hlsPlayer.eventcallbacks.onComplete = function(presentTime,duration,mediaId){
-		player_status = false;
-		sendPlaybackTime(0);
-		top.postMessage({ga_event: 'playComplete'}, url);
-	};		
-
-	hlsPlayer.eventcallbacks.onSeeked = function(presentTime,duration,mediaId){
-		player_status = true;
-		top.postMessage({ga_event: 'onseeked'}, url);
-	};
-}
-
-function ExitFullscreen(){
-  if(document.exitFullscreen) {
-      document.exitFullscreen();
-  } else if(document.mozCancelFullScreen) {
-    document.mozCancelFullScreen();
-  } else if(document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-  }
-}
+            'autoplay': false,
+            'seekonload': time,
+            'mute': to_mute,
+            'poster': 'http://localhost:3000/assets/transparent.png',
+            'advertisement': {
+                'cues': 'true',
+                'adsets': [
 
 
-$(document).ready(function() {
-  $(window).keypress(function (e){
-  if (e.keyCode === 0 || e.keyCode === 32) {
-    e.preventDefault();
-    console.log('Space pressed')
-   }
- })
-})
+                    {
+                        'adurl': '',
+                        'schedule': 'postroll' //in seconds
+                    }
+                ]
+            },
+            'hideControlsWhenInactive': 'true',
 
+            'qualityswitch': {
+                'label': 'Auto',
+                'metric': 'bitrate'
+            }, // metric can be resolution or bitrate.
+            'features': featureszz
+
+        });
+
+
+    }
+
+
+
+
+    function stopPlayer() {
+        hlsPlayer._videoPlayerControls("stop");
+    }
+
+    function pausePlayer() {
+        hlsPlayer._videoPlayerControls("pause");
+    }
+
+    function playPlayer() {
+        hlsPlayer._videoPlayerControls("play");
+    }
+
+    function seekPlayer(val) {
+        hlsPlayer._videoPlayerControls("seek", val);
+    }
+
+    function getcurrentTime() {
+        return hlsPlayer._getCurrentTime();
+    }
+
+    function getTotalDuration() {
+        return hlsPlayer._getTotalDuration();
+    }
+
+    var current_url = window.location.protocol + "//" + window.location.host;
+    var url = "";
+    if (current_url == "https://epicon.epicchannel.com") {
+        url = "https://epicon.epicchannel.com";
+    } else if (current_url == "http://localhost:3000") {
+        url = "http://localhost:3000";
+    } else if (current_url == "http://23.22.199.3") {
+        url = "http://23.22.199.3";
+    } else if (current_url == "http://23.22.199.3:3000") {
+        url = "http://23.22.199.3:3000";
+    } else if (current_url == "http://localhost:3006") {
+        url = "http://localhost:3006";
+    } else if (current_url == "http://23.22.199.3:4000") {
+        url = "http://23.22.199.3:4000";
+    } else if (current_url == "http://preprod.epicon.in") {
+        url = "http://preprod.epicon.in";
+    } else if (current_url == "http://origin.preprod.epicon.in/") {
+        url = "http://origin.preprod.epicon.in";
+    } else if (current_url == "http://prod.epicon.in") {
+        url = "http://prod.epicon.in";
+    } else if (current_url == "http://origin.prod.epicon.in") {
+        url = "http://origin.prod.epicon.in";
+    } else if (current_url == "https://prod.epicon.in") {
+        url = "https://prod.epicon.in";
+    } else if (current_url == "https://preprod.epicon.in") {
+        url = "https://preprod.epicon.in";
+    }
+
+
+    function createEventCallBacks() {
+
+        hlsPlayer.eventcallbacks.onPlay = function (presentTime, duration, mediaId) {
+            // alert("player is started");
+            player_status = true;
+            top.postMessage({
+                ga_event: 'playstart'
+            }, url);
+        };
+
+        hlsPlayer.eventcallbacks.onPause = function (presentTime, duration, mediaId) {
+            player_status = false;
+            top.postMessage({
+                ga_event: 'paused'
+            }, url);
+        };
+
+        hlsPlayer.eventcallbacks.onResume = function (presentTime, duration, mediaId) {
+            player_status = true;
+            top.postMessage({
+                ga_event: 'resume'
+            }, url);
+        };
+
+        hlsPlayer.eventcallbacks.onComplete = function (presentTime, duration, mediaId) {
+            player_status = false;
+            sendPlaybackTime(0);
+            top.postMessage({
+                ga_event: 'playComplete'
+            }, url);
+        };
+
+        hlsPlayer.eventcallbacks.onSeeked = function (presentTime, duration, mediaId) {
+            player_status = true;
+            top.postMessage({
+                ga_event: 'onseeked'
+            }, url);
+        };
+    }
+
+    function ExitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+
+
+    $(document).ready(function () {
+        $(window).keypress(function (e) {
+            if (e.keyCode === 0 || e.keyCode === 32) {
+                e.preventDefault();
+                console.log('Space pressed')
+            }
+        })
+
+
+
+    })
 
 </script>
+
+<!-- <script>
+    $(document).on('DOMNodeInserted', function(e) {
+        $('video').attr("data-matomo-title","My custom Video title");
+        $('video').attr("data-piwik-title","Piwik Test Title");
+        $('video').attr("title","Just Title");
+    });  
+</script> -->
+
+
 </html>
 <!--  -->
