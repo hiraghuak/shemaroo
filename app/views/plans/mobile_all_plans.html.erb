@@ -177,7 +177,7 @@
 
     $(document).ready(function(){
      var user_id = "<%=params[:user_id]%>";
-      $.cookie('user_id',user_id, { expires: 14,path: '/'});
+      localStorage.setItem("user_id",user_id);
         var x = 0;
         var y = 0;
         var z = 0
