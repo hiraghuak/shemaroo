@@ -320,5 +320,16 @@ var data = 'plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&co
                 }
               });            
               // }
-            }            
+            }       
+
+    var getShemarooCookies = function(){
+      var pairs = document.cookie.split("; ");
+      var cookies = {};
+      for (var i=0; i<pairs.length; i++){
+      var pair = pairs[i].split("=");
+      cookies[pair[0]] = unescape(pair[1]);
+      }
+      return cookies;
+    }
+   alert(getShemarooCookies.user_id);
 </script> 
