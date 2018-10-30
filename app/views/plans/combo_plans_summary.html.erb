@@ -1,0 +1,339 @@
+<section class="onboarding-bg min-height-div padding-top-85 padding-top-145">
+  <div class="onboarding-payment-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20">
+        <h2 class="block margin-bottom-10"><!-- <a href="/plans"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""></a> --> Summary</h2>
+        <div class="w-100 pull-left tile-box-shadow plans_summary_section padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
+          <div class="pull-left payment-header w-100 rounded">
+            <ul class="pull-left w-100 padding-top-15 padding-bottom-5 padding-left-30 padding-right-30 margin-bottom-0 list-none light">
+              <li class="text-uppercase gradient1">all categories</li>
+              <%@all_access_packs["plans"].each do |aa|%>
+                  <li>
+                    <input type="radio" id="<%=aa["title"]%>" name="radio-group" data-amount="<%=aa["discounted_price"]%>" data-pack="<%=aa["title"]%>" category="<%=@all_access_packs["title"]%>" plan="<%=aa["id"]+"|"+ @all_access_packs["title"]+"|"+ aa["title"]+ "|"+aa["discounted_price"]+"|"+aa["currency_symbol"]+"|"+@all_access_packs["content_id"]+"|"+ @all_access_packs["category"]%>">
+                    <label for="<%=aa["title"]%>" class="font-bold"><span><%=aa["discounted_price"]%></span><span class="text-uppercase"><%=aa["title"].upcase%></span></label>
+                  </li>
+              <%end%>
+            </ul>
+          </div>
+          <p class="pull-left w-100 margin-bottom-0"><a href="javascript:;" class="font-light" id="revert_plan">Revert to original plan section</a></p>
+          <div class="pull-left w-100 payment-body margin-top-25">
+            <ul class="pull-left w-100 padding-left-0 list-none margin-bottom-15">
+              <li class="pull-left pack_details">
+                <!-- <span class="font-bold">Combo Pack</span><br> -->
+                <span class="font-light" id="plan-category"><%=@combo_plan["display_title"]%></span>
+              </li>
+              <li class="pull-right font-semibold">
+                <span class="pull-right" id="total_amount"><%= @combo_pack["discounted_price"]%></span>
+                <span class="pull-right" id="currency"></span>
+              </li>
+            </ul>
+            <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-0">
+              <li class="pull-left font-light margin-bottom-15">
+                Tax
+              </li>
+              <li class="pull-right margin-bottom-15">
+                <span id="tax">0</span>
+              </li>
+            </ul>
+            <ul class="pull-left w-100 padding-left-0 list-none padding-bottom-0 margin-bottom-20 border-bottom">
+              <li class="pull-left margin-bottom-15">
+                <a href="javascript:;" class="text-uppercase" data-toggle="modal" data-target="promocode_pop" id="promocode_link">Have a Promocode ?</a>
+              </li>
+              <li class="pull-right margin-bottom-15">
+                <span id="promocode"></span>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-left w-100 payment-footer">
+            <ul class="pull-left w-100 padding-left-0 list-none">
+              <li class="font-semibold pull-left">Grand Amount</li>
+              <li class="pull-right font-semibold" id="all_amount"></li>
+              <span class="pull-right" id="all_currency"></span>
+            </ul>
+          </div>
+          <p class="pull-left w-100 margin-top-15">
+            <a href="javascript:;" class="text-uppercase"  onclick='summary_plans("<%=@combo_pack['id']%>","<%=@combo_plan['id']%>")'>Proceed</a>
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="promocode_pop" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal body -->
+          <div class="modal-body text-center padding-left-30 padding-right-30">
+
+            <h6 class="margin-bottom-20 margin-top-10">Enter Promo Code or Add a Gift card</h6>
+
+            <p class="input-group margin-top-20 margin-bottom-10 promocode_pop_textbox_wrap font-medium">
+              <input type="text" id="promo_code" name="promo_code" class="form-control margin-bottom-20" value="">
+              <span class="input-label">Promo Code</span>
+            </p>
+            <div class="inline-block custom-gradient margin-bottom-15 margin-top-5">
+              <p class="inline radius-button radius-button2 margin-right-10">
+                <a href="javascript:void(0);" class="text-uppercase btn gradient2 font-bold" id="cancel-promo">cancel</a>
+              </p>
+              <p class="inline radius-button radius-button margin-left-10">
+                <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold"   onclick='apply_promocode("<%=@combo_pack['id']%>","<%=@combo_plan['id']%>")'>apply</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <%=render "layouts/page_height_setting"%>
+  </div>
+</section>
+
+
+<script>
+
+
+    $(".plans_list_section ul li:nth-child(2), .plans_list_section ul li:last-child").click(function() {
+        $(".plans_list_section ul li").removeClass("active");
+        $(this).addClass("active");
+        var gradient = $(this).siblings("li").find("h5").attr("class");
+        if(gradient == "gradient1") {
+            //$(this).css("background", "linear-gradient(to right,#D51E54, #F15A23)")
+            $(this).addClass("gradientbg1");
+        }
+        else if(gradient == "gradient2") {
+            $(this).addClass("gradientbg2");
+        }
+        else if(gradient == "gradient3") {
+            $(this).addClass("gradientbg3");
+        }
+        else if(gradient == "gradient4") {
+            $(this).addClass("gradientbg4");
+        }
+        else if(gradient == "gradient5") {
+            $(this).addClass("gradientbg5");
+        }
+        else if(gradient == "gradient6") {
+            $(this).addClass("gradientbg6");
+        }
+        else if(gradient == "gradient7") {
+            $(this).addClass("gradientbg7");
+        }
+        else if(gradient == "gradient8") {
+            $(this).addClass("gradientbg8");
+        }
+        else {
+            $(this).addClass("gradient");
+        }
+
+        $(".plans_footer").show();
+
+        var selected_price = $(this).find(".price").text();
+        $(".plans_footer span.amount").text(selected_price);
+        $(".plans_footer span.amount").attr("data-prive-val",selected_price);
+    });
+
+    $(".fa-chevron-down").click(function() {
+        //$(this).parent("p").parent(".card-body").children(".plan_list_show").toggle();
+        $(this).parent("p").parent(".card-body").find(".plan_list_show").toggle();
+    })
+
+    $("#promocode_link").click(function() {
+        $('#promocode_pop').modal('show');
+    })
+
+    $("#cancel-promo").click(function() {
+        $('#promocode_pop').modal('hide');
+    })
+
+
+    $('input[type=radio][name=radio-group]').change(function() {
+
+        var plan = $(this).attr("plan")
+        currency = plan.split("|")[4]
+        category = plan.split("|")[1]
+        title = plan.split("|")[2]
+        amount = plan.split("|")[3]
+        localStorage.setItem("all_plan_category",category)
+        var cat_title = category+ " ("+title+ ")"
+        $(".pack_details span:last-child").text(cat_title);
+        $("#total_amount").text(amount);
+        $("#currency").text(currency);
+
+        $("#all_currency").text(currency);
+        $("#revert_plan").show();
+        var total_amount = parseFloat($("#total_amount").text());
+        var tax = parseFloat($("#tax").text());
+        if(tax == "") {
+            tax = 0;
+        }
+        var promocode = parseFloat($("#promocode").text());        
+        $("#promocode").text("");
+        if(promocode == "") {
+            promocode = 0.0;
+        }
+        var all_amount = parseFloat(total_amount)+parseFloat(tax);
+        var all_amount = parseFloat(all_amount).toFixed(2)
+        $("#all_amount").text(all_amount)
+    });
+    $("#revert_plan").click(function() {
+        var selected_plans_titles = localStorage.getItem('plan').split(",");
+        var plan_names = []
+        for(i=0;i<selected_plans_titles.length;i++){
+         plan_names.push(selected_plans_titles[i].split("|")[1])
+        }
+
+        $('input[type="radio"]').prop('checked', false);
+        $("#revert_plan").hide();
+        $("#currency").text(localStorage.getItem("currency"));
+        $("#all_currency").text(localStorage.getItem("currency"));
+        $("#total_amount").text(localStorage.getItem("combo_pack_price"));
+        $("#all_amount").text(localStorage.getItem("amount"));
+        $("#plan-category").text(plan_names.join(" + "));
+        //window.location.href = "/plans/plans_summary"
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var combo_price = <%= @combo_pack["discounted_price"]%>
+        localStorage.setItem("combo_pack_price",combo_price);
+        var selected_plans_titles = localStorage.getItem('plan').split(",");
+        var plan_names = []
+        for(i=0;i<selected_plans_titles.length;i++){
+         plan_names.push(selected_plans_titles[i].split("|")[1])
+        }
+        console.log(plan_names.join("+"));
+
+        $("#currency").text(localStorage.getItem("currency"));
+        $("#all_currency").text(localStorage.getItem("currency"));
+        //$("#total_amount").text(localStorage.getItem("amount"));
+        $("#all_amount").text(localStorage.getItem("amount"));
+        $("#plan-category").text(plan_names.join(" + "));
+
+        var total_amount = $("#total_amount").text();
+        var tax = $("#tax").text();
+        var promocode = $("#promocode").text();
+        // var all_amount = parseFloat(total_amount)+parseFloat(tax)-parseFloat(promocode);
+        // var all_amount = parseFloat(all_amount).toFixed(2)
+
+        if($("#tax").text() == "") {
+            tax = 0;
+            $("#tax").text(tax);
+            //var tax_amount = $("#tax").text(tax);
+        }
+//  var promocode = parseFloat($("#promocode").text());   
+        if($("#promocode").text() == "") {
+            promocode = 0;
+            $("#promocode").text(promocode);
+            //var promocode_amount = $("#promocode").text(promocode);
+        }
+
+        //var all_amount = localStorage.getItem("net_amount")
+        //$("#all_amount").text(all_amount)
+
+        //var cpn_amount = localStorage.getItem("cpn_price")
+        //var net_amount = parseFloat(total_amount).toFixed(2)+parseFloat($("#tax").text()).toFixed(2)-parseFloat($("#promocode").text()).toFixed(2)
+        var net_amount = (total_amount+$("#tax").text()-$("#promocode").text()).toFixed(2)
+        //var net_amount = net_amount.toFixed(2);
+        $("#all_amount").text(net_amount);
+
+        $("#plans").val(localStorage.getItem("plan"));
+        if(localStorage.getItem("all_plan_category")=="All Access Plans"){
+            $('input[type="radio"]').prop('checked', true);
+        }
+    });
+</script>
+
+
+
+<script type="text/javascript">
+    function summary_plans(pack_id,plan_id){
+        var disc_amount = localStorage.getItem("net_amount");
+        var cname = localStorage.getItem("cpn_name");
+        var cid = localStorage.getItem("cpn_id");
+        var ap_cat = localStorage.getItem("all_plan_category")
+
+        if($('input[type=radio]:checked').length == 1 | ap_cat == "All Access Plans"){
+//var plan = $(this).attr("plan")
+            var plan = $('input[type=radio]:checked').attr("plan");
+            console.log(plan);
+            localStorage.setItem("plan",plan)
+            var data = 'plans='+plan+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
+        }
+        else{
+            localStorage.setItem("combo_pack_id",pack_id);
+            localStorage.setItem("combo_plan_id",plan_id);
+            var pack_id = localStorage.getItem("combo_pack_id")
+            var plans = localStorage.getItem("plan")
+            var currency = localStorage.getItem("currency")
+            var amount = localStorage.getItem("amount")
+            console.log(pack_id);
+// if(myCookies.session_id){                 
+            var data = 'combo_pack_id='+pack_id+'&plans='+plans+'&disc_amount='+disc_amount+'&coupon_code='+cname+'&coupon_code_id='+cid
+        }
+        $.ajax({
+            url: "/plans/payment_url",
+            type: 'POST',
+            data: data,
+            success: function(data){
+                if(data.message == "adyen payment iniated"){
+                    localStorage.setItem("tl_amount",data.init_data["paymentAmount"]);
+                    localStorage.setItem("currency",data.init_data["currencyCode"]);
+                    localStorage.setItem("order_id",data.init_data["merchantReference"]);
+                    window.location = "/plans/plans_purchase";
+                }
+                else{
+                    window.location.href = data.payment_url;
+                    // window.location.replace(data.payment_url);
+                }
+            }
+        });
+        // }
+    }
+
+
+
+    function apply_promocode(pack_id,plan_id){
+        var pcode = $("#promo_code").val()
+        if($('input[type=radio]:checked').length == 1){
+            var plan = $('input[type=radio]:checked').attr("plan");
+            var data = 'plans='+plan+'&promocode='+pcode
+        }
+        else{
+            var plans = localStorage.getItem("plan")
+            var currency = localStorage.getItem("currency")
+            var amount = localStorage.getItem("amount")
+
+            localStorage.setItem("combo_pack_id",pack_id);
+            localStorage.setItem("combo_plan_id",plan_id);
+            var pack_id = localStorage.getItem("combo_pack_id")
+            var plan_id = localStorage.getItem("combo_plan_id")
+            var plans = localStorage.getItem("plan")
+            var currency = localStorage.getItem("currency")
+            var amount = localStorage.getItem("amount")
+
+            var data = 'combo_plan_id='+plan_id+'&combo_pack_id='+pack_id+'&plans='+plans+'&promocode='+pcode
+
+        }
+        $.ajax({
+            url: "/plans/apply_promocode",
+            type: 'GET',
+            data: data,
+            success: function(data){
+                $('#promocode_pop').modal('hide');
+                var cpn_price =  data.cpn_price.toFixed(2);
+                var net_amount = data.net_amount.toFixed(2);
+                console.log(net_amount);
+                localStorage.setItem("cpn_price",cpn_price);
+                localStorage.setItem("net_amount",data.net_amount);
+                localStorage.setItem("cpn_name",data.cpn_name);
+                localStorage.setItem("cpn_id",data.cpn_id);
+                $("#promocode").text(cpn_price);
+                $('#all_amount').text(net_amount)
+
+            }
+        });
+    }
+</script> 

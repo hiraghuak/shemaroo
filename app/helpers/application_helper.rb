@@ -38,6 +38,26 @@ module ApplicationHelper
   return color
  end
 
+
+
+ def get_title_item_color(i)
+   begin
+    color = ""
+    config_resp = Rails.cache.fetch("design_configuration_list", expires_in: CACHE_EXPIRY_TIME) {
+        Ott.get_configuration      
+       }
+     color = config_resp["data"]["params_hash2"]["config_params"]["layout_scheme"].collect{|x|"#"+x["start_color"]+"|"+"#"+x["end_color"] if (x["scheme"] == i)}.compact.first
+     if color.nil?
+      color = "#8BC76D|#1F9FB9"
+     end
+  rescue
+    Rails.cache.delete("design_configuration_list")
+  end
+  color = color.split("|")
+  new_color = "background: linear-gradient(to right, #{color[0]},#{color[1]})"
+  return new_color
+ end
+
 	def get_item_url(i)
 		begin
 			url  = ""
@@ -47,7 +67,9 @@ module ApplicationHelper
         else
           url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
         end
-			else
+			elsif i["theme"] == "show_episode" || i["theme"] == "episode"
+        url = "/#{i['catalog_object']['friendly_id']}/#{i['show_object']['friendly_id']}/#{i['friendly_id']}"
+      else
 			 url = "/#{i['catalog_object']['friendly_id']}/#{i['friendly_id']}"
 			end
 		 rescue
@@ -79,5 +101,10 @@ module ApplicationHelper
       
   end
   return image_name
+end
+
+def get_duration_time(time)
+ new_time = time.split(":")
+ t = new_time[0]+"h:"+new_time[1]+"m:"+new_time[2]+"s"
 end
 end

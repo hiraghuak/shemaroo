@@ -5,6 +5,7 @@
 %>
 
 <div class="min-height-div">
+<<<<<<< HEAD
     <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-80 padding-top-155">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
             <div class="player_section w-100 embed-responsive embed-responsive-16by9" id="shemaroo_player">
@@ -143,8 +144,286 @@
 <script type="text/javascript"> 
     $(document).ready(function() {   
 // data-matomo-title='<%=@item_details['title']%>'
+=======
+  <div class="contianer-fluid padding-left-0 padding-right-0 padding-top-80 padding-top-145">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- padding-left-0 padding-right-0">
+      <div class="player_section w-100 embed-responsive embed-responsive-16by9"  id="shemaroo_player">
+        <img src="http://daex9l847wg3n.cloudfront.net/shemoutputimages/Bawarchi/5b9fb76da609d2abad00001d/xl_image_16_9.jpg?1537897812" class="img-fluid" alt="" title="">
+      </div>
+    </div>
+  </div>
+  <section class="full-width-content inside-container light margin-top-15 margin-bottom-10">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+        <div class="player_desc_section w-100 margin-left-0 margin-top-0">
+          <div class="video_feature1 pull-left">
+            <h2 class="margin-bottom-15 margin-top-5"><%=@item_details['title']%></h2>
+            <ul class="play_feature1 list-none padding-left-0 margin-bottom-20">
+              <%@item_details['item_caption'].split("|").each do |s|%>
+              <li><%=s%></li>
+              <%end%>
+            </ul>
+          </div>
+          <div class="video_feature2  pull-right">  
+            <ul class="play_feature2 list-none padding-left-0 margin-bottom-20">
+              <li class="text-uppercase text-center">
+                <a href="javascript:void(0);" class="coming_soon">
+                  <img src="/assets/preview.svg" class="text-center" alt="" title="">
+                  <span>Preview</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center">
+                <a href="javascript:void(0);" class="coming_soon">
+                  <img src="/assets/watch_later.svg" class="text-center" alt="" title="">
+                  <span>Watch Later</span>
+                </a>
+              </li>
+              <li class="text-uppercase text-center share_social_icons">
+                <a href="javascript:void(0);" class="coming_soon">
+                  <img src="/assets/share.svg" class="text-center" alt="" title="">
+                  <span>Share</span>
+                </a>
+                <ul class="share_feature list-none padding-left-20 padding-right-20 padding-bottom-10 padding-top-10">
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/google_share.svg" class="text-center google" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/facebook_share.svg" class="text-center facebook" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <img src="/assets/twitter_share.svg" class="text-center twitter" alt="" title="">                  
+                    </a>
+                  </li>
+                  <li class="margin-right-0">
+                    <a href="javascript:;">
+                      <img src="/assets/copy_link.svg" class="text-center copy_link" alt="" title="">                  
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>  
+          <p class="margin-bottom-20"><%=@item_details['description']%></p>
+          <%if @item_details.has_key?("item_additional_data") && !@item_details['item_additional_data'].empty?%>
+            <%@item_details['item_additional_data'].each do |k,v|%>
+              <%unless v.empty?%>
+                 <p class="margin-bottom-20">
+                  <b><%=k%>:</b><br>
+                   <%=v.join(",")%>
+                </p>
+              <%end%>
+            <%end%>
+          <%end%>
+        </div>  
+      </div>
+    </div>
+  </section>
+  <%if @theme == "linear"%>
+    <div class="contianer-fluid">
+      <div class="detail-page-bottom-section">
+        <section class="full-width-content padding-top-30 padding-bottom-10">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+              <h2 class="margin-bottom-15 pull-left">Playing Next</h2>   
+            </div>
+          </div>
+          <div id="palying_next_programs" class="owl-carousel owl-theme">
+            <%@channel_all_programs.each do |p|%>
+              <div class="item horizontal_title">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/ott-as-service/ott_default_images/item_images/default_movies_medium.jpg" class="rounded" alt="<%=p["title"]%>" title="<%=p["title"]%>">
+                  <span class="list-tile-title"><%=p['title']%></span>
+              </div> 
+            <%end%>            
+          </div>
+        </section>
+      </div>  
+    </div>
+    <div class="contianer-fluid">
+      <div class="detail-page-bottom-section-bg">
+        <section class="full-width-content padding-top-30 padding-bottom-10">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+              <h2 class="margin-bottom-15 pull-left">Other Channels</h2>   
+            </div>
+          </div>
+          <div id="other_channels" class="owl-carousel owl-theme">
+            <%@all_channels.each do |c|%>
+              <div class="item">
+                  <a href="<%=get_item_url(c)%>">
+                    <img src="https://s3-ap-southeast-1.amazonaws.com/ott-as-service/ott_default_images/item_images/default_movies_medium.jpg" class="rounded" alt="<%=c["title"]%>" title="<%=c["title"]%>">
+                  </a>
+              </div> 
+            <%end%>            
+          </div>
+        </section>
+      </div>  
+    </div>
+  <%else%>
+    <div class="contianer-fluid">
+      <div class="detail-page-bottom-section-bg">
+        <section class="full-width-content padding-top-30 padding-bottom-10">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+              <h2 class="margin-bottom-15 pull-left">More in <%=@item_details['genres'][0].capitalize%></h2>
+              <a href="/<%=params[:catalog_name]%>/<%=@item_details['genres'][0].downcase%>/all" class="text-uppercase pull-right see-more">see more</a>    
+            </div>
+          </div>
+          <div id="more-comedy-carousel" class="owl-carousel owl-theme">
+            <%@genere_items.each do |gi|%>
+              <div class="item">
+                <a href="<%=get_item_url(gi)%>">
+                 <%if gi['access_control']['is_free'] == false%>
+                    <span class="text-uppercase premium-txt">Premium</span>
+                   <%end%>
+                   <%if @layout_type == "song" || @layout_type == "video" || @layout_type == "videos"
+                    img_url = gi["thumbnails"]["medium_16_9"]["url"]
+                  else
+                    img_url = gi["thumbnails"]["medium_2_3"]["url"]
+                  end
+                    %>
+                  <img src="<%=img_url%>" class="rounded" alt="<%=gi["title"]%>" title="<%=gi["title"]%>">
+                </a>
+              </div> 
+            <%end%>            
+          </div>
+        </section>
+      </div>  
+    </div>
+  <%end%>
+  <%=render "layouts/page_height_setting"%>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+  var navigation = [
+      '<span aria-label="' + 'Previous' + '"><img src="/assets/big_left_arrow.svg" alt="" title=""></span>',
+      '<span aria-label="' + 'Next' + '"><img src="/assets/big_right_arrow.svg" alt="" title=""></span>'
+    ];
+    var layout_type = "<%=@layout_type%>"
+    if(layout_type == "song" || layout_type == "video" || layout_type == "videos"){
+      var items_0 = 2;
+      var stage_padding = 50;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 4;
+      var items_1200 = 5
+    }
+    else{
+      var items_0 = 2;
+      var stage_padding = 40;
+      var items_576 = 3;
+      var items_768 = 4;
+      var items_992 = 5;
+      var items_1200 = 7;
+    }
+    $('#more-comedy-carousel').owlCarousel({
+    navText: navigation,
+    loop:false,
+    margin:10,
+    nav:true,
+    dots: false,
+    stagePadding: 50,
+    responsive:{
+      0:{
+          items:items_0,
+          stagePadding: stage_padding
+      },
+      576:{
+          items: items_576
+      },
+      768:{
+          items: items_768
+      },
+      992:{
+          items: items_992
+      },
+      1200:{
+          items: items_1200
+      }
+    }
+  });
+
+
+  $('#palying_next_programs,#other_channels').owlCarousel({
+    navText: navigation,
+    loop:false,
+    margin:10,
+    nav:true,
+    dots: false,
+    stagePadding: 50,
+    responsive:{
+        0:{
+            items:2,
+            stagePadding: 25,
+        },
+        576:{
+            items:3
+        },
+        768:{
+            items:4
+        },
+        1200:{
+            items:5
+        }
+      }
+    });
+  });
+    
+
+
+function listener(event){
+  var current_url = window.location.protocol + "//" + window.location.host;
+  var url = "";
+  if (current_url == "http://localhost:3000"){
+    url = "http://localhost:3000";
+  }
+  else if (current_url == "http://staging.shemaroome.com"){
+    url = "http://staging.shemaroome.com";
+  }
+  else if (current_url == "http://52.220.137.44:3000"){
+    url = "http://52.220.137.44:3000";
+  }
+  else if(current_url == "http://origin.staging.shemaroome.com"){
+    url = "http://origin.staging.shemaroome.com";
+  }
+>>>>>>> 45bdba8175846457821e6a171b6dafbd9b47e871
 
      });
 </script>
 
+<<<<<<< HEAD
+=======
+  console.log("event is fired");
+  console.log(event.data);
+
+  if (event.origin !== url)
+  return
+    switch(event.data.ga_event){
+    case 'loginpop':
+      window.location = "/users/login"
+    break;
+   }  
+ }
+ if (window.addEventListener){
+    addEventListener("message", listener, true)
+  } else {
+    attachEvent("onmessage", listener)
+  }
+</script> 
+
+<script type="text/javascript">
+  
+$(".shemaroo_player").empty();
+$(document).ready(function(){
+  var params_for_player = "<%=@new_play_url%>|key=<%=@key%>|image=<%=@item_details['thumbnails']['large_16_9']['url'] if @item_details['thumbnails'].has_key?(
+  "large_16_9")%>|title=<%=@item_details["title"]%>";
+ $("#shemaroo_player").html("<iframe src='/shemaroo_player/demo/embed.html?contenturl="+params_for_player+"' class='embed-responsive-item img-fluid' id='iframe' allowfullscreen> </iframe>")
+        })
+</script> 
+>>>>>>> 45bdba8175846457821e6a171b6dafbd9b47e871
 

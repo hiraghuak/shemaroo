@@ -1,12 +1,19 @@
-<section class="full-width-content inside-container light padding-top-85 padding-top-155 min-height-div search-page">
+
+<%
+   meta title: "Search for shows, movies, songs",
+    description: "Search for shows, movies, songs",
+    keywords: "Search for shows, movies, songs"
+%>
+<section class="full-width-content inside-container light padding-top-85 padding-top-145 min-height-div search-page">
 
 	<div class="row">
-		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-top-25">
 			<div class="search-box-wrap">
-				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:search_item]%>">
-				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:search_item].present? ? "" : "display:none"%>"></a>
+				<input type="search" id="search" name="" class="" placeholder="Search for shows, movies, songs..." value="<%=params[:q]%>">
+				<span class="search_errors" style="display:none;">Please enter Search text</span>
+				<a href="javascript:void(0)"><img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search" class="cancel_search" style="<%=params[:q].present? ? "" : "display:none"%>"></a>
 			</div> 
-			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:search_item].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
+			<h2 class="margin-bottom-20 margin-top-20 text-capitalize pull-left w-100"  id="search_heading" style="<%=params[:q].present? ? "" : "display:none"%>">Search Result (<span class="search_count"><%=@search_results.count%></span>)</h2>
 			</div>	
 		</div>
 			<div class="row" id="search_all_results"> 
@@ -15,15 +22,22 @@
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col- margin-bottom-10">
 					<div class="row1">
 					<div class="search-image-wrap">
-						<img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>">
+						<a href="<%=get_item_url(s)%>"><img src="<%=s['thumbnails']['medium_16_9']['url']%>" class="img-fluid rounded tile-box-shadow" alt="<%=s['title']%>" title="<%=s['title']%>"></a>
 					</div>
 					<div class="search-category-wrap">
-						<p class="search-tile-title"><%=s['title']%></p>
+						<a href="<%=get_item_url(s)%>"><p class="search-tile-title text-ellipsis"><%=s['title']%></p></a>
 						<p class="search-tile-category"><%=s['theme'].capitalize%> | <%=s['language'].capitalize%> | <%=s['genres'][0].capitalize%></p>
 					</div>
 					</div>
 					</div>
 				<%end%>
+				<%elsif params[:q].present?%>
+				 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results">
+              <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
+              <p class="margin-bottom-0 font-medium text-ellipsis"><strong>Sorry, No Result was found for <%=params[:q]%></strong></p>
+              <p class="font-light">Please check the spelling or try another search term.</p>
+            </div>
+            </div>
 				<%end%>
 
 					<div class="spinner" style="display:none;">
@@ -32,13 +46,13 @@
 				
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- no-content-wrap text-center" id="no_search_results" style="display:none;">
               <img src="/assets/no_result.svg" class="search-no-results-image" alt="" title="">
-              <p class="margin-bottom-0 font-medium"><strong>Sorry, No Result was found for Ozx</strong></p>
+              <p class="margin-bottom-0 font-medium text-ellipsis"><strong>Sorry, No Result was found for Ozx</strong></p>
               <p class="font-light">Please check the spelling or try another search term.</p>
             </div>
             </div>
 			
 		
-	
+	    <%unless params[:q].present?%>
 		<div class="row" id="recent_search">
  	     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- margin-bottom-30">
 				<h2 class="margin-bottom-0 margin-top-15 text-capitalize inline-block">Recent search</h2>
@@ -48,7 +62,8 @@
 				</ul> 
 			</div> 
 		</div>
-	   <%=render "layouts/page_height_setting"%>
+		<%end%>
+	  
 </section>
 
 
@@ -58,20 +73,22 @@
 <script type="text/javascript">
  $(".search_icon").attr("src","/assets/search_active.svg")
  $(".search_icon").css("width","32px")
-  
+  var window_height = window.outerHeight;
+  var window_height = window_height - 153;
+  $('.min-height-div').css('min-height',window_height+'px');
   
 
 
 
 $(document).ready(function(){
-	var search_item = "<%=params[:search_item].present? ? "true" : "false"%>";
+	var search_item = "<%=params[:q].present? ? "true" : "false"%>";
 	if(search_item == "false"){
 	if(getShemarooCookies().recent_search_data){
     $("#clear_search").show();
     var search_val = $.unique(getShemarooCookies().recent_search_data.split(","));
     $("#user_recent_search").html("");
     for(i=0; i < search_val.length;i++){
-    	 $("#user_recent_search").append('<a href="/search/'+search_val[i]+'"><li class="list-group-item padding-left-0">'+search_val[i]+'</li> </a>')
+    	 $("#user_recent_search").append('<a href="/search?q='+search_val[i]+'"><li class="list-group-item padding-left-0">'+search_val[i]+'</li> </a>')
     }
 	}
 	else{

@@ -8,16 +8,17 @@ meta title: "User Otp Verify",
     <div class="onboarding-contianer margin-bottom-30">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
-          <h2 class="block margin-bottom-10"><img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""> OTP Verification</h2>
+          <h2 class="block margin-bottom-10"><!-- <img src="/assets/back_arrow.svg" class="back_arrow" alt="" title=""> --> OTP Verification</h2>
           <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded otp-verification-page">
             <span class="pull-left w-100 margin-bottom-20 font-light">Enter the 4 digit OTP sent to your mobile number via SMS</span>
             <div class="input-group margin-bottom-25">
-              <input type="text" id="first_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-              <input type="text" id="second_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-              <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">
-              <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]">        
-              <!-- <span class="pull-left w-100 text-center font-light">00:51</span> -->
-              <label class="error" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
+              <input type="text" id="first_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="second_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="third_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>
+              <input type="text" id="fourth_digit" name="" placeholder="0" maxlength="1" pattern="[0-9]" onkeyup="focusNext(event)" onkeypress='return validateNumber(event);'>        
+              <span class="pull-left w-100 text-center font-light" id="timer">00:60</span>
+              <label class="error text-center" id="verify_otp_error">Plese enter the the valid 4 digit otp</label>
+              <label class="error text-center" id="resend_otp_msg">Otp sent sucessfully</label>
             </div>
             <div class="text-center margin-bottom-15 margin-top-0 font-light">
               <p>Didn't receive the OTP?</p>
@@ -26,7 +27,14 @@ meta title: "User Otp Verify",
               <a href="javascript:void(0)" class="inline-block text-uppercase" id="resend_otp">Resend</a>
             </div>
             <div class="text-center light">
-              <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="verify_otp"><span class="verify_text">Verify</span></a>
+              <!-- <a href="javascript:void(0)" class="inline-block text-uppercase gradient-button1" id="verify_otp">
+                <span class="verify_text">Verify</span>
+              </a> -->
+              <div class="inline-block margin-top-10 margin-bottom-15 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="verify_otp">verify</a>
+                </p>
+              </div>
             </div>
             
           </div>
@@ -37,9 +45,74 @@ meta title: "User Otp Verify",
   </section>
 </div>
 
+<div class="modal" id="otp_success">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" aria-label="Close" id="otp_success_close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="margin-bottom-20 margin-top-25">Congratulations!</h5>
+        <img src="/assets/transaction_successful.svg" class="plans_pop_image margin-top-10 margin-bottom-5" alt="" title="">
+        <p class="pull-left w-100 margin-top-25 margin-bottom-25 font-medium">Your Mobile Number have been successfully registered</p>
+        <div class="pull-left w-100 inline-block margin-top-5 margin-bottom-20 custom-gradient">
+          <p class="inline radius-button">
+            <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="otp_success_process">proceed</a>
+          </p>
+        </div>
+        </div>      
+    </div>
+  </div>
+</div>
+<%=render "validate_mobile_number"%>
 <script type="text/javascript">
 $("#with_header_tabs").hide();
 $(document).ready(function(){
  $("#without_header_tabs").show();
 });
+function focusNext(event) {
+  var target = event.target;
+
+  var maxLength = parseInt(target.attributes["maxlength"].value, 10)
+  var myLength = target.value.length;
+  if(event.keyCode == 8) {
+		//console.log(target.previousSibling.previousSibling);		
+		var prevElement = target.previousSibling.previousSibling
+		if(prevElement != null) {
+			prevElement.focus();	
+		}
+				
+	} 
+  if (myLength >= maxLength) {
+      var next = target;
+      while (next = next.nextElementSibling) {
+          if (next == null)
+              break;
+          if (next.tagName.toLowerCase() == "input") {
+              next.focus();
+              break;
+          }
+      }
+  }
+}
+
+var counter = 60;
+var interval = setInterval(function() {
+    counter--;
+    if (counter <= 0) {
+        clearInterval(interval);
+        $('#timer').text("00:00");
+        return;
+    }else{
+      $('#timer').text("00:"+counter);
+      //console.log("Timer --> " + counter);
+    }
+}, 1000);
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+
+
 </script>

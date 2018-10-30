@@ -1,15 +1,30 @@
-<section class="full-width-content inside-container top-bg-gradient min-height-div padding-top-80 padding-top-155 light">
+<%
+   meta title: "More In #{params[:genre]}",
+    description: "#{params[:genre]}",
+    keywords: "#{params[:genre]}"
+%>
+<section class="full-width-content inside-container top-bg-gradient min-height-div padding-top-80 padding-top-145 light">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
-    <h2 class="margin-bottom-20 margin-top-25 text-capitalize gradient2 w-100">More in  <%=params[:genre].capitalize%></h2>
-    <div class="row row-movie-list">
+     <div class="row">
+     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- listing-page">
+    <h2 class="margin-bottom-20 margin-top-25 text-capitalize heading_title_color" style="<%=get_title_item_color(@layout_scheme)%>">More in  <%=params[:genre].capitalize%></h2>
+    </div>
+    </div>
+    <div class="row row-<%=@theme == "video" ? "show" : "movie"%>-list">
      <%@all_genere_items.each do |i|%>
         <div class="item">                                                              
           <a href="<%=get_item_url(i)%>">
           <%if i['access_control']['is_free'] == false%>
             <span class="text-uppercase premium-txt">Premium</span>
           <%end%>
-          <img src="<%=i["thumbnails"]["medium_2_3"]["url"]%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
+          <%if @theme == "video"
+            img_url = i["thumbnails"]["medium_16_9"]["url"]
+          else
+            img_url = i["thumbnails"]["medium_2_3"]["url"]
+          end
+            %>
+          <img src="<%=img_url%>" class="rounded" alt="<%=i['title']%>" title="<%=i['title']%>">
           </a>
         </div>
       <%end%>

@@ -3,7 +3,7 @@ meta title: "Shemaroo Entertainment Limited",
      description: "Shemaroo",
      keywords: %w(Shemaroo)
 %>
-<section class="banner-section padding-top-82 padding-top-155">
+<section class="banner-section padding-top-82 padding-top-145">
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
       <div id="banner-carousel" class="owl-carousel owl-theme">
@@ -20,34 +20,43 @@ meta title: "Shemaroo Entertainment Limited",
     </div>
   </div>
 </section>
-     
-<section class="full-width-content home-page light min-height-div">
+    
+<div class="min-height-div">    
+  <section class="full-width-content home-page light" id="home_catalog_items" style="min-height: 1000px;">
   <%@items.each_with_index do |list,index|%>
   <%if index != 0%>
    <%if list['catalog_list_items'].count > 0%>
     <div class="row">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- title_color_<%=index%>">
-        <a href="<%=list["home_link"]%>"><h2 class="margin-bottom-15 text-capitalize gradient5"><%=list['display_title']%></h2></a>
-        <%unless list["home_link"].blank?%>
-          <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
-        <%end%>
-        <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['layout_scheme'])%>">
-          <%list['catalog_list_items'].each do |item|%>
-            <div class="item <%=get_image_height(@items[index]["layout_type"])%>">
-              <a href="<%=get_item_url(item)%>">
-              <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
-              </a>
-            </div> 
-          <%end%>             
-        </div>           
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
+            <a href="<%=list["home_link"]%>" id="home_title_<%=index%>" style="display:none;">
+              <h2 class="margin-bottom-15 text-capitalize heading_title_color" style="<%=get_title_item_color(list['layout_scheme'])%>"><%=list['display_title']%></h2></a>
+              <%unless list["home_link"].blank?%>
+                <a href="<%=list["home_link"]%>" class="text-uppercase pull-right see-more all_items_<%=index%>" style="display:none;">see more</a>
+              <%end%>
+            </div>
+          </div>
+          <div id="bollywood-classic-carousel_<%=index%>" class="owl-carousel vertical-image owl-theme" data-item-det="<%=@items[index]["layout_type"]%>$<%=list['catalog_list_items'].count%>$<%=get_item_color(list['layout_scheme'])%>">
+            <%list['catalog_list_items'].each do |item|%>
+              <div class="item <%=get_image_height(@items[index]["layout_type"])%>">
+                <a href="<%=get_item_url(item)%>">
+                <%if item["access_control"]["is_free"] == false%>
+                  <span class="premium-txt text-uppercase">premium</span>
+                <%end%>
+                <img src="<%=get_image_url(item,@items[index]["layout_type"])%>" class="rounded" alt="<%=item["title"]%>" title="<%=item["title"]%>">
+                </a>
+              </div> 
+            <%end%>             
+          </div>           
+        </div>
       </div>
-    </div>
     <%end%> 
     <%end%> 
   <%end%>
   <%=render "layouts/page_height_setting"%>
 </section>
-
+</div>
 
 <script>
  var window_height = window.outerHeight;
@@ -60,10 +69,12 @@ var navigation = [
     ];
   $('#banner-carousel').owlCarousel({
     loop:true,
+    autoplay: true,
     margin:10,
     nav:true,
     dots: false,
-    navText: navigation,
+    //navText: navigation,
+    navSpeed: 1000,
     responsive:{
         0:{
             items:1,
@@ -97,7 +108,7 @@ var navigation = [
     var total_item_cnt =  det[1];
     var layout_type = det[0];
     var color = det[2].split("|")
-    $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
+    // $("body").append("<style>.title_color_"+i+" h2:before{background: linear-gradient(to right,"+color[0]+", "+color[1]+");}</style>");
     if(layout_type == "t_16_9_big" || layout_type == "t_16_9_small"){
      var no_of_items = 5;
      var items_0 = 1
@@ -161,7 +172,9 @@ var navigation = [
     }
   });
 }
+ $("#home_title_"+i).show();
  }
+ $("#home_catalog_items").css("min-height","1px");
 });  
 </script> 
 

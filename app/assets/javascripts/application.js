@@ -14,6 +14,7 @@
 //= require activestorage
 //= require jquery3
 //= require popper
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require owl.carousel
 //= require_tree .

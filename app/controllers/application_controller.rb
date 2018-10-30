@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+ protect_from_forgery with: :null_session
+ skip_before_action :verify_authenticity_token  
 
 # protect_from_forgery unless: -> { request.format.json? }
 before_action :get_region,:check_browser
@@ -17,14 +18,19 @@ end
 #get the user region based on ip address
   def get_region
     begin
-        if Rails.env != "development"
-          @region = "IN"
+        if Rails.env == "development"
+           @region = "IN"
+          #@region = "US"
           $region = @region
         else
           ip = get_user_ip
           response = Ott.get_user_region(ip)
           @region = response["region"]["country_code2"]
           $region = @region
+        end
+        allowed_regions = ["IN","US"]
+        unless allowed_regions.include?($region)
+          render "statics/content_not_available", :layout => false
         end
     rescue
       @region = "IN"

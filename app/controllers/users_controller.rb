@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
- 
+ #skip_before_action  :verify_authenticity_token
+ before_action :check_valid_user,:only => ["edit_profile","manage_profiles","account_details"]
  def sign_up
 	 begin
 	  signup_params = {
@@ -12,11 +13,20 @@ class UsersController < ApplicationController
 	  if $region == "IN"
 	    signup_params[:user][:user_id] = "91"+params[:mobileno]
 	    signup_params[:user][:type] = "msisdn"
+
 	  else
 	    signup_params[:user][:email_id] = params[:email_id]
 	  end
 	  response = User.sign_up(signup_params)
-	  set_response(response)
+    p response.inspect
+    if $region != "IN" && response.has_key?("data")
+    user_profiles = User.get_all_user_profiles(response["data"]["session_id"])
+    all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
+    first_profile = all_profiles.flatten.first.split("$")
+    render json: {status: true,user_id: "#{response["data"]["session_id"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+   else
+    set_response(response)
+   end
 	rescue Exception => e
 	  logger.info e.message
 	end
@@ -34,16 +44,26 @@ class UsersController < ApplicationController
    if $region == "IN"
       signin_params[:user][:user_id] = "91"+params[:mobile_no]
       signin_params[:user][:type] = "msisdn"
+      user_login_id = "91"+params[:mobile_no] 
    else
       signin_params[:user][:email_id] = params[:email_id]
+      user_login_id = params[:email_id]
    end
    sign_in_response = User.sign_in(signin_params)
-   p sign_in_response.inspect
    if sign_in_response.has_key?("data")
     user_profiles = User.get_all_user_profiles(sign_in_response["data"]["session"])
-    all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
+    all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
     first_profile = all_profiles.flatten.first.split("$")
-    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+    default_profile = user_profiles['data']['profiles'].collect{|x|x if x['default_profile'] == "true"}.compact.first
+    user_profile_data  = {
+      :user_profile => {
+        :profile_id => default_profile['profile_id']
+      }
+    }
+    profile_assign  = User.assign_profile(sign_in_response["data"]["session"],user_profile_data)
+    p profile_assign.inspect
+    p "2222222222"
+    render json: {status: true,user_id: "#{sign_in_response["data"]["session"]}",user_name: default_profile['firstname'],user_profiles: all_profiles,profile_id: default_profile["profile_id"],login_id: user_login_id}
    else
     set_response(sign_in_response)
    end
@@ -69,9 +89,15 @@ class UsersController < ApplicationController
    response = User.verify_otp(params[:otp])
    if response.has_key?("data")
    	user_profiles = User.get_all_user_profiles(response["data"]["messages"][0]["session"])
-   	all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact
-   	first_profile = all_profiles.first.split("$")
-   	render json: {status: true,user_id: "#{response["data"]["messages"][0]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0] }
+   	all_profiles = user_profiles['data']['profiles'].collect{|x|[x['profile_id']+"$"+x['firstname']]}.compact.flatten
+    first_profile = all_profiles.first.split("$")
+     user_login_profile =  User.get_user_account_details(response["data"]["messages"][0]["session"])
+     if user_login_profile["data"]["login_type"] == "msisdn"
+       login_id = user_login_profile["data"]["mobile_number"]
+     else
+        login_id = user_login_profile["data"]["email_id"]
+      end
+   	render json: {status: true,user_id: "#{response["data"]["messages"][0]["session"]}",user_name: first_profile[1],user_profiles: all_profiles,profile_id: first_profile[0],:login_id => login_id }
    else
     set_response(response)
    end
@@ -101,9 +127,7 @@ class UsersController < ApplicationController
     response = User.sign_out(cookies[:user_id])
     rescue Exception => e
       logger.info e.message
-      send_exception_mail(e)
     end
-
     render json: {error_message: "",status: true }
  end
 
@@ -129,7 +153,108 @@ end
 
  end
 
+ def edit_profile
+  user_profile = User.get_user_profile(params[:profile_id],cookies[:user_id])
+  @edit_profile = user_profile["data"]["profile"]
+ end
 
+def manage_profiles
+  profile_response = User.get_all_user_profiles(cookies[:user_id])
+  @user_profiles = profile_response["data"]["profiles"]
+
+end
+
+def account_details
+  user_details_resp = User.get_user_account_details(cookies[:user_id])
+  @user_details = user_details_resp["data"]
+end
+
+def update_profile
+  begin
+    update_profile_params = {
+      :user_profile => {
+      :firstname => params[:name],
+      :child => params[:is_child]
+     }
+  }
+  update_profile_response = User.update_profile(cookies[:user_id],params[:profileid],update_profile_params)
+    render json: {:status => true}
+  rescue
+    render json: {:status => false,:error_message => "sorry something went wrong"}
+  end
+end
+
+def delete_profile
+  begin
+  delete_profile_response = User.delete_profile(cookies[:user_id],params[:profileid])
+    render json: {:status => true}
+  rescue
+    render json: {:status => false,:error_message => "sorry something went wrong"}
+  end
+end
+
+def update_personal_details
+  if request.xhr?
+    user_params = {
+      :user => {
+        :firstname => params[:profile_name],
+        :mobile_number => cookies[:user_login_id],
+        :birthdate => params[:date_of_birth],
+        :user_email_id => params[:email_id]
+      }
+    }
+    update_user_resp = User.update_account_details(cookies[:user_id],user_params)
+    render json: {:status => true}
+  else
+    user_details_resp = User.get_user_account_details(cookies[:user_id])
+    @user_profile_details = user_details_resp["data"]
+ end
+end
+
+def add_profile
+  if request.xhr?
+    profile_params = {
+      :user_profile => {
+        :firstname => params[:profile_name],
+        :child => params[:kids_profile]
+      }
+    }
+    profile_resp = User.add_profile(cookies[:user_id],profile_params)
+    render json: {:status => true}
+  end
+end
+
+def activate_code
+  if request.xhr?
+    p params[:code].inspect
+    code_params = {
+      :user => {
+        :token => params[:code].downcase,
+        :session_id => cookies[:user_id]
+      }
+    }
+    p code_params.inspect
+    response = User.activate_tv_code(code_params)
+    p response.inspect
+    if response.has_key?("message")
+      render :json => {:status => false,:message => response["message"]}
+    else
+      render :json => {:status => true}
+   end
+  else
+    if !cookies[:user_id].present?
+      redirect_to "#{SITE}/users/login?q=tv"
+    end
+  end
+
+end
+
+
+def check_valid_user
+  unless cookies[:user_id].present?
+    redirect_to "#{SITE}"
+  end
+end
 
  private
 

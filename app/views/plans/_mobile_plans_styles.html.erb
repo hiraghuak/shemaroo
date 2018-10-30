@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+  <html lang=en>
+  <head>
+  <meta charset="UTF-8" />
+  <title>Shemaroo</title>
+  <meta name="ctest" content="ctest" /
+  ><link href="/assets/images/favic.ico" rel="shortcut icon" />    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"  />
+
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <%=javascript_include_tag "cookies_plugin"%>
+
+  <style type="text/css">
+    /* Font integration */
+    
+    @font-face {    
+      font-family: 'condensed-extra-bold';
+      src: url('/fonts/EncodeSansCondensed-ExtraBold.ttf');
+    }
+    @font-face {    
+      font-family: 'condensed-light';
+      src: url('/fonts/EncodeSansCondensed-Light.ttf');
+    }
+    @font-face {
+      font-family: 'condensed-medium';
+      src: url('/fonts/EncodeSansCondensed-Medium.ttf');
+        
+    }
+    @font-face {
+      font-family: 'condensed-semibold';
+      src: url('/fonts/EncodeSansCondensed-SemiBold.ttf');
+    }
+    .font-light {
+      font-family: 'condensed-light';
+    }
+    .font-medium {
+      font-family: 'condensed-medium';
+    }
+    .font-semibold {
+      font-family: 'condensed-semibold';
+    }
+    .font-extrabold {
+      font-family: 'condensed-extra-bold';
+    }
+    .padding-left-0 {
+      padding-left: 0px !important;
+    }
+    .margin-bottom-0 {
+      margin-bottom: 0px !important;
+    }
+    .margin-bottom-10 {
+      margin-bottom: 10px !important;
+    }
+    .margin-bottom-15 {
+      margin-bottom: 15px !important;
+    }
+    .margin-top-10 {
+      margin-top: 10px !important;
+    }
+    .margin-top-15 {
+      margin-top: 15px !important;
+    }
+    .margin-top-25 {
+      margin-top: 25px !important;
+    }
+    .margin-right-0 {
+      margin-right: 0px !important;
+    }
+    .padding-top-25 {
+      padding-top: 25px !important;
+    }
+    .inline-block {
+      display: inline-block !important;
+    }
+    .light .gradient1, .light .gradient2, .light .gradient3, .light .gradient4, .light .gradient5, .light .gradient6, .light .gradient7, .light .gradient8 {
+      display: inline-block;
+      position: relative;
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;    
+    }
+    body {
+      background-color: #161616;
+      float: left;
+      font-family: 'condensed-semibold';
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .container {
+      max-width: 1366px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .wrapper {
+      background-color: #161616;
+      float: left;
+      width: 100%;
+    }
+    .inside-wrapper {
+      background-color: #fff;
+      float: left;
+      min-height: 100%;
+      padding-top: 25px;
+      width: 100%;
+    }
+    section {
+      float: left;
+      width: 100%;
+    }
+    .full-width-content {
+      max-width: 100%;
+      padding-bottom: 11px;
+      padding-left: 96px;      
+    }
+    .full-width-content h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .plans-page p {
+      color: #6D6D6D;
+      font-family: 'condensed-medium';
+    }
+    .plans-page ul {
+      align-items: center;
+      border: 1px solid #F2F2F2;
+      float: left;
+      display: flex;
+      list-style: none;
+      margin-right: 6.5%;
+      padding: 18px 30px 19px;
+      width: 43%;
+    }
+  .plans-page ul.margin-right-0 li:nth-child(2) {
+     padding-right: 35px;
+  }
+  .plans-page ul li {
+    color: #666666;
+    float: left;
+    border-right: 1px solid #E5E5E5;
+    line-height: 20px;
+    padding: 0px 20px;
+  }
+  .plans-page ul li:first-child {
+    font-size: 2.75em;
+    font-family: 'condensed-extra-bold';
+    line-height: 38px;
+    padding-left: 0;
+  }
+  .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+    font-size: 0.75em;
+    padding-left: 26px;
+    text-align: center;
+  }
+  .plans-page ul li:nth-child(2), .plans-page ul li:nth-child(3), .plans-page ul li:last-child {
+    padding-top: 0px;
+  }
+  .plans-page ul li:last-child {
+    border-right: 0px;
+    padding-right: 0;
+  }
+  .plans-page ul li .fa, .plans-page ul li span {
+    color: #000;
+    float: left;
+    margin-left: -6px;
+  }
+  .plans-page ul li .fa {
+    font-size: 2em;
+    margin-right: 8px;
+  }
+  .plans-page ul li span {
+    font-size: 1.875em;
+    line-height: 18px;
+    margin-top: 0px;
+  }
+  .plans-page ul li label {
+    float: left;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    line-height: 12px;
+  }
+  .plans_list_section {
+    background: #F2F2F2;
+    padding: 0 7%;
+    padding-bottom: 30px;
+  }
+  .plans-page .sub-title, .plans_list_section .sub-title {
+    color: #666666;
+  }
+  .plans_list_section ul {
+    float: left;
+    list-style: none;
+    width: 100%;
+  }
+  .plans_list_section ul li {
+    float: left;
+    margin-right: 20px;
+  }
+  .plans_list_section ul li:first-child {
+    margin-right: 30px;
+    width: calc(100% - 200px);
+  }
+  .plans_list_section ul li:last-child {
+    margin-right: 0px;
+  }
+  .plans_list_section .card-body p {
+    color: #888;
+    font-family: 'condensed-medium';
+    font-size: 0.875em;
+    float: left;
+    width: 80%;
+  }
+  .plans_list_section .card-body li span {
+    float: left;
+    line-height: 1em;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child {
+    border: 2px dotted #F0F0F0;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 10px 0px 3px;
+    width: 70px;
+  }
+  .plans_list_section .card-body li span:first-child, .plans_list_section .card-body li span:last-child {
+    color: #666666;
+    font-size: 0.75em;
+  }
+  .plans_list_section .card-body li span:nth-child(2) {
+    color: #000;
+    font-size: 0.875em;
+  }
+  .plans_list_section .card-body li span:last-child {
+    position: relative;
+  }
+  .plans_list_section .card-body li span:last-child:before {
+    content: "/";
+    font-size: 3em;
+    font-family: 'condensed-medium';
+    left: 44%;
+    position: absolute;
+    top: 0px;
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+  }
+  .plans_box {
+    margin-bottom: 10px;
+    max-width: 46.5%;
+  }
+  .individual_category.plans_box {
+    width: 50%;
+  }
+  .plans_box.odd-box {
+    margin-right: 3.25%;
+  }
+  .plans_box.even-box {
+    margin-left: 3.25%;
+  }
+  .plans_box .fa-chevron-down {
+    cursor: pointer;
+  }
+  .plans_box .card-body {
+    padding: 1rem 1.25rem;
+  }
+  .btn {
+    -o-border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
+    border-image: linear-gradient(to right, #D51E54 0%, #F15A23 100%);
+    border-image-slice: 1;
+    border-width: 1px;
+    padding: 5px 10px;
+  }
+  .custom-gradient .btn {
+    border-radius: 0px;
+    border-width: 0px;
+  }
+  .custom-gradient .radius-button {
+    border: 1px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(#F48567, #D41F52);
+    padding: 12px 10px 13px;
+  }
+  .custom-gradient .radius-button .btn:focus, .custom-gradient .radius-button .btn.focus {
+    border: 0px;
+    box-shadow: none;
+  }
+  .custom-gradient .radius-button .btn-outline-primary:hover {
+    border: 0px;
+  }
+  .plans_list_section .card-body li.active span {
+    color: #fff;
+  }
+  .plans_list_section .card-body li.active {
+    border: 0px;
+  }
+  .plan_list_show {
+    display: none;
+  }
+  .plans_footer {
+    box-shadow: 0 -5px 80px -5px rgba(0, 0, 0, 0.45);
+    display: none;
+    padding: 10px 0px;
+  }
+  .inside-container {
+    padding: 0 7%;
+  }
+  .plans_footer p {
+    color: #6A6A6A;
+    font-size: 0.875em;
+  }
+  .plans_footer span.amount {
+    color: #000;
+    font-size: 18px;
+  }
+  .active.gradientbg1 {
+    background: linear-gradient(to right, #D51E54, #F15A23);
+  }
+  .active.gradientbg2 {
+    background: linear-gradient(to right, #181818, #3E3E3E);
+  }
+  .active.gradientbg3 {
+    background: linear-gradient(to right, #0095DB, #D93B65);
+  }
+  .active.gradientbg4 {
+    background: linear-gradient(to right, #D22856, #0095DB);
+  }
+  .active.gradientbg5 {
+    background: linear-gradient(to right, #8BC76D, #0096DC);
+  }
+  .active.gradientbg6 {
+    background: linear-gradient(to right, #F25922, #FCB613);
+  }
+  .active.gradientbg7 {
+    background: linear-gradient(to right, #FCB913, #8BC43E);
+  }
+  .active.gradientbg8 {
+    background: linear-gradient(to right, #2BA5E1, #ED6839);
+  }
+  @media(max-width: 1366px) {
+    .container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .container .row {
+      margin: 0px;
+    }
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+      padding: 0;
+    }
+    body {
+      background-color: #fff;
+    }
+    .wrapper {
+      background-color: #fff;
+    }
+  }
+  @media(max-width: 1280px) {
+    .plans-page ul {
+      margin-right: 3%;
+      width: 47.5%;
+    }
+    .plans-page ul.margin-right-0 {
+      padding-right: 0;
+      width: 44%;
+    }
+    .plans_list_section ul li:first-child {
+      margin-right: 10px;
+    }
+   
+  }
+  @media(max-width: 1199px) {
+    .plans_list_section ul li {
+      width: 100%;
+    }
+    .plans_list_section .card-body p {
+      float: left;
+      width: 100%;
+    }
+    .plans_box.odd-box {
+      margin-right: 2%;
+    }
+    .plans_box.even-box {
+      margin-left: 2%;
+    }
+    .plans_box {
+      width: 49.5%;
+    }
+  }
+  @media(max-width: 1150px) {
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      margin: 0;
+      margin-bottom: 30px;
+      width: 56%;
+    }
+  }
+  @media(max-width: 991px) {
+    .full-width-content {
+        padding-left: 40px;
+    }
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      font-size: 15.35px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: center;
+      width: 97%;    
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 17px;
+      text-align: center;
+      width: 25%;
+    }
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      padding-right: 17px;
+    }
+    .plans-page ul li .fa, .plans-page ul li span {
+      float: none;
+    }
+    .plans_box.odd-box {
+      margin-right: 0%;
+    }
+    .plans_box.even-box {
+      margin-left: 0%;
+    }
+    .plans-page ul li label {
+      width: 100%;
+    }
+    .individual_category.plans_box, .plans_box {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  @media(max-width: 767px) {
+    .full-width-content {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+  }
+  @media(max-width: 640px) {
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      width: 35%;
+    }
+  }
+  @media(max-width: 470px) {
+    .plans-page ul, .plans-page ul.margin-right-0  {
+      font-size: 14.35px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;    
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 5px;
+    }  
+    .plans-page ul.margin-right-0 li:nth-child(2) {
+      width: 44%;
+    }
+    .plans_box .card-body {
+      padding: 0.65rem 0.75rem
+    }
+    .plans_box .card-body {
+      font-size: 15px;
+    }
+    .plans_list_section .card-body li:nth-child(2), .plans_list_section .card-body li:last-child {
+      width: 66px;
+    }
+    .plans_list_section ul li {
+      margin-right: 8px;
+    }
+    .plans_list_section ul li:first-child {
+      width: calc(100% - 154px);
+    }
+  }
+  @media(max-width: 400px) {
+    .plans_list_section ul li {
+      margin-right: 10px;
+    }
+  }
+  @media(max-width: 359px) { 
+    .plans-page ul, .plans-page ul.margin-right-0 {
+      font-size: 12.35px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .plans-page ul.list-none li {
+      padding: 0px 5px;
+    }
+  }
+
+  #combo_offer img{
+    width: 182px;
+  }
+
+/* Start of Plans summary */
+.onboarding-box-wrap h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .back_arrow {
+      margin-right: 5px;
+      width: 22px;
+    }
+    a, a:hover {
+      color: #0496DC;
+      text-decoration: none;
+    }
+    .onboarding-box-wrap .tile-box-shadow {
+      background-color: #fff;
+      border-radius: 0.25rem !important;
+      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+    .payment-header {
+      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
+      border-radius: 0.25rem !important;
+    }
+    .list-none {
+      list-style: none;
+    }
+    .margin-bottom-0 {
+      margin-bottom: 0px !important;
+    }
+    .padding-right-30 {
+      padding-right: 30px !important;
+    }
+    .padding-left-30 {
+      padding-left: 30px !important;
+    }
+    .padding-top-15 {
+      padding-top: 15px !important;
+    }
+    .padding-bottom-5 {
+      padding-bottom: 5px !important;
+    }
+    .onboarding-payment-contianer {
+      margin: 0 auto;
+      margin-bottom: 30px;
+      max-width: 586px;
+      padding: 0px 15px;
+    }
+    .onboarding-box-wrap {
+      margin-bottom: 20px;
+    }
+    .payment-header {
+      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
+    }
+    .plans_summary_section .payment-header ul li {
+      float: left;
+      font-size: 0.875em;
+      margin-right: 8px;
+      width: auto;
+    }
+    .plans_summary_section .payment-header ul li:first-child {
+      margin-right: 0;
+      width: calc(100% - 215px);
+    }
+    .plans_summary_section .payment-header ul li:last-child {
+      margin-right: 0px;
+    }
+    .plans_summary_section .payment-header ul li .custom-control span.overflow-control-description {
+      color: #010300;
+      font-size: 1.25em;
+      margin-top: 0px;
+    }
+    .plans_summary_section .payment-header ul li .custom-control span.overflow-control-description label {
+      color: #686669;
+      float: left;
+      font-size: 0.7em;
+      margin-bottom: 0px;
+      margin-top: -5px;
+    }
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+    }
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #686868;
+      border-radius: 100%;
+      background: transparent;
+    }
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #201E1C;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      border-radius: 100%;
+      transition: all 0.2s ease;
+    }
+    [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    .modal {
+      background: rgba(0, 0, 0, 0.125);
+    }
+    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::before {
+      border-right: 7px solid transparent;
+    }
+
+    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator::after {
+      border-bottom: 3px solid #010300;
+      border-right: 3px solid #010300;
+    }
+
+    .plans_summary_section .payment-header .custom-control.overflow-checkbox .overflow-control-indicator {
+      border: 1px solid #817C7A;
+    }
+
+    .payment-header label span:first-child {
+      color: #212529;
+      font-size: 1.15em;
+    }
+    .payment-header label span {
+      float: left;
+      margin-bottom: -5px;
+      width: 100%;
+    }
+    .payment-header label span:last-child {
+      font-size: 0.875em;
+    }
+    #revert_plan {
+      color: #ABABAB;
+      font-size: 0.75em;
+      display: none;
+    }
+    .payment-body li {
+      color: #666666;
+      font-size: 0.875em;
+    }
+    .payment-body li.pull-right {
+      color: #a1a1a1;
+      font-size: 1em;
+    }
+    .payment-body .border-bottom {
+      border-color: #F2F2F2 !important;
+    }
+    @media(max-width: 576px) {      
+      .onboarding-box-wrap {
+        padding: 0px 15px;    
+      }
+    }
+    @media(max-width: 470px) {
+      .plans_summary_section .payment-header ul li {
+        margin-bottom: 10px;
+        margin-right: 0px;
+        width: 100% !important;
+      }
+      .plans_summary_section .payment-header ul li:last-child {
+        margin-bottom: 0px;
+      }
+    }
+/* End of Plans summary */
+
+
+/*Start of plan purchase */
+
+.onboarding-box-wrap {
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+    .onboarding-box-wrap h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .back_arrow {
+      margin-right: 5px;
+      width: 22px;
+    }
+    a, a:hover {
+      color: #0496DC;
+      text-decoration: none;
+    }
+    .onboarding-box-wrap .tile-box-shadow {
+      background-color: #fff;
+      border-radius: 0.25rem !important;
+      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+      padding: 30px;
+    }
+    .payment-header {
+      background: linear-gradient(45deg, #F6D2DC 0%, #F6D2DC 22%, #F7D1DC 44%, #FBDFD1 74%, #FCDED3 100%);
+      border-radius: 0.25rem !important;
+    }
+    .list-none {
+      list-style: none;
+    }
+    .onboarding-bg {
+      background-color: #F2F2F2;
+    }
+    .payment-contianer {
+      margin: 0 auto;
+      max-width: 526px;
+    }
+    #payable-amount {
+      margin-bottom: 20px;
+      padding: 8px 15px;
+    }
+    #payable-amount span.pull-left {
+      color: #666;
+      font-size: 0.85em;
+      margin-top: 2px;
+    }
+    #payable-amount span.pull-right {
+      color: #000;
+    }
+    #saved-cards h5, #payment-mode h5 {
+      font-size: 1em;
+      margin-top: 25px;
+    }
+    #payment-mode #accordion .card, #faqs #accordion .card {
+      border: 0px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0px;
+    }
+    #payment-mode #accordion .card-header, #faqs #accordion .card-header {
+      border: 0px;
+      background: none;
+      margin-bottom: -1px;
+      padding: 0.75rem 0rem;
+    }
+    #payment-mode #accordion .card-link, #faqs #accordion .card-link {
+      color: #767676;
+      font-size: 0.875em;
+    }
+    #payment-mode #accordion .card-link::after {
+      font-family: 'FontAwesome';
+      content: "\f078";
+      float: right;
+    }
+    #payment-mode .list-group-item:last-child, #faqs .list-group-item:last-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    #saved-cards .list-group-item:first-child, #payment-mode .list-group-item:first-child, #faqs .list-group-item:first-child {
+      border-top: 0px;
+    }
+    #payment-mode .list-group-item, #faqs .list-group-item {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .list-group-flush:last-child .list-group-item:last-child {
+      border-bottom: 0;
+    }
+    .list-group-flush .list-group-item {
+      color: #666;
+      font-size: 0.875em;
+    }
+    #payment-mode .list-group-item a, #faqs .list-group-item a {
+      color: #666;
+    }
+    #payment-mode #accordion .card-body {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+
+    #payment-mode #accordion .input-group.expiry {
+      margin-right: 30px;
+    }
+
+    #payment-mode #accordion .input-group.expiry, #payment-mode #accordion .input-group.cvv {
+      float: left;
+      width: 44%;
+    }
+
+    .payment-contianer #accordion .input-group.button::before {
+      content: "";
+    }
+
+    .payment-contianer #accordion .input-group.button {
+      justify-content: center;
+    }
+
+    .payment-contianer .input-group.button a span {
+      font-family: 'condensed-semibold';
+      font-size: 0.753em;
+    }
+    .onboarding-contianer input[type="text"], .onboarding-contianer input[type="password"],
+.onboarding-contianer input[type="number"], #accordion .input-group input[type="text"] {
+  border: 0px;
+  border-bottom: 1px solid #E5E5E5;
+  border-radius: 0px;
+  font-family: 'condensed-light';
+  height: calc(2em + 2px);
+  margin-bottom: 35px;
+  padding: 5px 5px 5px 10px;
+}
+
+.onboarding-contianer input#login_mobile_number {
+  padding-left: 0px;
+}
+.onboarding-contianer .input-group .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  left: 3px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+}
+.onboarding-contianer .custom-controls-stacked::before {
+  content: "";
+  position: static;
+}
+.input-group > .custom-file .custom-file-input:focus ~ .custom-file-label, .input-group > .custom-select:focus, .input-group > .form-control:focus {
+  border-width: 0px;
+  border-bottom-width: 1px;
+  box-shadow: none;
+  z-index: 0;
+}
+.onboarding-contianer a, .onboarding-contianer span {
+  font-size: 0.875rem;
+}
+.onboarding-contianer span {
+  color: #666;
+}
+.onboarding-contianer .input-group {
+  position: relative;
+}
+.input-group .fa-circle {
+  color: #B11A47;
+  font-size: 5px;
+  left: 3px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+}
+.input-group .input-label {
+  color: #666;
+  font-family: 'condensed-light';
+  opacity: 1;
+  left: 10px;
+  margin-bottom: 0;
+  top: 7px;
+  font-weight: 400;
+  position: absolute;
+  pointer-events: none;
+  transition: all .3s;
+}
+.input-group .form-control:focus ~ .input-label {
+  left: 0px;
+  top: -16px;
+}
+.onboarding-contianer .input-group img.show_password, #accordion .input-group img  {
+  cursor: pointer;
+  position: absolute;
+  right: 3px;
+  top: 15px;
+  width: 16px;
+  z-index: 1;
+}
+#accordion .input-group img {
+  left: 45px;
+  top: 8px;
+  width: 16px;
+}
+#accordion .input-group p {
+  color: #989898;
+  font-size: 0.875em;
+}
+@media(max-width: 576px) {
+  .payment-contianer {
+    padding: 0px 15px;
+  }
+  #payment-mode #accordion .card-body {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+}
+@media(max-width: 480px) {
+  #payment-mode #accordion .card-body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 
+@media(max-width: 359px) {
+  #payment-mode #accordion .input-group.expiry {
+    margin-right: 26px;
+  }
+} 
+
+/* End of plan purchase */
+
+/*Start of Payment Processing */
+.no_content_plans img.status_image {
+      width: 166px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .transation_status_page {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+    .transation_status_page h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .transation_status_page .font-medium {
+      color: #666;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+    .transation_status_page .font-light {
+      color: #777;
+      margin-bottom: 20px;
+      margin-top: 3px;
+    }
+    .transation_status_page .radius-button {
+      border: 1px solid #D51E54;
+      border-radius: 20px;
+      color: #D41F54;
+      display: inline-block;
+      font-family: 'condensed-semibold';
+      font-size: 0.875em;
+      margin-top: 10px;
+      padding: 13px 18px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .transation_status_page .radius-button:hover {
+      text-decoration: none;
+    }
+    .no-items-found {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: center;
+    }
+    .no-content-wrap {
+      margin: 0 auto;
+      max-width: 300px;
+      padding-bottom: 114px;
+    }
+    .no_content_plans {
+      max-width: 340px;
+    }
+    .no-content-wrap img.search-no-results-image {
+      width: 166px;
+      margin-top: 114px;
+      margin-bottom: 30px;
+    }
+    .no-content-wrap p {
+      font-size: 0.875em;
+    }
+
+/*End of Payment Processing */
+
+
+/*Start of Payment sucess */
+.no_content_plans img.status_image {
+      width: 166px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .transation_status_page {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+    .transation_status_page h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .transation_status_page .font-medium {
+      color: #666;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+    .transation_status_page .font-light {
+      color: #777;
+      margin-bottom: 20px;
+      margin-top: 3px;
+    }
+    .transation_status_page .radius-button {
+      border: 1px solid #D51E54;
+      border-radius: 20px;
+      color: #D41F54;
+      display: inline-block;
+      font-family: 'condensed-semibold';
+      font-size: 0.875em;
+      margin-top: 10px;
+      padding: 13px 18px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .transation_status_page .radius-button:hover {
+      text-decoration: none;
+    }
+    .no-items-found {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: center;
+    }
+    .no-content-wrap {
+      margin: 0 auto;
+      max-width: 300px;
+      padding-bottom: 114px;
+    }
+    .no_content_plans {
+      max-width: 340px;
+    }
+    .no-content-wrap img.search-no-results-image {
+      width: 166px;
+      margin-top: 114px;
+      margin-bottom: 30px;
+    }
+    .no-content-wrap p {
+      font-size: 0.875em;
+    }
+    .margin-bottom-0 {
+      margin-bottom: 0px !important
+    }
+    .margin-bottom-15 {
+      margin-bottom: 15px !important
+    }
+
+
+/*End of Payment sucess */
+
+
+/*start of payment failure*/
+    .no_content_plans img.status_image {
+      width: 166px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .transation_status_page {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+    .transation_status_page h2 {
+      color: #000000;
+      font-size: 1.5em;
+      line-height: 1.25em;
+      margin-bottom: 13px !important;
+    }
+    .transation_status_page .font-medium {
+      color: #666;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+    .transation_status_page .font-light {
+      color: #777;
+      margin-bottom: 20px;
+      margin-top: 3px;
+    }
+    .transation_status_page .radius-button {
+      border: 1px solid #D51E54;
+      border-radius: 20px;
+      color: #D41F54;
+      display: inline-block;
+      font-family: 'condensed-semibold';
+      font-size: 0.875em;
+      margin-top: 10px;
+      padding: 13px 18px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .transation_status_page .radius-button:hover {
+      text-decoration: none;
+    }
+    .no-items-found {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: center;
+    }
+    .no-content-wrap {
+      margin: 0 auto;
+      max-width: 300px;
+      padding-bottom: 114px;
+    }
+    .no_content_plans {
+      max-width: 340px;
+    }
+    .no-content-wrap img.search-no-results-image {
+      width: 166px;
+      margin-top: 114px;
+      margin-bottom: 30px;
+    }
+    .no-content-wrap p {
+      font-size: 0.875em;
+    }
+    .margin-bottom-0 {
+      margin-bottom: 0px !important
+    }
+    .margin-bottom-15 {
+      margin-bottom: 15px !important
+    }
+
+
+
+/*End of payment failure*/
+
+  </style>
+</head>

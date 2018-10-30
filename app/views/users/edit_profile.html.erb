@@ -1,0 +1,66 @@
+<%
+meta title: "Edit Profile",
+     description: "Edit Profile",
+     keywords: %w(Edit Profile)
+%>
+<section class="onboarding-bg padding-top-80 padding-top-145 min-height-div">
+  <div class="onboarding-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+        <h2 class="block margin-bottom-10">Edit Profile</h2>
+        <div class="pull-left w-100 tile-box-shadow padding-bottom-30 edit_profile_page padding-top-25 rounded">
+          <div class="w-100 all_error padding-left-10 padding-right-10" >
+              <label class="error rounded text-center" id="profile_sucess_up_msg">Profile updated sucessfully</label>
+            </div>
+        	<div class="profile_active text-center <%=@edit_profile['child'] == true ? "kids_profile" : ""%>">
+        		<p class="font-extra-bold inline-block text-center text-uppercase"><%=@edit_profile['firstname'].chr%></p>
+<!--         		<a href="javascript:;" class="block text-uppercase">Change picture</a>
+ -->        	</div>
+        	<div class="padding-left-30 padding-right-30 margin-top-25">
+	        	<div class="input-group name edit_profile_name">
+	        		<i class="fa fa-circle" aria-hidden="true"></i>
+		          <input type="text" id="edit_profile_name" name="profile name" class="form-control" value="<%=@edit_profile['firstname']%>"> 
+		          <span class="input-label">Name</span>
+              <label class="error" id="edit_profile_name_error">Please enter the name</label>
+	        </div>
+          <%if @edit_profile["default_profile"] == "false"%>
+  	        <div class=" input-group form-group name margin-bottom-45">
+  		        
+  		          <span class="input-label pull-left">Kids Profile</span>
+
+  			        <div class="custom-controls-stacked">
+  								<label class="custom-control material-switch">
+  									<input type="checkbox" class="material-switch-control-input">
+  									<span class="material-switch-control-indicator"></span>
+  								</label>
+  			      	</div>
+  			      
+  	        </div>
+          <%end%>
+	        <div class="text-center margin-bottom-10 margin-top-25 light">
+              <div class="inline-block margin-top-25 margin-bottom-15 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="update_profile">Done</a>
+                </p>
+              </div>
+              <%if @edit_profile["default_profile"] == "false"%>
+                <div class="block margin-top-10">
+                	<a href="javascript:void(0)" class="text-uppercase" id="delete_user_profile">delete this profile</a>
+                </div>
+              <%end%>
+            </div>
+	      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var is_child_profile = "<%=@edit_profile['child']%>";
+    if(is_child_profile == "true"){
+      $(".material-switch-control-input").prop('checked',true)
+    }
+  })
+
+</script>

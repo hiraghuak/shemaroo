@@ -1,0 +1,68 @@
+<section class="onboarding-bg min-height-div padding-top-85 padding-top-145">
+  <div class="onboarding-payment-contianer margin-bottom-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
+        <h2 class="block margin-bottom-10">Settings</h2>
+        <div class="w-100 pull-left tile-box-shadow padding-left-30 settings_page padding-right-30 padding-bottom-15 padding-top-25 rounded">
+          <h6>Device Settings</h6>
+          <ul class="list-none padding-left-0 pull-left w-100 font-light">
+            <li class="pull-left w-100 border-bottom">
+              <span class="pull-left normal_txt">Streaming</span>
+              <span class="pull-right"><a href="javascript:;"><i class="fa fa-angle-right"></i></a></span>
+            </li>
+            <li class="pull-left w-100 border-bottom">
+              <span class="pull-left normal_txt">Registered Devices</span>
+              <span class="pull-right"><a href="javascript:;"><i class="fa fa-angle-right"></i></a></span>
+            </li>
+            <li class="pull-left w-100 border-bottom">
+              <span class="pull-left normal_txt">Notifications</span>
+              <div class="custom-controls-stacked pull-right">
+                <label class="custom-control material-switch margin-bottom-0">
+                  <input type="checkbox" checked="checked" class="material-switch-control-input">
+                  <span class="material-switch-control-indicator"></span>
+                </label>
+              </div>
+            </li>
+            <li class="pull-left w-100 border-bottom">
+              <a href="javascript:;" id="clear-watch-history"><span class="pull-left normal_txt">Clear Watch History</span></a>
+            </li>
+          </ul>
+          <h6 class="pull-left w-100 margin-top-10">Privacy Settings</h6>
+          <ul class="list-none padding-left-0 pull-left w-100 font-light">
+            <li class="pull-left w-100 border-bottom">
+              <span class="pull-left normal_txt">Parent Control</span>
+              <div class="custom-controls-stacked pull-right">
+                <label class="custom-control material-switch margin-bottom-0">
+                  <input type="checkbox" class="material-switch-control-input">
+                  <span class="material-switch-control-indicator"></span>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%=render "layouts/page_height_setting"%>
+</section>
+
+<div class="modal" id="clear-watch-history-pop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-left padding-left-30 padding-right-30">
+        <h6 class="margin-bottom-10 margin-top-5">Clear Watch History</h6>
+        <p class="pull-left w-100 margin-top-5 margin-bottom-25 font-light normal_txt">
+          Your entire watch history on Shemaroo Me will be deleted. Once done it can not be achieved back. Are you sure want to perform this task.
+        </p>
+        <div class="inline-block w-100 custom-gradient margin-bottom-20 margin-top-5 text-center">
+          <p class="inline radius-button radius-button2 margin-right-10">
+            <a href="javascript:void(0);" class="text-uppercase btn gradient2 font-bold" id="cancel-promo">cancel</a>
+          </p>
+          <p class="inline radius-button radius-button border-radius-40 margin-left-10">
+            <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold">confirm</a>
+          </p>
+        </div>
+      </div>   
+    </div>
+  </div>
+</div>

@@ -5,14 +5,14 @@
   <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-">
     <div class="main-logo pull-left"> 
      <a href = "/">        
-      <img src="/assets/main-logo.svg" alt="shemaroo" title="shemaroo">
+      <img src="/assets/shemaroo_logo.svg" alt="shemaroo" title="shemaroo">
       </a>
     </div>
     <div class="main-menu pull-left d-none d-xl-block">
       <ul class="nav">
        <%@header_tabs.each_with_index do |i,j|%>
-       <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
-       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (params[:catalog_name] == i["home_link"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
+       <%if @layout_scheme.present?%>
+       <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%else%>
         <li class="nav-item"><a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link text-uppercase gradient2 <%= (request.path == "/" && j == 0) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a></li>
        <%end%>
@@ -25,10 +25,10 @@
           <a href="/search"><img src="/assets/search.svg" alt="search" title="search" class="search_icon"></a>
         </li>
         <li class="d-none d-xl-block">
-          <img src="/assets/tv_wo_highlight.svg" alt="tv icon" title="tv icon">
-          <span class="text-center block">TV</span>
+          <a href="/all_channels"><img src="/assets/tv_wo_highlight.svg" alt="tv icon" title="tv icon">
+          <span class="text-center block">TV</span></a>
         </li>
-        <li class="user_menu with_out_login_item" data-toggle="slide-collapse" data-target="right-sidebar-menu">
+        <li class="user_menu user_mobile_signout with_out_login_item" data-toggle="slide-collapse" data-target="right-sidebar-menu">
           <img src="/assets/me_wo_highlight.svg" alt="me icon" title="me icon">
           <span class="text-center block">ME</span>
         </li>
@@ -46,54 +46,75 @@
   <div class="pull-right close-hambergmenu">
       <img src="/assets/cancel_search.svg" alt="" title="">
     </div>
-    <div class="profile-list">
-    <ul id="header_user_profiles">
-    </ul>
-     <!--  <ul>
-        <li>
-          <p>K</p>
-          <span class="text-uppercase">Kids</span>
-        </li>
-        <li class="active">
-          <img src="/assets/profile.svg" alt="" title="">
-          <p>ZD</p>
-          <span class="text-uppercase">zubin dubash</span>
-        </li>
-        <li>
-          <p>V</p>
-          <span class="text-uppercase">Vaibhav</span>
-        </li>
-      </ul>   -->              
-    </div>
-    <p class="text-center text-uppercase manage-profile with_login_item" style="display:none;"><a href="javascript:;">Manage Profile</a></p>
+  
+      <div class="profile-list">
+      <div id="header_user_profiles">
+              
+        <!-- <div class="item">
+          <p>Kannan</p>
+        </div>
+        <div class="item">
+          <p>Kannan</p>
+        </div>
+        <div class="item">
+          <p>Kannan</p>
+        </div>
+        <div class="item">
+          <p>Kannan</p>
+        </div>
+        <div class="item">
+          <p>Kannan</p>
+        </div>
+        <div class="item">
+          <p>Kannan</p>
+        </div>                 -->
+      </div>
+      <div class="navigation">
+        <button type="button" role="presentation" class="carousel_prev">
+          <span aria-label="Previous">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </span>
+        </button>
+        <button type="button" role="presentation" class="carousel_next">
+          <span aria-label="Next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div> 
+           
+  
+</div>
+    <p class="text-center text-uppercase manage-profile with_login_item margin-top-10" style="display:none;">
+      <a href="/users/manage_profiles">Manage Profile</a>
+    </p>
     <ul class="navbar-nav mr-auto">
      <li class="nav-item with_out_login_item">
         <a class="nav-link" href="/users/login"><img src="/assets/account_detail.svg" alt="Login" title="Login">Login</a>
       </li>
       <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="account Details" title="Account Details">Account Details</a>
+        <a class="nav-link" href="/users/account_details"><img src="/assets/account_detail.svg" alt="account Details" title="Account Details">Account Details</a>
       </li>
       <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/watch_list.svg" alt="watch list" title="watch list">Watch List</a>
+        <a class="nav-link" href="/users/watch_list"><img src="/assets/watch_list.svg" alt="watch list" title="watch list">Watch List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/plans"><img src="/assets/view_plans.svg" alt="plans" title="plans">View Plans</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
+      <li class="nav-item with_login_item coming_soon" style="display:none;">
+        <a class="nav-link coming_soon" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
       </li>
       <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
+        <a class="nav-link" href="/users/settings"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
       </li>
-      <li class="nav-item with_login_item" style="display:none;">
-        <a class="nav-link" href="javascript:void(0)" id="user_signout"><img src="/assets/log_out.svg" alt="logout" title="logout">Logout</a>
-      </li>
-        <!-- <li class="nav-item with_login_item" style="display:none;">
+        <li class="nav-item with_login_item" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/reminders.svg" alt="" title="">Reminders</a>
       </li> 
       <li class="nav-item with_login_item" style="display:none;">
         <a class="nav-link" href="#"><img src="/assets/notifications.svg" alt="" title="">Notifications</a>
-      </li> -->         
+      </li>   
+       <li class="nav-item with_login_item" style="display:none;">
+        <a class="nav-link" href="javascript:void(0)" id="user_signout"><img src="/assets/log_out.svg" alt="logout" title="logout">Logout</a>
+      </li>  
     </ul>
 </div>
 <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col- d-block d-xl-none">
@@ -103,7 +124,7 @@
   </button>
 
     <div class="main-logo pull-left">         
-      <a href="/"><img src="/assets/main-logo.svg" alt="shemaroo logo" title="shemaroo logo"></a>
+      <a href="/"><img src="/assets/shemaroo_logo.svg" alt="shemaroo logo" title="shemaroo logo"></a>
     </div>
     <div class="head-right pull-right">
       <ul>
@@ -118,9 +139,8 @@
     <div class="scrollmenuwrap">
       <div class="scrollmenu">
        <%@header_tabs.each_with_index do |i,j|%>
-        <%if params[:catalog_name].present? && params[:catalog_name] != "all"%>
-        <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=
-        "<%=(params[:catalog_name] == i["home_link"]) ? "active" : ""%>"><%=i['display_title']%></a>
+        <%if @layout_scheme.present?%>
+       <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class="nav-link gradient2 text-uppercase <%= (@layout_scheme == i["layout_scheme"]) ? "active" : ""%>" id="<%=get_item_color(i["layout_scheme"])%>"><%=i["display_title"]%></a>
         <%else%>
         <a href="/<%= (i["home_link"] == "homepage-list") ? "" : "#{i['home_link']}"%>" class=" <%= (j == 0) ? "active" : ""%>"><%=i["display_title"]%></a>
         <%end%>
@@ -132,23 +152,12 @@
       <img src="/assets/cancel_search.svg" alt="cancel search" title="cancel search">
     </div>
     <div class="profile-list">
-      <ul id="mobile_user_profiles">
-        <!-- <li>
-          <p>K</p>
-          <span class="text-uppercase">Kids</span>
-        </li>
-        <li class="active">
-          <img src="/assets/profile.svg" alt="" title="">
-          <p>ZD</p>
-          <span class="text-uppercase">zubin dubash</span>
-        </li>
-        <li>
-          <p>V</p>
-          <span class="text-uppercase">Vaibhav</span>
-        </li> -->
-      </ul>                
+      <div id="mobile_user_profiles">
+        <div id="profile_menu2" class="owl-carousel owl-theme">
+        </div>
+      </div>                
     </div>
-    <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;">Manage</a></p>
+    <p class="text-center text-uppercase manage-profile mobile_with_login" style="display:none;"><a href="javascript:;" class="coming_soon">Manage</a></p>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/"><img src="/assets/home.svg" alt="home" title="home">Home</a>
@@ -157,24 +166,24 @@
         <a class="nav-link" href="/users/login"><img src="/assets/account_detail.svg" alt="Login" title="Login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/tv.svg" alt="tv" title="tv">TV</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/account_detail.svg" alt="account details" title="account details">Account Details</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/account_detail.svg" alt="account details" title="account details">Account Details</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/watch_list.svg" alt="" title="">Watch List</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/watch_list.svg" alt="" title="">Watch List</a>
       </li>
       
       <li class="nav-item">
         <a class="nav-link" href="/plans"><img src="/assets/view_plans.svg" alt="view palns" title="view palns">View Plans</a>
       </li>
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/manage_payments.svg" alt="manage payments" title="manage payments">Manage Payments</a>
       </li>
       
       <li class="nav-item mobile_with_login" style="display:none;">
-        <a class="nav-link" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
+        <a class="nav-link coming_soon" href="#"><img src="/assets/settings.svg" alt="settings" title="settings">Settings</a>
       </li>
       
       <li class="nav-item mobile_with_login" style="display:none;">
@@ -209,13 +218,43 @@
     </div>
 </section>
 
+<div class="modal" id="coming_soon" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" aria-label="Close" id="close_coming_soon">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="coming_soon_content">
+          <h2 class="margin-top-0">Coming Soon...</h2>
+        </div>      
+        </div>      
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
-$(document).ready(function(){
+
+  /* Apply respective graident color to active main menu */
+
   if($('ul.nav').find('li a.active').attr('id') != undefined){
   var header_title_color = $('ul.nav').find('li a.active').attr('id').split("|");
   $("body").append("<style>ul.nav li a.active{background: linear-gradient(to right,"+header_title_color[0]+", "+header_title_color[1]+")!important;}</style>");
-
   }
-})
+  
+  $(document).ready(function(){
+    $('.coming_soon').click(function() {
+      $('#coming_soon').modal('show');
+    })
+    $('#close_coming_soon').click(function() {
+      $('#coming_soon').modal('hide');
+    })
+
+    var window_height = window.innerHeight - 55;
+    $("#right-sidebar-menu .navbar-nav li:last-child").css('top', window_height); /* Place Logout link in bottom of screen */
+
+    $(".gradient2.active").focus();  /* Focus respective main-menu after page load */
+
+ });
 
 </script>

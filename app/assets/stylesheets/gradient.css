@@ -170,6 +170,45 @@
     .light .gradient8::before {
       mix-blend-mode: screen; } }
 
+@supports (mix-blend-mode: lighten) {
+  .custom-gradient .gradient1 {
+    display: inline-block;
+    position: relative;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply; }
+    .custom-gradient .gradient1::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to right,#D41F52, #F48567);
+      pointer-events: none; }
+    .custom-gradient .gradient1::before {
+      mix-blend-mode: screen; } }
+@supports (mix-blend-mode: lighten) {
+  .custom-gradient .gradient2 {
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    background: #000;
+    mix-blend-mode: lighten; }
+    .custom-gradient .gradient2::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to right,#181818, #3E3E3E);
+      pointer-events: none; }
+    .custom-gradient .gradient2::before {
+      mix-blend-mode: multiply; } }
+
 .custom-control.material-checkbox {
   --color: #26a69a; }
   .custom-control.material-checkbox .material-control-input {

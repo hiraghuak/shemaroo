@@ -4,3 +4,4 @@
 .byebug_history
 tmp/*
 **/*.log
+.idea/

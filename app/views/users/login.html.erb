@@ -4,70 +4,99 @@ meta title: "User Login",
      keywords: %w(Login)
 %>
 
-  <section class="onboarding-bg padding-top-80 padding-top-155 min-height-div">
+  <section class="onboarding-bg padding-top-80 padding-top-145 min-height-div">
     <div class="onboarding-contianer margin-bottom-30">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col- onboarding-box-wrap margin-bottom-20 margin-top-25">
          <input type="hidden" class="user_region" name="user region" value="<%=$region%>">
           <h2 class="block margin-bottom-10">Login</h2>
-          <div class="w-100 tile-box-shadow padding-left-30 padding-right-30 padding-bottom-30 padding-top-30 rounded">
-            <div class="input-group all_error" >
-              <label class="error" id="bakend_user_errors">Invalid Credentials</label>
+          <div class="pull-left w-100 tile-box-shadow padding-bottom-30 padding-top-65 rounded">
+            <div class="w-100 all_error padding-left-10 padding-right-10" >
+              <label class="error rounded text-center" id="bakend_user_errors">Invalid Credentials</label>
             </div>
+            <div class="pull-left w-100 padding-left-30 padding-right-30 margin-top-0">
             <%if $region == "IN"%>
-              <div class="input-group country">
+              <div class="input-group country margin-top-0">
+                <i class="fa fa-circle" aria-hidden="true"></i>
                 <input type="text" id="country_code" name="country_code" class="form-control" value="+91" readonly> 
-                <input type="text" id="login_mobile_number" name="mobile number" class="form-control">
+                <input type="text" id="login_mobile_number" name="mobilenumber" class="form-control" maxlength="10" onkeypress='return validateNumber(event);'>
                 <span class="input-label">Mobile Number</span> 
                 <label class="error" id="login_mobile_error">Please enter the mobile number</label>
               </div>
             <%else%>
             <div class="input-group">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="text" id="login_email" name="login email" class="form-control">
               <span class="input-label">Email</span>
               <label class="error" id="login_email_error">Please enter the email address</label>
             </div>
             <%end%>
             <div class="input-group hide_password">
+              <i class="fa fa-circle" aria-hidden="true"></i>
               <input type="password" id="login_password" name="" class="form-control"> 
               <img src="/assets/show_password.svg" class="show_password" alt="" title="">
               <span class="input-label">Password</span>
               <label class="error" id="login_pwd_error">Please enter the password</label>
             </div>
-            <div class="text-center margin-bottom-25 margin-top-20 light">
-              <a href="javascript:;" class="inline-block text-uppercase gradient-button1" id="user_login"><span class="font-medium" id="login_text">login</span></a>
+            <div class="text-center margin-bottom-10 margin-top-5 light">
+              <!-- <a href="javascript:;" class="inline-block text-uppercase gradient-button1" id="user_login"><span class="font-medium" id="login_text">login</span></a> -->
+              <div class="inline-block margin-top-0 margin-bottom-15 custom-gradient">
+                <p class="inline radius-button">
+                  <a href="javascript:void(0);" class="text-uppercase btn gradient1 font-bold" id="user_login">Login</a>
+                </p>
+              </div>
             </div>
-            <div class="text-center margin-bottom-25 margin-top-20">
+            <div class="text-center margin-bottom-10 margin-top-20">
               <a href="javascript:void(0);" class="inline-block text-uppercase margin-bottom-15 font-medium">forgot password ?</a>
             </div>
             <div class="text-center margin-bottom-0 margin-top-20 font-medium">
               <span>Not a member?</span><a href="/users/register" class="inline-block text-uppercase">&nbsp;Register</a>
             </div>
           </div>
-
+        </div>
       
 
         </div>
       </div>
     </div>
 
+    <%=render "validate_mobile_number"%>
 
-
-    <%=render "layouts/page_height_setting"%>
+    <%#=render "layouts/page_height_setting"%>
   </section>
 
 <script>
 $(document).ready(function(){
- $(".label.error").show();
-})
+  $(".label.error").show();
+  var window_height = window.outerHeight;
+  var window_height = window_height - 153;
+  $('.min-height-div').css('min-height',window_height+'px');
 
-  $("input[type='text'], input[type='password']").keydown(function() {
-      var inputlenth = $(this).val().length;
-      if(inputlenth > 0) {
-        $(this).nextAll(".input-group .input-label").css({"top":"-20px","left":"0px"});
-      }
-      else {
-        $(this).nextAll(".input-group .input-label").css({"top":"7px","left":"10px"});  
-      }
-    });
+  /* placholder design for auto-fill values in initial time page load */
+
+  // var input1 =  $("input#login_mobile_number").val().length;
+  // var input2 =  $("input#login_password").val().length;
+  // console.log(input1);
+  // console.log(input2);
+  // /*var input3 =  $("input#user_name").val().length
+  // var input4 =  $("input#mobile_number").val().length
+  // var input5 =  $("input#password").val().length
+  // var input6 =  $("input#confirm_password").val().length*/
+  // if(input1 > 0) {
+  //   console.log("1")
+  //   $(this).parents(".input-group").children('.fa-circle').hide();
+  //   $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  // }
+  // if(input2 > 0) {
+  //   console.log("2")
+  //   $(this).parents(".input-group").children('.fa-circle').hide();
+  //   $(this).nextAll(".input-group .input-label").css({"top":"-16px","left":"0px"}); 
+  // }
+  var path_name = window.location.href.split("?q=");
+  if(path_name[1] == "tv"){
+      var url = window.location.href.split("?q=")[0]
+      window.history.pushState("", "", url)
+     localStorage.setItem("activate_tv_path",true)
+  }
+});  
 </script>
